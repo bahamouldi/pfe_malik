@@ -1,0 +1,145 @@
+Indicateur,Modele,Date,Reel,Predit
+Revenus (CA),Régression linéaire,2020-03-31,154681405.0,176392557.8
+Revenus (CA),Régression linéaire,2020-06-30,309362810.0,311549193.1
+Revenus (CA),Régression linéaire,2020-09-30,530648432.3,519792541.4
+Revenus (CA),Régression linéaire,2020-12-31,751934054.6,757102439.0
+Revenus (CA),Régression linéaire,2021-03-31,151617909.1,189126448.7
+Revenus (CA),Régression linéaire,2021-06-30,303235818.3,305760609.0
+Revenus (CA),Régression linéaire,2022-03-31,170200642.7,310108284.1
+Revenus (CA),Régression linéaire,2022-06-30,340401285.4,299699912.4
+Revenus (CA),Régression linéaire,2023-03-31,178761696.7,190535845.1
+Revenus (CA),Régression linéaire,2023-06-30,357523393.5,341984121.2
+Revenus (CA),Régression linéaire,2023-09-30,592194400.6,473583375.2
+Revenus (CA),Régression linéaire,2023-12-31,826865407.8,936133152.5
+Revenus (CA),Régression linéaire,2024-03-31,183545550.2,288512632.4
+Revenus (CA),Régression linéaire,2024-06-30,367091100.3,372522690.7
+Revenus (CA),Régression linéaire,2024-09-30,601838363.3,613794045.5
+Revenus (CA),Régression linéaire,2024-12-31,836585626.3,856936128.7
+Revenus (CA),Régression linéaire,2025-03-31,178920995.0,231869608.5
+Revenus (CA),Régression linéaire,2025-06-30,357841990.0,363837875.0
+Revenus (CA),Random Forest,2020-03-31,154681405.0,184098630.7
+Revenus (CA),Random Forest,2020-06-30,309362810.0,309211495.9
+Revenus (CA),Random Forest,2020-09-30,530648432.3,520690530.6
+Revenus (CA),Random Forest,2020-12-31,751934054.6,746741821.0
+Revenus (CA),Random Forest,2021-03-31,151617909.1,194631775.1
+Revenus (CA),Random Forest,2021-06-30,303235818.3,303087501.0
+Revenus (CA),Random Forest,2022-03-31,170200642.7,329628292.2
+Revenus (CA),Random Forest,2022-06-30,340401285.4,292320282.2
+Revenus (CA),Random Forest,2023-03-31,178761696.7,90262764.8
+Revenus (CA),Random Forest,2023-06-30,357523393.5,332890913.8
+Revenus (CA),Random Forest,2023-09-30,592194400.6,296463221.2
+Revenus (CA),Random Forest,2023-12-31,826865407.8,930776456.6
+Revenus (CA),Random Forest,2024-03-31,183545550.2,197054600.7
+Revenus (CA),Random Forest,2024-06-30,367091100.3,366911550.4
+Revenus (CA),Random Forest,2024-09-30,601838363.3,615024463.7
+Revenus (CA),Random Forest,2024-12-31,836585626.3,842016469.2
+Revenus (CA),Random Forest,2025-03-31,178920995.0,218022099.3
+Revenus (CA),Random Forest,2025-06-30,357841990.0,357666964.0
+Total des actifs,Régression linéaire,2019-09-30,810872256.5,929506215.2
+Total des actifs,Régression linéaire,2019-12-31,795583804.7,843633949.6
+Total des actifs,Régression linéaire,2020-03-31,920048489.2,835788315.5
+Total des actifs,Régression linéaire,2020-06-30,1044513173.7,1084862837.6
+Total des actifs,Régression linéaire,2020-09-30,1008272578.2,989232164.8
+Total des actifs,Régression linéaire,2020-12-31,972031982.7,968129546.7
+Total des actifs,Régression linéaire,2021-03-31,966700605.2,1085816785.3
+Total des actifs,Régression linéaire,2021-06-30,961309990.1,995647459.4
+Total des actifs,Régression linéaire,2022-06-30,1006137695.8,1004250057.8
+Total des actifs,Régression linéaire,2023-06-30,1083461330.6,1105634795.2
+Total des actifs,Régression linéaire,2023-09-30,1127813714.3,1148948951.1
+Total des actifs,Régression linéaire,2023-12-31,1172166097.9,1143517550.7
+Total des actifs,Régression linéaire,2024-03-31,1178999292.8,1252888798.8
+Total des actifs,Régression linéaire,2024-06-30,1185832487.7,1191523505.6
+Total des actifs,Régression linéaire,2024-09-30,1233802671.4,1285846486.8
+Total des actifs,Régression linéaire,2024-12-31,1281772855.0,1317665976.4
+Total des actifs,Régression linéaire,2025-03-31,1266158247.7,1332236410.0
+Total des actifs,Régression linéaire,2025-06-30,1250370144.8,1297474259.3
+Total des actifs,Random Forest,2019-09-30,810872256.5,917300691.3
+Total des actifs,Random Forest,2019-12-31,795583804.7,898215524.4
+Total des actifs,Random Forest,2020-03-31,920048489.2,878735215.2
+Total des actifs,Random Forest,2020-06-30,1044513173.7,1018320726.5
+Total des actifs,Random Forest,2020-09-30,1008272578.2,1004928504.9
+Total des actifs,Random Forest,2020-12-31,972031982.7,968848874.1
+Total des actifs,Random Forest,2021-03-31,966700605.2,1078901751.6
+Total des actifs,Random Forest,2021-06-30,961309990.1,1071313905.6
+Total des actifs,Random Forest,2022-06-30,1006137695.8,1062858458.2
+Total des actifs,Random Forest,2023-06-30,1083461330.6,1111804383.3
+Total des actifs,Random Forest,2023-09-30,1127813714.3,1089440338.4
+Total des actifs,Random Forest,2023-12-31,1172166097.9,1091280036.2
+Total des actifs,Random Forest,2024-03-31,1178999292.8,1196050289.8
+Total des actifs,Random Forest,2024-06-30,1185832487.7,1202818582.6
+Total des actifs,Random Forest,2024-09-30,1233802671.4,1296338559.1
+Total des actifs,Random Forest,2024-12-31,1281772855.0,1346397574.6
+Total des actifs,Random Forest,2025-03-31,1266158247.7,1305088011.3
+Total des actifs,Random Forest,2025-06-30,1250370144.8,1278677442.6
+Capitaux propres,Régression linéaire,2019-09-30,643216731.7,634904693.6
+Capitaux propres,Régression linéaire,2019-12-31,688933683.4,692488594.6
+Capitaux propres,Régression linéaire,2020-03-31,747305932.7,680759045.2
+Capitaux propres,Régression linéaire,2020-06-30,805678182.1,806497732.5
+Capitaux propres,Régression linéaire,2020-09-30,767321386.4,847604707.8
+Capitaux propres,Régression linéaire,2020-12-31,728964590.6,729436908.3
+Capitaux propres,Régression linéaire,2021-03-31,705490917.0,785063439.7
+Capitaux propres,Régression linéaire,2021-06-30,681756424.9,695945082.9
+Capitaux propres,Régression linéaire,2022-06-30,744693590.7,666187115.5
+Capitaux propres,Régression linéaire,2023-06-30,797281218.1,825369852.7
+Capitaux propres,Régression linéaire,2023-09-30,848857614.5,764308276.9
+Capitaux propres,Régression linéaire,2023-12-31,900434010.9,914966109.2
+Capitaux propres,Régression linéaire,2024-03-31,878447649.8,946337178.1
+Capitaux propres,Régression linéaire,2024-06-30,856461288.7,855135355.6
+Capitaux propres,Régression linéaire,2024-09-30,905231285.5,914352753.4
+Capitaux propres,Régression linéaire,2024-12-31,954001282.2,962000414.9
+Capitaux propres,Régression linéaire,2025-03-31,931573181.4,937730754.6
+Capitaux propres,Régression linéaire,2025-06-30,908895879.5,917581313.1
+Capitaux propres,Random Forest,2019-09-30,643216731.7,632820178.8
+Capitaux propres,Random Forest,2019-12-31,688933683.4,680593218.0
+Capitaux propres,Random Forest,2020-03-31,747305932.7,687455920.3
+Capitaux propres,Random Forest,2020-06-30,805678182.1,745854885.1
+Capitaux propres,Random Forest,2020-09-30,767321386.4,848242265.0
+Capitaux propres,Random Forest,2020-12-31,728964590.6,807365473.6
+Capitaux propres,Random Forest,2021-03-31,705490917.0,771917032.2
+Capitaux propres,Random Forest,2021-06-30,681756424.9,746573499.1
+Capitaux propres,Random Forest,2022-06-30,744693590.7,687070825.6
+Capitaux propres,Random Forest,2023-06-30,797281218.1,750938469.3
+Capitaux propres,Random Forest,2023-09-30,848857614.5,795573336.0
+Capitaux propres,Random Forest,2023-12-31,900434010.9,847209383.4
+Capitaux propres,Random Forest,2024-03-31,878447649.8,947867966.5
+Capitaux propres,Random Forest,2024-06-30,856461288.7,924391647.4
+Capitaux propres,Random Forest,2024-09-30,905231285.5,907089850.0
+Capitaux propres,Random Forest,2024-12-31,954001282.2,957800174.0
+Capitaux propres,Random Forest,2025-03-31,931573181.4,953181335.8
+Capitaux propres,Random Forest,2025-06-30,908895879.5,930582846.1
+Résultat net,Régression linéaire,2020-03-31,58372249.4,59021755.9
+Résultat net,Régression linéaire,2020-06-30,116744498.7,116499846.0
+Résultat net,Régression linéaire,2020-09-30,158933570.0,140033727.9
+Résultat net,Régression linéaire,2020-12-31,201122641.3,189119888.0
+Résultat net,Régression linéaire,2021-03-31,64877167.1,78553785.7
+Résultat net,Régression linéaire,2021-06-30,129754334.2,127916421.5
+Résultat net,Régression linéaire,2022-03-31,73425671.4,75893506.0
+Résultat net,Régression linéaire,2022-06-30,146851342.8,144961997.2
+Résultat net,Régression linéaire,2023-03-31,75107845.1,86412992.6
+Résultat net,Régression linéaire,2023-06-30,150215690.2,145743778.0
+Résultat net,Régression linéaire,2023-09-30,201874704.9,179900389.4
+Résultat net,Régression linéaire,2023-12-31,253533719.6,233759249.9
+Résultat net,Régression linéaire,2024-03-31,77313601.9,97593981.0
+Résultat net,Régression linéaire,2024-06-30,154627203.7,152156948.1
+Résultat net,Régression linéaire,2024-09-30,203389613.6,185161853.7
+Résultat net,Régression linéaire,2024-12-31,252152023.5,239305378.8
+Résultat net,Régression linéaire,2025-03-31,84818843.8,98426260.3
+Résultat net,Régression linéaire,2025-06-30,169637687.6,167448818.2
+Résultat net,Random Forest,2020-03-31,58372249.4,63441551.0
+Résultat net,Random Forest,2020-06-30,116744498.7,116744498.7
+Résultat net,Random Forest,2020-09-30,158933570.0,134052042.1
+Résultat net,Random Forest,2020-12-31,201122641.3,181914933.1
+Résultat net,Random Forest,2021-03-31,64877167.1,79747455.4
+Résultat net,Random Forest,2021-06-30,129754334.2,129754334.2
+Résultat net,Random Forest,2022-03-31,73425671.4,68895544.7
+Résultat net,Random Forest,2022-06-30,146851342.8,141599239.2
+Résultat net,Random Forest,2023-03-31,75107845.1,68585937.8
+Résultat net,Random Forest,2023-06-30,150215690.2,150215690.2
+Résultat net,Random Forest,2023-09-30,201874704.9,161590418.2
+Résultat net,Random Forest,2023-12-31,253533719.6,242430357.6
+Résultat net,Random Forest,2024-03-31,77313601.9,98297950.6
+Résultat net,Random Forest,2024-06-30,154627203.7,154627203.7
+Résultat net,Random Forest,2024-09-30,203389613.6,177683375.3
+Résultat net,Random Forest,2024-12-31,252152023.5,230994474.7
+Résultat net,Random Forest,2025-03-31,84818843.8,98689760.7
+Résultat net,Random Forest,2025-06-30,169637687.6,169637687.6

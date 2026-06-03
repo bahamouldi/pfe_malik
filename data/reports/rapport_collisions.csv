@@ -1,0 +1,243 @@
+Societe,Statement,Cle_indicateur,Date,Nb_occurrences,Valeurs,Indicateur
+AB inBev,Inconnu,derives,2015-12-31,4,295 | 3268 | 315 | 3980,Dérivés
+AB inBev,Inconnu,derives,2022-12-31,4,60 | 331 | 184 | 5308,Dérivés
+AB inBev,Inconnu,derives,2023-12-31,4,44 | 505 | 151 | 5318,Dérivés
+AB inBev,Inconnu,derives,2024-12-31,4,261 | 554 | 68 | 5817,Dérivés
+AB inBev,Inconnu,derives,2025-12-31,4,145 | 583 | 293 | 6104,Dérivés
+AB inBev,Inconnu,beneficedesactivitesabandonneessousjacentetnonsousjacent,2020-12-31,3,2055 | -2055 | -1.03,Bénéfice des activités abandonnées (sous-jacent et non sous-jacent)
+AB inBev,Inconnu,ebitnormalise,2016-12-31,3,13276 | 15520 | 7.72,EBIT Normalisé
+AB inBev,Inconnu,impotsurleresultatordinaire,2015-12-31,3,2594 | -2594 | -2355,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2016-12-31,3,-1613 | -0.98 | 1613,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2017-12-31,3,-1920 | -1.6 | 1920,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2018-12-31,3,-2585 | -1.56 | 2585,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2019-12-31,3,-2786 | -1.4 | 2786,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2020-12-31,3,-1932 | 1932 | -1.04,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2021-12-31,3,-2350 | 2350 | -1.34,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2022-12-31,3,-1928 | 1928 | -1.16,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2023-12-31,3,-2234 | 2234 | -1.15,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2024-12-31,3,-3152 | -1.47 | 3152,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,impotsurleresultatordinaire,2025-12-31,3,-2850 | -1.52 | 2850,Impôt sur le résultat ordinaire
+AB inBev,Inconnu,produitscoutsfinanciersnets,2024-12-31,3,4358 | -4358 | -2.18,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2025-12-31,3,4280 | -4280 | -2.16,(Produits)/coûts financiers nets
+AB inBev,Inconnu,ajustementalavaleurdemarchecouverturedenosprogrammesdepaiementsfondessurdesactions,2018-12-31,2,-0.9 | 0.9,Ajustement à la valeur de marché (couverture de nos programmes de paiements fondés sur des actions)
+AB inBev,Inconnu,ajustementalavaleurdemarchecouverturedenosprogrammesdepaiementsfondessurdesactions,2019-12-31,2,0.45 | -0.45,Ajustement à la valeur de marché (couverture de nos programmes de paiements fondés sur des actions)
+AB inBev,Inconnu,ajustementalavaleurdemarchecouverturedenosprogrammesdepaiementsfondessurdesactions,2020-12-31,2,-0.61 | 0.61,Ajustement à la valeur de marché (couverture de nos programmes de paiements fondés sur des actions)
+AB inBev,Inconnu,ajustementalavaleurdemarchecouverturedenosprogrammesdepaiementsfondessurdesactions,2021-12-31,2,-0.01 | 0.01,Ajustement à la valeur de marché (couverture de nos programmes de paiements fondés sur des actions)
+AB inBev,Inconnu,avantagesaupersonnel,2015-12-31,2,2 | 2725,Avantages au personnel
+AB inBev,Inconnu,benefice,2018-12-31,2,5688 | 5691,Bénéfice
+AB inBev,Inconnu,beneficeattribuableauxporteursdescapitauxpropresdabinbev,2018-12-31,2,4370 | 4368,Bénéfice attribuable aux porteurs des capitaux propres d'AB InBev
+AB inBev,Inconnu,beneficedesactivitesabandonnees,2016-12-31,2,48 | -48,Bénéfice des activités abandonnées
+AB inBev,Inconnu,beneficedesactivitesabandonnees,2017-12-31,2,28 | -28,Bénéfice des activités abandonnées
+AB inBev,Inconnu,beneficedesactivitesabandonnees,2018-12-31,2,531 | -531,Bénéfice des activités abandonnées
+AB inBev,Inconnu,beneficedesactivitesabandonnees,2019-12-31,2,424 | -424,Bénéfice des activités abandonnées
+AB inBev,Inconnu,beneficedesactivitesabandonneesrecurrentetnonrecurrent,2019-12-31,2,-424 | -0.21,Bénéfice des activités abandonnées (récurrent et non-récurrent)
+AB inBev,Inconnu,beneficenormaliseattribuableauxporteursdescapitauxpropresdabinbev,2018-12-31,2,6248 | 6793,Bénéfice normalisé attribuable aux porteurs des capitaux propres d'AB InBev
+AB inBev,Inconnu,beneficesousjacentattribuableauxporteursdescapitauxpropresdabinbev,2018-12-31,2,8099 | 8644,Bénéfice sous-jacent attribuable aux porteurs des capitaux propres d'AB InBev
+AB inBev,Inconnu,creancescommercialesetautrescreances,2015-12-31,2,913 | 4451,Créances commerciales et autres créances
+AB inBev,Inconnu,creancescommercialesetautrescreances,2022-12-31,2,1782 | 5330,Créances commerciales et autres créances
+AB inBev,Inconnu,creancescommercialesetautrescreances,2023-12-31,2,1941 | 6024,Créances commerciales et autres créances
+AB inBev,Inconnu,creancescommercialesetautrescreances,2024-12-31,2,1577 | 5270,Créances commerciales et autres créances
+AB inBev,Inconnu,creancescommercialesetautrescreances,2025-12-31,2,1871 | 6161,Créances commerciales et autres créances
+AB inBev,Inconnu,dettescommercialesetautresdettes,2015-12-31,2,1241 | 17662,Dettes commerciales et autres dettes
+AB inBev,Inconnu,dettescommercialesetautresdettes,2022-12-31,2,859 | 26349,Dettes commerciales et autres dettes
+AB inBev,Inconnu,dettescommercialesetautresdettes,2023-12-31,2,738 | 25981,Dettes commerciales et autres dettes
+AB inBev,Inconnu,dettescommercialesetautresdettes,2024-12-31,2,797 | 23804,Dettes commerciales et autres dettes
+AB inBev,Inconnu,dettescommercialesetautresdettes,2025-12-31,2,869 | 25455,Dettes commerciales et autres dettes
+AB inBev,Inconnu,dotationsauxamortissementsetprovisions,2015-12-31,2,3153 | 3071,Dotations aux amortissements et provisions
+AB inBev,Inconnu,dotationsauxamortissementsetprovisions,2024-12-31,2,-2.74 | 5496,Dotations aux amortissements et provisions
+AB inBev,Inconnu,dotationsauxamortissementsetprovisions,2025-12-31,2,-2.71 | 5369,Dotations aux amortissements et provisions
+AB inBev,Inconnu,ebitdanormalise,2016-12-31,2,16753 | 19633,EBITDA Normalisé
+AB inBev,Inconnu,ebitdanormalise,2024-12-31,2,20958 | 10.46,EBITDA normalisé
+AB inBev,Inconnu,ebitdanormalise,2025-12-31,2,21223 | 10.7,EBITDA normalisé
+AB inBev,Inconnu,ebitnormalise,2017-12-31,2,17814 | 10.38,EBIT Normalisé
+AB inBev,Inconnu,ebitnormalise,2018-12-31,2,17107 | 9.02,EBIT Normalisé
+AB inBev,Inconnu,ebitnormalise,2019-12-31,2,16421 | 8.28,EBIT Normalisé
+AB inBev,Inconnu,ebitnormalise,2020-12-31,2,12723 | 6.37,EBIT normalisé
+AB inBev,Inconnu,ebitnormalise,2021-12-31,2,14438 | 7.19,EBIT normalisé
+AB inBev,Inconnu,ebitnormalise,2022-12-31,2,14768 | 7.34,EBIT normalisé
+AB inBev,Inconnu,ebitnormalise,2023-12-31,2,14590 | 7.24,EBIT normalisé
+AB inBev,Inconnu,ebitnormalise,2024-12-31,2,15462 | 7.72,EBIT normalisé
+AB inBev,Inconnu,ebitnormalise,2025-12-31,2,15854 | 7.99,EBIT normalisé
+AB inBev,Inconnu,elementsnonrecurrentsattribuableauxinteretsminoritaires,2016-12-31,2,-13 | -0.01,Eléments non-récurrents attribuable aux intérêts minoritaires
+AB inBev,Inconnu,elementsnonrecurrentsattribuableauxinteretsminoritaires,2017-12-31,2,-526 | -0.27,Eléments non-récurrents attribuable aux intérêts minoritaires
+AB inBev,Inconnu,elementsnonrecurrentsattribuablesauxparticipationsnedonnantpaslecontrole,2019-12-31,2,-108 | -0.05,Eléments non-récurrents attribuables aux participations ne donnant pas le contrôle
+AB inBev,Inconnu,elementsnonrecurrentsavantimpots,2016-12-31,2,394 | 0.23,"Eléments non-récurrents, avant impôts"
+AB inBev,Inconnu,elementsnonrecurrentsavantimpots,2017-12-31,2,662 | 0.34,"Eléments non-récurrents, avant impôts"
+AB inBev,Inconnu,elementsnonrecurrentsavantimpots,2018-12-31,2,715 | 0.36,"Eléments non-récurrents, avant impôts"
+AB inBev,Inconnu,elementsnonrecurrentsavantimpots,2019-12-31,2,323 | 0.16,"Eléments non-récurrents, avant impôts"
+AB inBev,Inconnu,elementsnonsousjacentsattribuablesauxparticipationsnedonnantpaslecontrole,2020-12-31,2,-228 | -0.11,Eléments non sous-jacents attribuables aux participations ne donnant pas le contrôle
+AB inBev,Inconnu,elementsnonsousjacentsattribuablesauxparticipationsnedonnantpaslecontrole,2021-12-31,2,-20 | -0.01,Eléments non sous-jacents attribuables aux participations ne donnant pas le contrôle
+AB inBev,Inconnu,elementsnonsousjacentsaudessusdelebitinclpertesdevaleur,2022-12-31,2,-251 | 251,Eléments non sous-jacents au-dessus de l'EBIT (incl. pertes de valeur)
+AB inBev,Inconnu,elementsnonsousjacentsavantimpots,2020-12-31,2,3103 | 1.55,"Eléments non sous-jacents, avant impôts"
+AB inBev,Inconnu,elementsnonsousjacentsavantimpots,2021-12-31,2,614 | 0.31,"Eléments non sous-jacents, avant impôts"
+AB inBev,Inconnu,elementsnonsousjacentsdansleresultatdesentreprisesassociees,2022-12-31,2,-1143 | 1143,Éléments non sous-jacents dans le résultat des entreprises associées
+AB inBev,Inconnu,elementsnonsousjacentsdansleresultatdesentreprisesassociees,2023-12-31,2,-35 | 35,Éléments non sous-jacents dans le résultat des entreprises associées
+AB inBev,Inconnu,elementsnonsousjacentsdansleresultatdesentreprisesassociees,2024-12-31,2,104 | -104,Éléments non sous-jacents dans le résultat des entreprises associées
+AB inBev,Inconnu,elementsnonsousjacentsdansleresultatdesentreprisesassociees,2025-12-31,2,9 | -9,Éléments non sous-jacents dans le résultat des entreprises associées
+AB inBev,Inconnu,empruntsportantinterets,2015-12-31,2,43541 | 5912,Emprunts portant intérêts
+AB inBev,Inconnu,empruntsportantinterets,2022-12-31,2,78880 | 1029,Emprunts portant intérêts
+AB inBev,Inconnu,empruntsportantinterets,2023-12-31,2,74163 | 3987,Emprunts portant intérêts
+AB inBev,Inconnu,empruntsportantinterets,2024-12-31,2,70720 | 1449,Emprunts portant intérêts
+AB inBev,Inconnu,empruntsportantinterets,2025-12-31,2,72128 | 885,Emprunts portant intérêts
+AB inBev,Inconnu,fluxdetresorerieactivitesoperationnelles,2015-12-31,2,14121 | 18063,Flux de trésorerie – Activités opérationnelles
+AB inBev,Inconnu,impactnetdeselementsnonsousjacentssurleresultat,2022-12-31,2,153 | 0.07,Impact net des éléments non sous-jacents sur le résultat
+AB inBev,Inconnu,impactnetdeselementsnonsousjacentssurleresultat,2023-12-31,2,614 | 0.31,Impact net des éléments non sous-jacents sur le résultat
+AB inBev,Inconnu,impactsdelhyperinflation,2024-12-31,2,0.07 | 145,Impacts de l’hyperinflation
+AB inBev,Inconnu,impactsdelhyperinflation,2025-12-31,2,0.04 | 74,Impacts de l’hyperinflation
+AB inBev,Inconnu,impotsnonrecurrents,2016-12-31,2,-77 | -0.04,Impôts non-récurrents
+AB inBev,Inconnu,impotsnonrecurrents,2017-12-31,2,-830 | -0.42,Impôts non-récurrents
+AB inBev,Inconnu,impotsnonrecurrents,2018-12-31,2,-240 | -0.12,Impôts non-récurrents
+AB inBev,Inconnu,impotsnonsousjacents,2020-12-31,2,-155 | -0.08,Impôts non sous-jacents
+AB inBev,Inconnu,impotsnonsousjacents,2021-12-31,2,-346 | -0.17,Impôts non sous-jacents
+AB inBev,Inconnu,impotssurleresultatapayer,2022-12-31,2,610 | 1438,Impôts sur le résultat à payer
+AB inBev,Inconnu,impotssurleresultatapayer,2023-12-31,2,589 | 1583,Impôts sur le résultat à payer
+AB inBev,Inconnu,impotssurleresultatapayer,2024-12-31,2,284 | 1805,Impôts sur le résultat à payer
+AB inBev,Inconnu,impotssurleresultatapayer,2025-12-31,2,206 | 1825,Impôts sur le résultat à payer
+AB inBev,Inconnu,impotssurleresultatarecuperer,2022-12-31,2,883 | 813,Impôts sur le résultat à récupérer
+AB inBev,Inconnu,impotssurleresultatarecuperer,2023-12-31,2,844 | 822,Impôts sur le résultat à récupérer
+AB inBev,Inconnu,impotssurleresultatarecuperer,2024-12-31,2,470 | 727,Impôts sur le résultat à récupérer
+AB inBev,Inconnu,impotssurleresultatarecuperer,2025-12-31,2,444 | 785,Impôts sur le résultat à récupérer
+AB inBev,Inconnu,participationsnedonnantpaslecontrole,2015-12-31,2,1594 | 3582,Participations ne donnant pas le contrôle
+AB inBev,Inconnu,participationsnedonnantpaslecontrole,2022-12-31,2,10880 | 1628,Participations ne donnant pas le contrôle
+AB inBev,Inconnu,participationsnedonnantpaslecontrole,2023-12-31,2,10828 | 1550,Participations ne donnant pas le contrôle
+AB inBev,Inconnu,participationsnedonnantpaslecontrole,2024-12-31,2,10463 | 1561,Participations ne donnant pas le contrôle
+AB inBev,Inconnu,participationsnedonnantpaslecontrole,2025-12-31,2,10449 | 1640,Participations ne donnant pas le contrôle
+AB inBev,Inconnu,pensionsetobligationssimilaires,2022-12-31,2,11 | 1534,Pensions et obligations similaires
+AB inBev,Inconnu,pensionsetobligationssimilaires,2023-12-31,2,12 | 1673,Pensions et obligations similaires
+AB inBev,Inconnu,pensionsetobligationssimilaires,2024-12-31,2,42 | 1296,Pensions et obligations similaires
+AB inBev,Inconnu,pensionsetobligationssimilaires,2025-12-31,2,150 | 1275,Pensions et obligations similaires
+AB inBev,Inconnu,placements,2015-12-31,2,48 | 55,Placements
+AB inBev,Inconnu,placements,2022-12-31,2,175 | 97,Placements
+AB inBev,Inconnu,placements,2023-12-31,2,178 | 67,Placements
+AB inBev,Inconnu,placements,2024-12-31,2,168 | 221,Placements
+AB inBev,Inconnu,placements,2025-12-31,2,161 | 306,Placements
+AB inBev,Inconnu,produitscoutsfinanciersnets,2016-12-31,2,5208 | -5208,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2017-12-31,2,5814 | -5814,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2018-12-31,2,6844 | -6844,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2019-12-31,2,4355 | -4355,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2020-12-31,2,5959 | -5959,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2021-12-31,2,4803 | -4803,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2022-12-31,2,4978 | -4978,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnets,2023-12-31,2,5033 | -5033,(Produits)/coûts financiers nets
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrents,2016-12-31,2,3356 | -3356,(Produits)/coûts financiers nets non-récurrents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrents,2017-12-31,2,693 | -693,(Produits)/coûts financiers nets non-récurrents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrents,2018-12-31,2,1982 | -1982,(Produits)/coûts financiers nets non-récurrents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrents,2019-12-31,2,-882 | 882,(Produits)/coûts financiers nets non-récurrents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrentsavantimpots,2016-12-31,2,3356 | 1.96,"(Produits)/coûts financiers nets non-récurrents, avant impôts"
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrentsavantimpots,2017-12-31,2,693 | 0.35,"(Produits)/coûts financiers nets non-récurrents, avant impôts"
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrentsavantimpots,2018-12-31,2,1982 | 1,"(Produits)/coûts financiers nets non-récurrents, avant impôts"
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonrecurrentsavantimpots,2019-12-31,2,-882 | -0.44,"(Produits)/coûts financiers nets non-récurrents, avant impôts"
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2020-12-31,2,1738 | -1738,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2021-12-31,2,806 | -806,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2022-12-31,2,-829 | 829,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2023-12-31,2,69 | -69,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2024-12-31,2,995 | -995,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacents,2025-12-31,2,185 | -185,(Produits)/coûts financiers nets non sous-jacents
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacentsavantimpots,2020-12-31,2,1738 | 0.87,"(Produits)/coûts financiers nets non sous-jacents, avant impôts"
+AB inBev,Inconnu,produitscoutsfinanciersnetsnonsousjacentsavantimpots,2021-12-31,2,806 | 0.4,"(Produits)/coûts financiers nets non sous-jacents, avant impôts"
+AB inBev,Inconnu,provisions,2015-12-31,2,677 | 220,Provisions
+AB inBev,Inconnu,provisions,2022-12-31,2,396 | 176,Provisions
+AB inBev,Inconnu,provisions,2023-12-31,2,320 | 269,Provisions
+AB inBev,Inconnu,provisions,2024-12-31,2,385 | 191,Provisions
+AB inBev,Inconnu,provisions,2025-12-31,2,425 | 192,Provisions
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2015-12-31,2,-10 | 10,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2016-12-31,2,16 | -16,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2017-12-31,2,430 | -430,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2018-12-31,2,153 | -153,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2019-12-31,2,152 | -152,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2020-12-31,2,156 | -156,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2021-12-31,2,248 | -248,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2022-12-31,2,299 | -299,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2023-12-31,2,295 | -295,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2024-12-31,2,329 | -329,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,quotepartdansleresultatdesentreprisesassociees,2025-12-31,2,378 | -378,Quote-part dans le résultat des entreprises associées
+AB inBev,Inconnu,resultatdesactivitesabandonnees,2016-12-31,2,-48 | -0.03,Résultat des activités abandonnées
+AB inBev,Inconnu,resultatdesactivitesabandonnees,2017-12-31,2,-28 | -0.01,Résultat des activités abandonnées
+Coca-Cola,Inconnu,cashandcashequivalents,2015-12-31,2,nan | 7309,Cash and Cash Equivalents
+Coca-Cola,Inconnu,cashandcashequivalents,2016-12-31,2,nan | 8555,Cash and Cash Equivalents
+Coca-Cola,Inconnu,cashandcashequivalents,2017-12-31,2,nan | 6006,Cash and Cash Equivalents
+Coca-Cola,Inconnu,deferredincometaxes,2015-12-31,2,4691 | 73,Deferred Income Taxes
+Coca-Cola,Inconnu,deferredincometaxes,2016-12-31,2,3753 | -856,Deferred Income Taxes
+Coca-Cola,Inconnu,deferredincometaxes,2017-12-31,2,2522 | -1256,Deferred Income Taxes
+Coca-Cola,Inconnu,netcashprovidedbyusedinfinancingactivities,2016-12-31,2,-6545 | nan,Net cash provided by (used in) financing activities
+Coca-Cola,Inconnu,netcashprovidedbyusedinfinancingactivities,2017-12-31,2,-7409 | -38,Net cash provided by (used in) financing activities
+Coca-Cola,Inconnu,netcashprovidedbyusedininvestingactivities,2016-12-31,2,-999 | nan,Net cash provided by (used in) investing activities
+Coca-Cola,Inconnu,netcashprovidedbyusedininvestingactivities,2017-12-31,2,-2385 | -65,Net cash provided by (used in) investing activities
+Coca-Cola,Inconnu,otheroperatingcharges,2015-12-31,2,1657 | 929,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2016-12-31,2,1510 | 647,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2017-12-31,2,2157 | 1218,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2018-12-31,2,1079 | 558,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2019-12-31,2,458 | 127,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2020-12-31,2,853 | 556,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2021-12-31,2,846 | 506,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2022-12-31,2,1215 | 1086,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2023-12-31,2,1951 | 1741,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2024-12-31,2,4163 | 4000,Other operating charges
+Coca-Cola,Inconnu,otheroperatingcharges,2025-12-31,2,1261 | 1052,Other operating charges
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2019-12-31,4,2.69902e+07 | 4.9254e+07 | 7.76506e+06 | 3.44726e+07,Flux de trésorerie – Activités de financement
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2018-12-31,3,3.08916e+07 | 1.72098e+08 | 1.82293e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2019-12-31,3,4.65293e+07 | 2.04295e+08 | 2.10995e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldespassifsnoncourants,2018-12-31,3,1.70246e+07 | 1.29222e+06 | 1.30616e+08,Total des passifs non courants
+DELICE,Bilan,totaldespassifsnoncourants,2019-12-31,3,1.9918e+07 | 2.48842e+06 | 1.70416e+08,Total des passifs non courants
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2018-12-31,3,1.05e+07 | 5.05491e+07 | 3.72471e+07,Flux de trésorerie – Activités de financement
+DELICE,Bilan,autresactifscourants,2020-12-31,2,-882365 | 9.57285e+06,Autres actifs courants
+DELICE,Bilan,autresactifscourants,2021-12-31,2,7.68095e+06 | 1.89189e+06,Autres actifs courants
+DELICE,Bilan,autresactifscourants,2022-12-31,2,-7.97339e+06 | 9.86528e+06,Autres actifs courants
+DELICE,Bilan,autresactifscourants,2024-12-31,2,3.51737e+07 | -1.98973e+07,Autres actifs courants
+DELICE,Bilan,autresactifscourants,2025-12-31,2,5.40189e+07 | -1.88452e+07,Autres actifs courants
+DELICE,Bilan,autresactifsnoncourants,2018-12-31,2,1.55945e+06 | 4.81768e+06,Autres actifs non courants
+DELICE,Bilan,autresactifsnoncourants,2019-12-31,2,2.10212e+06 | 5.31375e+06,Autres actifs non courants
+DELICE,Bilan,autrescapitauxpropres,2018-12-31,2,6.4325e+07 | 1.01943e+07,Autres capitaux propres
+DELICE,Bilan,autrescapitauxpropres,2019-12-31,2,8.0884e+07 | 6.70006e+06,Autres capitaux propres
+DELICE,Bilan,autrespassifscourants,2015-12-31,2,1.36523e+06 | 713451,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2016-12-31,2,394115 | -971118,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2017-12-31,2,985355 | 591240,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2020-12-31,2,445971 | 1.52256e+06,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2021-12-31,2,847414 | 2.36998e+06,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2022-12-31,2,-1.09798e+06 | 2.54033e+06,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2023-12-31,2,168031 | 1.44003e+06,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2024-12-31,2,1.63729e+06 | 197268,Autres passifs courants
+DELICE,Bilan,autrespassifscourants,2025-12-31,2,3.0825e+07 | 366485,Autres passifs courants
+DELICE,Bilan,placementsetautresactifsfinanciers,2015-12-31,2,1.65e+07 | 409943,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2016-12-31,2,1.55e+07 | 284310,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2017-12-31,2,1.85e+07 | 598896,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2018-12-31,2,3.72119e+07 | 3.20145e+07,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2019-12-31,2,1.02217e+07 | 6.26976e+07,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2020-12-31,2,9e+06 | 1.21544e+06,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2021-12-31,2,2e+06 | 9.06261e+06,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2023-12-31,2,7e+06 | 589779,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2024-12-31,2,1.29146e+07 | 877781,Placements et autres actifs financiers
+DELICE,Bilan,placementsetautresactifsfinanciers,2025-12-31,2,3.22001e+07 | 1.7234e+06,Placements et autres actifs financiers
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2015-12-31,2,2.70851e+07 | 5.78434e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2016-12-31,2,2.31184e+07 | 5.76844e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2017-12-31,2,2.36427e+07 | 5.77426e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2020-12-31,2,2.13413e+07 | 5.78359e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2021-12-31,2,2.13561e+07 | 5.794e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2022-12-31,2,2.39268e+07 | 5.83011e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2023-12-31,2,3.44309e+07 | 5.95479e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2024-12-31,2,5.8901e+07 | 6.21435e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldescapitauxpropresavantaffectation,2025-12-31,2,6.47818e+07 | 6.3131e+08,Total des capitaux propres avant affectation
+DELICE,Bilan,totaldespassifsnoncourants,2020-12-31,2,200000 | 5.57899e+08,Total des passifs non courants
+DELICE,Bilan,totaldespassifsnoncourants,2021-12-31,2,365804 | 5.65571e+08,Total des passifs non courants
+DELICE,Compte de resultat,autrespertesordinaires,2016-12-31,2,-3.24537e+06 | 3.24537e+06,Autres pertes ordinaires
+DELICE,Compte de resultat,autrespertesordinaires,2022-12-31,2,-2e+06 | 2e+06,Autres pertes ordinaires
+DELICE,Compte de resultat,resultatnetdelexercice,2018-12-31,2,3.00531e+07 | 3.08916e+07,Résultat net de l'exercice
+DELICE,Compte de resultat,resultatnetdelexercice,2019-12-31,2,4.30112e+07 | 4.65293e+07,Résultat net de l'exercice
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2016-12-31,2,1e+06 | -2.47083e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2017-12-31,2,-3e+06 | -2.30611e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2020-12-31,2,500000 | -1.82841e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2021-12-31,2,7e+06 | -2.03157e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2022-12-31,2,2e+06 | -1.90474e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2023-12-31,2,-7e+06 | -2.32312e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2024-12-31,2,-5.91463e+06 | -3.29444e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,fluxdetresorerieactivitesdefinancement,2025-12-31,2,-1.92855e+07 | -2.60861e+07,Flux de trésorerie – Activités de financement
+DELICE,Flux de tresorerie,variationsfournisseursetautresdettes,2019-12-31,2,6.75906e+06 | 190062,Variations fournisseurs et autres dettes
+SFBT,Compte de resultat,resultatdesactivitesordinairesapresimpot,2010-12-31,2,5.53719e+07 | 4.63721e+07,Résultat des activités ordinaires aprés impôt
+SFBT,Compte de resultat,resultatdesactivitesordinairesapresimpot,2011-12-31,2,6.33946e+07 | 4.75574e+07,Résultat des activités ordinaires aprés impôt
+SFBT,Compte de resultat,resultatdesactivitesordinairesapresimpot,2012-12-31,2,7.42294e+07 | 4.94126e+07,Résultat des activités ordinaires aprés impôt
+SFBT,Compte de resultat,resultatnetdelexercice,2018-12-31,2,1.21884e+08 | 1.78243e+08,Résultat net de l’exercice
+SFBT,Compte de resultat,resultatnetdelexercice,2019-12-31,2,1.53069e+08 | 2.08328e+08,Résultat net de l’exercice
+SFBT,Flux de tresorerie,incidencedesvariationsdestauxdechangesurlesliquiditesetequivalentsdeliquidites,2023-12-31,2,-20429.7 | 20429.7,Incidence des variations des taux de change sur les liquidités et équivalents de liquidités
+SFBT,Flux de tresorerie,incidencedesvariationsdestauxdechangesurlesliquiditesetequivalentsdeliquidites,2024-06-30,2,35942.4 | -35942.4,Incidence des variations des taux de change sur les liquidités et équivalents de liquidités
+SFBT,Flux de tresorerie,incidencedesvariationsdestauxdechangesurlesliquiditesetequivalentsdeliquidites,2024-12-31,2,68451.7 | -68451.7,Incidence des variations des taux de change sur les liquidités et équivalents de liquidités
+SFBT,Flux de tresorerie,incidencedesvariationsdestauxdechangesurlesliquiditesetequivalentsdeliquidites,2025-06-30,2,64479.7 | -64479.7,Incidence des variations des taux de change sur les liquidités et équivalents de liquidités

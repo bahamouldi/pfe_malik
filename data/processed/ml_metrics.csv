@@ -1,0 +1,9 @@
+Indicateur,Modele,n_train,n_test,MAE,RMSE,MAPE_%,R2
+Revenus (CA),Régression linéaire,55,18,39855872.4,59673661.2,15.32,0.9316
+Revenus (CA),Random Forest,55,18,48874712.5,87932665.4,17.16,0.8514
+Total des actifs,Régression linéaire,52,18,45679725.8,57102686.9,4.51,0.8485
+Total des actifs,Random Forest,52,18,52114229.6,63238181.1,5.2,0.8142
+Capitaux propres,Régression linéaire,52,18,31144767.9,45137396.9,3.98,0.7666
+Capitaux propres,Random Forest,52,18,45875164.0,52797315.2,5.85,0.6806
+Résultat net,Régression linéaire,53,18,9934202.0,12534796.9,7.9,0.9578
+Résultat net,Random Forest,53,18,11857759.2,16351686.8,9.12,0.9282

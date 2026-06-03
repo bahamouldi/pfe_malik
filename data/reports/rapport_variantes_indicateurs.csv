@@ -1,0 +1,690 @@
+Societe,Cle_indicateur,Variantes,Nb_variantes
+SFBT,resultatnetdelexercice,RESULTAT NET DE L'EXERCICE | RESULTAT NET DE LA PERIODE | Résultat Net | Résultat Net de l'exercice | Résultat net | Résultat net de l'exercice | Résultat net de la période | Résultat net de l’exercice,8
+SFBT,resultatdesactivitesordinairesavantreinvestissementsetimpot,Résultat des activités ordinaires avant réinvest et impôt | Résultat des activités ordinaires avant réinvesti.s et impôt | Résultat des activités ordinaires avant réinvestis et impôt | Résultat des activités ordinaires avant réinvestis. et impôt | Résultat des activités ordinaires avant réinvestissements et impôt,5
+AB inBev,elementsnonrecurrentsaudessusdelebitdepreciationsnonrecurrentesincluses,Eléments non-récurrents au-dessus de l'EBIT (dépréciations non-récurrentes incluses) | Eléments non-récurrents au-dessus de l'EBIT (dépréciations-non récurrentes incluses) | Eléments non-récurrents au-dessus de l’EBIT (dépréciations non-récurrentes incluses),3
+SFBT,dettesalegarddessocietesdugroupe,Dettes a l'egard des societés du groupe | Dettes à l'egard des societés du groupe | Dettes à l'égard des societés du groupe,3
+SFBT,encaissementsprovenantdelacessiondimmobilisationscorporellesetincorporelles,Encaissements provenant de la cession d'immobilisations Corporelles et incorporelles | Encaissements provenant de la cession d'immobilisations corporelles et incorporelles | Encaissements provenant de la cession d’immobilisations corporelles et incorporelles,3
+SFBT,resultatdelexercice,Résultat de l'exercice | Résultat de la période | Résultat de l’exercice,3
+SFBT,resultatdesactivitesordinairesapresreinvestetimpot,Résultat des activités ordinaires après reinvest et impôt | Résultat des activités ordinaires après réinvest et impôt | Résultat des activités ordinaires aprés réinvest et impôt,3
+AB inBev,beneficeattribuableauxporteursdescapitauxpropresdabinbev,Bénéfice attribuable aux porteurs des capitaux propres d'AB InBev | Bénéfice attribuable aux porteurs des capitaux propres d’AB InBev,2
+AB inBev,beneficedexploitationavantelementsnonrecurrents,Bénéfice d'exploitation avant éléments non-récurrents | Bénéfice d’exploitation avant éléments non-récurrents,2
+AB inBev,ebitdanormalise,EBITDA Normalisé | EBITDA normalisé,2
+AB inBev,ebitnormalise,EBIT Normalisé | EBIT normalisé,2
+AB inBev,elementsnonsousjacentsaudessusdelebit,Eléments non sous-jacents au-dessus de l'EBIT | Éléments non sous-jacents au-dessus de l’EBIT,2
+AB inBev,elementsnonsousjacentsaudessusdelebitycomprislespertesdevaleur,Eléments non sous-jacents au-dessus de l'EBIT (y compris les pertes de valeur) | Éléments non sous-jacents au-dessus de l’EBIT (y compris les pertes de valeur),2
+AB inBev,produitscoutsfinanciersnets,(Produits)/coûts financiers nets | Produits/(coûts) financiers nets,2
+AB inBev,produitscoutsfinanciersnetsnonrecurrents,(Produits)/coûts financiers nets non-récurrents | Produits/(coûts) financiers nets non-récurrents,2
+AB inBev,produitscoutsfinanciersnetsnonsousjacents,(Produits)/coûts financiers nets non sous-jacents | Produits/(coûts) financiers nets non sous-jacents,2
+AB inBev,volumestotauxmilliersdhls,Volumes totaux (milliers d'hls) | Volumes totaux (milliers d’hls),2
+Coca-Cola,bottlersfranchiserightswithindefinitelives,Bottlers' Franchise Rights With Indefinite Lives | Bottlers' franchise rights with indefinite lives,2
+Coca-Cola,cashandcashequivalents,Cash and Cash Equivalents | Cash and cash equivalents,2
+Coca-Cola,commonstock025parvalueauthorized11200sharesissued7040and7040sharesrespectively,"Common stock, $0.25 par value Authorized — 11,200 shares Issued — 7,040 and 7,040 shares, respectively | Common stock, $0.25 par value authorized — 11,200 shares issued — 7,040 and 7,040 shares, respectively",2
+Coca-Cola,deferredincometaxes,Deferred Income Taxes | Deferred income taxes,2
+Coca-Cola,equityattributabletononcontrollinginterests,Equity Attributable to Noncontrolling Interests | Equity attributable to noncontrolling interests,2
+Coca-Cola,equitymethodinvestments,Equity Method Investments | Equity method investments,2
+Coca-Cola,longtermdebt,Long-Term Debt | Long-term debt,2
+Coca-Cola,netcashprovidedbyoperatingactivities,Net Cash Provided by Operating Activities | Net cash provided by operating activities,2
+Coca-Cola,netcashprovidedbyusedinfinancingactivities,Net Cash Provided by (Used in) Financing Activities | Net cash provided by (used in) financing activities,2
+Coca-Cola,netcashprovidedbyusedininvestingactivities,Net Cash Provided by (Used in) Investing Activities | Net cash provided by (used in) investing activities,2
+Coca-Cola,netcashprovidedbyusedinoperatingactivities,Net Cash Provided by (Used in) Operating Activities | Net cash provided by (used in) operating activities,2
+Coca-Cola,otherassets,Other Assets | Other assets,2
+Coca-Cola,otherintangibleassets,Other Intangible Assets | Other intangible assets,2
+Coca-Cola,otherinvestments,Other Investments | Other investments,2
+Coca-Cola,otherliabilities,Other Liabilities | Other liabilities,2
+Coca-Cola,propertyplantandequipmentnet,"Property, Plant and Equipment — net | Property, plant and equipment — net",2
+Coca-Cola,thecocacolacompanyshareownersequity,The Coca-Cola Company Shareowners' Equity | The Coca-Cola Company Shareowners’ Equity,2
+Coca-Cola,trademarkswithindefinitelives,Trademarks With Indefinite Lives | Trademarks with indefinite lives,2
+SFBT,ajustementsamortissementsetprovisions,"Ajustements, Amortissements et Provisions | Ajustements,Amortissements et Provisions",2
+SFBT,ajustementsplusoumoinsvaluesurcession,Ajustements Plus ou moins value sur cession | Ajustements Plus ou moins-value sur cession,2
+SFBT,ajustementsquotespartsdessubventionsdinvestissementsdansleresultat,Ajustements Quotes-parts des subventions d'investissements dans le résultat | Ajustements Quotes-parts des subventions d’investissements dans le résultat,2
+SFBT,autrespertesordinaires,Autres pertes Ordinaires | Autres pertes ordinaires,2
+SFBT,chargesdepersonnel,Charges de Personnel | Charges de personnel,2
+SFBT,decaissementsaffectesalacquisitiondimmobilisationsfinancieres,Décaissements affectés à l'acquisition d'immobilisations financières | Décaissements affectés à l’acquisition d'immobilisations financières,2
+SFBT,decaissementsdividendesetautresdistributions,Decaissements Dividendes et autres distributions | Décaissements Dividendes et autres distributions,2
+SFBT,decaissementspourautresformesdeplacementmonetaire,Decaissements pour autres formes de placement monétaire | Décaissements pour autres formes de placement monétaire,2
+SFBT,decaissementsprovenantdesempruntsbancaires,Decaissements provenant des emprunts bancaires | Décaissements provenant des emprunts bancaires,2
+SFBT,encaissementsdividendesetautresdistributions,Encaissements Dividendes et autres distributions | Encaissements dividendes et autres distributions,2
+SFBT,encaissementsprovenantdelacessiondimmobilisationsfinancieres,Encaissements provenant de la cession d'immobilisations financières | Encaissements provenant de la cession d’immobilisations financières,2
+SFBT,encaissementsprovenantdelasubventiondinvestissement,Encaissements provenant de la subvention d'investissement | Encaissements provenant de la subvention d’Investissement,2
+SFBT,fluxdetresorerieprovenantdesactivitesdinvestissement,Flux de trésorerie provenant des activités d'investissement | Flux de trésorerie provenant des activités d’investissement,2
+SFBT,fluxdetresoreriesprovenantdeaffectesalexploitation,Flux de trésoreries provenant de (affectés à) l'exploitation | Flux de trésoreries provenant de / affectés à l'exploitation,2
+SFBT,immobilisationsincorporelles,Immobilisations incorporelle | Immobilisations incorporelles,2
+SFBT,productionimmobilisee,Production Immobilisée | Production immobilisée,2
+SFBT,provisionsdesimmobilisationscorporelles,Provisions des Immobilisations corporelles | Provisions des immobilisations corporelles,2
+SFBT,resultatdesactivitesordinairesapresimpot,Résultat des activités ordinaires après impôt | Résultat des activités ordinaires aprés impôt,2
+SFBT,resultatdexploitation,RESULTAT D'EXPLOITATION | Résultat d'exploitation,2
+SFBT,totaldesactifsimmobilises,Total des Actifs immobilisés | Total des actifs immobilisés,2
+SFBT,variationdesautresactifs,Variation des Autres actifs | Variation des autres actifs,2
+SFBT,variationdescreances,Variation des Créances | Variation des créances,2
+SFBT,variationdesstocks,Variation des Stocks | Variation des stocks,2
+SFBT,variationdesstocksdesproduitsfinisetdesencoursenou,Variation des stocks des produits finis et des encours (en + ou | Variation des stocks des produits finis et des encours (en + ou -),2
+SFBT,variationsdesfournisseursetautresdettes,Variations des Fournisseurs et autres dettes | Variations des fournisseurs et autres dettes,2
+AB inBev,acquisitiondefilialessousdeductiondelatresorerieacquise,"Acquisition de filiales, sous déduction de la trésorerie acquise",1
+AB inBev,acquisitiondimmobilisationscorporellesetincorporelles,Acquisition d’immobilisations corporelles et incorporelles,1
+AB inBev,acquisitionetcessiondefilialessousdeductiondelatresorerieacquisecedee,"Acquisition et cession de filiales, sous déduction de la trésorerie acquise/cédée",1
+AB inBev,acquisitionsdeparticipationsnedonnantpasdecontrole,Acquisitions de participations ne donnant pas de contrôle,1
+AB inBev,actifsdetenusenvuedelavente,Actifs détenus en vue de la vente,1
+AB inBev,actifsdimpotsdifferes,Actifs d’impôts différés,1
+AB inBev,ajustementalavaleurdemarchecouverturedenosprogrammesdepaiementsfondessurdesactions,Ajustement à la valeur de marché (couverture de nos programmes de paiements fondés sur des actions),1
+AB inBev,ajustementalavaleurdemarcheinstrumentdactionsdiffereeslieauregroupementavecgrupomodelo,Ajustement à la valeur de marché (instrument d'actions différées lié au regroupement avec Grupo Modelo),1
+AB inBev,ajustementalavaleurdemarchepartiedelacouverturedurisquedechangeduprixdachatdurapprochementavecsabquinestpasqualifieepourlacomptabilitedecouverture,Ajustement à la valeur de marché (partie de la couverture du risque de change du prix d’achat du rapprochement avec SAB qui n’est pas qualifiée pour la comptabilité de couverture),1
+AB inBev,ajustementalavaleurdemarcheregroupementavecgrupomodelo,Ajustement à la valeur de marché (regroupement avec Grupo Modelo),1
+AB inBev,ajustementsalavaleurdemarche,Ajustements à la valeur de marché,1
+AB inBev,associesetinteretsminoritaires,Associés et intérêts minoritaires,1
+AB inBev,associesetparticipationsnedonnantpaslecontrole,Associés et participations ne donnant pas le contrôle,1
+AB inBev,augmentationdiminutiondelatresorerieetequivalentsdetresorerie,Augmentation/(diminution) de la trésorerie et équivalents de trésorerie,1
+AB inBev,augmentationdiminutiondesdettescommercialesetautresdettes,Augmentation/(diminution) des dettes commerciales et autres dettes,1
+AB inBev,autre,Autre,1
+AB inBev,autreincluantchargesfinancieresnettesautresquinterets,Autre (incluant charges financières nettes autres qu’intérêts),1
+AB inBev,autres,Autres,1
+AB inBev,autresajustementsalavaleurdemarche,Autres ajustements à la valeur de marché,1
+AB inBev,autreselementsnondecaisseinclusdanslebenefice,Autres éléments non décaissé inclus dans le bénéfice,1
+AB inBev,autresfluxdetresorerie,Autres flux de trésorerie,1
+AB inBev,autresproduitschargesdexploitation,Autres produits/(charges) d’exploitation,1
+AB inBev,autresproduitschargesfinanciersnetsautresquinterets,Autres produits (charges) financiers nets autres qu’intérêts,1
+AB inBev,autresproduitscoutsdexploitation,Autres produits/(coûts) d’exploitation,1
+AB inBev,autresproduitsdexploitation,Autres produits d'exploitation,1
+AB inBev,autresresultatsfinanciers,Autres résultats financiers,1
+AB inBev,avantagesaupersonnel,Avantages au personnel,1
+AB inBev,benefice,Bénéfice,1
+AB inBev,beneficeattribuableauxactionnairesdabinbev,Bénéfice attribuable aux actionnaires d’AB InBev,1
+AB inBev,beneficeattribuableauxinteretsminoritaires,Bénéfice attribuable aux intérêts minoritaires,1
+AB inBev,beneficeattribuableauxparticipationsnedonnantpaslecontrole,Bénéfice attribuable aux participations ne donnant pas le contrôle,1
+AB inBev,beneficeattribuableauxporteursdactionsdabinbev,Bénéfice attribuable aux porteurs d’actions d’AB InBev,1
+AB inBev,beneficeattribuableauxporteursdescapitaux,Bénéfice attribuable aux porteurs des capitaux,1
+AB inBev,beneficedebaseparaction,Bénéfice de base par action,1
+AB inBev,beneficedebaseparactionavantelementsnonrecurrents2,Bénéfice de base par action avant éléments non-récurrents2,1
+AB inBev,beneficedelaperiode,Bénéfice de la période,1
+AB inBev,beneficedelexercice,Bénéfice de l’exercice,1
+AB inBev,beneficedesactivitesabandonnees,Bénéfice des activités abandonnées,1
+AB inBev,beneficedesactivitesabandonneesrecurrentetnonrecurrent,Bénéfice des activités abandonnées (récurrent et non-récurrent),1
+AB inBev,beneficedesactivitesabandonneessousjacentetnonsousjacent,Bénéfice des activités abandonnées (sous-jacent et non sous-jacent),1
+AB inBev,beneficedesactivitespoursuiviesattribuableauxporteursdescapitauxpropresdabinbev,Bénéfice des activités poursuivies attribuable aux porteurs des capitaux propres d'AB InBev,1
+AB inBev,beneficedexploitation,Bénéfice d’exploitation,1
+AB inBev,beneficedexploitationavantelementsnonsousjacents,Bénéfice d'exploitation avant éléments non sous-jacents,1
+AB inBev,beneficedexploitationavantelementsnonsousjacentsebitnormalise,Bénéfice d'exploitation avant éléments non sous-jacents (EBIT normalisé),1
+AB inBev,beneficedexploitationebit,Bénéfice d’exploitation (EBIT),1
+AB inBev,beneficedexploitationebitavantelementsnonrecurrents,Bénéfice d’exploitation (EBIT) avant éléments non-récurrents,1
+AB inBev,beneficedexploitationnormaliseebitnormalise,Bénéfice d’exploitation normalisé (EBIT normalisé),1
+AB inBev,beneficedilueparaction,Bénéfice dilué par action,1
+AB inBev,beneficedilueparactionavantelementsnonrecurrents2,Bénéfice dilué par action avant éléments non-récurrents2,1
+AB inBev,beneficenormaliseattribuableauxporteursdactionsdabinbev,Bénéfice normalisé attribuable aux porteurs d’actions d’AB InBev,1
+AB inBev,beneficenormaliseattribuableauxporteursdescapitauxpropres,Bénéfice normalisé attribuable aux porteurs des capitaux propres,1
+AB inBev,beneficenormaliseattribuableauxporteursdescapitauxpropresdabinbev,Bénéfice normalisé attribuable aux porteurs des capitaux propres d'AB InBev,1
+AB inBev,beneficenormaliseparaction,Bénéfice normalisé par action,1
+AB inBev,beneficenormaliseparactionusd,Bénéfice normalisé par action (USD),1
+AB inBev,beneficeparactionusd,Bénéfice par action (USD),1
+AB inBev,beneficesousjacent,Bénéfice sous-jacent,1
+AB inBev,beneficesousjacentattribuableauxporteursdescapitauxpropresdabinbev,Bénéfice sous-jacent attribuable aux porteurs des capitaux propres d'AB InBev,1
+AB inBev,beneficesousjacentparaction,Bénéfice sous-jacent par action,1
+AB inBev,beneficesousjacentparactionusd,Bénéfice sous-jacent par action (USD),1
+AB inBev,bieres,Bières,1
+AB inBev,bpadebase,BPA de base,1
+AB inBev,bpasousjacent,BPA sous-jacent,1
+AB inBev,bpasousjacentatauxdechangeconstants,BPA sous-jacent à taux de change constants,1
+AB inBev,bpasousjacentattribuableauxporteursdescapitauxpropresdabinbevusd,BPA sous-jacent attribuable aux porteurs des capitaux propres d'AB InBev (USD),1
+AB inBev,capitalsocial,Capital social,1
+AB inBev,capitauxpropresattribuablesauxporteursdetitresdabinbev,Capitaux propres attribuables aux porteurs de titres d’AB InBev,1
+AB inBev,cessionacquisitiondautresactifs,Cession/(acquisition) d’autres actifs,1
+AB inBev,cessionacquisitiondefilialessousdeductiondelatresorerie,"Cession/(acquisition) de filiales, sous déduction de la trésorerie",1
+AB inBev,cessionacquisitiondefilialessousdeductiondelatresorerieacquisecedee,"Cession/(acquisition) de filiales, sous déduction de la trésorerie acquise/cédée",1
+AB inBev,cessionacquisitiondeparticipationsnedonnantpasdecontrole,Cession/(acquisition) de participations ne donnant pas de contrôle,1
+AB inBev,cessionacquisitiondeparticipationsnedonnantpaslecontrole,Cession/(acquisition) de participations ne donnant pas le contrôle,1
+AB inBev,cessiondactivitesetventedactifs,Cession d’activités et vente d’actifs,1
+AB inBev,cessiondactivitesetventedactifspertesdevaleurincluses,Cession d’activités et vente d’actifs (pertes de valeur incluses),1
+AB inBev,cessiondactivitesetventedactifsycomprislespertesdedepreciation,Cession d’activités et vente d’actifs (y compris les pertes de dépréciation),1
+AB inBev,cessiondactivitesetventedactifsycomprislespertesdevaleur,Cession d’activités et vente d’actifs (y compris les pertes de valeur),1
+AB inBev,cessionsdactivitesetventesdactifsycomprislespertesdevaleur,Cessions d’activités et ventes d’actifs (y compris les pertes de valeur),1
+AB inBev,changementdufondsderoulement,Changement du fonds de roulement,1
+AB inBev,chargesdedesactualisation,Charges de désactualisation,1
+AB inBev,chargesdedesactualisationetinteretssurlespensions,Charges de désactualisation et intérêts sur les pensions,1
+AB inBev,chargesdimpots,Charges d’impôts,1
+AB inBev,chargesdinteretsnetteslieesauxpensions,Charges d’intérêts nettes liées aux pensions,1
+AB inBev,chargesfinancieres,Charges financières,1
+AB inBev,chargesfinancieresnettes,Charges financières nettes,1
+AB inBev,chargesnettesdinterets,Charges nettes d’intérêts,1
+AB inBev,chargesnettesdinteretslieesauxpensions,Charges nettes d’intérêts liées aux pensions,1
+AB inBev,concoursbancaires,Concours bancaires,1
+AB inBev,contributionsauxpensionsetutilisationdesprovisions,Contributions aux pensions et utilisation des provisions,1
+AB inBev,contributionsauxplansetutilisationdesprovisions,Contributions aux plans et utilisation des provisions,1
+AB inBev,contributionsauxplansetutilisationsdesprovisions,Contributions aux plans et utilisations des provisions,1
+AB inBev,coutliealoffrepubliqueduneparticipationminoritairedansbudweiserapac,Coût lié à l'offre publique d'une participation minoritaire dans Budweiser APAC,1
+AB inBev,coutsdacquisitionencourusdanslecadredesregroupementsdentreprises,Coûts d’acquisition encourus dans le cadre des regroupements d’entreprises,1
+AB inBev,coutsdacquisitionregroupementsdentreprises,Coûts d’acquisition (regroupements d’entreprises),1
+AB inBev,coutsdesacquisitionsencourusdanslecadredesregroupementsdentreprises,Coûts des acquisitions encourus dans le cadre des regroupements d’entreprises,1
+AB inBev,coutsdesventes,Coûts des ventes,1
+AB inBev,coutsfinanciersnets,Coûts financiers nets,1
+AB inBev,coutsfinanciersnetsnonrecurrents,Coûts financiers nets non récurrents,1
+AB inBev,coutsliesaabinbevefes,Coûts liés à AB InBev Efes,1
+AB inBev,coutsliesasabzenzelekabili,Coûts liés à SAB Zenzele Kabili,1
+AB inBev,coutsliesaucovid19,Coûts liés au COVID-19,1
+AB inBev,creancescommercialesetautrescreances,Créances commerciales et autres créances,1
+AB inBev,delutilisationdesprovisions,de l’utilisation des provisions,1
+AB inBev,depensesdinvestissementnettes,Dépenses d’investissement nettes,1
+AB inBev,depreciationdugoodwill,Dépréciation du goodwill,1
+AB inBev,depreciationscreancesstocksetautresactifs,"Dépréciations créances, stocks et autres actifs",1
+AB inBev,depreciationsdactifs,Dépréciations d’actifs,1
+AB inBev,derives,Dérivés,1
+AB inBev,dettescommercialesetautresdettes,Dettes commerciales et autres dettes,1
+AB inBev,diminutionaugmentationdescreancescommercialesetautrescreances,Diminution/(augmentation) des créances commerciales et autres créances,1
+AB inBev,diminutionaugmentationdesstocks,Diminution/(augmentation) des stocks,1
+AB inBev,dividendespayes,Dividendes payés,1
+AB inBev,dividendesrecus,Dividendes reçus,1
+AB inBev,dotationsauxamortissementsetprovisions,Dotations aux amortissements et provisions,1
+AB inBev,dotationsauxreprisesdeprovisionsetavantagesaupersonnel,Dotations aux/(reprises de) provisions et avantages au personnel,1
+AB inBev,ebitda,EBITDA,1
+AB inBev,ebitnormalisehorshyperinflation,EBIT normalisé hors hyperinflation,1
+AB inBev,elementsnonrecurrents,Eléments non-récurrents,1
+AB inBev,elementsnonrecurrentsattribuableauxinteretsminoritaires,Eléments non-récurrents attribuable aux intérêts minoritaires,1
+AB inBev,elementsnonrecurrentsattribuablesauxinteretsminoritaires,Eléments non-récurrents attribuables aux intérêts minoritaires,1
+AB inBev,elementsnonrecurrentsattribuablesauxparticipationsnedonnantpaslecontrole,Eléments non-récurrents attribuables aux participations ne donnant pas le contrôle,1
+AB inBev,elementsnonrecurrentsaudessusdelebit,Eléments non-récurrents au-dessus de l'EBIT,1
+AB inBev,elementsnonrecurrentsavantimpots,"Eléments non-récurrents, avant impôts",1
+AB inBev,elementsnonsousjacentsattribuablesauxparticipationsnedonnantpaslecontrole,Eléments non sous-jacents attribuables aux participations ne donnant pas le contrôle,1
+AB inBev,elementsnonsousjacentsaudessusdelebitdepreciationsnonsousjacentesincluses,Eléments non sous-jacents au-dessus de l'EBIT (dépréciations non sous-jacentes incluses),1
+AB inBev,elementsnonsousjacentsaudessusdelebitinclpertesdevaleur,Eléments non sous-jacents au-dessus de l'EBIT (incl. pertes de valeur),1
+AB inBev,elementsnonsousjacentsavantimpots,"Eléments non sous-jacents, avant impôts",1
+AB inBev,elementsnonsousjacentsdanslebeneficedexploitation,Eléments non sous-jacents dans le bénéfice d'exploitation,1
+AB inBev,elementsnonsousjacentsdanslebit,Eléments non sous-jacents dans l'EBIT,1
+AB inBev,elementsnonsousjacentsdansleresultatdesentreprisesassociees,Éléments non sous-jacents dans le résultat des entreprises associées,1
+AB inBev,emissionsdactionsdecapital,Emissions d’actions de capital,1
+AB inBev,emissionsdemprunts,Émissions d’emprunts,1
+AB inBev,empruntsportantinterets,Emprunts portant intérêts,1
+AB inBev,entreprisesassocieesetparticipationsnedonnantpaslecontrole,Entreprises associées et participations ne donnant pas le contrôle,1
+AB inBev,fluxdetresorerieactivitesdefinancement,Flux de trésorerie – Activités de financement,1
+AB inBev,fluxdetresorerieactivitesoperationnelles,Flux de trésorerie – Activités opérationnelles,1
+AB inBev,fluxdetresoreriedexploitationavantleschangementsdufondsde,Flux de trésorerie d’exploitation avant les changements du fonds de,1
+AB inBev,fluxdetresoreriedexploitationavantleschangementsdufondsderoulementetdelutilisationdesprovisions,Flux de trésorerie d’exploitation avant les changements du fonds de roulement et de l’utilisation des provisions,1
+AB inBev,fluxdetresoreriedexploitationavantleschangementsdufondsderoulementetlutilisationdesprovisions,Flux de trésorerie d’exploitation avant les changements du fonds de roulement et l’utilisation des provisions,1
+AB inBev,fluxdetresorerienetprovenantdactivitesdefinancement,Flux de trésorerie net provenant d’activités de financement,1
+AB inBev,fluxdetresorerienetprovenantdactivitesdinvestissement,Flux de trésorerie net provenant d’activités d’investissement,1
+AB inBev,fluxdetresorerieprovenantdactivitesdinvestissement,Flux de trésorerie provenant d’activités d’investissement,1
+AB inBev,fluxdetresorerieprovenantdesactivitesdefinancementdesactivitesabandonneesdelaustralie,Flux de trésorerie provenant des activités de financement des activités abandonnées de l'Australie,1
+AB inBev,fluxdetresorerieprovenantdesactivitesdinvestissement,Flux de trésorerie provenant des activités d’investissement,1
+AB inBev,fluxdetresorerieprovenantdesactivitesdinvestissementdesactivitesabandonneesdelaustralie,Flux de trésorerie provenant des activités d’investissement des activités abandonnées de l'Australie,1
+AB inBev,fluxdetresorerieprovenantdesactivitesoperationnellesdesactivitesabandonneesdelaustralie,Flux de trésorerie provenant des activités opérationnelles des activités abandonnées de l'Australie,1
+AB inBev,fraisadministratifs,Frais administratifs,1
+AB inBev,fraiscommerciauxetdemarketing,Frais commerciaux et de marketing,1
+AB inBev,fraisdedistribution,Frais de distribution,1
+AB inBev,fraisdeventedepensesadministrativesetautresfraisgeneraux,"Frais de vente, dépenses administratives et autres frais généraux",1
+AB inBev,fraisjuridiques,Frais juridiques,1
+AB inBev,gainpertesurremboursementanticipedobligationsetautres,Gain/(perte) sur remboursement anticipé d’obligations et autres,1
+AB inBev,gainsurlacessiondelaustralieinclusdanslebeneficedesactivitesabandonnees,Gain sur la cession de l'Australie (inclus dans le bénéfice des activités abandonnées),1
+AB inBev,goodwill,Goodwill,1
+AB inBev,immobilisationscorporellesnettes,Immobilisations corporelles nettes,1
+AB inBev,immobilisationsincorporelles,Immobilisations incorporelles,1
+AB inBev,impactdestauxdechange,Impact des taux de change,1
+AB inBev,impactnetdeselementsnonsousjacents,Impact net des éléments non sous-jacents,1
+AB inBev,impactnetdeselementsnonsousjacentssurleresultat,Impact net des éléments non sous-jacents sur le résultat,1
+AB inBev,impactsdelhyperinflation,Impacts de l’hyperinflation,1
+AB inBev,impactsdhyperinflationdanslebeneficeparaction,Impacts d'hyperinflation dans le bénéfice par action,1
+AB inBev,impactsdhyperinflationdanslebeneficesousjacent,Impacts d’hyperinflation dans le bénéfice sous-jacent,1
+AB inBev,impactsdhyperinflationdanslebitnormalise,Impacts d'hyperinflation dans l'EBIT normalisé,1
+AB inBev,impactsdhyperinflationdanslebpa,Impacts d'hyperinflation dans le BPA,1
+AB inBev,impactsurleresultatdexploitation,Impact sur le résultat d’exploitation,1
+AB inBev,impotsnonrecurrents,Impôts non-récurrents,1
+AB inBev,impotsnonsousjacents,Impôts non sous-jacents,1
+AB inBev,impotssurleresultatapayer,Impôts sur le résultat à payer,1
+AB inBev,impotssurleresultatarecuperer,Impôts sur le résultat à récupérer,1
+AB inBev,impotsurleresultatordinaire,Impôt sur le résultat ordinaire,1
+AB inBev,incidencedesvariationsdetauxdechange,Incidence des variations de taux de change,1
+AB inBev,instrumentsfinanciersderives,Instruments financiers dérivés,1
+AB inBev,interetsetimpotspayesrecus,Intérêts et impôts (payés)/reçus,1
+AB inBev,interetsimpotsetelementsnoncashinclusdanslebenefice,"Intérêts, impôts et éléments non-cash inclus dans le bénéfice",1
+AB inBev,interetsminoritaires,Intérêts minoritaires,1
+AB inBev,interetspayes,Intérêts payés,1
+AB inBev,interetsrecus,Intérêts reçus,1
+AB inBev,liquiditesetequivalentsdeliquidites,Liquidités et équivalents de liquidités,1
+AB inBev,margebrute,Marge brute,1
+AB inBev,margebruteen,Marge brute en %,1
+AB inBev,margeebitdanormalise,Marge EBITDA normalisé,1
+AB inBev,margeebitnormalise,Marge EBIT normalisé,1
+AB inBev,minoritaires,minoritaires),1
+AB inBev,nombredinstrumentsdefondspropresmillionsalafindelaperiode,Nombre d’instruments de fonds propres (millions) à la fin de la période,1
+AB inBev,nombremoyenponderedactionsordinairesetrestreintes,Nombre moyen pondéré d’actions ordinaires et restreintes,1
+AB inBev,nombremoyenponderedactionsordinairesetrestreintesmillions,Nombre moyen pondéré d’actions ordinaires et restreintes (millions),1
+AB inBev,nonbieres,Non-Bières,1
+AB inBev,nospropresbieres,Nos propres bières,1
+AB inBev,paiementfondesurdesactionsregleeninstrumentsdecapitauxpropres,Paiement fondé sur des actions réglé en instruments de capitaux propres,1
+AB inBev,paiementsenvertudescontratsdelocation,Paiements en vertu des contrats de location,1
+AB inBev,participationsdansdesentreprisesassociees,Participations dans des entreprises associées,1
+AB inBev,participationsdanslesentreprisesmisesenequivalence,Participations dans les entreprises mises en équivalence,1
+AB inBev,participationsnedonnantpaslecontrole,Participations ne donnant pas le contrôle,1
+AB inBev,passifsdimpotsdifferes,Passifs d’impôts différés,1
+AB inBev,pensionsetobligationssimilaires,Pensions et obligations similaires,1
+AB inBev,pertebeneficelieealaventedefilialesassociesetdesactifsdetenuspourlavente,"Perte/(bénéfice) lié(e) à la vente de filiales, associés et des actifs détenus pour la vente",1
+AB inBev,pertebeneficerelatifvealaventedimmobilisationscorporellesetincorporelles,Perte/(bénéfice) relatif(ve) à la vente d’immobilisations corporelles et incorporelles,1
+AB inBev,placements,Placements,1
+AB inBev,porteursdescapitauxpropresdabinbev,Porteurs des capitaux propres d’AB InBev,1
+AB inBev,prefinancementdurapprochementavecsab,Pré-financement du rapprochement avec SAB,1
+AB inBev,primesdemission,Primes d’émission,1
+AB inBev,prixdelactionalafindelaperiodeeuro,Prix de l'action à la fin de la période (Euro),1
+AB inBev,prixdelactionaudebutdelaperiodeeuro,Prix de l'action au début de la période (Euro),1
+AB inBev,produits,Produits,1
+AB inBev,produits1,Produits1,1
+AB inBev,produitsacquisitionsnetsdautresactifs,Produits/(acquisitions) nets d’autres actifs,1
+AB inBev,produitschargesfinancieresnettes,Produits (Charges) financières nettes,1
+AB inBev,produitscoutsfinanciersnetsnonrecurrentsavantimpots,"(Produits)/coûts financiers nets non-récurrents, avant impôts",1
+AB inBev,produitscoutsfinanciersnetsnonsousjacentsavantimpots,"(Produits)/coûts financiers nets non sous-jacents, avant impôts",1
+AB inBev,produitsdecessionsdefilialessousdeductiondelatresoreriecedee,"Produits de cessions de filiales, sous déduction de la trésorerie cédée",1
+AB inBev,produitsdecessionsdesactifsdetenuspourlavente,Produits de cessions des actifs détenus pour la vente,1
+AB inBev,produitsdecessionsdimmobilisationscorporellesetincorporelles,Produits de cessions d’immobilisations corporelles et incorporelles,1
+AB inBev,produitsdelacessiondelaustralie,Produits de la cession de l'Australie,1
+AB inBev,produitsdeloffrepubliqueduneparticipationminoritairedansbudweiserapac,Produits de l'offre publique d'une participation minoritaire dans Budweiser APAC,1
+AB inBev,produitsdescessionsdanslecadredurapprochementavecsabapresimpots,"Produits des cessions dans le cadre du rapprochement avec SAB, après impôts",1
+AB inBev,produitsdetiers,Produits de tiers,1
+AB inBev,produitsdinteretsnetssurlescreditsdimpotsbresiliens,Produits d’intérêts nets sur les crédits d’impôts brésiliens,1
+AB inBev,produitsfinanciers,Produits financiers,1
+AB inBev,produitsfinancierschargesfinancieresnetsnonrecurrents,Produits financiers (Charges financières) nets non-récurrents,1
+AB inBev,produitsnetsdecessionacquisitiondautresactifs,Produits nets de cession/(acquisition) d’autres actifs,1
+AB inBev,produitsnetsdecessiondesactifsdetenuspourlavente,Produits nets de cession des actifs détenus pour la vente,1
+AB inBev,produitsnetsdecessionsacquisitionsdautresactifs,Produits nets de cessions/(acquisitions) d'autres actifs,1
+AB inBev,produitsnetsdecessionsdactifsdetenusenvuedelavente,Produits nets de cessions d'actifs détenus en vue de la vente,1
+AB inBev,produitsnetsdecessionsdesactifsdetenuspourlavente,Produits nets de cessions des actifs détenus pour la vente,1
+AB inBev,produitsnetsdecessionsdobligationsacourtterme,Produits nets de cessions d’obligations à court terme,1
+AB inBev,produitsnetsinvestissementsnetsdansdesobligationsacourtterme,Produits nets/(investissements nets) dans des obligations à court terme,1
+AB inBev,provisions,Provisions,1
+AB inBev,provisonenqueteue,Provison enquête UE,1
+AB inBev,quotepartdansleresultatdesentreprisesassociees,Quote-part dans le résultat des entreprises associées,1
+AB inBev,rachatdactions,Rachat d’actions,1
+AB inBev,rapprochementavecsabsousdeductiondelatresorerieacquise,"Rapprochement avec SAB, sous déduction de la trésorerie acquise",1
+AB inBev,reglementsjudiciaires,Règlements judiciaires,1
+AB inBev,regularisationfiscaleaubresil,Régularisation Fiscale au Brésil,1
+AB inBev,remboursementanticipedobligationsetautres,Remboursement anticipé d'obligations et autres,1
+AB inBev,remboursementdemprunts,Remboursement d’emprunts,1
+AB inBev,remboursementemissiondemprunts,(Remboursement)/émission d’emprunts,1
+AB inBev,remboursementemissionsdemprunts,(Remboursement)/émissions d’emprunts,1
+AB inBev,remboursementemissionsdempruntsautreincluantchargesfinancieresnettesautresquinteretsetacquisitionsdinterets,(Remboursement)/émissions d’emprunts Autre (incluant charges financières nettes autres qu’intérêts et acquisitions d'intérêts,1
+AB inBev,remboursementpaiementnetdespretsconsentis,Remboursement/(paiement) net des prêts consentis,1
+AB inBev,remboursementsemissionsdemprunts,(Remboursements)/émissions d’emprunts,1
+AB inBev,reserves,Réserves,1
+AB inBev,restructuration,Restructuration,1
+AB inBev,resultatavantimpot,Résultat avant impôt,1
+AB inBev,resultatdesactivitesabandonnees,Résultat des activités abandonnées,1
+AB inBev,resultatdesactivitesordinaires,Résultat des activités ordinaires,1
+AB inBev,resultatsreportes,Résultats reportés,1
+AB inBev,roulementetdelutilisationdesprovisions,roulement et de l’utilisation des provisions,1
+AB inBev,stocks,Stocks,1
+AB inBev,tauxdimpoteffectifnormalise,Taux d’impôt effectif normalisé,1
+AB inBev,tauxdimpotseffectif,Taux d’impôts effectif,1
+AB inBev,tauxdimpotseffectifnormalise,Taux d’impôts effectif normalisé,1
+AB inBev,tauxdimpotseffectifnormalisehorsajustementsalavaleurdemarche,Taux d’impôts effectif normalisé hors ajustements à la valeur de marché,1
+AB inBev,tauxdimpotseffectifnormalisehorsajustmentsalavaleurdemarche,Taux d’impôts effectif normalisé hors ajustments à la valeur de marché,1
+AB inBev,totaldelactif,Total de l’actif,1
+AB inBev,totaldesactifs,Total des actifs,1
+AB inBev,totaldesactifscourants,Total des actifs courants,1
+AB inBev,totaldesactifsnoncourants,Total des actifs non courants,1
+AB inBev,totaldescapitauxpropresavantaffectation,Total des capitaux propres avant affectation,1
+AB inBev,totaldescapitauxpropresetdespassifs,Total des capitaux propres et des passifs,1
+AB inBev,totaldeselementsnonsousjacentsdanslebit,Total des éléments non sous-jacents dans l'EBIT,1
+AB inBev,totaldespassifscourants,Total des passifs courants,1
+AB inBev,totaldespassifsnoncourants,Total des passifs non courants,1
+AB inBev,tresorerieetequivalentsdetresoreriemoinsdecouvertsbancairesaudebutdelexercice,"Trésorerie et équivalents de trésorerie, moins découverts bancaires, au début de l’exercice",1
+AB inBev,tresorerieetequivalentsdetresoreriemoinslesdecouvertsbancairesalafindelexercice,"Trésorerie et équivalents de trésorerie, moins les découverts bancaires, à la fin de l’exercice",1
+AB inBev,variationdetresorerie,Variation de trésorerie,1
+AB inBev,variationdufondsderoulement,Variation du fonds de roulement,1
+AB inBev,venteacquisitiondeparticipationsnedonnantpasdecontrole,Vente/(acquisition) de participations ne donnant pas de contrôle,1
+AB inBev,volumes,Volumes,1
+AB inBev,volumesdesnonbieres,Volumes des non-bières,1
+Coca-Cola,accountspayableandaccruedexpenses,Accounts payable and accrued expenses,1
+Coca-Cola,accruedincometaxes,Accrued income taxes,1
+Coca-Cola,accumulatedothercomprehensiveincomeloss,Accumulated other comprehensive income (loss),1
+Coca-Cola,acquisitionsofbusinessesequitymethodinvestmentsandnonmarketablesecurities,"Acquisitions of businesses, equity method investments and nonmarketable securities",1
+Coca-Cola,adjustmentstoreconcileconsolidatednetincometonetcashprovidedbyoperatingactivities,Adjustments to reconcile consolidated net income to net cash provided by operating activities:,1
+Coca-Cola,assetsheldforsale,Assets held for sale,1
+Coca-Cola,assetsheldforsalediscontinuedoperations,Assets held for sale — discontinued operations,1
+Coca-Cola,averagesharesoutstanding,Average Shares Outstanding,1
+Coca-Cola,averagesharesoutstandingassumingdilution,Average Shares Outstanding Assuming Dilution,1
+Coca-Cola,averagesharesoutstandingbasic,Average Shares Outstanding — Basic,1
+Coca-Cola,averagesharesoutstandingdiluted,Average Shares Outstanding — Diluted,1
+Coca-Cola,averagesharesoutstandingdiluted2,Average Shares Outstanding — Diluted 2,1
+Coca-Cola,balanceatbeginningofyear,Balance at beginning of year,1
+Coca-Cola,balanceatendofyear,Balance at end of year,1
+Coca-Cola,basicnetincomepershare,Basic Net Income Per Share,1
+Coca-Cola,basicnetincomepershare1,Basic Net Income Per Share1,1
+Coca-Cola,capitalsurplus,Capital surplus,1
+Coca-Cola,cashandcashequivalentsatendofyear,Cash and Cash Equivalents at End of Year,1
+Coca-Cola,cashcashequivalentsrestrictedcashandrestrictedcashequivalentsatbeginningofyear,"Cash, cash equivalents, restricted cash and restricted cash equivalents at beginning of year",1
+Coca-Cola,cashcashequivalentsrestrictedcashandrestrictedcashequivalentsatendofyear,"Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents at End of Year",1
+Coca-Cola,cashcashequivalentsrestrictedcashandrestrictedcashequivalentsnetincreasedecreaseincashcashequivalentsrestrictedcashandrestrictedcashequivalentsduringthisyear,"Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents Net increase (decrease) in cash, cash equivalents, restricted cash and restricted cash equivalents during this year",1
+Coca-Cola,cashflowsfromdiscontinuedoperations,Cash Flows from Discontinued Operations,1
+Coca-Cola,collateralpaidreceivedassociatedwithhedgingactivitiesnet,Collateral (paid) received associated with hedging activities — net,1
+Coca-Cola,commonstock025parvalueauthorized11200shares,"Common stock, $0.25 par value Authorized — 11,200 shares",1
+Coca-Cola,commonstock025parvalueauthorized11200sharesissued7040shares,"Common stock, $0.25 par value authorized — 11,200 shares issued — 7,040 shares",1
+Coca-Cola,consolidatednetincome,Consolidated Net Income,1
+Coca-Cola,costofgoodssold,Cost of goods sold,1
+Coca-Cola,currentassets,Current Assets,1
+Coca-Cola,currentmaturitiesoflongtermdebt,Current maturities of long-term debt,1
+Coca-Cola,deferredincometaxassets,Deferred income tax assets,1
+Coca-Cola,deferredincometaxliabilities,Deferred income tax liabilities,1
+Coca-Cola,depreciationandamortization,Depreciation and amortization,1
+Coca-Cola,dilutednetincomepershare,Diluted Net Income Per Share,1
+Coca-Cola,dilutednetincomepershare1,Diluted Net Income Per Share1,1
+Coca-Cola,dilutednetincomepershare2,Diluted Net Income Per Share2,1
+Coca-Cola,dilutednetincomepersharefromcontinuingoperations1,Diluted net income per share from continuing operations 1,1
+Coca-Cola,dilutednetincomepersharefromdiscontinuedoperations2,Diluted net income per share from discontinued operations 2,1
+Coca-Cola,dividends,Dividends,1
+Coca-Cola,effectofdilutivesecurities,Effect of dilutive securities,1
+Coca-Cola,effectofexchangeratechangesoncashandcashequivalents,Effect of Exchange Rate Changes on Cash and Cash Equivalents,1
+Coca-Cola,effectofexchangeratechangesoncashcashequivalentsrestrictedcashandrestrictedcashequivalents,"Effect of Exchange Rate Changes on Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents",1
+Coca-Cola,equityattributabletoshareownersofthecocacolacompany,Equity Attributable to Shareowners of The Coca-Cola Company,1
+Coca-Cola,equityincomelossnet,Equity income (loss) — net,1
+Coca-Cola,equityincomelossnetofdividends,Equity (income) loss — net of dividends,1
+Coca-Cola,financingactivities,Financing Activities,1
+Coca-Cola,financingactivitiesissuancesofdebt,Financing Activities Issuances of debt,1
+Coca-Cola,foreigncurrencyadjustments,Foreign currency adjustments,1
+Coca-Cola,goodwill,Goodwill,1
+Coca-Cola,grossprofit,Gross Profit,1
+Coca-Cola,incomebeforeincometaxes,Income Before Income Taxes,1
+Coca-Cola,incomefromcontinuingoperationsbeforeincometaxes,Income from Continuing Operations Before Income Taxes,1
+Coca-Cola,incomefromdiscontinuedoperationsnetofincometaxesof47and0respectively,"Income from discontinued operations (net of income taxes of $47 and $0, respectively)",1
+Coca-Cola,incomelossfromdiscontinuedoperations,(Income) loss from discontinued operations,1
+Coca-Cola,incometaxes,Income taxes,1
+Coca-Cola,incometaxesfromcontinuingoperations,Income taxes from continuing operations,1
+Coca-Cola,interestexpense,Interest expense,1
+Coca-Cola,interestincome,Interest income,1
+Coca-Cola,inventories,Inventories,1
+Coca-Cola,investingactivities,Investing Activities,1
+Coca-Cola,investingactivitiespurchasesofinvestments,Investing Activities Purchases of investments,1
+Coca-Cola,issuancesofdebt,Issuances of debt,1
+Coca-Cola,issuancesofloansnotespayableandlongtermdebt,"Issuances of loans, notes payable and long-term debt",1
+Coca-Cola,issuancesofstock,Issuances of stock,1
+Coca-Cola,issued7040and7040sharesrespectively,"Issued — 7,040 and 7,040 shares, respectively",1
+Coca-Cola,lessnetincomeattributabletononcontrollinginterests,Less: Net income attributable to noncontrolling interests,1
+Coca-Cola,lessnetincomelossattributabletononcontrollinginterests,Less: Net income (loss) attributable to noncontrolling interests,1
+Coca-Cola,lessrestrictedcashandrestrictedcashequivalentsatendofyear,Less: Restricted cash and restricted cash equivalents at end of year,1
+Coca-Cola,liabilitiesandequitycurrentliabilities,LIABILITIES AND EQUITY Current Liabilities,1
+Coca-Cola,liabilitiesheldforsale,Liabilities held for sale,1
+Coca-Cola,liabilitiesheldforsalediscontinuedoperations,Liabilities held for sale — discontinued operations,1
+Coca-Cola,loansandnotespayable,Loans and notes payable,1
+Coca-Cola,marketablesecurities,Marketable securities,1
+Coca-Cola,netcashprovidedbyusedindiscontinuedoperations,Net cash provided by (used in) discontinued operations,1
+Coca-Cola,netchangeinoperatingassetsandliabilities,Net change in operating assets and liabilities,1
+Coca-Cola,netincomeattributabletoshareownersofthecocacolacompany,Net Income Attributable to Shareowners of The Coca-Cola Company,1
+Coca-Cola,netincomefromcontinuingoperations,Net Income from Continuing Operations,1
+Coca-Cola,netincreasedecreaseduringtheyear,Net increase (decrease) during the year,1
+Coca-Cola,netoperatingrevenues,Net Operating Revenues,1
+Coca-Cola,operatingactivitiesconsolidatednetincome,Operating Activities Consolidated net income,1
+Coca-Cola,operatingincome,Operating Income,1
+Coca-Cola,otherfinancingactivities,Other financing activities,1
+Coca-Cola,otherincomelossnet,Other income (loss) — net,1
+Coca-Cola,otherinvestingactivities,Other investing activities,1
+Coca-Cola,otheritems,Other items,1
+Coca-Cola,othernoncurrentassets,Other noncurrent assets,1
+Coca-Cola,othernoncurrentliabilities,Other noncurrent liabilities,1
+Coca-Cola,otheroperatingcharges,Other operating charges,1
+Coca-Cola,paymentsofdebt,Payments of debt,1
+Coca-Cola,paymentsofloansnotespayableandlongtermdebt,"Payments of loans, notes payable and long-term debt",1
+Coca-Cola,prepaidexpensesandotherassets,Prepaid expenses and other assets,1
+Coca-Cola,prepaidexpensesandothercurrentassets,Prepaid expenses and other current assets,1
+Coca-Cola,proceedsfromdisposalsofbusinessesequitymethodinvestmentsandnonmarketablesecurities,"Proceeds from disposals of businesses, equity method investments and nonmarketable securities",1
+Coca-Cola,proceedsfromdisposalsofinvestments,Proceeds from disposals of investments,1
+Coca-Cola,proceedsfromdisposalsofpropertyplantandequipment,"Proceeds from disposals of property, plant and equipment",1
+Coca-Cola,proceedsfromsaleofanoncontrollinginterest,Proceeds from sale of a noncontrolling interest,1
+Coca-Cola,purchasesofinvestments,Purchases of investments,1
+Coca-Cola,purchasesofpropertyplantandequipment,"Purchases of property, plant and equipment",1
+Coca-Cola,purchasesofstockfortreasury,Purchases of stock for treasury,1
+Coca-Cola,reinvestedearnings,Reinvested earnings,1
+Coca-Cola,sellinggeneralandadministrativeexpenses,"Selling, general and administrative expenses",1
+Coca-Cola,shortterminvestments,Short-term investments,1
+Coca-Cola,significantgainslossesnet,Significant (gains) losses — net,1
+Coca-Cola,significantgainslossesonsalesofassetsnet,Significant (gains) losses on sales of assets — net,1
+Coca-Cola,stockbasedcompensationexpense,Stock-based compensation expense,1
+Coca-Cola,totalassets,Total Assets,1
+Coca-Cola,totalcashcashequivalentsandshortterminvestments,"Total Cash, Cash Equivalents and Short-Term Investments",1
+Coca-Cola,totalcurrentassets,Total Current Assets,1
+Coca-Cola,totalcurrentliabilities,Total Current Liabilities,1
+Coca-Cola,totalequity,Total Equity,1
+Coca-Cola,totalliabilitiesandequity,Total Liabilities and Equity,1
+Coca-Cola,tradeaccountsreceivablelessallowancesof466and352respectively,"Trade accounts receivable, less allowances of $466 and $352, respectively",1
+Coca-Cola,tradeaccountsreceivablelessallowancesof477and466respectively,"Trade accounts receivable, less allowances of $477 and $466, respectively",1
+Coca-Cola,tradeaccountsreceivablelessallowancesof495and506respectively,"Trade accounts receivable, less allowances of $495 and $506, respectively",1
+Coca-Cola,tradeaccountsreceivablelessallowancesof502and516respectively,"Trade accounts receivable, less allowances of $502 and $516, respectively",1
+Coca-Cola,tradeaccountsreceivablelessallowancesof516and526respectively,"Trade accounts receivable, less allowances of $516 and $526, respectively",1
+Coca-Cola,tradeaccountsreceivablelessallowancesof524and501respectively,"Trade accounts receivable, less allowances of $524 and $501, respectively",1
+Coca-Cola,treasurystockatcost2715and2738sharesrespectively,"Treasury stock, at cost — 2,715 and 2,738 shares, respectively",1
+Coca-Cola,treasurystockatcost2732and2712sharesrespectively,"Treasury stock, at cost — 2,732 and 2,712 shares, respectively",1
+Coca-Cola,treasurystockatcost2738and2738sharesrespectively,"Treasury stock, at cost — 2,738 and 2,738 shares, respectively",1
+Coca-Cola,treasurystockatcost2752and2716sharesrespectively,"Treasury stock, at cost — 2,752 and 2,716 shares, respectively",1
+Coca-Cola,treasurystockatcost2760and2772sharesrespectively,"Treasury stock, at cost — 2,760 and 2,772 shares, respectively",1
+Coca-Cola,treasurystockatcost2781and2752sharesrespectively,"Treasury stock, at cost — 2,781 and 2,752 shares, respectively",1
+DELICE,achatsdemarchandisesconsommes,Achats de marchandises consommés,1
+DELICE,ajustementsamortissementsetprovisions,Ajustements – Amortissements et provisions,1
+DELICE,ajustementsplusoumoinsvaluesurcession,Ajustements – Plus ou moins-value sur cession,1
+DELICE,amortissementsdesimmobilisationscorporelles,Amortissements des immobilisations corporelles,1
+DELICE,amortissementsdesimmobilisationsincorporelles,Amortissements des immobilisations incorporelles,1
+DELICE,autresactifscourants,Autres actifs courants,1
+DELICE,autresactifsnoncourants,Autres actifs non courants,1
+DELICE,autrescapitauxpropres,Autres capitaux propres,1
+DELICE,autreschargesdexploitation,Autres charges d'exploitation,1
+DELICE,autresgainsordinaires,Autres gains ordinaires,1
+DELICE,autrespassifscourants,Autres passifs courants,1
+DELICE,autrespertesordinaires,Autres pertes ordinaires,1
+DELICE,autresproduitsdexploitation,Autres produits d'exploitation,1
+DELICE,capitalsocial,Capital social,1
+DELICE,chargesdepersonnel,Charges de personnel,1
+DELICE,chargesfinancieresnettes,Charges financières nettes,1
+DELICE,clientsetcomptesrattaches,Clients et comptes rattachés,1
+DELICE,concoursbancairesetautrespassifsfinanciers,Concours bancaires et autres passifs financiers,1
+DELICE,contributionsocialedesolidarite,Contribution sociale de solidarité,1
+DELICE,decaissementsacquisitionimmobilisationscorporellesetincorporelles,Décaissements – Acquisition immobilisations corporelles et incorporelles,1
+DELICE,decaissementsacquisitionimmobilisationsfinancieres,Décaissements – Acquisition immobilisations financières,1
+DELICE,decaissementsdividendesetdistributions,Décaissements – Dividendes et distributions,1
+DELICE,dotationsauxamortissementsetprovisions,Dotations aux amortissements et provisions,1
+DELICE,elementsextraordinaires,Éléments extraordinaires,1
+DELICE,emprunts,Emprunts,1
+DELICE,encaissementscessionimmobilisationsfinancieres,Encaissements – Cession immobilisations financières,1
+DELICE,fluxdetresorerieactivitesdefinancement,Flux de trésorerie – Activités de financement,1
+DELICE,fluxdetresorerieactivitesdinvestissement,Flux de trésorerie – Activités d'investissement,1
+DELICE,fluxdetresorerieactivitesoperationnelles,Flux de trésorerie – Activités opérationnelles,1
+DELICE,fournisseursetcomptesrattaches,Fournisseurs et comptes rattachés,1
+DELICE,immobilisationscorporelles,Immobilisations corporelles,1
+DELICE,immobilisationsfinancieres,Immobilisations financières,1
+DELICE,immobilisationsincorporelles,Immobilisations incorporelles,1
+DELICE,impotssurlessocietes,Impôts sur les sociétés,1
+DELICE,placementsetautresactifsfinanciers,Placements et autres actifs financiers,1
+DELICE,productionimmobilisee,Production immobilisée,1
+DELICE,produitsdesplacements,Produits des placements,1
+DELICE,produitsfinanciers,Produits financiers,1
+DELICE,provisionsimmobilisationsfinancieres,Provisions immobilisations financières,1
+DELICE,reserveslegales,Réserves légales,1
+DELICE,resultatdesactivitesordinairesapresimpot,Résultat des activités ordinaires après impôt,1
+DELICE,resultatdesactivitesordinairesavantimpot,Résultat des activités ordinaires avant impôt,1
+DELICE,resultatdexploitation,Résultat d'exploitation,1
+DELICE,resultatnetdelexercice,Résultat net de l'exercice,1
+DELICE,resultatsreportes,Résultats reportés,1
+DELICE,revenus,Revenus,1
+DELICE,stocks,Stocks,1
+DELICE,totaldesactifs,Total des actifs,1
+DELICE,totaldesactifscourants,Total des actifs courants,1
+DELICE,totaldesactifsimmobilises,Total des actifs immobilisés,1
+DELICE,totaldesactifsnoncourants,Total des actifs non courants,1
+DELICE,totaldescapitauxpropresavantaffectation,Total des capitaux propres avant affectation,1
+DELICE,totaldescapitauxpropresavantresultatdelexercice,Total des capitaux propres avant résultat de l'exercice,1
+DELICE,totaldescapitauxpropresetdespassifs,Total des capitaux propres et des passifs,1
+DELICE,totaldeschargesdexploitation,Total des charges d'exploitation,1
+DELICE,totaldespassifs,Total des passifs,1
+DELICE,totaldespassifscourants,Total des passifs courants,1
+DELICE,totaldespassifsnoncourants,Total des passifs non courants,1
+DELICE,totaldesproduitsdexploitation,Total des produits d'exploitation,1
+DELICE,tresoreriealacloturedelexercice,Trésorerie à la clôture de l'exercice,1
+DELICE,tresorerieaudebutdelexercice,Trésorerie au début de l'exercice,1
+DELICE,variationdesautresactifs,Variation des autres actifs,1
+DELICE,variationdescreances,Variation des créances,1
+DELICE,variationdetresorerie,Variation de trésorerie,1
+DELICE,variationsfournisseursetautresdettes,Variations fournisseurs et autres dettes,1
+SFBT,achatsconsommes,Achats consommés,1
+SFBT,achatsdapprovisionnementsconsommes,Achats d'approvisionnements consommés,1
+SFBT,achatsdemarchandisesconsommees,Achats de marchandises consommées,1
+SFBT,achatsdemarchandisesconsommes,Achats de marchandises consommés,1
+SFBT,actionspropres,Actions propres,1
+SFBT,ajustementsamortissementsubvention,Ajustements amortissement subvention,1
+SFBT,ajustementscassesbouteilles,Ajustements casses bouteilles,1
+SFBT,ajustementsencaissementdividendes,Ajustements Encaissement dividendes,1
+SFBT,ajustementsmoinsvaluesurcession,Ajustements Moins value sur cession,1
+SFBT,ajustementspluevaluesurcession,Ajustements Plue value sur cession,1
+SFBT,ajustementsplusvaluesurcession,Ajustements Plus value sur cession,1
+SFBT,ajustementspouramortissementsetprovisions,Ajustements pour amortissements et provisions,1
+SFBT,ajustementspourcassebouteilles,Ajustements pour casse bouteilles,1
+SFBT,ajustementspourencaissementdedividendes,Ajustements pour encaissement de dividendes,1
+SFBT,ajustementspourplusoumoinsvaluesurcession,Ajustements pour plus ou moins value sur cession,1
+SFBT,ajustementspourprovisionsdesimmobilisationsfinancieres,Ajustements pour provisions des immobilisations financières,1
+SFBT,ajustementspourreprisesurprovisions,Ajustements pour reprise sur provisions,1
+SFBT,ajustementsquotespartsdessubventions,Ajustements Quotes-parts des subventions,1
+SFBT,ajustementsquotespartsdessubventionsdinvestissentsdansleresultat,Ajustements Quotes-parts des subventions d’investissents dans le résultat,1
+SFBT,amortissementsdesimmobilisationscorporelles,Amortissements des immobilisations corporelles,1
+SFBT,amortissementsdesimmobilisationsincorporelles,Amortissements des immobilisations incorporelles,1
+SFBT,autresactifscourants,Autres actifs courants,1
+SFBT,autresactifscourantsapresprovisions,Autres actifs courants aprés provisions,1
+SFBT,autresactifsnoncourants,Autres actifs non courants,1
+SFBT,autrescapitauxpropres,Autres capitaux propres,1
+SFBT,autreschargesdexploitation,Autres charges d'exploitation,1
+SFBT,autreschargesexternes,Autres charges externes,1
+SFBT,autresgainsordinaires,Autres gains ordinaires,1
+SFBT,autrespassifscourants,Autres passifs courants,1
+SFBT,autrespassifsfinanciers,Autres passifs financiers,1
+SFBT,autresproduitsdexploitation,Autres produits d'exploitation,1
+SFBT,capitalsocial,Capital social,1
+SFBT,chargesfinancieresnettes,Charges financières nettes,1
+SFBT,clientsetcomptesrattaches,Clients et comptes rattachés,1
+SFBT,clientsetcomptesrattachesapresprovisions,Clients et comptes rattachés aprés provisions,1
+SFBT,comptespecialdinvestissement,Compte spécial d'investissement,1
+SFBT,concoursbancaires,Concours bancaires,1
+SFBT,concoursbancairesetautrespassifsfinanciers,Concours bancaires et autres passifs financiers,1
+SFBT,contributionauprofitdeletat,Contribution au profit de l’Etat,1
+SFBT,contributionsauprofitdeletat,Contributions au profit de l'Etat,1
+SFBT,contributionsocialedesolidarite,Contribution Sociale de Solidarité,1
+SFBT,contributionsocialedesolidariteloifin2018,Contribution sociale de solidarité (Loi. Fin. 2018),1
+SFBT,coutdachatdemarchandisesvendues,Coût d'achat de marchandises vendues,1
+SFBT,decaissementpoursouscriptiondesbilletsdetresorerie,Décaissement pour souscription des billets de trésorerie,1
+SFBT,decaissementpoursouscriptiondesbilletsdetresorie,Décaissement pour souscription des billets de trésorie,1
+SFBT,decaissementsaffectesalacquisitiondactionspropres,Décaissements affectés à l'acquisition d'actions propres,1
+SFBT,decaissementsaffectesalacquisitiondimmobcorpetincorp,Décaissements affectés à l'acquisition d'immob. corp et incorp,1
+SFBT,decaissementsaffectesalacquisitiondimmobilisationscorporellesetincorporelles,Décaissements affectés à l'acquisition d'immobilisations corporelles et incorporelles,1
+SFBT,decaissementsaffectesalacquisitiondimmocorpetincorp,Décaissements affectésà l'acquisition d'immo corp et incorp,1
+SFBT,decaissementspouracquisitiondetitresdeplacement,Decaissements pour acquisition de titres de placement,1
+SFBT,decaissementspourlacquisitiondestitresdeplacements,Décaissements pour l'acquisition des titres de placements,1
+SFBT,decaissementspourremboursementdesautresformesdeplacementmonetaire,Décaissements pour remboursement des autres formes de placement monétaire,1
+SFBT,decaissementspourremboursementdesempruntsbancaires,Décaissements pour remboursement des emprunts bancaires,1
+SFBT,decaissementspoursouscriptiondesbilletsdetresorerie,Décaissements pour souscription des billets de trésorerie,1
+SFBT,decaissementspoursouscriptiondesbilletsdetresorie,Decaissements pour souscription des billets de trésorie,1
+SFBT,decaissementsprovenantdelacquidimmobcorpetincorp,Décaissements provenant de l'acqui d'immob corp et incorp,1
+SFBT,decaissementsprovenantdelacquisitiondesimmobilisatfinanc,Décaissements provenant de l’acquisition des Immobilisat financ,1
+SFBT,decaissementsprovenantdelacquisitiondimmobcorpetincorp,Décaissements provenant de l'acquisition d'immob. corp et incorp,1
+SFBT,decaissementsprovenantdelacquisitiondimmobfin,Décaissements provenant de l'acquisition d'immob. Fin,1
+SFBT,decaissementsprovenantdelacquisitiondimmobilisationscorporellesetincorporelles,Décaissements provenant de l'acquisition d'immobilisations corporelles et incorporelles,1
+SFBT,decaissementsprovenantdelacquisitiondimmobilisationsfinancieres,Décaissements provenant de l'acquisition d'immobilisations financières,1
+SFBT,decaissementsprovenantduremboursementdesempruntsbancaires,Décaissements provenant du remboursement des emprunts bancaires,1
+SFBT,dotationsauxamortissementsetauxprovisions,Dotations aux amortissements et aux provisions,1
+SFBT,dotationsauxamortsetprovordinaires,Dotations aux Amorts et Prov.Ordinaires,1
+SFBT,elementsextraordinairescontributionconjoncturelle,Éléments extraordinaires (Contribution Conjoncturelle),1
+SFBT,elementsextraordinairescontributionsocialedesolidarite,Eléments extraordinaires (Contribution Sociale de Solidarité),1
+SFBT,emprunts,Emprunts,1
+SFBT,encaissementpourremboursementdesbilletsdetresorie,Encaissement pour remboursement des billets de trésorie,1
+SFBT,encaissementsaffectesalacessiondimmobilisationsfinancieres,Encaissements affectés à la cession d'immobilisations financières,1
+SFBT,encaissementsdempruntspourfinancementdesstocks,Encaissements d'emprunts pour financement des stocks,1
+SFBT,encaissementsdescessionsdestitresdeplacements,Encaissements des cessions des titres de placements,1
+SFBT,encaissementsdividendesactionspropres,Encaissements Dividendes actions propres,1
+SFBT,encaissementsissusdelafusionabsorptiondelacfdb,Encaissements issus de la fusion absorption de la CFDB,1
+SFBT,encaissementspourautresformesdeplacementmonetaire,Encaissements pour autres formes de placement monétaire,1
+SFBT,encaissementspourcessiondetitresdeplacement,Encaissements pour cession de titres de placement,1
+SFBT,encaissementspourrachatdesbilletsdetresorerie,Encaissements pour rachat des billets de trésorerie,1
+SFBT,encaissementspourrachatdesbilletsdetresorie,Encaissements pour rachat des billets de trésorie,1
+SFBT,encaissementsprovenantdautresemprunts,Encaissements provenant d'autres emprunts,1
+SFBT,encaissementsprovenantdelacessiondimmobcorporelles,Encaissements provenant de la cession d'immob. corporelles,1
+SFBT,encaissementsprovenantdelacessiondimmobilisationscorporelles,Encaissements provenant de la cession d'immobilisations corporelles,1
+SFBT,encaissementsprovenantdesautresformesdeplacementmonetaire,Encaissements provenant des autres formes de placement monétaire,1
+SFBT,encaissementsprovenantdesemprunts,Encaissements provenant des emprunts,1
+SFBT,encaissementsprovenantdesempruntsbancaires,Encaissements provenant des emprunts bancaires,1
+SFBT,encaissementsprovenantdesempruntspourfinancementdesstocks,Encaissements provenant des emprunts pour financement des stocks,1
+SFBT,excedentbrutdexploitation,Excédent brut d'exploitation,1
+SFBT,fluxdetresorerieaffectesaprovenantdelexploitation,Flux de trésorerie affectés à /provenant de l'exploitation,1
+SFBT,fluxdetresorerieaffectesauxactivitesdefinancement,Flux de trésorerie affectés aux activités de financement,1
+SFBT,fluxdetresorerieprovenantaffectesauxactivitesdinvestissement,Flux de trésorerie (provenant / affectés) aux activités d’investissement,1
+SFBT,fluxdetresorerieprovenantdeaffectesalexploitation,Flux de trésorerie provenant de (affectés à) l'exploitation,1
+SFBT,fluxdetresorerieprovenantdelexploitation,Flux de trésorerie provenant de l'exploitation,1
+SFBT,fluxdetresorerieprovenantdesactivitesdefinancement,Flux de trésorerie provenant des activités de financement,1
+SFBT,fluxdetresorerieprovenantdesactivitesdinvt,Flux de trésorerie provenant des activités d'invt,1
+SFBT,fluxdetresorerieprovenantdesaffectesauxactivitesdefinancement,Flux de trésorerie provenant des (affectés aux) activités de financement,1
+SFBT,fluxdetresorerieprovenantdesaffectesauxactivitesdefinancementincidencesdesvariationsdestauxdechangesurlesliquidites,Flux de trésorerie provenant des (affectés aux) activités de financement Incidences des variations des taux de change sur les liquidités,1
+SFBT,fluxdetresorerieprovenantdesaffectesauxactivitesdinvestissement,Flux de trésorerie provenant des (affectés aux) activités d'investissement,1
+SFBT,fluxdetresoreriesaffectesprovenantdelexploitation,Flux de trésoreries affectés/provenant de l'exploitation,1
+SFBT,fluxdetresoreriesprovenantdelexploitation,Flux de trésoreries provenant de l'exploitation,1
+SFBT,fournisseursetcomptesrattaches,Fournisseurs et comptes rattachés,1
+SFBT,immobilisationscorporelles,Immobilisations corporelles,1
+SFBT,immobilisationscorporellesapresamortissementsetprovisions,Immobilisations corporelles aprés amortissements et provisions,1
+SFBT,immobilisationsfinancieres,Immobilisations financières,1
+SFBT,immobilisationsfinancieresapresprovisions,Immobilisations financières aprés provisions,1
+SFBT,immobilisationsincorporellesapresamortissements,Immobilisations incorporelles aprés amortissements,1
+SFBT,impotsettaxes,Impôts et Taxes,1
+SFBT,impotssurlesrevenusdescapitauxmobiliers,Impôts sur les revenus des capitaux mobiliers,1
+SFBT,impotssurlessocietes,Impôts sur les sociétés,1
+SFBT,impotsurleresultatordinaire,Impôt sur le Résultat Ordinaire,1
+SFBT,impotsurlesrevenusdescapitauxmobiliers,Impôt sur les revenus des capitaux mobiliers,1
+SFBT,impotsurlessocietes,Impôt sur les sociétés,1
+SFBT,incidencedesvariationsdestauxdechangesurlesliquiditesetequivalentsdeliquidites,Incidence des variations des taux de change sur les liquidités et équivalents de liquidités,1
+SFBT,liquiditesetequivalentsdeliquidites,Liquidités et équivalents de liquidités,1
+SFBT,margecommerciale,Marge commerciale,1
+SFBT,margesurcoutmatieres,Marge sur coût matières,1
+SFBT,placementsetautresactifsfinanciers,Placements et autres actifs financiers,1
+SFBT,placementsetautresactifsfinanciersapresprovisions,Placements et autres actifs financiers aprés provisions,1
+SFBT,production,Production,1
+SFBT,produitsdesplacements,Produits des placements,1
+SFBT,produitsetchargesfinanciersnets,Produits et charges financiers nets,1
+SFBT,produitsfinanciers,Produits financiers,1
+SFBT,provisions,Provisions,1
+SFBT,provisionsdesautresactifscourants,Provisions des autres actifs courants,1
+SFBT,provisionsdesclientsetcomptesrattaches,Provisions des clients et comptes rattachés,1
+SFBT,provisionsdesimmobilisationsfinancieres,Provisions des immobilisations financières,1
+SFBT,provisionsdesplacementsetautresactifsfinanciers,Provisions des placements et autres actifs financiers,1
+SFBT,provisionsimmobilisationscorporelles,Provisions immobilisations corporelles,1
+SFBT,provisionssurstocks,Provisions sur stocks,1
+SFBT,remboursementdautresemprunts,Remboursement d'autres emprunts,1
+SFBT,remboursementdempruntsaupresdessocietesdugroupe,Remboursement d'emprunts auprés des sociétés du groupe,1
+SFBT,remboursementdempruntsbancaires,Remboursement d'emprunts bancaires,1
+SFBT,remboursementdempruntspourfinancementdesstocks,Remboursement d'emprunts pour financement des stocks,1
+SFBT,remboursementsdempruntspourfinancementdesstocks,Remboursements d'emprunts pour financement des stocks,1
+SFBT,reserves,Réserves,1
+SFBT,reserveslegales,Réserves légales,1
+SFBT,resultat2019avantaffectation,Résultat 2019 avant affectation,1
+SFBT,resultataffectedansuncomptedereservespecialedinvestissement,Résultat affecté dans un compte de réserve spéciale d’investissement,1
+SFBT,resultataffectedansuncomptedereservesspecialesdinvestissement,Résultat affecté dans un compte de réserves spéciales d'investissement,1
+SFBT,resultataffectedansuncomptederesespecildinvestissement,Résultat affecté dans un compte de rese. Spécil. d'investissement,1
+SFBT,resultataffectedansuncomptespecial,Résultat affecté dans un compte spécial,1
+SFBT,resultataffectedansuncomptespecialdinvestissement,Résultat affecté dans un compte spécial d'investissement,1
+SFBT,resultataffectedansuncomptespecialdinvestissements,Résultat affecté dans un compte spécial d'investissements,1
+SFBT,resultatavantimpotdelexercice,Résultat avant impôt de l'exercice,1
+SFBT,resultatdesactivitesordinaires,Résultat des activités ordinaires,1
+SFBT,resultatdesactivitesordinairesapresimpotetreinvest,Résultat des activités ordinaires après impôt et réinvest,1
+SFBT,resultatdesactivitesordinairesapresis,Résultat des activités ordinaires après IS,1
+SFBT,resultatdesactivitesordinairesavantimpot,Résultat des activités ordinaires avant impôt,1
+SFBT,resultatdesactivitesordinairesavantreinvestiset,Résultat des activités ordinaires avant réinvestis. et,1
+SFBT,resultatsreportes,Résultats reportés,1
+SFBT,revenus,Revenus,1
+SFBT,revenusetautresproduitsdexploitations,Revenus et autres produits d'exploitations,1
+SFBT,stocks,Stocks,1
+SFBT,stocksapresprovisions,Stocks aprés provisions,1
+SFBT,totaldesactifs,Total des actifs,1
+SFBT,totaldesactifscourants,Total des actifs courants,1
+SFBT,totaldesactifsnoncourants,Total des actifs non courants,1
+SFBT,totaldescapitauxpropresavantaffectation,Total des capitaux propres avant affectation,1
+SFBT,totaldescapitauxpropresavantresultatdelexercice,Total des capitaux propres avant résultat de l'exercice,1
+SFBT,totaldescapitauxpropresetdespassifs,Total des capitaux propres et des passifs,1
+SFBT,totaldeschargesdexploitation,Total des charges d'exploitation,1
+SFBT,totaldespassifs,Total des passifs,1
+SFBT,totaldespassifscourants,Total des passifs courants,1
+SFBT,totaldespassifsnoncourants,Total des passifs non courants,1
+SFBT,totaldesproduitsdexploitation,Total des produits d'exploitation,1
+SFBT,transfertdecharge,Transfert de charge,1
+SFBT,transfertdescharges,Transfert des Charges,1
+SFBT,tresoreriealacloturedelexercice,Trésorerie à la clôture de l'exercice,1
+SFBT,tresorerieaudebutdelexercice,Trésorerie au début de l'exercice,1
+SFBT,valeurajouteebrute,Valeur Ajoutée Brute,1
+SFBT,variationdesstocksdencoursetproduitsfinis,Variation des stocks d'en-cours et produits finis,1
+SFBT,variationdesstocksdesproduitsfinisetdesencours,Variation des stocks des produits finis et des encours,1
+SFBT,variationdesstocksdesproduitsfinisetdesencoursen,Variation des stocks des produits finis et des encours (en +,1
+SFBT,variationdetresorerie,Variation de trésorerie,1
+SFBT,variationetreajustementdesautresactifs,Variation et réajustement des Autres actifs,1
+SFBT,variationsfournisseursetautresdettes,Variations Fournisseurs et autres dettes,1
+SFBT,ventesdemarchandisesetautres,Ventes de marchandises et autres,1
+SFBT,versementrestantaeffectuersurtitresnonliberes,Versement restant à effectuer sur titres non libérés,1
