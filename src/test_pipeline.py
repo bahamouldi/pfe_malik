@@ -139,23 +139,35 @@ def test_ratios():
         x = r[(r.Societe == soc) & (r.Code_ratio == code) & (r.Date == date)]
         return x.Valeur.iloc[0] if len(x) and pd.notna(x.Valeur.iloc[0]) else np.nan
 
-    chk("43 ratios définis", r.Code_ratio.nunique() == 43, r.Code_ratio.nunique())
+    chk("46 ratios définis (référentiel Malik)", r.Code_ratio.nunique() == 46, r.Code_ratio.nunique())
     chk("Les 4 sociétés ont des ratios", r[r.Valeur.notna()].Societe.nunique() == 4)
 
-    # Valeurs SFBT 2024 vérifiées à la main (source connue)
+    # Valeurs SFBT 2024 — formules OFFICIELLES de Malik, vérifiées à la main
     chk("SFBT Liquidité générale ≈ 3,43", abs(v("SFBT", "LIQ_GEN", "2024-12-31") - 3.432) < 0.05)
     chk("SFBT Marge nette ≈ 30,1 %", abs(v("SFBT", "MARGE_NETTE", "2024-12-31") - 30.14) < 0.3)
-    chk("SFBT ROE ≈ 26,4 %", abs(v("SFBT", "ROE", "2024-12-31") - 26.43) < 0.4)
-    chk("SFBT Solvabilité ≈ 3,91", abs(v("SFBT", "SOLVA", "2024-12-31") - 3.91) < 0.05)
-    chk("SFBT Conan&Holder > 0,16 (sain)", v("SFBT", "CONAN_HOLDER", "2024-12-31") > 0.16)
+    chk("SFBT ROA = REX/Actif ≈ 15,8 %", abs(v("SFBT", "ROA", "2024-12-31") - 15.82) < 0.3)
+    chk("SFBT ROI = RN/Ress.stables ≈ 23,6 %", abs(v("SFBT", "ROI", "2024-12-31") - 23.56) < 0.4)
+    chk("SFBT Indép. fin = CP/Dettes ≈ 2,91", abs(v("SFBT", "INDEP_FIN", "2024-12-31") - 2.91) < 0.05)
+    chk("SFBT Autonomie = CP/Actif ≈ 74,4 %", abs(v("SFBT", "AUTO_FIN", "2024-12-31") - 74.43) < 0.5)
+    chk("SFBT Eff. brute RH = Rev/ChPers ≈ 18,0", abs(v("SFBT", "EFF_BRUT_RH", "2024-12-31") - 18.03) < 0.3)
+    chk("SFBT Conan&Holder (formule Malik) > 0,16", v("SFBT", "CONAN_HOLDER", "2024-12-31") > 0.16)
     # Benchmark vérifié vs chiffres publics
     chk("AB inBev Marge nette ≈ 12,4 %", abs(v("AB inBev", "MARGE_NETTE", "2024-12-31") - 12.41) < 0.3)
     chk("Coca-Cola Marge nette ≈ 22,6 %", abs(v("Coca-Cola", "MARGE_NETTE", "2024-12-31") - 22.63) < 0.3)
     chk("Coca-Cola ROE ≈ 40 %", abs(v("Coca-Cola", "ROE", "2024-12-31") - 40.38) < 1.0)
-    # Cohérence : pas de pourcentage absurde sur ratios bornés SFBT
     pcts = r[(r.Societe == "SFBT") & (r.Unite == "%") & (r.Code_ratio.isin(
-        ["MARGE_NETTE", "ROE", "ROA", "INDEP_FIN", "ENDET_GLOB"]))].Valeur.dropna()
+        ["MARGE_NETTE", "ROE", "ROA", "AUTO_FIN", "ENDET_GLOB"]))].Valeur.dropna()
     chk("SFBT : ratios % dans [-100, 150]", ((pcts > -100) & (pcts < 150)).all())
+
+    # SGPI
+    sg = pd.read_csv(C.PROCESSED_DIR / "sgpi.csv")
+    sf = sg[(sg.Societe == "SFBT") & (sg.Annee == 2024) & (sg.Periode == "FY")]
+    chk("SGPI SFBT 2024 calculé (couverture 100 %)",
+        len(sf) and sf["Couverture_%"].iloc[0] == 100, sf["Couverture_%"].iloc[0] if len(sf) else "absent")
+    chk("SGPI SFBT 2024 dans [0,100] et élevé (>70)",
+        len(sf) and 70 < sf.SGPI_sur_100.iloc[0] <= 100, sf.SGPI_sur_100.iloc[0] if len(sf) else "absent")
+    chk("SGPI : SFBT en tête du classement 2024",
+        sg[(sg.Annee == 2024) & (sg.Periode == "FY")].sort_values("SGPI_sur_100", ascending=False).Societe.iloc[0] == "SFBT")
 
 
 # =====================================================================
@@ -166,7 +178,8 @@ def test_warehouse():
     con = sqlite3.connect(DWB)
     # Comptages dimensions/faits
     for t, mini in [("Dim_Societe", 4), ("Dim_Temps", 50), ("Dim_Indicateur", 100),
-                    ("Dim_Ratio", 43), ("Fait_Etats_Financiers", 9000), ("Fait_Ratios", 3000)]:
+                    ("Dim_Ratio", 46), ("Fait_Etats_Financiers", 9000), ("Fait_Ratios", 3000),
+                    ("Fait_SGPI", 50)]:
         n = con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
         chk(f"{t} peuplée (≥{mini})", n >= mini, n)
     # Intégrité référentielle (aucun fait orphelin)

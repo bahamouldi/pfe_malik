@@ -75,9 +75,10 @@ CREATE TABLE Dim_Ratio (
     id_ratio       INTEGER PRIMARY KEY,
     code_ratio     TEXT NOT NULL UNIQUE,
     ratio          TEXT,
-    categorie      TEXT,    -- Solidité | Performance
+    categorie      TEXT,
     sous_categorie TEXT,
-    unite          TEXT     -- x | % | j | score | montant
+    unite          TEXT,    -- x | % | j | score | montant
+    benchmark      TEXT     -- fourchette cible industrielle
 );
 
 -- ====================== FAITS ======================
@@ -96,7 +97,16 @@ CREATE TABLE Fait_Ratios (
     id_societe INTEGER NOT NULL REFERENCES Dim_Societe(id_societe),
     id_temps   INTEGER NOT NULL REFERENCES Dim_Temps(id_temps),
     id_ratio   INTEGER NOT NULL REFERENCES Dim_Ratio(id_ratio),
-    valeur     REAL
+    valeur     REAL,
+    note_sur_5 REAL          -- note de scoring (NULL si non noté)
+);
+
+DROP TABLE IF EXISTS Fait_SGPI;
+CREATE TABLE Fait_SGPI (
+    id_societe   INTEGER NOT NULL REFERENCES Dim_Societe(id_societe),
+    id_temps     INTEGER NOT NULL REFERENCES Dim_Temps(id_temps),
+    sgpi_sur_100 REAL,
+    couverture   REAL
 );
 
 -- ====================== INDEX ======================
@@ -111,11 +121,19 @@ CREATE INDEX ix_faitr_ratio  ON Fait_Ratios(id_ratio);
 DROP VIEW IF EXISTS v_ratios;
 CREATE VIEW v_ratios AS
 SELECT s.societe, s.role, s.secteur, t.annee, t.periode, t.date,
-       r.categorie, r.sous_categorie, r.code_ratio, r.ratio, r.unite, f.valeur
+       r.categorie, r.sous_categorie, r.code_ratio, r.ratio, r.unite,
+       r.benchmark, f.valeur, f.note_sur_5
 FROM Fait_Ratios f
 JOIN Dim_Societe s ON s.id_societe = f.id_societe
 JOIN Dim_Temps   t ON t.id_temps   = f.id_temps
 JOIN Dim_Ratio   r ON r.id_ratio   = f.id_ratio;
+
+DROP VIEW IF EXISTS v_sgpi;
+CREATE VIEW v_sgpi AS
+SELECT s.societe, s.role, t.annee, t.periode, t.date, g.sgpi_sur_100, g.couverture
+FROM Fait_SGPI g
+JOIN Dim_Societe s ON s.id_societe = g.id_societe
+JOIN Dim_Temps   t ON t.id_temps   = g.id_temps;
 
 DROP VIEW IF EXISTS v_etats;
 CREATE VIEW v_etats AS
@@ -175,10 +193,11 @@ def construire():
     # --- Dim_Ratio ---
     dr = (ratios.groupby("Code_ratio")
                 .agg(ratio=("Ratio", "first"), categorie=("Categorie", "first"),
-                     sous_categorie=("Sous_categorie", "first"), unite=("Unite", "first"))
+                     sous_categorie=("Sous_categorie", "first"), unite=("Unite", "first"),
+                     benchmark=("Benchmark", "first"))
                 .reset_index().rename(columns={"Code_ratio": "code_ratio"}))
     dr["id_ratio"] = range(1, len(dr) + 1)
-    dr[["id_ratio", "code_ratio", "ratio", "categorie", "sous_categorie", "unite"]].to_sql(
+    dr[["id_ratio", "code_ratio", "ratio", "categorie", "sous_categorie", "unite", "benchmark"]].to_sql(
         "Dim_Ratio", con, if_exists="append", index=False)
 
     # --- Fait_Etats_Financiers ---
@@ -198,8 +217,20 @@ def construire():
     fr = fr.merge(dim_soc[["societe", "id_societe"]], left_on="Societe", right_on="societe")
     fr = fr.merge(dim_t[["date", "id_temps"]], on="date")
     fr = fr.merge(dr[["code_ratio", "id_ratio"]], left_on="Code_ratio", right_on="code_ratio")
-    fr[["id_societe", "id_temps", "id_ratio", "Valeur"]].rename(
-        columns={"Valeur": "valeur"}).to_sql("Fait_Ratios", con, if_exists="append", index=False)
+    fr[["id_societe", "id_temps", "id_ratio", "Valeur", "Note_sur_5"]].rename(
+        columns={"Valeur": "valeur", "Note_sur_5": "note_sur_5"}).to_sql(
+        "Fait_Ratios", con, if_exists="append", index=False)
+
+    # --- Fait_SGPI ---
+    sgpi_path = C.PROCESSED_DIR / "sgpi.csv"
+    if sgpi_path.exists():
+        sg = pd.read_csv(sgpi_path, parse_dates=["Date"]).dropna(subset=["SGPI_sur_100"])
+        sg["date"] = sg.Date.dt.strftime("%Y-%m-%d")
+        sg = sg.merge(dim_soc[["societe", "id_societe"]], left_on="Societe", right_on="societe")
+        sg = sg.merge(dim_t[["date", "id_temps"]], on="date")
+        sg[["id_societe", "id_temps", "SGPI_sur_100", "Couverture_%"]].rename(
+            columns={"SGPI_sur_100": "sgpi_sur_100", "Couverture_%": "couverture"}).to_sql(
+            "Fait_SGPI", con, if_exists="append", index=False)
 
     con.commit()
     DDL_PATH.write_text(DDL.strip() + "\n", encoding="utf-8")
@@ -208,7 +239,7 @@ def construire():
     cur = con.cursor()
     print("=== Data Warehouse (schéma étoile) construit ===")
     for t in ["Dim_Societe", "Dim_Temps", "Dim_Indicateur", "Dim_Ratio",
-              "Fait_Etats_Financiers", "Fait_Ratios"]:
+              "Fait_Etats_Financiers", "Fait_Ratios", "Fait_SGPI"]:
         n = cur.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
         print(f"  • {t:24s}: {n:6d} lignes")
     con.close()

@@ -34,9 +34,10 @@ CREATE TABLE Dim_Ratio (
     id_ratio       INTEGER PRIMARY KEY,
     code_ratio     TEXT NOT NULL UNIQUE,
     ratio          TEXT,
-    categorie      TEXT,    -- Solidité | Performance
+    categorie      TEXT,
     sous_categorie TEXT,
-    unite          TEXT     -- x | % | j | score | montant
+    unite          TEXT,    -- x | % | j | score | montant
+    benchmark      TEXT     -- fourchette cible industrielle
 );
 
 -- ====================== FAITS ======================
@@ -55,7 +56,16 @@ CREATE TABLE Fait_Ratios (
     id_societe INTEGER NOT NULL REFERENCES Dim_Societe(id_societe),
     id_temps   INTEGER NOT NULL REFERENCES Dim_Temps(id_temps),
     id_ratio   INTEGER NOT NULL REFERENCES Dim_Ratio(id_ratio),
-    valeur     REAL
+    valeur     REAL,
+    note_sur_5 REAL          -- note de scoring (NULL si non noté)
+);
+
+DROP TABLE IF EXISTS Fait_SGPI;
+CREATE TABLE Fait_SGPI (
+    id_societe   INTEGER NOT NULL REFERENCES Dim_Societe(id_societe),
+    id_temps     INTEGER NOT NULL REFERENCES Dim_Temps(id_temps),
+    sgpi_sur_100 REAL,
+    couverture   REAL
 );
 
 -- ====================== INDEX ======================
@@ -70,11 +80,19 @@ CREATE INDEX ix_faitr_ratio  ON Fait_Ratios(id_ratio);
 DROP VIEW IF EXISTS v_ratios;
 CREATE VIEW v_ratios AS
 SELECT s.societe, s.role, s.secteur, t.annee, t.periode, t.date,
-       r.categorie, r.sous_categorie, r.code_ratio, r.ratio, r.unite, f.valeur
+       r.categorie, r.sous_categorie, r.code_ratio, r.ratio, r.unite,
+       r.benchmark, f.valeur, f.note_sur_5
 FROM Fait_Ratios f
 JOIN Dim_Societe s ON s.id_societe = f.id_societe
 JOIN Dim_Temps   t ON t.id_temps   = f.id_temps
 JOIN Dim_Ratio   r ON r.id_ratio   = f.id_ratio;
+
+DROP VIEW IF EXISTS v_sgpi;
+CREATE VIEW v_sgpi AS
+SELECT s.societe, s.role, t.annee, t.periode, t.date, g.sgpi_sur_100, g.couverture
+FROM Fait_SGPI g
+JOIN Dim_Societe s ON s.id_societe = g.id_societe
+JOIN Dim_Temps   t ON t.id_temps   = g.id_temps;
 
 DROP VIEW IF EXISTS v_etats;
 CREATE VIEW v_etats AS

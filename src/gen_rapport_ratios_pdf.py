@@ -11,7 +11,7 @@ import pandas as pd
 import weasyprint
 
 import config as C
-from ratios import RATIOS, COUT_CAPITAL, TVA
+from ratios import RATIOS, BENCHMARKS
 from gen_catalogue_ratios import FORMULES
 
 ANNEE = 2024
@@ -39,7 +39,33 @@ def charger():
     sf = r[(r.Societe == "SFBT") & (r.Annee == ANNEE) & (r.Periode == "FY")] \
         .set_index("Code_ratio")["Valeur"].to_dict()
     bench = r[(r.Annee == ANNEE) & (r.Periode == "FY") & (r.Code_ratio.isin(RATIOS_BENCH))]
-    return sf, bench
+    sgpi = pd.read_csv(C.PROCESSED_DIR / "sgpi.csv")
+    sgpi = sgpi[(sgpi.Annee == ANNEE) & (sgpi.Periode == "FY")]
+    return sf, bench, sgpi
+
+
+def section_sgpi(sgpi):
+    cats = ["Liquidité", "Structure financière", "Gestion des actifs",
+            "Gestion des risques", "Rentabilité", "Productivité RH", "Cycle d'exploitation"]
+    sf = sgpi[sgpi.Societe == "SFBT"]
+    if sf.empty:
+        return ""
+    row = sf.iloc[0]
+    note_cells = "".join(
+        f"<tr><td class='nom'>{c}</td><td class='val'>"
+        f"{row[c]:.2f} / 5</td></tr>" for c in cats if c in row and pd.notna(row[c]))
+    classement = sgpi.dropna(subset=["SGPI_sur_100"]).sort_values("SGPI_sur_100", ascending=False)
+    rank = "".join(
+        f"<tr><td class='nom'>{r.Societe}</td><td class='val'>{r.SGPI_sur_100:.1f} / 100</td></tr>"
+        for r in classement.itertuples())
+    return f"""
+    <div class="sgpi-score">SGPI SFBT {ANNEE} : <b>{row['SGPI_sur_100']:.1f} / 100</b></div>
+    <table class='ratios' style='width:55%;display:inline-block;vertical-align:top'>
+      <thead><tr><th>Catégorie</th><th class='val'>Note</th></tr></thead>
+      <tbody>{note_cells}</tbody></table>
+    <table class='ratios' style='width:40%;display:inline-block;vertical-align:top;margin-left:3%'>
+      <thead><tr><th>Classement SGPI</th><th class='val'>Score</th></tr></thead>
+      <tbody>{rank}</tbody></table>"""
 
 
 def section_ratios(sf):
@@ -47,22 +73,24 @@ def section_ratios(sf):
     cur_cat = cur_sous = None
     html = []
     for code, (cat, sous, libelle, unite, fn, interp) in RATIOS.items():
-        if cat != cur_cat:
-            html.append(f"<h2>{cat}</h2>")
-            cur_cat = cat
-            cur_sous = None
-        if sous != cur_sous:
-            if cur_sous is not None:
+        if cat != cur_cat or sous != cur_sous:
+            if cur_sous is not None:                 # ferme le tableau en cours
                 html.append("</tbody></table>")
+            if cat != cur_cat:
+                html.append(f"<h2>{cat}</h2>")
+                cur_cat = cat
             html.append(f"<h3>{sous}</h3>")
             html.append("<table class='ratios'><thead><tr>"
                         "<th>Ratio</th><th>Formule</th><th class='val'>SFBT "
-                        f"{ANNEE}</th><th>Interprétation</th></tr></thead><tbody>")
+                        f"{ANNEE}</th><th class='val'>Benchmark</th>"
+                        "<th>Interprétation</th></tr></thead><tbody>")
             cur_sous = sous
         val = fmt(sf.get(code), unite)
+        bm = BENCHMARKS.get(code, "—")
         html.append(f"<tr><td class='nom'>{libelle}</td>"
                     f"<td class='form'>{FORMULES.get(code,'')}</td>"
                     f"<td class='val'>{val}</td>"
+                    f"<td class='val' style='color:#777;font-weight:normal'>{bm}</td>"
                     f"<td class='interp'>{interp}</td></tr>")
     html.append("</tbody></table>")
     return "\n".join(html)
@@ -109,7 +137,7 @@ def lecture_financiere(sf):
 
 
 def html_doc():
-    sf, bench = charger()
+    sf, bench, sgpi = charger()
     date = dt.date.today().strftime("%d/%m/%Y")
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8">
 <style>
@@ -136,6 +164,7 @@ td.interp {{ color:#555; font-size:8.2pt; }}
 ul.lecture li {{ margin-bottom:6px; }}
 .note {{ font-size:8pt; color:#777; }}
 .intro {{ background:#eaf2f8; border-radius:5px; padding:12px 16px; }}
+.sgpi-score {{ background:#1b4f72; color:#fff; font-size:15pt; text-align:center; padding:10px; border-radius:6px; margin:8px 0 14px; }}
 </style></head><body>
 
 <div class="cover">
@@ -150,28 +179,34 @@ ul.lecture li {{ margin-bottom:6px; }}
 <h1>1. Présentation et méthode</h1>
 <div class="intro">
 <p>Ce document présente les <b>{len(RATIOS)} ratios financiers</b> calculés pour
-diagnostiquer la santé de <b>SFBT</b>, structurés selon le référentiel
-<b>MSI20000®</b> (norme internationale de santé financière) en deux axes :
-la <b>Solidité financière</b> (l'entreprise est-elle robuste ?) et la
-<b>Performance financière</b> (gagne-t-elle de l'argent efficacement ?).</p>
+diagnostiquer la santé de <b>SFBT</b>, structurés selon le <b>référentiel
+industriel normalisé (MSI20000)</b> : gestion des liquidités, des actifs, des
+passifs, des ressources humaines, des risques, rentabilité et cycle d'exploitation.</p>
 <p>Les ratios sont calculés à partir des <b>états financiers réels</b> de SFBT
 (bilan, compte de résultat, soldes intermédiaires de gestion). Les valeurs
-affichées correspondent à l'exercice <b>{ANNEE}</b>. Un <b>benchmark</b> avec
-DELICE, AB InBev et Coca-Cola complète l'analyse (section 4).</p>
-<p class="note">Hypothèses paramétrables : coût du capital (création de valeur) =
-{COUT_CAPITAL:.0%} ; TVA (délais clients/fournisseurs) = {TVA:.0%}.</p>
+affichées correspondent à l'exercice <b>{ANNEE}</b>, comparées aux <b>benchmarks
+industriels</b>. Un <b>Score Global de Performance Industrielle (SGPI /100)</b>
+synthétise le diagnostic (section 3), et un <b>benchmark</b> avec DELICE, AB InBev
+et Coca-Cola complète l'analyse (section 5).</p>
 </div>
 
-<h1>2. Tableau des ratios (valeurs SFBT {ANNEE})</h1>
+<h1>2. Tableau des ratios (SFBT {ANNEE} vs benchmark)</h1>
 {section_ratios(sf)}
 
 <div style="page-break-before:always"></div>
-<h1>3. Lecture financière — ce que disent les chiffres</h1>
+<h1>3. Score Global de Performance Industrielle (SGPI)</h1>
+<p>Chaque ratio clé reçoit une note 0-5 selon les grilles du référentiel ; le SGPI
+est leur moyenne pondérée (Rentabilité 25 %, Structure financière 20 %, Liquidité
+15 %, Gestion des actifs 15 %, Cycle d'exploitation 10 %, Risques 10 %, RH 5 %).</p>
+{section_sgpi(sgpi)}
+
+<h1>4. Lecture financière — ce que disent les chiffres</h1>
 <div class="box">
 {lecture_financiere(sf)}
 </div>
 
-<h1>4. Benchmark sectoriel ({ANNEE})</h1>
+<div style="page-break-before:always"></div>
+<h1>5. Benchmark sectoriel ({ANNEE})</h1>
 <p>Comparaison des ratios clés entre SFBT et trois références du secteur des
 boissons.</p>
 {section_benchmark(bench)}
@@ -180,19 +215,16 @@ sont distordus car ses revenus proviennent de dividendes, pas de ventes. Les
 montants étant en devises différentes (TND vs USD), seuls les <b>ratios</b> (sans
 dimension) sont comparables, pas les montants absolus.</p>
 
-<h1>5. Notes méthodologiques</h1>
+<h1>6. Notes méthodologiques</h1>
 <ul>
-<li>Les formules ont été reconstituées d'après les définitions financières
-standard et la table des matières du référentiel MSI20000.</li>
-<li><b>Charges financières SFBT</b> : non disponibles en brut dans la source
-(estimées ≈ 0 car le résultat financier est positif — SFBT a d'importants
-produits de placement). Les ratios de couverture des charges financières sont
-donc peu significatifs pour SFBT.</li>
+<li>Formules conformes au <b>référentiel officiel</b> (MSI20000 / Référentiel
+Industriel Normalisé).</li>
+<li><b>Ratios par salarié</b> (VA/salarié, RN/salarié) : non calculés —
+l'effectif (nombre d'employés) n'est pas fourni dans les données.</li>
 <li><b>Données SFBT 2021 et 2022 (annuel)</b> : absentes du fichier source —
 ratios non calculables pour ces deux exercices (à compléter).</li>
-<li>Catégories conformes au sommaire MSI20000 : Liquidités, Gestion des actifs /
-passifs, Ressources humaines, Gestion des risques (dont Conan &amp; Holder),
-Rentabilité commerciale / économique / d'exploitation / opérationnelle / financière.</li>
+<li>Le SGPI est renormalisé lorsque certaines catégories ne sont pas disponibles
+(cas des benchmarks AB InBev / Coca-Cola, sans charges de personnel).</li>
 </ul>
 
 </body></html>"""

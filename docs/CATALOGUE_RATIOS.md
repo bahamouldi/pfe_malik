@@ -1,122 +1,172 @@
-# Catalogue des ratios financiers (MSI20000)
+# Catalogue des ratios financiers
 
-*Généré automatiquement depuis `src/ratios.py` — ne pas éditer à la main.*
+*Généré automatiquement depuis `src/ratios.py`.*
 
-> Les formules ont été reconstituées d'après les définitions financières standard et la table des matières MSI20000 (Malik n'ayant pas fourni les formules). À valider/ajuster avec lui si besoin.
-
-
-**Hypothèses paramétrables** : coût du capital (EVA) = 8% ; TVA (crédits clients/fournisseurs) = 19%.
+> Formules conformes au **référentiel officiel fourni par Malik** (MSI20000 / Référentiel Industriel Normalisé).
 
 
-**Total : 43 ratios.**
+**Total : 46 ratios** + Score Global de Performance Industrielle (SGPI /100).
 
 
-## Solidité
+## Gestion des liquidités
 
 
 ### Liquidités
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `LIQ_GEN` | Ratio de liquidité générale | Actif courant / Dettes courantes | ratio (fois) | >1 : l'actif courant couvre les dettes à court terme. |
-| `LIQ_RED` | Ratio de liquidité réduite | (Actif courant − Stocks) / Dettes courantes | ratio (fois) | Liquidité hors stocks (quick ratio). |
-| `LIQ_IMM` | Ratio de liquidité immédiate | Liquidités / Dettes courantes | ratio (fois) | Capacité à payer immédiatement avec les disponibilités. |
-| `INT_DEF_RED` | Intervalle défensif réduit | (Liquidités + Placements) / (Charges décaissables / 365) | jours | Nb de jours de charges couverts par les actifs très liquides. |
-| `INT_DEF` | Intervalle défensif | (Liquidités + Placements + Clients) / (Charges décaissables / 365) | jours | Jours de charges couverts par actifs liquides + créances. |
-| `RFR` | Ratio de fonds de roulement | (Capitaux permanents − Actif immobilisé) / Actif total × 100 | pourcentage | Fonds de roulement net en % de l'actif total. |
-| `RBFR` | Ratio de besoin en fonds de roulement | (Stocks + Clients − Fournisseurs) / CA × 100 | pourcentage | BFR en % du chiffre d'affaires. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `LIQ_GEN` | Ratio de liquidité générale | Actifs courants / Passifs courants | ratio (×) | 1,5 à 2,0 | Capacité à couvrir les dettes court terme. |
+| `LIQ_RED` | Ratio de liquidité réduite | (Actifs courants − Stocks) / Passifs courants | ratio (×) | 0,9 à 1,2 | Sans vendre les stocks. |
+| `LIQ_IMM` | Ratio de liquidité immédiate | Liquidités / Passifs courants | ratio (×) | 0,30 à 0,80 | Couverture immédiate des dettes exigibles. |
+| `INT_DEF_RED` | Intervalle défensif réduit | Liquidités / ((Charges d'exploitation − Dotations) / 365) | jours | — | Jours de charges couverts par les liquidités. |
+| `INT_DEF` | Intervalle défensif | (Liquidités + Clients nets) / ((Charges d'exploitation − Dotations) / 365) | jours | — | Jours couverts par liquidités + clients. |
+
+### Fonds de roulement
+
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `FR` | Fonds de roulement (FR) | Ressources stables − Actifs immobilisés | montant (devise société) | positif | Ressources stables − actifs immobilisés (doit être positif). |
+| `COUV_IMMO` | Couverture des immobilisations | Ressources stables / Actifs immobilisés | ratio (×) | 1,2 à 1,5 | Financement durable des investissements. |
+| `BFR` | Besoin en fonds de roulement (BFR) | Stocks nets + Clients nets − Fournisseurs | montant (devise société) | — | Stocks nets + clients nets − fournisseurs. |
+| `BFR_JOURS` | Ratio BFR (jours de CA) | BFR / (Revenus / 365) | jours | 30 à 60 j | Jours de CA immobilisés dans l'exploitation. |
+
+## Gestion des actifs
+
 
 ### Gestion des actifs
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `LEV_ECO` | Ratio du levier économique | Actif total / Capitaux propres | ratio (fois) | Actif total rapporté aux capitaux propres. |
-| `POIDS_IMMO` | Poids des immobilisations | Actif immobilisé / Actif total × 100 | pourcentage | Part de l'actif immobilisé dans l'actif total. |
-| `FIN_IMMO` | Financement des immobilisations | Capitaux permanents / Actif immobilisé | ratio (fois) | >1 : les ressources stables financent les immobilisations. |
-| `VETUSTE` | Vétusté de l'actif | Amortissements cumulés / Immobilisations brutes × 100 | pourcentage | Amortissements cumulés / immobilisations brutes (usure de l'outil). |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `LEV_ECO` | Ratio du levier économique | Total Actifs / Capitaux propres | ratio (×) | 2 à 3 | Financement des actifs par les capitaux propres. |
+| `POIDS_IMMO` | Poids des immobilisations | Actifs immobilisés / Total Actifs × 100 | pourcentage | 45 % à 65 % | Part des investissements durables. |
+| `VETUSTE` | Vétusté des immobilisations corporelles | Amortissements corporels / Immobilisations corporelles × 100 | pourcentage | 30 % à 60 % | Âge économique du parc industriel. |
 
-### Gestion des passifs
+## Gestion des passifs
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `ENDET_GLOB` | Ratio d'endettement global | Dettes totales / Total passif × 100 | pourcentage | Part des dettes dans le total du passif. |
-| `ENDET_TERME` | Ratio d'endettement à terme | Dettes non courantes / Capitaux propres × 100 | pourcentage | Dettes long terme / capitaux propres (gearing LT). |
-| `INDEP_FIN` | Ratio d'indépendance financière | Capitaux propres / Total passif × 100 | pourcentage | Part des capitaux propres dans le financement total. |
-| `COUV_CF` | Couverture des charges financières | Résultat d'exploitation / Charges financières | ratio (fois) | Résultat d'exploitation / charges financières (NaN si charges ~0). |
-| `POIDS_CF` | Poids des charges financières | Charges financières / CA × 100 | pourcentage | Charges financières en % du CA. |
-| `AUTO_FIN` | Ratio d'autonomie financière | Capitaux propres / Dettes totales | ratio (fois) | Capitaux propres / total des dettes. |
-| `SOLVA` | Ratio de solvabilité | Actif total / Dettes totales | ratio (fois) | Actif total / total des dettes (capacité de remboursement). |
 
-### Ressources humaines
+### Structure financière
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `EFF_BRUT_RH` | Efficacité brute des RH | Valeur ajoutée / Charges de personnel | ratio (fois) | Valeur ajoutée générée par dinar de charges de personnel. |
-| `EFF_NET_RH` | Efficacité nette des RH | EBE / Charges de personnel | ratio (fois) | EBE par dinar de charges de personnel. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `ENDET_GLOB` | Ratio d'endettement global | Total Dettes / Total Actifs × 100 | pourcentage | 40 % à 60 % | Part des actifs financés par la dette. |
+| `ENDET_TERME` | Ratio d'endettement à terme | Dettes long terme / Capitaux propres × 100 | pourcentage | — | Dettes long terme / capitaux propres. |
+| `INDEP_FIN` | Indépendance financière | Capitaux propres / Total Dettes | ratio (×) | — | Capitaux propres / total des dettes. |
+| `AUTO_FIN` | Autonomie financière | Capitaux propres / Total Actifs × 100 | pourcentage | 35 % à 50 % | Capacité de financement autonome. |
+| `SOLVA` | Solvabilité | Total Actifs / Total Dettes | ratio (×) | 1,5 à 2 | Capacité théorique à rembourser les dettes. |
+
+## Ressources humaines
+
+
+### Productivité RH
+
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `EFF_BRUT_RH` | Efficacité brute des RH | Revenus / Charges de personnel | ratio (×) | — | Revenus / charges de personnel. |
+| `EFF_NET_RH` | Efficacité nette des RH | Résultat net / Charges de personnel | ratio (×) | — | Résultat net / charges de personnel. |
+
+## Gestion des risques
+
 
 ### Gestion des risques
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `CONAN_HOLDER` | Score de Conan & Holder | 0,24·(EBE/Dettes) + 0,22·(Cap.perm/Actif) + 0,16·(Actif circ. hors stock/Actif) − 0,87·(Charges fin./CA) − 0,10·(Charges pers./VA) | score | Score de défaillance : >0,16 bon ; <0,04 risque élevé. |
-| `RISQ_PLACEMENT` | Risque de placement | Placements / Actif total × 100 | pourcentage | Part des placements financiers dans l'actif. |
-| `RISQ_COMMERCIAL` | Risque commercial | Clients / CA × 100 | pourcentage | Exposition clients rapportée au CA. |
-| `CREDIT_FOURN` | Crédits moyens fournisseurs | Fournisseurs / (Achats × 1.19) × 365 | jours | Délai moyen de paiement des fournisseurs (jours, TTC). |
-| `CREDIT_CLIENT` | Crédits moyens clients | Clients / (CA × 1.19) × 365 | jours | Délai moyen d'encaissement des clients (jours, TTC). |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `RISQ_PLACEMENT` | Risque de placement | Placements / Actifs courants × 100 | pourcentage | — | Placements / actifs courants. |
+| `RISQ_COMMERCIAL` | Risque commercial | Clients bruts / Revenus × 100 | pourcentage | — | Clients bruts / revenus. |
+| `CREDIT_CLIENT` | Crédit moyen clients | Clients bruts / (Revenus / 365) | jours | — | Clients bruts / (revenus / 365). |
+| `CREDIT_FOURN` | Crédit moyen fournisseurs | Fournisseurs / (Achats consommés / 365) | jours | — | Fournisseurs / (achats consommés / 365). |
+| `CONAN_HOLDER` | Score de Conan & Holder | 0,24·(AC−Stocks)/TA + 0,22·(RN/TA) + 0,16·(Rev/TA) − 0,87·(Ch.pers/TA) − 0,10·(Dettes LT/TA) | score | — | Score de défaillance (formule MSI : > 0,16 = sain). |
 
-## Performance
+## Rentabilité
 
 
 ### Rentabilité commerciale
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `RENT_COM` | Rentabilité commerciale | Résultat d'exploitation / CA × 100 | pourcentage | Résultat d'exploitation / CA. |
-| `MARGE_NETTE` | Ratio de la marge nette | Résultat net / CA × 100 | pourcentage | Résultat net / CA. |
-| `TAUX_MARQUE` | Taux de marque | Marge sur coût matières / Production × 100 | pourcentage | Marge sur coût matières / production. |
-| `ROT_CAP` | Rotation des capitaux échangés | CA / Capitaux propres | ratio (fois) | CA généré par dinar de capitaux propres. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `RENT_COM` | Rentabilité commerciale | Résultat d'exploitation / Revenus × 100 | pourcentage | — | Résultat d'exploitation / revenus. |
+| `MARGE_NETTE` | Marge nette | Résultat net / Revenus × 100 | pourcentage | — | Résultat net / revenus. |
+| `ROT_CAP` | Rotation des capitaux | Revenus / Total Actifs | ratio (×) | — | Revenus / total actifs. |
 
 ### Rentabilité économique
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `ROA` | Rendement de l'actif (ROA) | Résultat net / Actif total × 100 | pourcentage | Résultat net / actif total. |
-| `ROCE` | Rentabilité du capital investi (ROCE) | Résultat d'exploitation / Capitaux permanents × 100 | pourcentage | Résultat d'exploitation / capitaux permanents. |
-| `REND_IMMO` | Rendement brut des immobilisations | EBE / Actif immobilisé × 100 | pourcentage | EBE / actif immobilisé. |
-| `REND_RES_STABLE` | Rendement brut des ressources stables | EBE / Capitaux permanents × 100 | pourcentage | EBE / capitaux permanents. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `ROA` | Rendement de l'actif (ROA) | Résultat d'exploitation / Total Actifs × 100 | pourcentage | 5 % à 10 % | Résultat d'exploitation / total actifs. |
+| `ROCE` | Rentabilité du capital investi (ROCE) | Résultat d'exploitation / Ressources stables × 100 | pourcentage | 10 % à 15 % | Résultat d'exploitation / ressources stables. |
+| `REND_IMMO` | Rendement brut des immobilisations | EBE / Actifs immobilisés × 100 | pourcentage | — | EBE / actifs immobilisés. |
+| `REND_RES_STABLE` | Rendement brut des ressources stables | EBE / Ressources stables × 100 | pourcentage | — | EBE / ressources stables. |
 
 ### Rentabilité d'exploitation
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `MARGE_BRUTE_EXPL` | Marge brute d'exploitation | EBE / CA × 100 | pourcentage | EBE / CA. |
-| `MARGE_BENEF_EXPL` | Marge bénéficiaire d'exploitation | Résultat d'exploitation / CA × 100 | pourcentage | Résultat d'exploitation / CA. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `MARGE_BRUTE_EXPL` | Marge brute d'exploitation | EBE / Revenus × 100 | pourcentage | — | EBE / revenus. |
+| `MARGE_BENEF_EXPL` | Marge bénéficiaire d'exploitation | Résultat d'exploitation / Revenus × 100 | pourcentage | — | Résultat d'exploitation / revenus. |
 
 ### Rentabilité opérationnelle
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `REND_GLOBAL_NET` | Rendement global net | Résultat net / Total ressources × 100 | pourcentage | Résultat net / total des ressources. |
-| `CREATION_VALEUR` | Création de valeur annuelle | Résultat d'exploitation − 8% × Capitaux permanents | montant (devise société) | EVA = Rés. exploitation − CMPC×capitaux permanents (CMPC=8%). |
-| `REND_PRODUCTION` | Rendement de la production | Résultat d'exploitation / Production × 100 | pourcentage | Résultat d'exploitation / production. |
-| `ROT_STOCKS` | Ratio de rotation des stocks | Achats consommés / Stocks | ratio (fois) | Nb de rotations des stocks dans l'année. |
-| `PROFIT_OP` | Profit opérationnel | Résultat d'exploitation (montant) | montant (devise société) | Résultat d'exploitation (montant). |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `REND_PRODUCTION` | Rendement de la production | Résultat d'exploitation / Production × 100 | pourcentage | — | Résultat d'exploitation / production. |
+| `ROT_STOCKS` | Rotation des stocks | Achats consommés / Stocks | ratio (×) | — | Achats consommés / stocks. |
+| `PROFIT_OP` | Profit opérationnel | Résultat d'exploitation | montant (devise société) | — | Résultat d'exploitation (montant). |
+| `CREATION_VALEUR` | Création de valeur annuelle | Valeur Ajoutée | montant (devise société) | — | Valeur ajoutée. |
 
 ### Rentabilité financière
 
-| Code | Ratio | Formule | Unité | Interprétation |
-|---|---|---|---|---|
-| `ROE` | Rentabilité des capitaux propres (ROE) | Résultat net / Capitaux propres × 100 | pourcentage | Résultat net / capitaux propres. |
-| `ROI` | Retour sur investissement (ROI) | Résultat net / Actif total × 100 | pourcentage | Résultat net / actif total. |
-| `PERF_PLACEMENT` | Performance placement | Produits des placements / Placements × 100 | pourcentage | Produits des placements / placements. |
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `ROE` | Rentabilité des capitaux propres (ROE) | Résultat net / Capitaux propres × 100 | pourcentage | 10 % à 15 % | Résultat net / capitaux propres. |
+| `PERF_PLACEMENT` | Performance des placements | Produits des placements / Placements × 100 | pourcentage | — | Produits des placements / placements. |
+| `ROI` | Retour sur investissement (ROI) | Résultat net / Ressources stables × 100 | pourcentage | — | Résultat net / ressources stables. |
+
+## Cycle d'exploitation
+
+
+### Cycle d'exploitation
+
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `DSO` | Délai moyen de recouvrement clients (DSO) | Clients / (Revenus / 365) | jours | 30 à 60 j | Clients / (CA / 365). |
+| `DPO` | Délai moyen de paiement fournisseurs (DPO) | Fournisseurs / (Achats consommés / 365) | jours | 45 à 75 j | Fournisseurs / (achats / 365). |
+| `DIO` | Durée moyenne de stockage (DIO) | Stocks / (Achats consommés / 365) | jours | 45 à 90 j | Stocks / (achats / 365). |
+
+## Indicateurs complémentaires
+
+
+### Complémentaires
+
+| Code | Ratio | Formule | Unité | Benchmark | Interprétation |
+|---|---|---|---|---|---|
+| `TRESO_NETTE` | Trésorerie nette | Liquidités − Concours bancaires | montant (devise société) | — | Liquidités − concours bancaires. |
+| `TAUX_VA` | Taux de valeur ajoutée | Valeur Ajoutée / Revenus × 100 | pourcentage | — | Valeur ajoutée / revenus. |
+| `PART_PERSO_VA` | Part du personnel dans la VA | Charges de personnel / Valeur Ajoutée × 100 | pourcentage | — | Charges de personnel / valeur ajoutée. |
+
+## Score Global de Performance Industrielle (SGPI /100)
+
+Chaque ratio clé reçoit une **note 0-5** selon des grilles de benchmark. Le SGPI est la moyenne pondérée des catégories :
+
+| Catégorie | Poids | Ratios notés |
+|---|---|---|
+| Liquidité | 15% | LIQ_GEN, LIQ_RED, LIQ_IMM, FR |
+| Structure financière | 20% | COUV_IMMO, ENDET_GLOB, AUTO_FIN, SOLVA |
+| Gestion des actifs | 15% | LEV_ECO, POIDS_IMMO, VETUSTE |
+| Gestion des risques | 10% | CONAN_HOLDER |
+| Rentabilité | 25% | ROA, ROCE, ROE |
+| Productivité RH | 5% | EFF_NET_RH |
+| Cycle d'exploitation | 10% | BFR_JOURS, DSO, DPO, DIO |
+
+> Note catégorie = moyenne des notes /5 ; SGPI = Σ (note/5 × poids) × 100. Si une catégorie manque (benchmark incomplet), les poids sont renormalisés.
+
 
 ## Disponibilité par société
 
-- **SFBT** : tous les ratios (états complets + SIG).
-- **DELICE** : pas de SIG ni de stocks (holding) → ratios EBE/VA et stocks indisponibles. ⚠️ Marge nette > 100 % : normal, c'est une holding dont le résultat vient des dividendes, pas du CA opérationnel — à interpréter avec prudence dans le benchmark.
-- **AB inBev / Coca-Cola** : ratios de structure et de rentabilité disponibles ; ratios nécessitant la VA ou les charges de personnel (efficacité RH, Conan & Holder) indisponibles (postes absents des sources).
+- **SFBT** : tous les ratios + SGPI complet (couverture 100 %).
+- **DELICE** : holding (pas de SIG/stocks) → certains ratios indisponibles ; marge distordue (revenus = dividendes).
+- **AB inBev / Coca-Cola** : ratios de structure et rentabilité disponibles ; RH (charges de personnel) absentes → efficacité RH et part personnel indisponibles.
 
 ## Limites connues
 
-- **Charges financières** : la source ne donne pas le montant brut pour SFBT ; estimé par la part « charge » du résultat financier net (≈0 car SFBT a un résultat financier positif). Les ratios COUV_CF / POIDS_CF sont donc peu significatifs pour SFBT.
-- **Création de valeur (EVA)** : dépend d'un coût du capital supposé (paramètre).
+- **Ratios par salarié** (VA/salarié, RN/salarié) : non calculés — l'effectif (nombre d'employés) n'est pas fourni dans les données.
+- **SFBT 2021 et 2022 (annuel)** : données absentes de la source → ratios non calculables ces années.
