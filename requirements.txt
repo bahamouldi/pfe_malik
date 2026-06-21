@@ -1,4 +1,15 @@
+# === Dépendances CŒUR (pipeline complet : run_all.py + test_pipeline.py) ===
+# S'installent sans souci sur Windows, macOS et Linux :
+#     pip install -r requirements.txt
 pandas>=2.0
-openpyxl>=3.1
-pyarrow>=12.0
-tabulate>=0.9
+numpy>=1.24
+openpyxl>=3.1          # lecture des fichiers Excel sources
+pyarrow>=12.0          # export Parquet
+tabulate>=0.9          # tableaux du rapport qualité
+scikit-learn>=1.3      # modèles de Machine Learning (LinReg, Random Forest)
+
+# === Dépendance OPTIONNELLE (génération du PDF des ratios uniquement) ===
+# weasyprint est difficile à installer sur Windows (nécessite GTK/Pango).
+# INUTILE de l'installer : le PDF est déjà fourni dans docs/Rapport_Ratios_SFBT.pdf.
+# Ne l'installer que si tu veux RÉGÉNÉRER le PDF (plutôt sous Linux/macOS) :
+# weasyprint>=60
