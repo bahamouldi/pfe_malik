@@ -5,3 +5,6 @@ forticlient_vpn*.deb
 
 # Config locale Claude
 .claude/
+
+# Doc de présentation privée (ne pas publier)
+docs/PRESENTATION_TRAVAIL.md
