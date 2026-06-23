@@ -1,55 +1,89 @@
+%% Resume.tex — Résumé / Abstract
 \chapter*{Résumé}
-\thispagestyle{empty}
-\addcontentsline{toc}{chapter}{Résumé / Abstract}
+\addcontentsline{toc}{chapter}{Résumé}
 
-\noindent\textbf{Résumé}
+\par Dans un environnement économique de plus en plus orienté vers la donnée, la
+capacité d'une entreprise à analyser sa performance financière, à se comparer à
+ses concurrents et à anticiper ses résultats constitue un avantage stratégique
+déterminant. Les états financiers, riches en information, restent toutefois
+difficiles à exploiter sous leur forme brute : volumineux, hétérogènes d'une
+année à l'autre et peu propices à l'analyse comparative ou prédictive.
 
-\medskip
-Ce projet de fin d'études porte sur la conception et la réalisation d'une
-plateforme décisionnelle d'analyse financière pour la \textbf{Société
-Frigorifique et Brasserie de Tunis (SFBT)}. À partir des états financiers de la
-société sur la période 2005--2025, une chaîne de traitement automatisée a été
-développée en \textit{Python} : nettoyage et unification de quatre sources
-hétérogènes (SFBT et trois sociétés de \textit{benchmark} : DELICE, AB~InBev et
-Coca-Cola), augmentation des données par génération des clôtures trimestrielles
-manquantes, puis calcul de \textbf{46 ratios financiers} conformes à un
-référentiel industriel normalisé, agrégés en un \textbf{Score Global de
-Performance Industrielle (SGPI/100)}. Les données sont organisées dans un
-\textbf{entrepôt de données} en schéma en étoile interrogeable en SQL et
-destiné à alimenter des tableaux de bord \textit{Power BI}. Enfin, un module de
-\textbf{prévision} compare deux modèles d'apprentissage automatique (régression
-linéaire et forêt aléatoire) pour estimer les valeurs financières futures. La
-solution, entièrement testée (70 tests automatiques) et documentée, fournit un
-diagnostic chiffré et comparatif de la performance financière de la SFBT.
+\par Ce projet de fin d'études, mené dans le cadre du Master professionnel en
+\textbf{Business Analytics} d'\textbf{Esprit School of Business}, propose la
+conception et la réalisation d'une plateforme décisionnelle d'analyse financière
+pour la \textbf{Société Frigorifique et Brasserie de Tunis (SFBT)}. À partir des
+états financiers de la société sur la période \textbf{2005--2025}, une chaîne de
+traitement automatisée a été développée en \textit{Python}~: nettoyage et
+unification de \textbf{quatre sources hétérogènes} (la SFBT et trois sociétés de
+\textit{benchmark}~: DELICE, AB~InBev et Coca-Cola), fiabilisation des données
+(correction des doublons et des colonnes comparatives erronées), puis
+\textbf{augmentation} par génération des clôtures trimestrielles manquantes selon
+une méthode distinguant les grandeurs de stock et de flux. Le cœur analytique
+calcule \textbf{46 ratios financiers} conformes à un référentiel industriel
+normalisé, assortis de fourchettes de référence et d'une grille de notation,
+agrégés en un \textbf{Score Global de Performance Industrielle (SGPI)} sur 100.
+Les données sont organisées dans un \textbf{entrepôt de données} en schéma en
+étoile, interrogeable en SQL et destiné à alimenter des tableaux de bord
+\textit{Power BI}. Enfin, un module de \textbf{prévision} compare deux modèles
+d'apprentissage automatique (régression linéaire et forêt aléatoire) pour estimer
+les valeurs financières futures.
 
-\medskip
-\noindent\textbf{Mots-clés :} Business Intelligence, entrepôt de données, schéma
+\par La solution, entièrement \textbf{testée} (70 tests automatiques, tous
+satisfaits) et \textbf{documentée}, place la SFBT en tête de son secteur avec un
+score de \textbf{83,5/100}, et atteint une précision de prévision de 85 à 96~\%.
+Elle fournit ainsi un diagnostic financier chiffré, comparatif et prédictif de
+la SFBT, et constitue une base reproductible et extensible pour le pilotage de
+la performance.
+
+\vspace{0.8cm}
+{\large \textbf{Mots-clés :}} Business Intelligence, entrepôt de données, schéma
 en étoile, ratios financiers, MSI20000, \textit{benchmark}, apprentissage
 automatique, prévision, SFBT, Python, Power BI.
 
-\vspace{1.2cm}
-\noindent\textbf{Abstract}
+\newpage
 
-\medskip
-This graduation project deals with the design and implementation of a financial
-analysis decision-support platform for the \textbf{Société Frigorifique et
-Brasserie de Tunis (SFBT)}. Based on the company's financial statements over
-2005--2025, an automated \textit{Python} pipeline was developed: cleaning and
-unification of four heterogeneous sources (SFBT and three benchmark companies:
-DELICE, AB~InBev and Coca-Cola), data augmentation through the generation of the
-missing quarterly closings, then computation of \textbf{46 financial ratios}
-compliant with a normalized industrial framework, aggregated into a
-\textbf{Global Industrial Performance Score (out of 100)}. The data is organized
-in a \textbf{star-schema data warehouse}, queryable in SQL and designed to feed
-\textit{Power BI} dashboards. Finally, a \textbf{forecasting} module compares two
-machine-learning models (linear regression and random forest) to estimate future
-financial values. The solution, fully tested (70 automated tests) and
-documented, provides a quantified and comparative diagnosis of SFBT's financial
-performance.
+%% ── Abstract en anglais ────────────────────────────────────────────────────
+\selectlanguage{english}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 
-\medskip
-\noindent\textbf{Key words:} Business Intelligence, data warehouse, star schema,
+\par In an increasingly data-driven economic environment, a company's ability to
+analyze its financial performance, benchmark itself against competitors and
+anticipate its results is a decisive strategic advantage. Financial statements,
+although rich in information, remain difficult to exploit in their raw form:
+voluminous, heterogeneous from one year to the next, and ill-suited to
+comparative or predictive analysis.
+
+\par This end-of-study project, carried out within the professional Master's in
+\textbf{Business Analytics} at \textbf{Esprit School of Business}, presents the
+design and implementation of a financial-analysis decision-support platform for
+the \textbf{Société Frigorifique et Brasserie de Tunis (SFBT)}. Based on the
+company's financial statements over \textbf{2005--2025}, an automated
+\textit{Python} pipeline was developed: cleaning and unification of \textbf{four
+heterogeneous sources} (SFBT and three benchmark companies: DELICE, AB~InBev and
+Coca-Cola), data reliability fixes (duplicate removal and correction of erroneous
+comparative columns), then \textbf{data augmentation} through the generation of
+the missing quarterly closings, using a method that distinguishes stock from flow
+quantities. The analytical core computes \textbf{46 financial ratios} compliant
+with a normalized industrial framework, together with reference ranges and a
+scoring grid, aggregated into a \textbf{Global Industrial Performance Score} out
+of 100. The data is organized in a \textbf{star-schema data warehouse}, queryable
+in SQL and designed to feed \textit{Power BI} dashboards. Finally, a
+\textbf{forecasting} module compares two machine-learning models (linear
+regression and random forest) to estimate future financial values.
+
+\par The solution, fully \textbf{tested} (70 automated tests, all passing) and
+\textbf{documented}, ranks SFBT first in its sector with a score of
+\textbf{83.5/100}, and reaches a forecasting accuracy of 85 to 96\%. It thus
+delivers a quantified, comparative and predictive diagnosis of SFBT's financial
+performance, providing a reproducible and extensible foundation for performance
+management.
+
+\vspace{0.8cm}
+{\large \textbf{Keywords:}} Business Intelligence, data warehouse, star schema,
 financial ratios, MSI20000, benchmark, machine learning, forecasting, SFBT,
 Python, Power BI.
 
+\selectlanguage{french}
 \newpage
