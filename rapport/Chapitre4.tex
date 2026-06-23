@@ -51,6 +51,16 @@ Coca-Cola & benchmark & 2015--2025 & USD & annuel \\ \hline
 
 \figplaceholder{Extrait du jeu de données unifié (\texttt{financials\_unified.csv}).}{fig:dataset}
 
+\par L'historique ainsi reconstitué permet de visualiser les tendances de long
+terme. La figure~\ref{fig:caevol} illustre la croissance régulière du chiffre
+d'affaires de la \sfbt sur vingt ans.
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.82\linewidth]{figures/ca_evolution.png}
+  \caption[Évolution du CA de la SFBT]{Évolution du chiffre d'affaires de la SFBT (2005--2024).}
+  \label{fig:caevol}
+\end{figure}
+
 \par La qualité des données a été contrôlée. Le \textbf{contrôle d'équilibre du
 bilan} de la \sfbt (Actif = Passif) est vérifié à 0,00~\% sur la grande majorité
 des dates, validant la classification automatique des états. Les anomalies
@@ -79,6 +89,12 @@ S1 & 30/06/2024 & 367,1 & réel \\ \hline
 FY & 31/12/2024 & 836,6 & réel \\ \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.72\linewidth]{figures/augmentation.png}
+  \caption[Illustration de l'augmentation]{Augmentation du CA 2024 : valeurs réelles (juin, décembre) et estimées (mars, septembre).}
+  \label{fig:augfig}
+\end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Calcul des ratios et du score de performance}
@@ -134,6 +150,16 @@ liquidité, rentabilité, gestion des risques et productivité, le seul point fa
 \label{fig:sgpi}
 \end{figure}
 
+\par Le détail par catégorie (figure~\ref{fig:radar}) confirme l'excellence de
+la \sfbt en liquidité, rentabilité, gestion des risques et productivité, et
+localise son unique faiblesse sur le cycle d'exploitation.
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.62\linewidth]{figures/sgpi_radar.png}
+  \caption[Profil SGPI de la SFBT]{Notes du SGPI par catégorie pour la SFBT (2024).}
+  \label{fig:radar}
+\end{figure}
+
 \subsection{Analyse comparative (benchmark)}
 \par Le tableau~\ref{tab:bench} compare les ratios clés des quatre sociétés. La
 \sfbt se distingue par une liquidité et une autonomie financière nettement
@@ -155,6 +181,12 @@ Liquidité générale ($\times$) & 3,43 & --- & 0,70 & 1,03 \\ \hline
 Endettement global (\%) & 25,6 & 0,4 & 57,1 & 73,8 \\ \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.8\linewidth]{figures/benchmark_bar.png}
+  \caption[Benchmark de rentabilité]{Comparaison de la rentabilité (marge nette, ROE, ROA) en 2024.}
+  \label{fig:benchfig}
+\end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Réalisation de l'entrepôt de données}
@@ -191,6 +223,12 @@ Résultat net & Régression linéaire & 7,9~\% & 0,96 \\ \hline
 \end{tabular}
 \end{table}
 
+\begin{figure}[H]\centering
+  \includegraphics[width=\linewidth]{figures/ml_comparison.png}
+  \caption[Comparaison des modèles ML]{Comparaison des deux modèles ($R^2$ et MAPE) par indicateur.}
+  \label{fig:mlcomp}
+\end{figure}
+
 \par Ce résultat est cohérent : la régularité de la croissance de la \sfbt
 favorise le modèle linéaire, qui surpasse ici le modèle ensembliste. Un point
 méthodologique a été déterminant : modéliser le \textbf{taux de croissance}
@@ -198,7 +236,11 @@ plutôt que la valeur brute, ce qui évite l'incapacité des forêts aléatoires
 extrapoler une tendance. La figure~\ref{fig:prevision} confronte les valeurs
 réelles aux prévisions.
 
-\figplaceholder{Prévision du chiffre d'affaires : réel vs prédit.}{fig:prevision}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.85\linewidth]{figures/ml_backtest.png}
+  \caption[Prévision : réel vs prédit]{Prévision du chiffre d'affaires : valeurs réelles vs prédites (jeu de test).}
+  \label{fig:prevision}
+\end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Tests et validation}
