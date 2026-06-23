@@ -1,0 +1,145 @@
+%% =============================================================================
+%%  main.tex — Rapport de Projet de Fin d'Études / Stage
+%%  Esprit School of Business — Master professionnel en Business Analytics
+%%  Année universitaire 2025-2026
+%%
+%%  Sujet : Conception d'une plateforme décisionnelle d'analyse financière
+%%          et de prévision des performances de la SFBT
+%%
+%%  Compilation : pdflatex main → bibtex main → pdflatex main → pdflatex main
+%% =============================================================================
+\documentclass[a4paper,12pt,final]{report}
+
+%% ─── Encodage et langue ─────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+%% ─── Maths ──────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsfonts}
+
+%% ─── Tableaux et listes ─────────────────────────────────────────────────────
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{makecell}
+
+%% ─── Graphiques, couleurs, diagrammes ───────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+%% ─── Mise en page ───────────────────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\usepackage{indentfirst}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{titlesec}
+
+%% ─── Couleurs de la charte ──────────────────────────────────────────────────
+\definecolor{espritred}{RGB}{197,30,58}
+\definecolor{darkblue}{RGB}{27,79,114}
+\definecolor{midblue}{RGB}{40,116,166}
+\definecolor{lightblue}{RGB}{214,234,248}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+\definecolor{codegreen}{rgb}{0,0.5,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+%% ─── Titres de chapitres stylés ─────────────────────────────────────────────
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{darkblue}}
+  {\filright\Large\color{midblue}Chapitre~\thechapter}{1ex}{\titlerule\vspace{1ex}}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+%% ─── En-têtes / pieds ───────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\footnotesize\leftmark}}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% ─── Hyperliens, biblio ─────────────────────────────────────────────────────
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+
+%% ─── Listings de code ───────────────────────────────────────────────────────
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{midblue}\bfseries,
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true, captionpos=b, numbers=left, numbersep=6pt,
+  showstringspaces=false, frame=single, rulecolor=\color{lightblue},
+  tabsize=2, extendedchars=true,
+  literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 {ç}{{\c c}}1 {ê}{{\^e}}1
+           {â}{{\^a}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1 {ù}{{\`u}}1
+           {É}{{\'E}}1 {È}{{\`E}}1,
+}
+\lstset{style=mystyle}
+
+%% ─── Commandes pratiques ────────────────────────────────────────────────────
+\usepackage{xspace}
+\newcommand{\sfbt}{\textsc{SFBT}\xspace}
+
+\begin{document}
+
+%% ── Page de couverture ─────────────────────────────────────────────────────
+\input{pageGarde}
+\thispagestyle{empty}
+\newpage
+
+%% ── Pages préliminaires ────────────────────────────────────────────────────
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{Dedicace}
+\input{Remerciements}
+\input{Resume}
+
+\tableofcontents
+\thispagestyle{empty}
+\listoffigures
+\listoftables
+\thispagestyle{empty}
+\newpage
+
+\input{Acronymes}
+
+%% ── Corps du rapport ───────────────────────────────────────────────────────
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{IntroGenerale}
+
+\input{Chapitre1}
+\input{Chapitre2}
+\input{Chapitre3}
+\input{Chapitre4}
+
+\input{ConclusionGenerale}
+
+%% ── Bibliographie ──────────────────────────────────────────────────────────
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+%% ── Annexes ────────────────────────────────────────────────────────────────
+\input{Annexes}
+
+\end{document}

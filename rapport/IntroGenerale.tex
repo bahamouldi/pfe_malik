@@ -1,0 +1,51 @@
+\chapter*{Introduction générale}
+\addcontentsline{toc}{chapter}{Introduction générale}
+\markboth{Introduction générale}{}
+
+Dans un environnement économique de plus en plus orienté vers la donnée, la
+capacité d'une entreprise à analyser sa performance financière, à se situer par
+rapport à ses concurrents et à anticiper ses résultats constitue un avantage
+stratégique déterminant. Les états financiers, riches en information, restent
+toutefois difficiles à exploiter sous leur forme brute : volumineux, hétérogènes
+d'une année à l'autre, et dispersés dans des fichiers comptables peu propices à
+l'analyse comparative ou prédictive.
+
+\medskip
+C'est dans ce contexte que s'inscrit le présent projet de fin d'études, réalisé
+au sein de la formation \textit{Business Analytics} d'Esprit School of Business.
+Il a pour objet la conception d'une \textbf{plateforme décisionnelle} dédiée à
+l'analyse financière de la \textbf{Société Frigorifique et Brasserie de Tunis
+(\sfbt)}, leader tunisien du secteur des boissons. L'objectif est de transformer
+les états financiers de la société en un système d'aide à la décision complet,
+couvrant la chaîne décisionnelle de bout en bout : de la collecte des données
+jusqu'à la restitution visuelle et la prévision.
+
+\medskip
+La problématique traitée peut se résumer ainsi : \textit{comment exploiter des
+états financiers hétérogènes pour produire un diagnostic financier fiable,
+comparatif et prédictif de la \sfbt ?} Y répondre suppose de relever plusieurs
+défis : fiabiliser des données comptables irrégulières, calculer un ensemble
+cohérent de ratios financiers normalisés, comparer la \sfbt à des références
+sectorielles malgré l'hétérogénéité des sources, densifier l'historique pour
+permettre la modélisation, et enfin prévoir les valeurs futures.
+
+\medskip
+Pour y parvenir, la solution développée articule quatre composantes : (i) une
+chaîne de traitement (\ac{ETL}) en Python assurant le nettoyage et l'unification
+des données ; (ii) un moteur de calcul de \textbf{46 ratios financiers} aboutissant
+à un \textbf{score global de performance} ; (iii) un \textbf{entrepôt de données}
+en schéma en étoile destiné aux tableaux de bord ; et (iv) un module de
+\textbf{prévision} par apprentissage automatique.
+
+\medskip
+Ce rapport est organisé en quatre chapitres. Le \textbf{premier chapitre} présente
+le cadre général du projet : son contexte, sa problématique, ses objectifs et la
+méthodologie adoptée. Le \textbf{deuxième chapitre} dresse un état de l'art des
+concepts mobilisés : informatique décisionnelle, modélisation des entrepôts de
+données, analyse financière par ratios et apprentissage automatique appliqué à la
+prévision. Le \textbf{troisième chapitre} détaille l'analyse des besoins et la
+conception de la solution (architecture, modèle dimensionnel, spécification des
+ratios). Le \textbf{quatrième chapitre} décrit la réalisation et présente les
+résultats obtenus, leur validation et leur interprétation. Une conclusion
+générale synthétise les apports du travail et ouvre des perspectives
+d'amélioration.

@@ -1,0 +1,61 @@
+\appendix
+\chapter{Annexes}
+\markboth{Annexes}{}
+
+\section{Schéma unifié des données}
+Le tableau~\ref{tab:schema} décrit les principales colonnes du jeu de données
+unifié.
+
+\begin{table}[H]
+\centering
+\caption{Principales colonnes du schéma unifié.}
+\label{tab:schema}
+\begin{tabular}{ll}
+\toprule
+\textbf{Colonne} & \textbf{Description} \\
+\midrule
+Societe & Société émettrice \\
+Statement & État financier (bilan, résultat, flux, SIG) \\
+Indicateur & Libellé lisible du poste \\
+Cle\_indicateur & Clé normalisée (jointure des séries) \\
+Date / Annee / Periode & Repères temporels (T1, S1, 9M, FY) \\
+Valeur & Montant \\
+Devise / Echelle & TND/USD ; unité/million \\
+Type\_donnee & Réel ou estimé \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Extrait de code : méthode d'augmentation}
+L'extrait suivant illustre la logique de génération des grandeurs de flux
+(répartition au prorata du temps).
+
+\begin{lstlisting}[language=Python,caption={Augmentation des grandeurs de flux (extrait).}]
+# Flux cumules : T1 = moitie du semestre ; 9M = S1 + moitie du 2e semestre
+if jun in val and val[jun] is not None:
+    nouvelles.append(_ligne(modele, mar, "T1", 0.5 * val[jun]))
+if jun in val and dec in val:
+    nouvelles.append(_ligne(modele, sep, "9M",
+                            val[jun] + 0.5 * (val[dec] - val[jun])))
+\end{lstlisting}
+
+\section{Extrait de code : exemple de ratio et de notation}
+\begin{lstlisting}[language=Python,caption={Définition d'un ratio et d'une grille de notation (extrait).}]
+# Ratio de liquidite generale = Actifs courants / Passifs courants
+"LIQ_GEN": lambda r: _d(r.actif_courant, r.dettes_courantes)
+
+# Grille de notation 0-5 (benchmark 1,5 a 2,0)
+"LIQ_GEN": [(None,1.0,0),(1.0,1.2,1),(1.2,1.5,2),(1.5,2.0,4),(2.0,None,5)]
+\end{lstlisting}
+
+\section{Requêtes SQL d'exemple (entrepôt)}
+\begin{lstlisting}[language=SQL,caption={Requêtes analytiques sur l'entrepôt.}]
+-- Score SGPI par societe (exercice 2024)
+SELECT societe, sgpi_sur_100 FROM v_sgpi
+WHERE annee = 2024 AND periode = 'FY' ORDER BY sgpi_sur_100 DESC;
+
+-- Benchmark de la marge nette
+SELECT societe, valeur FROM v_ratios
+WHERE code_ratio='MARGE_NETTE' AND annee=2024 AND periode='FY'
+ORDER BY valeur DESC;
+\end{lstlisting}

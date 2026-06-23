@@ -1,0 +1,112 @@
+\chapter{État de l'art}
+
+\section{Introduction}
+Ce chapitre présente les fondements théoriques mobilisés par le projet. Il aborde
+successivement l'informatique décisionnelle et les entrepôts de données, la
+modélisation dimensionnelle, l'analyse financière par les ratios et le
+référentiel adopté, puis l'apprentissage automatique appliqué à la prévision de
+séries temporelles.
+
+\section{Informatique décisionnelle (Business Intelligence)}
+L'informatique décisionnelle (\ac{BI}) désigne l'ensemble des technologies et
+méthodes visant à collecter, consolider et restituer les données d'une
+organisation pour éclairer la prise de décision. Une architecture décisionnelle
+type s'articule autour de quatre couches :
+\begin{enumerate}[noitemsep]
+  \item \textbf{sources de données} : systèmes opérationnels, fichiers, états
+        financiers ;
+  \item \textbf{intégration (\ac{ETL})} : extraction, transformation
+        (nettoyage, normalisation) et chargement des données ;
+  \item \textbf{stockage} : entrepôt de données (\ac{DW}) consolidant
+        l'information sous une forme analytique ;
+  \item \textbf{restitution} : tableaux de bord, rapports et analyses
+        (ici \textit{Power BI}).
+\end{enumerate}
+Ce projet implémente l'intégralité de cette chaîne, des fichiers sources jusqu'à
+la restitution.
+
+\section{Entrepôts de données et modélisation dimensionnelle}
+Un \textbf{entrepôt de données} est une base orientée sujet, intégrée,
+historisée et non volatile, conçue pour l'analyse plutôt que pour la
+production~\cite{inmon2005}. Sa modélisation repose sur l'approche
+dimensionnelle~\cite{kimball2013}, qui distingue :
+\begin{itemize}[noitemsep]
+  \item les \textbf{tables de faits}, contenant les mesures numériques
+        analysables (valeurs, ratios) ;
+  \item les \textbf{tables de dimensions}, décrivant les axes d'analyse
+        (société, temps, indicateur).
+\end{itemize}
+
+\subsection{Schéma en étoile}
+Le \textbf{schéma en étoile} organise une table de faits centrale entourée de
+tables de dimensions, chacune reliée par une clé étrangère. Sa simplicité le rend
+particulièrement adapté aux outils de \textit{reporting} comme \textit{Power BI},
+qui exploitent nativement ce type de modèle. On distingue ce schéma du
+\textit{schéma en flocon} (dimensions normalisées) et du \textit{schéma en
+constellation} (plusieurs tables de faits partageant des dimensions). Le présent
+projet adopte un schéma en étoile pour les besoins analytiques.
+
+\section{Analyse financière par les ratios}
+L'analyse financière par les ratios~\cite{vernimmen2022} consiste à rapprocher
+des postes des états financiers pour obtenir des indicateurs \emph{sans
+dimension}, donc comparables d'une entreprise à l'autre et dans le temps. Les
+ratios se regroupent classiquement en grandes familles :
+\begin{itemize}[noitemsep]
+  \item \textbf{liquidité} : capacité à honorer les engagements à court terme ;
+  \item \textbf{structure financière / endettement} : équilibre entre fonds
+        propres et dettes ;
+  \item \textbf{gestion des actifs} : efficacité d'emploi des ressources ;
+  \item \textbf{rentabilité} : capacité à dégager un résultat (commerciale,
+        économique, financière) ;
+  \item \textbf{cycle d'exploitation} : délais clients, fournisseurs et stocks ;
+  \item \textbf{risque} : probabilité de défaillance.
+\end{itemize}
+
+\subsection{Le référentiel MSI20000}
+Le projet s'appuie sur un \textbf{référentiel industriel normalisé} (de type
+MSI20000), qui définit non seulement les formules des ratios, mais aussi des
+\textbf{fourchettes de référence} (benchmarks industriels) et une \textbf{grille
+de notation}. Chaque ratio reçoit une note de 0 à 5 selon sa position par rapport
+à la fourchette cible ; les notes sont ensuite agrégées, par pondération de
+catégories, en un \textbf{\ac{SGPI}}
+sur 100. Cette démarche transforme une batterie de ratios en un outil de
+\textbf{notation comparable} entre entreprises.
+
+\subsection{Le score de Conan \& Holder}
+Parmi les indicateurs de risque, le \textbf{score de Conan \&
+Holder}~\cite{conan1979} est une fonction discriminante combinant plusieurs
+ratios pour estimer la probabilité de défaillance d'une entreprise. Un score
+élevé traduit une bonne santé financière.
+
+\section{Apprentissage automatique et prévision}
+L'\textbf{apprentissage automatique} (\ac{ML})~\cite{james2021} permet de
+construire des modèles prédictifs à partir de données historiques. Pour la
+prévision de valeurs financières, deux familles de modèles sont mobilisées dans
+ce projet :
+\begin{itemize}[noitemsep]
+  \item la \textbf{régression linéaire}, modèle statistique simple et
+        interprétable, adapté aux tendances régulières ;
+  \item la \textbf{forêt aléatoire} (\textit{Random Forest})~\cite{breiman2001},
+        modèle ensembliste à base d'arbres de décision, capable de capturer des
+        relations non linéaires.
+\end{itemize}
+
+\subsection{Évaluation des modèles}
+La qualité d'un modèle de prévision se mesure par plusieurs métriques :
+\begin{itemize}[noitemsep]
+  \item le \textbf{coefficient de détermination ($R^2$)}, compris entre 0 et 1,
+        mesure la part de variance expliquée ;
+  \item la \textbf{\ac{MAE}} et la \textbf{\ac{RMSE}}, erreurs moyennes en valeur
+        absolue et quadratique ;
+  \item la \textbf{\ac{MAPE}}, erreur moyenne exprimée en pourcentage,
+        directement interprétable.
+\end{itemize}
+L'évaluation honnête d'un modèle temporel impose un \textbf{découpage
+chronologique} : le modèle est entraîné sur le passé et évalué sur des périodes
+postérieures jamais vues (\textit{backtest}).
+
+\section{Conclusion}
+Les concepts présentés — chaîne décisionnelle, schéma en étoile, ratios normalisés
+et score de performance, modèles de prévision et leurs métriques — constituent le
+socle méthodologique du projet. Le chapitre suivant en décline l'application
+concrète à travers l'analyse des besoins et la conception de la solution.

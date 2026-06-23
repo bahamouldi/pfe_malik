@@ -8,3 +8,13 @@ forticlient_vpn*.deb
 
 # Doc de présentation privée (ne pas publier)
 docs/PRESENTATION_TRAVAIL.md
+
+# Fichiers temporaires LaTeX
+rapport/*.aux
+rapport/*.log
+rapport/*.toc
+rapport/*.lof
+rapport/*.lot
+rapport/*.out
+rapport/*.bbl
+rapport/*.blg
