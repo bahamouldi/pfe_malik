@@ -7,83 +7,274 @@
 %% ── Introduction ───────────────────────────────────────────────────────────
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
-\par Ce premier chapitre situe le projet dans son contexte. Il présente le cadre
-d'accueil et la formation, l'organisation concernée par l'analyse financière,
-l'étude de l'existant et la problématique qui en découle, avant d'énoncer les
-objectifs visés et la méthodologie de travail adoptée.
+\par Tout projet décisionnel s'enracine dans un contexte précis : une
+organisation, un besoin métier et des données. Ce premier chapitre a pour
+vocation de poser ce contexte avant d'aborder les aspects techniques. Il présente
+d'abord le cadre académique dans lequel s'inscrit ce travail, puis l'organisation
+dont les données sont analysées — la \ac{SFBT} — ainsi que son secteur d'activité
+et les entreprises retenues pour la comparaison. Il procède ensuite à une étude
+critique de l'existant, qui met en lumière les limites des données disponibles et
+fait émerger la problématique du projet. Enfin, il décline les objectifs visés et
+la démarche méthodologique adoptée pour les atteindre.
 
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Cadre du projet}
+\section{Cadre académique du projet}
 \label{sec:cadre}
+
+\subsection{Esprit School of Business}
 \par Ce travail constitue le projet de fin d'études du \textbf{Master
-professionnel en Business Analytics} d'\textbf{Esprit School of Business}. Le
-\textit{Business Analytics} désigne l'ensemble des méthodes et outils permettant
-d'exploiter les données d'une organisation à des fins d'aide à la décision :
-informatique décisionnelle (\ac{BI}), entreposage de données, analyse
-statistique et apprentissage automatique. Le projet met ces compétences en
-application sur un cas réel d'analyse financière d'entreprise.
+professionnel en Business Analytics} dispensé par \textbf{Esprit School of
+Business}, établissement d'enseignement supérieur privé tunisien rattaché au
+réseau \textit{Honoris United Universities}. L'école forme des cadres et des
+managers capables d'allier compétences managériales et maîtrise des outils
+numériques d'aide à la décision, dans une approche résolument orientée vers
+l'employabilité et les besoins réels des entreprises.
 
-\subsection{Présentation de la société étudiée}
-\par La \textbf{\ac{SFBT}} est une entreprise tunisienne historique, leader
-national sur le marché des boissons (bières, boissons gazeuses, eaux et boissons
-fonctionnelles). Cotée à la Bourse de Tunis, elle publie périodiquement ses états
-financiers, ce qui en fait un terrain d'étude pertinent pour l'analyse
-financière. Sa solidité financière et sa rentabilité élevée en font une référence
-du secteur.
-
-\figplaceholder{Présentation de la SFBT (logo, chiffres clés, activités).}{fig:sfbt}
-
-\subsection{Sociétés de comparaison (benchmark)}
-\par Afin de situer la performance de la \sfbt, trois sociétés du même secteur
-ont été retenues comme références. Le tableau~\ref{tab:bench_soc} les présente.
+\subsection{La formation en Business Analytics}
+\par Le \textit{Business Analytics} désigne l'ensemble des méthodes, des
+technologies et des pratiques permettant d'exploiter les données d'une
+organisation pour éclairer et améliorer la prise de décision. Il se situe au
+carrefour de trois disciplines : la \textbf{gestion} (compréhension des enjeux
+métier), l'\textbf{informatique} (collecte et traitement des données) et les
+\textbf{statistiques} (modélisation et inférence). Le tableau~\ref{tab:competences}
+synthétise les principales compétences mobilisées par ce projet.
 
 \begin{table}[H]
   \centering
-  \caption[Sociétés du benchmark]{Sociétés retenues pour la comparaison sectorielle}
-  \label{tab:bench_soc}
-  \begin{tabular}{|p{3cm}|p{3.5cm}|p{6.5cm}|}
+  \caption[Compétences mobilisées par le projet]{Compétences de la formation mobilisées par le projet}
+  \label{tab:competences}
+  \begin{tabular}{|p{4cm}|p{9.5cm}|}
     \hline
-    \textbf{Société} & \textbf{Type} & \textbf{Justification du choix} \\
-    \hline
-    DELICE & Référence locale & Groupe agroalimentaire tunisien, comparable en contexte économique. \\
-    \hline
-    AB~InBev & Référence mondiale & Premier brasseur mondial. \\
-    \hline
-    Coca-Cola & Référence mondiale & Leader mondial des boissons rafraîchissantes. \\
-    \hline
+    \textbf{Domaine} & \textbf{Compétences et outils} \\ \hline
+    Gestion des données & Nettoyage, transformation, intégration (ETL), qualité des données. \\ \hline
+    Bases de données & Modélisation relationnelle et dimensionnelle, SQL, entrepôt de données. \\ \hline
+    Analyse financière & Lecture des états financiers, calcul et interprétation de ratios. \\ \hline
+    Visualisation & Tableaux de bord interactifs, restitution décisionnelle (Power BI). \\ \hline
+    Data Science & Apprentissage automatique, prévision, évaluation de modèles. \\ \hline
+    Génie logiciel & Programmation Python, modularité, tests, gestion de versions. \\ \hline
   \end{tabular}
 \end{table}
 
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Étude de l'existant et problématique}
-\label{sec:existant}
-\par Les données financières de la \sfbt se présentent sous forme de fichiers
-\textit{Excel} regroupant, par date de clôture, les postes du bilan, du compte de
-résultat, de l'état des flux de trésorerie et des soldes intermédiaires de
-gestion. Cet existant souffre de plusieurs limites :
+\section{Présentation de l'organisme étudié}
+\label{sec:sfbt}
+
+\subsection{La Société Frigorifique et Brasserie de Tunis}
+\par La \textbf{\ac{SFBT}} est l'une des plus anciennes et des plus importantes
+entreprises industrielles tunisiennes. Active dans le secteur des boissons, elle
+occupe une position de \textbf{leader national} et structure une part importante
+du marché local. Son activité couvre plusieurs familles de produits : les bières,
+les boissons gazeuses, les eaux et les boissons fonctionnelles. Société cotée à la
+\textbf{Bourse des Valeurs Mobilières de Tunis (BVMT)}, elle publie périodiquement
+ses états financiers, ce qui en fait un terrain d'étude particulièrement pertinent
+pour l'analyse financière et la comparaison sectorielle.
+
+\figplaceholder[0.5\linewidth]{Logo et identité visuelle de la SFBT.}{fig:sfbt}
+
+\par La \sfbt se distingue par une \textbf{solidité financière} remarquable et une
+\textbf{rentabilité élevée}, qui en font une référence du tissu industriel
+tunisien. Le tableau~\ref{tab:chiffrescles} présente ses principaux indicateurs
+financiers pour l'exercice 2024, tels qu'ils ressortent des données exploitées
+dans ce projet.
+
+\begin{table}[H]
+  \centering
+  \caption[Chiffres clés de la SFBT (2024)]{Principaux indicateurs financiers de la SFBT (exercice 2024)}
+  \label{tab:chiffrescles}
+  \begin{tabular}{|l|r|}
+    \hline
+    \textbf{Indicateur} & \textbf{Valeur (M TND)} \\ \hline
+    Chiffre d'affaires & 836,6 \\ \hline
+    Valeur ajoutée & 309,6 \\ \hline
+    Excédent brut d'exploitation (EBE) & 238,1 \\ \hline
+    Résultat d'exploitation & 202,7 \\ \hline
+    Résultat net & 252,2 \\ \hline
+    Capitaux propres & 954,0 \\ \hline
+    Total des actifs & 1\,281,8 \\ \hline
+  \end{tabular}
+\end{table}
+
+\par Ces chiffres traduisent une entreprise de grande taille, profitable et bien
+capitalisée : avec un résultat net de 252,2~M~TND pour un chiffre d'affaires de
+836,6~M~TND, la \sfbt affiche une marge nette supérieure à 30~\%, niveau
+nettement supérieur aux standards du secteur.
+
+\subsection{Organisation de la société}
+\par Comme toute entreprise industrielle de cette envergure, la \sfbt s'organise
+en plusieurs directions fonctionnelles (production, commercial, finance,
+ressources humaines, qualité) coordonnées par une direction générale. La
+figure~\ref{fig:org_sfbt} en présente une vue simplifiée. Cette organisation
+n'est rappelée ici qu'à titre de contexte : le présent projet porte exclusivement
+sur l'exploitation des \textbf{données financières} produites par la direction
+financière.
+
+\figplaceholder{Organigramme simplifié de la SFBT.}{fig:org_sfbt}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Secteur d'activité et benchmark sectoriel}
+\label{sec:secteur}
+
+\subsection{Le secteur des boissons}
+\par Le secteur des boissons est un secteur industriel mature, caractérisé par
+des investissements lourds (lignes de production, logistique du froid, réseaux de
+distribution), une forte intensité capitalistique et une saisonnalité marquée de
+la demande, plus élevée durant la période estivale. Ces caractéristiques se
+reflètent dans la structure financière des acteurs du secteur : importance des
+immobilisations, gestion fine des stocks et du besoin en fonds de roulement.
+
+\subsection{Les sociétés de comparaison}
+\par Afin de situer objectivement la performance de la \sfbt, une démarche de
+\textit{benchmark} a été retenue. Elle consiste à comparer ses ratios financiers
+à ceux d'autres entreprises du même secteur. Trois sociétés ont été sélectionnées
+selon une logique combinant proximité économique et notoriété internationale :
 \begin{itemize}[noitemsep]
-  \item \textbf{hétérogénéité des libellés} : un même poste comptable est nommé
-        de multiples façons selon les années ;
-  \item \textbf{irrégularités et erreurs de saisie} : doublons, colonnes
-        comparatives recopiées par erreur, valeurs manquantes ;
-  \item \textbf{fréquence limitée} : seules deux clôtures par an (juin et
-        décembre) sont publiées ;
-  \item \textbf{absence d'outil d'analyse} : aucun calcul de ratios, aucune
-        comparaison sectorielle ni vision prédictive ;
-  \item \textbf{sources de benchmark hétérogènes} : devises (TND, USD), langues
-        et structures différentes.
+  \item \textbf{DELICE}, groupe agroalimentaire tunisien, retenu comme
+        \textbf{référence locale} évoluant dans un contexte économique comparable ;
+  \item \textbf{AB~InBev}, premier brasseur mondial (groupe belgo-brésilien),
+        retenu comme \textbf{référence mondiale} du métier de la brasserie ;
+  \item \textbf{The Coca-Cola Company}, leader mondial des boissons
+        rafraîchissantes, retenu comme \textbf{référence mondiale} du secteur des
+        boissons.
 \end{itemize}
 
-\par \textbf{Problématique.} Comment, à partir de ces états financiers
-hétérogènes et imparfaits, concevoir un système décisionnel capable de produire
-un diagnostic financier \emph{fiable}, \emph{comparatif} et \emph{prédictif} de
-la \sfbt ?
+\par Le tableau~\ref{tab:bench_soc} récapitule les caractéristiques de ces
+sociétés et de la \sfbt. On notera l'écart d'échelle considérable entre les
+acteurs locaux et les géants mondiaux : cet écart justifie de raisonner en
+\textbf{ratios} (grandeurs sans dimension, donc comparables) plutôt qu'en montants
+absolus, exprimés de surcroît dans des devises différentes.
+
+\begin{table}[H]
+  \centering
+  \caption[Sociétés du benchmark]{Caractéristiques des sociétés comparées (chiffre d'affaires 2024)}
+  \label{tab:bench_soc}
+  \begin{tabular}{|l|l|l|c|r|}
+    \hline
+    \textbf{Société} & \textbf{Type} & \textbf{Secteur} & \textbf{Devise} & \textbf{CA 2024} \\ \hline
+    SFBT & Principale & Boissons (Tunisie) & TND & 836,6~M \\ \hline
+    DELICE & Benchmark local & Agroalimentaire (Tunisie) & TND & 58,4~M \\ \hline
+    AB~InBev & Benchmark mondial & Brasserie (Monde) & USD & 59\,768~M \\ \hline
+    Coca-Cola & Benchmark mondial & Boissons (Monde) & USD & 47\,061~M \\ \hline
+  \end{tabular}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Étude de l'existant}
+\label{sec:existant}
+
+\subsection{Les données disponibles}
+\par Les données financières mises à disposition se présentent sous forme de
+fichiers \textit{Excel}. Pour la \sfbt, le fichier regroupe, par date de clôture,
+les postes des quatre états financiers de référence : le \textbf{bilan} (actif et
+passif), le \textbf{compte de résultat}, l'\textbf{état des flux de trésorerie} et
+les \textbf{soldes intermédiaires de gestion}. Pour les sociétés de benchmark,
+les fichiers contiennent les états financiers annuels publiés. Le
+tableau~\ref{tab:sources} en décrit la volumétrie et la nature après intégration.
+
+\begin{table}[H]
+  \centering
+  \caption[Description des fichiers sources]{Description des sources de données intégrées}
+  \label{tab:sources}
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Société} & \textbf{Période} & \textbf{Fréquence} & \textbf{Lignes} \\ \hline
+    SFBT & 2005--2025 & semestriel + annuel & 3\,979 \\ \hline
+    DELICE & 2015--2025 & annuel & 592 \\ \hline
+    AB~InBev & 2015--2025 & annuel & 1\,228 \\ \hline
+    Coca-Cola & 2015--2025 & annuel & 1\,005 \\ \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Analyse critique de l'existant}
+\par Sous leur apparente richesse, ces données présentent plusieurs limites qui
+rendent leur exploitation directe impossible.
+
+\par \textbf{Hétérogénéité des libellés.} Le premier obstacle, et le plus
+insidieux, tient à l'instabilité des intitulés des postes comptables. Produit sur
+une vingtaine d'années, le fichier de la \sfbt comporte de très nombreuses
+variantes d'écriture pour un même concept : différences d'accentuation, de casse,
+d'espacement (y compris des espaces insécables invisibles) ou de formulation. Le
+tableau~\ref{tab:variantes} illustre ce phénomène sur le seul poste
+« résultat net de l'exercice », pour lequel huit graphies distinctes coexistent.
+Sans traitement, chacune serait interprétée comme un indicateur différent,
+brisant la continuité des séries temporelles.
+
+\begin{table}[H]
+  \centering
+  \caption[Variantes de libellés]{Exemples de variantes d'un même poste dans la source (SFBT)}
+  \label{tab:variantes}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Variante rencontrée} & \textbf{Cause} \\ \hline
+    Résultat net de l'exercice & forme de référence \\ \hline
+    Résultat Net de l'exercice & casse différente \\ \hline
+    Résultat net de~~l'exercice & double espace \\ \hline
+    RESULTAT NET DE L'EXERCICE & majuscules + espaces insécables \\ \hline
+    Résultat net de l'exercice & apostrophe typographique \\ \hline
+    Résultat net de la période & formulation différente \\ \hline
+    Résultat Net & forme abrégée \\ \hline
+  \end{tabular}
+\end{table}
+
+\par \textbf{Irrégularités et erreurs de saisie.} Les données comportent
+également des doublons, des valeurs manquantes et des \textbf{colonnes
+comparatives recopiées par erreur} — un état d'une année reprenant par mégarde
+les valeurs de l'année précédente. Ces anomalies, si elles ne sont pas détectées,
+faussent l'ensemble des calculs en aval.
+
+\par \textbf{Fréquence et complétude limitées.} La \sfbt ne publie que deux
+clôtures par an (juin et décembre), ce qui restreint la finesse temporelle
+nécessaire à une modélisation prédictive robuste. De plus, certains exercices
+annuels sont absents de la source.
+
+\par \textbf{Hétérogénéité des sources de benchmark.} Enfin, les fichiers des
+sociétés de comparaison diffèrent par leur langue (français, anglais), leur devise
+(TND, USD), leur échelle (unités, millions) et leur structure (états parfois non
+labellisés). Le tableau~\ref{tab:limites} synthétise l'ensemble de ces limites et
+les enjeux associés.
+
+\begin{table}[H]
+  \centering
+  \caption[Synthèse des limites de l'existant]{Synthèse des limites de l'existant et de leurs enjeux}
+  \label{tab:limites}
+  \begin{tabular}{|p{5cm}|p{8.5cm}|}
+    \hline
+    \textbf{Limite} & \textbf{Enjeu} \\ \hline
+    Libellés hétérogènes & Reconstituer des séries temporelles cohérentes. \\ \hline
+    Doublons et erreurs & Fiabiliser les valeurs avant tout calcul. \\ \hline
+    Fréquence semestrielle & Densifier l'historique pour la prévision. \\ \hline
+    Données manquantes & Identifier et signaler les lacunes. \\ \hline
+    Sources hétérogènes & Unifier devises, langues et structures. \\ \hline
+    Absence d'analyse & Calculer ratios, score et comparaisons. \\ \hline
+  \end{tabular}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Problématique}
+\label{sec:probleme}
+\par L'étude de l'existant fait apparaître un décalage entre la richesse
+potentielle des données financières et l'impossibilité de les exploiter en
+l'état. La problématique du projet peut dès lors se formuler ainsi :
+
+\begin{quote}
+\itshape Comment, à partir d'états financiers hétérogènes et imparfaits,
+concevoir un système décisionnel capable de produire un diagnostic financier
+fiable, comparatif et prédictif de la \ac{SFBT} ?
+\end{quote}
+
+\par Répondre à cette question suppose de relever plusieurs défis complémentaires :
+fiabiliser des données irrégulières, reconstituer des séries continues, calculer
+un ensemble normalisé d'indicateurs, comparer des entreprises malgré
+l'hétérogénéité de leurs sources, densifier l'historique et, enfin, projeter les
+valeurs futures.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Objectifs du projet}
 \label{sec:objectifs}
-\par Le projet vise à concevoir une plateforme décisionnelle complète. Les
-objectifs opérationnels sont :
+\par En réponse à cette problématique, le projet vise à concevoir une plateforme
+décisionnelle complète. Les objectifs se déclinent en objectifs fonctionnels et
+non fonctionnels.
+
+\par \textbf{Objectifs fonctionnels :}
 \begin{enumerate}[noitemsep]
   \item centraliser et fiabiliser les données financières des quatre sociétés ;
   \item densifier l'historique de la \sfbt en estimant les clôtures
@@ -93,18 +284,52 @@ objectifs opérationnels sont :
   \item comparer la \sfbt à ses références sectorielles (benchmark) ;
   \item structurer les données dans un entrepôt décisionnel (schéma en étoile) ;
   \item prévoir les valeurs financières futures par apprentissage automatique ;
-  \item garantir la qualité par des tests automatisés et une documentation
-        complète.
+  \item restituer l'information sous forme de tableaux de bord.
 \end{enumerate}
 
+\par \textbf{Objectifs non fonctionnels :} la solution doit être \textbf{fiable}
+(calculs exacts et vérifiés), \textbf{reproductible} (régénération par une
+commande), \textbf{traçable} (conservation des libellés d'origine et signalement
+des anomalies), \textbf{modulaire} (ajout aisé de sociétés ou de ratios) et
+\textbf{portable} (exécution multiplateforme).
+
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Méthodologie et organisation du travail}
+\section{Démarche méthodologique}
 \label{sec:methodo}
-\par La démarche suit les étapes classiques d'un projet décisionnel : collecte et
-compréhension des données, nettoyage et unification (\ac{ETL}), augmentation,
-calcul des ratios et du score, conception et alimentation de l'entrepôt,
-développement des modèles de prévision, puis tests, validation et restitution.
-Le planning prévisionnel du projet est présenté à la figure~\ref{fig:gantt}.
+
+\subsection{Le cycle de traitement décisionnel}
+\par La démarche suit les étapes classiques d'un projet décisionnel, conduites de
+manière itérative : collecte et compréhension des données, nettoyage et
+unification (\ac{ETL}), augmentation, calcul des ratios et du score, conception et
+alimentation de l'entrepôt, développement des modèles de prévision, puis tests,
+validation et restitution. Chaque étape produit un livrable vérifiable, et
+l'ensemble est automatisé : une commande unique régénère la totalité des
+résultats, garantissant la \textbf{reproductibilité}.
+
+\subsection{Outils et technologies}
+\par Le tableau~\ref{tab:outils} récapitule les principaux outils mobilisés à
+chaque étape du projet.
+
+\begin{table}[H]
+  \centering
+  \caption[Outils et technologies]{Outils et technologies mobilisés par étape}
+  \label{tab:outils}
+  \begin{tabular}{|p{4.5cm}|p{9cm}|}
+    \hline
+    \textbf{Étape} & \textbf{Outils} \\ \hline
+    Traitement des données & Python, \texttt{pandas}, \texttt{numpy}, \texttt{openpyxl} \\ \hline
+    Entrepôt de données & SQLite, SQL \\ \hline
+    Apprentissage automatique & \texttt{scikit-learn} \\ \hline
+    Visualisation & Power BI, \texttt{matplotlib} \\ \hline
+    Gestion de versions & Git, GitHub \\ \hline
+    Rédaction & \LaTeX{} \\ \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Planning du projet}
+\par Le déroulement du projet a été planifié sur l'ensemble de la période de
+stage, en réservant un temps suffisant à chaque phase et à la rédaction du présent
+rapport. La figure~\ref{fig:gantt} en présente le diagramme de Gantt.
 
 \begin{figure}[H]\centering
   \includegraphics[width=0.92\linewidth]{figures/gantt.png}
@@ -112,15 +337,12 @@ Le planning prévisionnel du projet est présenté à la figure~\ref{fig:gantt}.
   \label{fig:gantt}
 \end{figure}
 
-\par L'ensemble du traitement est automatisé : une commande unique régénère la
-totalité des livrables, garantissant la \textbf{reproductibilité} des résultats.
-Le code et les données sont versionnés sous \textit{Git} et hébergés sur
-\textit{GitHub}.
-
 %% ── Conclusion ─────────────────────────────────────────────────────────────
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
-\par Ce chapitre a posé le cadre du projet, mis en évidence les limites de
-l'existant et formulé la problématique, puis décliné les objectifs et la
-méthodologie. Le chapitre suivant présente les fondements théoriques mobilisés
-pour y répondre.
+\par Ce chapitre a posé l'ensemble du cadre du projet : le contexte académique, la
+présentation de la \sfbt et de son secteur, les sociétés retenues pour le
+benchmark, puis une étude critique de l'existant qui a révélé les limites des
+données et fait émerger la problématique. Les objectifs et la démarche
+méthodologique ont enfin été précisés. Le chapitre suivant présente les fondements
+théoriques sur lesquels s'appuie la solution proposée.
