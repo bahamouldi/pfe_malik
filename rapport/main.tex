@@ -100,6 +100,22 @@
 \usepackage{xspace}
 \newcommand{\sfbt}{\textsc{SFBT}\xspace}
 
+%% Emplacement d'image vide (à remplacer ensuite par \includegraphics).
+%% Usage : \figplaceholder[largeur]{légende}{label}
+\newcommand{\figplaceholder}[3][0.75\linewidth]{%
+  \begin{figure}[H]\centering
+  \setlength{\fboxsep}{0pt}%
+  \fcolorbox{midblue}{lightblue!30}{%
+    \begin{minipage}[c][4.6cm][c]{#1}\centering
+      \color{midblue}\itshape\small
+      [\,Emplacement r\'eserv\'e --- ins\'erer ici la figure\,]
+    \end{minipage}}%
+  \caption{#2}\label{#3}\end{figure}}
+
+%% Citation d'ouverture de chapitre (épigraphe).
+\newcommand{\epigraphe}[2]{%
+  \begin{flushright}\small\itshape ``#1''\\ --- #2\end{flushright}\vspace{0.4cm}}
+
 \begin{document}
 
 %% ── Page de couverture ─────────────────────────────────────────────────────

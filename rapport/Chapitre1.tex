@@ -1,101 +1,122 @@
+%% Chapitre1.tex — Cadre général du projet
 \chapter{Cadre général du projet}
+\label{chapter:contexte}
 
-\section{Introduction}
-Ce premier chapitre situe le projet dans son contexte. Il présente le cadre
-d'accueil, l'organisation concernée par l'analyse, l'étude de l'existant et la
-problématique qui en découle, puis énonce les objectifs visés et la méthodologie
-de travail adoptée.
+\epigraphe{Un problème bien posé est à moitié résolu.}{Charles Kettering}
 
+%% ── Introduction ───────────────────────────────────────────────────────────
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+\par Ce premier chapitre situe le projet dans son contexte. Il présente le cadre
+d'accueil et la formation, l'organisation concernée par l'analyse financière,
+l'étude de l'existant et la problématique qui en découle, avant d'énoncer les
+objectifs visés et la méthodologie de travail adoptée.
+
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Cadre du projet}
-Ce travail constitue le projet de fin d'études du \textbf{Master professionnel en
-Business Analytics} d'\textbf{Esprit School of Business}. Le \textit{Business
-Analytics} désigne l'ensemble des méthodes et outils permettant d'exploiter les
-données d'une organisation à des fins d'aide à la décision : informatique
-décisionnelle (\ac{BI}), entreposage de données, analyse statistique et
-apprentissage automatique. Le projet met en application ces compétences sur un
-cas réel d'analyse financière d'entreprise.
+\label{sec:cadre}
+\par Ce travail constitue le projet de fin d'études du \textbf{Master
+professionnel en Business Analytics} d'\textbf{Esprit School of Business}. Le
+\textit{Business Analytics} désigne l'ensemble des méthodes et outils permettant
+d'exploiter les données d'une organisation à des fins d'aide à la décision :
+informatique décisionnelle (\ac{BI}), entreposage de données, analyse
+statistique et apprentissage automatique. Le projet met ces compétences en
+application sur un cas réel d'analyse financière d'entreprise.
 
 \subsection{Présentation de la société étudiée}
-La \textbf{\ac{SFBT}} est une entreprise tunisienne historique, leader national
-sur le marché des boissons (bières, boissons gazeuses, eaux et boissons
-fonctionnelles). Cotée à la Bourse de Tunis, elle publie périodiquement ses
-états financiers, ce qui en fait un terrain d'étude pertinent pour l'analyse
-financière. Sa solidité financière et sa rentabilité élevée en font une
-référence du secteur.
+\par La \textbf{\ac{SFBT}} est une entreprise tunisienne historique, leader
+national sur le marché des boissons (bières, boissons gazeuses, eaux et boissons
+fonctionnelles). Cotée à la Bourse de Tunis, elle publie périodiquement ses états
+financiers, ce qui en fait un terrain d'étude pertinent pour l'analyse
+financière. Sa solidité financière et sa rentabilité élevée en font une référence
+du secteur.
+
+\figplaceholder{Présentation de la SFBT (logo, chiffres clés, activités).}{fig:sfbt}
 
 \subsection{Sociétés de comparaison (benchmark)}
-Afin de situer la performance de la \sfbt, trois sociétés du même secteur ont
-été retenues comme références :
-\begin{itemize}[noitemsep]
-  \item \textbf{DELICE} : groupe agroalimentaire tunisien (structure de holding) ;
-  \item \textbf{AB~InBev} : premier brasseur mondial ;
-  \item \textbf{Coca-Cola} : leader mondial des boissons rafraîchissantes.
-\end{itemize}
-Ce choix combine une référence locale (DELICE, comparable en taille et en
-contexte économique) et deux références internationales (AB~InBev et Coca-Cola)
-servant d'étalons de performance mondiaux.
+\par Afin de situer la performance de la \sfbt, trois sociétés du même secteur
+ont été retenues comme références. Le tableau~\ref{tab:bench_soc} les présente.
 
+\begin{table}[H]
+  \centering
+  \caption[Sociétés du benchmark]{Sociétés retenues pour la comparaison sectorielle}
+  \label{tab:bench_soc}
+  \begin{tabular}{|p{3cm}|p{3.5cm}|p{6.5cm}|}
+    \hline
+    \textbf{Société} & \textbf{Type} & \textbf{Justification du choix} \\
+    \hline
+    DELICE & Référence locale & Groupe agroalimentaire tunisien, comparable en contexte économique. \\
+    \hline
+    AB~InBev & Référence mondiale & Premier brasseur mondial. \\
+    \hline
+    Coca-Cola & Référence mondiale & Leader mondial des boissons rafraîchissantes. \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Étude de l'existant et problématique}
-Les données financières de la \sfbt se présentent sous forme de fichiers
+\label{sec:existant}
+\par Les données financières de la \sfbt se présentent sous forme de fichiers
 \textit{Excel} regroupant, par date de clôture, les postes du bilan, du compte de
 résultat, de l'état des flux de trésorerie et des soldes intermédiaires de
 gestion. Cet existant souffre de plusieurs limites :
 \begin{itemize}[noitemsep]
-  \item \textbf{hétérogénéité des libellés} : un même poste comptable est
-        nommé de multiples façons selon les années (variations d'orthographe,
-        d'accentuation, d'espacement) ;
+  \item \textbf{hétérogénéité des libellés} : un même poste comptable est nommé
+        de multiples façons selon les années ;
   \item \textbf{irrégularités et erreurs de saisie} : doublons, colonnes
         comparatives recopiées par erreur, valeurs manquantes ;
-  \item \textbf{fréquence limitée} : seules deux clôtures par an sont publiées
-        (juin et décembre), ce qui restreint la finesse temporelle de l'analyse ;
+  \item \textbf{fréquence limitée} : seules deux clôtures par an (juin et
+        décembre) sont publiées ;
   \item \textbf{absence d'outil d'analyse} : aucun calcul de ratios, aucune
-        comparaison sectorielle ni vision prédictive ne sont disponibles ;
+        comparaison sectorielle ni vision prédictive ;
   \item \textbf{sources de benchmark hétérogènes} : devises (TND, USD), langues
-        (français, anglais) et structures différentes.
+        et structures différentes.
 \end{itemize}
 
-\noindent\textbf{Problématique.} Comment, à partir de ces états financiers
+\par \textbf{Problématique.} Comment, à partir de ces états financiers
 hétérogènes et imparfaits, concevoir un système décisionnel capable de produire
 un diagnostic financier \emph{fiable}, \emph{comparatif} et \emph{prédictif} de
 la \sfbt ?
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Objectifs du projet}
-Le projet vise à concevoir une plateforme décisionnelle complète. Les objectifs
-opérationnels sont :
+\label{sec:objectifs}
+\par Le projet vise à concevoir une plateforme décisionnelle complète. Les
+objectifs opérationnels sont :
 \begin{enumerate}[noitemsep]
-  \item \textbf{centraliser et fiabiliser} les données financières des quatre
-        sociétés dans un format unifié et propre ;
-  \item \textbf{densifier} l'historique de la \sfbt en estimant les clôtures
+  \item centraliser et fiabiliser les données financières des quatre sociétés ;
+  \item densifier l'historique de la \sfbt en estimant les clôtures
         trimestrielles manquantes ;
-  \item \textbf{calculer} un ensemble normalisé de ratios financiers et un
-        \textbf{score global de performance} ;
-  \item \textbf{comparer} la \sfbt à ses références sectorielles (benchmark) ;
-  \item \textbf{structurer} les données dans un entrepôt décisionnel (schéma en
-        étoile) destiné à des tableaux de bord \textit{Power BI} ;
-  \item \textbf{prévoir} les valeurs financières futures à l'aide de modèles
-        d'apprentissage automatique ;
-  \item \textbf{garantir la qualité} par une suite de tests automatisés et une
-        documentation complète.
+  \item calculer un ensemble normalisé de ratios et un \textbf{score global de
+        performance} ;
+  \item comparer la \sfbt à ses références sectorielles (benchmark) ;
+  \item structurer les données dans un entrepôt décisionnel (schéma en étoile) ;
+  \item prévoir les valeurs financières futures par apprentissage automatique ;
+  \item garantir la qualité par des tests automatisés et une documentation
+        complète.
 \end{enumerate}
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Méthodologie et organisation du travail}
-La démarche suit les étapes classiques d'un projet décisionnel, organisées en
-phases successives :
-\begin{enumerate}[noitemsep]
-  \item collecte et compréhension des données ;
-  \item nettoyage, transformation et unification (\ac{ETL}) ;
-  \item augmentation des données (estimation des trimestres) ;
-  \item calcul des ratios et du score de performance ;
-  \item conception et alimentation de l'entrepôt de données ;
-  \item développement des modèles de prévision ;
-  \item tests, validation et restitution (tableaux de bord, rapport).
-\end{enumerate}
+\label{sec:methodo}
+\par La démarche suit les étapes classiques d'un projet décisionnel : collecte et
+compréhension des données, nettoyage et unification (\ac{ETL}), augmentation,
+calcul des ratios et du score, conception et alimentation de l'entrepôt,
+développement des modèles de prévision, puis tests, validation et restitution.
+Le planning prévisionnel du projet est présenté à la figure~\ref{fig:gantt}.
 
-L'ensemble du traitement est automatisé : une commande unique régénère la totalité
-des livrables, ce qui garantit la \textbf{reproductibilité} des résultats. Le code
-et les données sont versionnés sous \textit{Git} et hébergés sur \textit{GitHub}.
+\figplaceholder{Planning du projet (diagramme de Gantt).}{fig:gantt}
 
-\section{Conclusion}
-Ce chapitre a posé le cadre du projet, mis en évidence les limites de l'existant
-et formulé la problématique, puis décliné les objectifs et la méthodologie. Le
-chapitre suivant présente les fondements théoriques mobilisés pour y répondre.
+\par L'ensemble du traitement est automatisé : une commande unique régénère la
+totalité des livrables, garantissant la \textbf{reproductibilité} des résultats.
+Le code et les données sont versionnés sous \textit{Git} et hébergés sur
+\textit{GitHub}.
+
+%% ── Conclusion ─────────────────────────────────────────────────────────────
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+\par Ce chapitre a posé le cadre du projet, mis en évidence les limites de
+l'existant et formulé la problématique, puis décliné les objectifs et la
+méthodologie. Le chapitre suivant présente les fondements théoriques mobilisés
+pour y répondre.

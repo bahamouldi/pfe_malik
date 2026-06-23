@@ -1,40 +1,44 @@
+%% Chapitre3.tex — Analyse et conception
 \chapter{Analyse et conception}
+\label{chapter:conception}
 
-\section{Introduction}
-Ce chapitre traduit les objectifs en une solution concrète. Il présente
+\epigraphe{Un bon design ne se voit pas seulement à l'apparence, mais à son fonctionnement.}{Steve Jobs}
+
+%% ── Introduction ───────────────────────────────────────────────────────────
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+\par Ce chapitre traduit les objectifs en une solution concrète. Il présente
 l'analyse des besoins, l'architecture générale de la plateforme, la conception de
 la chaîne de traitement, le modèle dimensionnel de l'entrepôt, la spécification
 des ratios et du score de performance, ainsi que la stratégie de prévision.
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Analyse des besoins}
+\label{sec:besoins}
 \subsection{Besoins fonctionnels}
-La solution doit permettre de :
-\begin{itemize}[noitemsep]
-  \item importer et fiabiliser les états financiers des quatre sociétés ;
-  \item générer les clôtures trimestrielles manquantes de la \sfbt ;
-  \item calculer les ratios financiers et le score global de performance ;
-  \item comparer les sociétés entre elles (benchmark) ;
-  \item stocker les résultats dans un entrepôt interrogeable ;
-  \item prévoir les valeurs financières futures ;
-  \item restituer l'information sous forme de tableaux de bord.
-\end{itemize}
+\par La solution doit permettre d'importer et fiabiliser les états financiers,
+de générer les clôtures trimestrielles manquantes, de calculer les ratios et le
+score global, de comparer les sociétés (benchmark), de stocker les résultats dans
+un entrepôt interrogeable, de prévoir les valeurs futures et de restituer
+l'information sous forme de tableaux de bord. Ces besoins sont synthétisés par le
+diagramme de cas d'utilisation de la figure~\ref{fig:usecase}.
+
+\figplaceholder{Diagramme de cas d'utilisation de la plateforme.}{fig:usecase}
 
 \subsection{Besoins non fonctionnels}
-\begin{itemize}[noitemsep]
-  \item \textbf{fiabilité} : les calculs doivent être exacts et vérifiés ;
-  \item \textbf{reproductibilité} : régénération complète par une commande ;
-  \item \textbf{traçabilité} : conservation des libellés d'origine et
-        signalement des anomalies ;
-  \item \textbf{modularité} : ajout aisé de nouvelles sociétés ou de nouveaux
-        ratios ;
-  \item \textbf{portabilité} : exécution multiplateforme (Windows, Linux).
-\end{itemize}
+\par Les exigences non fonctionnelles portent sur la \textbf{fiabilité} (calculs
+exacts et vérifiés), la \textbf{reproductibilité} (régénération par une
+commande), la \textbf{traçabilité} (conservation des libellés d'origine et
+signalement des anomalies), la \textbf{modularité} (ajout aisé de sociétés ou de
+ratios) et la \textbf{portabilité} (exécution multiplateforme).
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Architecture générale de la solution}
-La plateforme suit une architecture décisionnelle en couches, illustrée par la
-figure~\ref{fig:archi}. Les fichiers sources sont d'abord traités par la chaîne
+\label{sec:archi}
+\par La plateforme suit une architecture décisionnelle en couches, illustrée par
+la figure~\ref{fig:archi}. Les fichiers sources sont traités par la chaîne
 \ac{ETL} (nettoyage, unification, augmentation), produisant un jeu de données
-unifié. Celui-ci alimente le moteur de calcul des ratios et du \ac{SGPI}, puis
+unifié qui alimente le moteur de calcul des ratios et du \ac{SGPI}, puis
 l'entrepôt de données. Enfin, le module de prévision et les tableaux de bord
 exploitent ces données.
 
@@ -62,50 +66,45 @@ exploitent ces données.
 \draw[arr] (dw) -- (resti);
 \draw[arr] (ml) |- (resti);
 \end{tikzpicture}
-\caption{Architecture générale de la plateforme décisionnelle.}
+\caption[Architecture générale de la plateforme]{Architecture générale de la plateforme décisionnelle.}
 \label{fig:archi}
 \end{figure}
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Conception de la chaîne de traitement (ETL)}
+\label{sec:etl}
 \subsection{Unification des sources}
-Les quatre fichiers présentant des formats différents, un \textbf{schéma cible
-unique} a été défini, sous forme de table longue (\textit{tidy}) dont les
+\par Les quatre fichiers présentant des formats différents, un \textbf{schéma
+cible unique} a été défini, sous forme de table longue (\textit{tidy}) dont les
 principales colonnes sont : société, état financier, indicateur (libellé propre,
-libellé brut et clé normalisée), date, période, valeur, devise, échelle, type de
-donnée (réel ou estimé) et source.
-
-La difficulté majeure réside dans l'\textbf{hétérogénéité des libellés} de la
-\sfbt : un même concept est écrit de nombreuses façons. La conception prévoit une
-\textbf{clé de normalisation} (passage en minuscules, suppression des accents, de
-la ponctuation et des espaces) qui regroupe automatiquement les variantes d'un
-même indicateur, condition indispensable à la reconstitution des séries
-temporelles.
+brut et clé normalisée), date, période, valeur, devise, échelle, type de donnée
+et source. La difficulté majeure réside dans l'\textbf{hétérogénéité des
+libellés} de la \sfbt ; la conception prévoit une \textbf{clé de normalisation}
+qui regroupe automatiquement les variantes d'un même indicateur, condition
+indispensable à la reconstitution des séries temporelles.
 
 \subsection{Classification des états et fiabilisation}
-Pour la \sfbt, dont la feuille maîtresse empile tous les états sans étiquette, un
-\textbf{découpage positionnel} reclasse chaque ligne dans son état (bilan actif,
-bilan passif, compte de résultat, flux de trésorerie, soldes intermédiaires de
-gestion). Des règles de fiabilisation traitent les anomalies : suppression des
-doublons stricts, et correction des \textbf{fuites de colonnes comparatives}
-(valeurs d'une année recopiées par erreur sur l'année suivante).
+\par Pour la \sfbt, dont la feuille maîtresse empile tous les états sans
+étiquette, un \textbf{découpage positionnel} reclasse chaque ligne dans son état
+(bilan actif, bilan passif, compte de résultat, flux de trésorerie, soldes
+intermédiaires de gestion). Des règles de fiabilisation traitent les anomalies :
+suppression des doublons stricts et correction des \textbf{fuites de colonnes
+comparatives}.
 
 \subsection{Augmentation des données}
-La \sfbt ne publiant que les clôtures de juin et décembre, la conception prévoit
-la \textbf{génération des clôtures de mars et septembre}. La méthode distingue la
-nature des grandeurs :
-\begin{itemize}[noitemsep]
-  \item les \textbf{grandeurs de stock} (postes de bilan) sont obtenues par
-        \textbf{interpolation linéaire} entre deux clôtures connues ;
-  \item les \textbf{grandeurs de flux} (compte de résultat, flux), cumulées sur
-        l'exercice, sont obtenues par \textbf{répartition au prorata} du temps.
-\end{itemize}
-Les valeurs ainsi produites sont explicitement marquées comme estimées.
+\par La \sfbt ne publiant que les clôtures de juin et décembre, la conception
+prévoit la génération des clôtures de mars et septembre. La méthode distingue les
+\textbf{grandeurs de stock} (postes de bilan), obtenues par \textbf{interpolation
+linéaire}, des \textbf{grandeurs de flux} (compte de résultat), obtenues par
+\textbf{répartition au prorata} du temps. Les valeurs produites sont marquées
+comme estimées.
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Conception de l'entrepôt de données}
-L'entrepôt adopte un \textbf{schéma en étoile} (figure~\ref{fig:etoile}) : une
-table de faits centrale, entourée de dimensions conformes. La granularité de la
-table de faits est : une ligne par société, date et indicateur. Les dimensions
-décrivent les axes d'analyse.
+\label{sec:concep_dw}
+\par L'entrepôt adopte un \textbf{schéma en étoile} (figure~\ref{fig:etoile}) :
+une table de faits centrale entourée de dimensions conformes. La granularité de
+la table de faits est : une ligne par société, date et indicateur.
 
 \begin{figure}[H]
 \centering
@@ -118,67 +117,64 @@ décrivent les axes d'analyse.
 ]
 \node[fact] (f) {Fait\\Ratios / États};
 \node[dim,above=1.4cm of f] (t) {Dim\_Temps};
-\node[dim,below=1.4cm of f] (i) {Dim\_Indicateur\\/ Dim\_Ratio};
+\node[dim,below=1.4cm of f] (i) {Dim\_Indicateur};
 \node[dim,left=2cm of f] (s) {Dim\_Societe};
 \node[dim,right=2cm of f] (r) {Dim\_Ratio};
-\draw[link] (f) -- (t);
-\draw[link] (f) -- (i);
-\draw[link] (f) -- (s);
-\draw[link] (f) -- (r);
+\draw[link] (f) -- (t); \draw[link] (f) -- (i);
+\draw[link] (f) -- (s); \draw[link] (f) -- (r);
 \end{tikzpicture}
-\caption{Modèle dimensionnel en étoile de l'entrepôt de données.}
+\caption[Modèle dimensionnel en étoile]{Modèle dimensionnel en étoile de l'entrepôt de données.}
 \label{fig:etoile}
 \end{figure}
 
-Quatre dimensions sont définies : \texttt{Dim\_Societe} (société, rôle, secteur,
-devise), \texttt{Dim\_Temps} (date, année, période), \texttt{Dim\_Indicateur}
-(poste comptable, état, nature stock/flux) et \texttt{Dim\_Ratio} (code, libellé,
-catégorie, benchmark). Des \textbf{vues SQL} prêtes à l'emploi facilitent
-l'interrogation et l'usage par \textit{Power BI}.
+\par Quatre dimensions sont définies : \texttt{Dim\_Societe},
+\texttt{Dim\_Temps}, \texttt{Dim\_Indicateur} et \texttt{Dim\_Ratio}. Des
+\textbf{vues SQL} prêtes à l'emploi facilitent l'interrogation et l'usage par
+\textit{Power BI}.
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Spécification des ratios et du score de performance}
-Conformément au référentiel adopté, \textbf{46 ratios} sont spécifiés, répartis
-en sept catégories : gestion des liquidités, des actifs, des passifs, des
-ressources humaines, des risques, rentabilité et cycle d'exploitation. Chaque
-ratio est défini par sa formule, son unité et sa fourchette de référence.
-
-Le \textbf{\ac{SGPI}} agrège ces ratios. Chaque ratio clé reçoit une note de 0 à
-5 selon une grille de barème ; les notes sont moyennées par catégorie, puis
-pondérées selon le tableau~\ref{tab:poids} pour obtenir un score sur 100.
+\label{sec:specratios}
+\par Conformément au référentiel adopté, \textbf{46 ratios} sont spécifiés,
+répartis en sept catégories. Chaque ratio est défini par sa formule, son unité et
+sa fourchette de référence. Le \textbf{\ac{SGPI}} agrège ces ratios : chaque ratio
+clé reçoit une note de 0 à 5, les notes sont moyennées par catégorie, puis
+pondérées selon le tableau~\ref{tab:poids}.
 
 \begin{table}[H]
 \centering
-\caption{Pondération des catégories dans le score global (SGPI).}
+\caption[Pondération des catégories du SGPI]{Pondération des catégories dans le score global (SGPI).}
 \label{tab:poids}
-\begin{tabular}{lc}
-\toprule
-\textbf{Catégorie} & \textbf{Poids} \\
-\midrule
-Rentabilité & 25~\% \\
-Structure financière & 20~\% \\
-Liquidité & 15~\% \\
-Gestion des actifs & 15~\% \\
-Cycle d'exploitation & 10~\% \\
-Gestion des risques & 10~\% \\
-Productivité RH & 5~\% \\
-\midrule
-\textbf{Total} & \textbf{100~\%} \\
-\bottomrule
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Catégorie} & \textbf{Poids} \\ \hline
+Rentabilité & 25~\% \\ \hline
+Structure financière & 20~\% \\ \hline
+Liquidité & 15~\% \\ \hline
+Gestion des actifs & 15~\% \\ \hline
+Cycle d'exploitation & 10~\% \\ \hline
+Gestion des risques & 10~\% \\ \hline
+Productivité RH & 5~\% \\ \hline
+\textbf{Total} & \textbf{100~\%} \\ \hline
 \end{tabular}
 \end{table}
 
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Conception du module de prévision}
-La prévision cible les principales grandeurs financières de la \sfbt (chiffre
-d'affaires, total des actifs, capitaux propres, résultat net). La conception
-retient une \textbf{mise au format supervisé} de la série : la cible est le
-\textbf{taux de croissance} (et non la valeur brute), choix essentiel pour rendre
-la série stationnaire et permettre aux deux modèles d'extrapoler correctement.
-Les variables explicatives combinent la tendance temporelle, les retards et la
+\label{sec:concep_ml}
+\par La prévision cible les principales grandeurs financières de la \sfbt
+(chiffre d'affaires, total des actifs, capitaux propres, résultat net). La
+conception retient une \textbf{mise au format supervisé} de la série, avec pour
+cible le \textbf{taux de croissance} (et non la valeur brute), choix essentiel
+pour rendre la série stationnaire et permettre aux deux modèles d'extrapoler
+correctement. Les variables explicatives combinent tendance, retards et
 saisonnalité. Deux modèles — \textbf{régression linéaire} et \textbf{forêt
 aléatoire} — sont comparés par \textit{backtest} chronologique.
 
-\section{Conclusion}
-Ce chapitre a défini l'architecture de la solution et la conception détaillée de
-chacune de ses composantes : chaîne \ac{ETL}, entrepôt en étoile, spécification
-des ratios et du score, et stratégie de prévision. Le chapitre suivant présente
-la réalisation effective et les résultats obtenus.
+%% ── Conclusion ─────────────────────────────────────────────────────────────
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+\par Ce chapitre a défini l'architecture de la solution et la conception
+détaillée de chacune de ses composantes : chaîne \ac{ETL}, entrepôt en étoile,
+spécification des ratios et du score, et stratégie de prévision. Le chapitre
+suivant présente la réalisation effective et les résultats obtenus.
