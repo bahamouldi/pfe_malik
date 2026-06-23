@@ -1,44 +1,73 @@
 %% pageGarde.tex — Page de couverture (Esprit School of Business)
+%% Reproduit fidèlement la template officielle « Rapport de stage ».
 %% ══════════════════════════════════════════════════════════════
 %%  >>> À COMPLÉTER : remplacez les champs entre crochets <<<
+%%  >>> Remplacez figures/image1.png par le logo de l'entreprise <<<
 %% ══════════════════════════════════════════════════════════════
-\newcommand{\StudentName}{[Prénom NOM de l'étudiant]}
-\newcommand{\ProjectTitle}{Conception d'une plateforme décisionnelle d'analyse
-financière et de prévision des performances de la SFBT}
-\newcommand{\MaitreStage}{[Nom \& Prénom du maître de stage]}
-\newcommand{\EncadrantAcad}{[Nom \& Prénom de l'encadrant académique]}
+\newcommand{\StudentName}{[Pr\'enom NOM de l'\'etudiant]}
+\newcommand{\ProjectTitle}{Conception d'une plateforme d\'ecisionnelle d'analyse
+financi\`ere et de pr\'evision des performances de la SFBT}
+\newcommand{\MaitreStage}{[Nom \& Pr\'enom]}
+\newcommand{\EncadrantAcad}{[Nom \& Pr\'enom]}
 \newcommand{\DateSoutenance}{[jj/mm/2026]}
-\newcommand{\Periode}{[date de début] -- [date de fin]}
+\newcommand{\Periode}{[date de d\'ebut] -- [date de fin]}
 \newcommand{\AcademicYear}{2025/2026}
 
 \begin{titlepage}
+\thispagestyle{empty}
+
+%% ── En-tête : université ───────────────────────────────────────
 \begin{center}
+{\normalsize\bfseries \'Ecole Sup\'erieure Priv\'ee de Management de Tunis}\\[0.15cm]
+{\normalsize\bfseries Esprit School of Business}
+\end{center}
 
-{\large École Supérieure Privée de Management de Tunis}\\[0.2cm]
-{\Large \textbf{Esprit School of Business}}\\[1.5cm]
+\vspace{0.6cm}
 
-\rule{\linewidth}{0.5mm}\\[0.4cm]
-{\LARGE \bfseries RAPPORT DE PROJET DE FIN D'ÉTUDES}\\[0.3cm]
-\rule{\linewidth}{0.5mm}\\[1.0cm]
+%% ── Logos : Esprit (gauche) et entreprise (droite) ─────────────
+\noindent
+\begin{minipage}[c]{0.55\textwidth}
+  \includegraphics[width=5.2cm]{figures/image2.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.40\textwidth}
+  \raggedleft\includegraphics[width=3cm]{figures/image1.png}
+\end{minipage}
 
-{\itshape En vue de l'obtention du diplôme de}\\[0.2cm]
-{\Large \textbf{Master professionnel en Business Analytics}}\\[1.5cm]
+\vspace{1.3cm}
 
-{\large \itshape Intitulé du sujet :}\\[0.3cm]
-\colorbox{lightblue}{\parbox{0.9\linewidth}{\centering\vspace{0.2cm}
-{\Large \bfseries \color{darkblue} \ProjectTitle}\vspace{0.2cm}}}\\[1.8cm]
+%% ── Titre principal ────────────────────────────────────────────
+\begin{center}
+{\fontsize{38}{42}\selectfont\bfseries\color{espritred} RAPPORT DE STAGE}\\[0.5cm]
 
-{\renewcommand{\arraystretch}{1.4}\large
-\begin{tabular}{rl}
-\textbf{Réalisé par :} & \StudentName \\
-\textbf{Maître de stage :} & \MaitreStage \\
-\textbf{Encadrant académique :} & \EncadrantAcad \\
-\textbf{Période :} & \Periode \\
-\textbf{Soutenu le :} & \DateSoutenance \\
-\end{tabular}}\\[2.0cm]
+{\large En vue de l'obtention du dipl\^ome de Master professionnel en}\\[0.5cm]
+{\Large\bfseries Business Analytics}\\[0.15cm]
+{\color{espritred}\rule{0.55\textwidth}{1.2pt}}
+
+\vspace{1.6cm}
+
+{\large Soutenu le : \DateSoutenance}\\[0.7cm]
+{\large R\'ealis\'e par : \StudentName}
+
+\vspace{1.4cm}
+
+{\large\bfseries «~\ProjectTitle~»}\\[0.7cm]
+{\itshape \Periode}
+\end{center}
+
+\vspace{0.4cm}
+\hfill{\color{espritred}\rule{0.33\textwidth}{1pt}}
+
+\vspace{1.0cm}
+
+%% ── Encadrants (alignés à gauche) ──────────────────────────────
+{\large\textbf{Ma\^itre de stage :} \MaitreStage}\\[0.4cm]
+{\large\textbf{Encadrant acad\'emique :} \EncadrantAcad}
 
 \vfill
-{\large \textbf{Année universitaire \AcademicYear}}
 
+%% ── Pied : année universitaire ─────────────────────────────────
+\begin{center}
+{\normalsize\bfseries Ann\'ee universitaire \AcademicYear}
 \end{center}
+
 \end{titlepage}
