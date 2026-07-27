@@ -59,3 +59,135 @@ SELECT societe, valeur FROM v_ratios
 WHERE code_ratio='MARGE_NETTE' AND annee=2024 AND periode='FY'
 ORDER BY valeur DESC;
 \end{lstlisting}
+
+
+\section{Catalogue synthétique des sorties produites}
+Le tableau~\ref{tab:ann_sorties} résume les principaux fichiers générés par la
+chaîne de traitement et leur usage dans le projet.
+
+\begin{table}[H]
+\centering
+\caption{Catalogue des sorties du pipeline.}
+\label{tab:ann_sorties}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|}
+\hline
+\textbf{Fichier} & \textbf{Utilisation} \\ \hline
+\texttt{financials\_unified.csv} & Données financières réelles nettoyées et harmonisées. \\ \hline
+\texttt{sfbt\_augmented.csv} & Données trimestrielles estimées pour la \sfbt. \\ \hline
+\texttt{financials\_full.csv} & Jeu complet réel + estimé, utilisé par les ratios et le ML. \\ \hline
+\texttt{concepts\_matrix.csv} & Matrice des concepts financiers nécessaires aux formules. \\ \hline
+\texttt{ratios.csv} & Ratios financiers calculés par société, date et période. \\ \hline
+\texttt{sgpi.csv} & Score Global de Performance Industrielle. \\ \hline
+\texttt{ml\_metrics.csv} & Résultats de comparaison des modèles. \\ \hline
+\texttt{ml\_predictions.csv} & Valeurs réelles et prédites sur le jeu de test. \\ \hline
+\texttt{ml\_forecasts.csv} & Prévisions futures générées par les modèles. \\ \hline
+\texttt{sfbt\_dw.sqlite} & Entrepôt de données en étoile. \\ \hline
+\end{tabularx}
+\end{table}
+
+\section{Exemples de contrôles automatiques}
+La suite de tests vérifie les étapes critiques du projet. Les contrôles suivants
+illustrent la logique de validation retenue dans le tableau~\ref{tab:ann_tests}.
+
+\begin{table}[H]
+\centering
+\caption{Exemples de tests automatiques.}
+\label{tab:ann_tests}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|}
+\hline
+\textbf{Contrôle} & \textbf{Objectif} \\ \hline
+Présence des sources & Vérifier que les fichiers Excel nécessaires existent. \\ \hline
+Conformité du schéma & S'assurer que les colonnes du jeu unifié correspondent au schéma cible. \\ \hline
+Unicité des clés & Éviter les doublons non maîtrisés. \\ \hline
+Équilibre du bilan & Valider la séparation Actif / Passif de la \sfbt. \\ \hline
+Formules d'augmentation & Vérifier les règles stock et flux. \\ \hline
+Ratios de référence & Comparer certains ratios 2024 avec des valeurs attendues. \\ \hline
+Intégrité du Data Warehouse & Vérifier qu'aucun fait n'est orphelin. \\ \hline
+Prévisions positives & S'assurer que les prévisions financières restent plausibles. \\ \hline
+\end{tabularx}
+\end{table}
+
+\section{Exemples de mesures Power BI}
+Les ratios étant déjà calculés dans \texttt{ratios.csv}, Power BI peut être
+utilisé avec très peu de DAX. Les mesures suivantes restent utiles pour améliorer
+la présentation.
+
+\begin{lstlisting}[language=SQL,caption={Mesures conceptuelles à reproduire dans Power BI.}]
+-- Valeur moyenne du ratio selectionne
+Valeur ratio = AVERAGE(ratios[Valeur])
+
+-- Ratio sur la derniere annee disponible
+Ratio derniere annee =
+CALCULATE(
+    AVERAGE(ratios[Valeur]),
+    ratios[Annee] = MAX(ratios[Annee]),
+    ratios[Periode] = "FY"
+)
+\end{lstlisting}
+
+\section{Requêtes SQL complémentaires}
+\begin{lstlisting}[language=SQL,caption={Requêtes SQL complémentaires.}]
+-- Evolution annuelle du SGPI de la SFBT
+SELECT annee, periode, sgpi_sur_100
+FROM v_sgpi
+WHERE societe = 'SFBT'
+ORDER BY date;
+
+-- Ratios de rentabilite de la SFBT en 2024
+SELECT ratio, valeur, unite, benchmark
+FROM v_ratios
+WHERE societe = 'SFBT'
+  AND annee = 2024
+  AND periode = 'FY'
+  AND categorie = 'Rentabilite';
+
+-- Valeurs financieres estimees de la SFBT
+SELECT annee, periode, libelle, valeur
+FROM v_etats
+WHERE societe = 'SFBT'
+  AND type_donnee = 'Estime'
+ORDER BY date, libelle;
+\end{lstlisting}
+
+
+\section{Liste des captures à insérer}
+Le tableau~\ref{tab:ann_captures} sert de checklist pour remplacer les
+emplacements réservés par les captures définitives avant le dépôt final.
+
+\begin{table}[H]
+\centering
+\caption{Checklist des captures écran à compléter.}
+\label{tab:ann_captures}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|p{2.2cm}|}
+\hline
+\textbf{Emplacement} & \textbf{Capture attendue} & \textbf{Statut} \\ \hline
+Figure~\ref{fig:sfbt} & Logo ou identité visuelle officielle de la \sfbt. & À insérer \\ \hline
+Figure~\ref{fig:org_sfbt} & Organigramme simplifié de la société. & À insérer \\ \hline
+Figure~\ref{fig:runall} & Terminal montrant l'exécution de \texttt{run\_all.py}. & À insérer \\ \hline
+Figure~\ref{fig:dataset} & Extrait de \texttt{financials\_unified.csv}. & À insérer \\ \hline
+Figure~\ref{fig:rapport_qualite} & Rapport qualité ou sortie des anomalies. & À insérer \\ \hline
+Figure~\ref{fig:dw} & Base ouverte dans DB Browser for SQLite. & À insérer \\ \hline
+Figure~\ref{fig:tests} & Résultat des 70 tests automatiques. & À insérer \\ \hline
+Figure~\ref{fig:modele_powerbi} & Modèle relationnel Power BI. & À insérer \\ \hline
+Figures Power BI & Pages vue d'ensemble, solidité, performance, benchmark et prévision. & À insérer \\ \hline
+\end{tabularx}
+\end{table}
+
+\section{Limites méthodologiques à rappeler}
+Le tableau~\ref{tab:ann_limites} rappelle les limites méthodologiques et les
+réponses apportées dans le projet.
+
+\begin{table}[H]
+\centering
+\caption{Limites méthodologiques et réponses apportées.}
+\label{tab:ann_limites}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|}
+\hline
+\textbf{Limite} & \textbf{Réponse apportée} \\ \hline
+Données annuelles manquantes & Signalement explicite et absence d'imputation arbitraire. \\ \hline
+Trimestres estimés & Marquage \texttt{Type\_donnee = Estime}. \\ \hline
+Sociétés non parfaitement comparables & Comparaison prioritaire par ratios et commentaire métier. \\ \hline
+Historique court pour le ML & Modèles simples, backtest chronologique et métriques transparentes. \\ \hline
+Collisions résiduelles & Conservation avec occurrence et exclusion des calculs sensibles si nécessaire. \\ \hline
+\end{tabularx}
+\end{table}

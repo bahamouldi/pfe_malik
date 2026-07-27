@@ -7,139 +7,648 @@
 %% ── Introduction ───────────────────────────────────────────────────────────
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
-\par Ce chapitre traduit les objectifs en une solution concrète. Il présente
-l'analyse des besoins, l'architecture générale de la plateforme, la conception de
-la chaîne de traitement, le modèle dimensionnel de l'entrepôt, la spécification
-des ratios et du score de performance, ainsi que la stratégie de prévision.
+\par Après avoir présenté les fondements théoriques, ce chapitre traduit le
+besoin métier en une solution concrète. Il constitue le lien entre l'état de
+l'art et la réalisation technique. L'objectif est de montrer comment la
+plateforme a été pensée avant d'être développée : quels besoins elle doit
+couvrir, quelles données elle manipule, quelles règles de transformation elle
+applique et comment ses résultats sont organisés pour l'analyse.
+
+\par La conception d'une plateforme décisionnelle financière ne se limite pas à
+choisir des outils. Elle suppose d'identifier les utilisateurs, de comprendre les
+contraintes des données, de définir un modèle cible, de prévoir les contrôles de
+qualité, d'organiser les indicateurs et d'assurer la restitution finale. Dans le
+cas de la \sfbt, la difficulté principale vient de l'hétérogénéité des sources :
+les fichiers ne partagent pas tous la même structure, les libellés varient selon
+les années, les sociétés n'ont pas les mêmes devises et les données de la \sfbt
+ne couvrent pas toutes les clôtures trimestrielles.
+
+\par Le chapitre est structuré autour de six volets : l'analyse des besoins, la
+conception fonctionnelle, l'architecture générale, la chaîne \ac{ETL}, le modèle
+dimensionnel et la conception analytique des ratios, du score et de la
+prévision.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Analyse des besoins}
 \label{sec:besoins}
-\subsection{Besoins fonctionnels}
-\par La solution doit permettre d'importer et fiabiliser les états financiers,
-de générer les clôtures trimestrielles manquantes, de calculer les ratios et le
-score global, de comparer les sociétés (benchmark), de stocker les résultats dans
-un entrepôt interrogeable, de prévoir les valeurs futures et de restituer
-l'information sous forme de tableaux de bord. Ces besoins sont synthétisés par le
-diagramme de cas d'utilisation de la figure~\ref{fig:usecase}.
+\subsection{Objectif général de la solution}
+\par L'objectif général est de concevoir une plateforme décisionnelle capable de
+transformer des états financiers bruts en un système d'aide à la décision. Cette
+plateforme doit permettre de nettoyer les données, de les structurer, de
+calculer des ratios financiers, de comparer la \sfbt avec des sociétés de
+référence, de stocker les résultats dans un entrepôt de données et de préparer
+la restitution sous forme de tableaux de bord.
 
-\figplaceholder{Diagramme de cas d'utilisation de la plateforme.}{fig:usecase}
+\par La solution vise donc à répondre à une question centrale : comment passer
+d'un ensemble de fichiers financiers hétérogènes à une information fiable,
+comparative et prédictive ? Cette question se décline en plusieurs besoins :
+fiabiliser les données, reconstituer les séries temporelles, calculer des
+indicateurs normalisés, synthétiser la performance et anticiper les valeurs
+futures.
+
+\subsection{Acteurs du système}
+\par La plateforme concerne plusieurs acteurs. Certains interagissent directement
+avec les fichiers ou les tableaux de bord ; d'autres exploitent les résultats
+pour prendre des décisions ou évaluer le travail. Le tableau~\ref{tab:acteurs}
+présente les principaux acteurs identifiés.
+
+\begin{table}[H]
+\centering
+\caption[Acteurs de la plateforme]{Acteurs impliqués dans la plateforme décisionnelle.}
+\label{tab:acteurs}
+\begin{tabularx}{\linewidth}{|p{3.3cm}|X|X|}
+\hline
+\textbf{Acteur} & \textbf{Rôle} & \textbf{Attentes principales} \\ \hline
+Étudiant / analyste & Conçoit, exécute et documente la chaîne de traitement. & Automatiser les traitements, vérifier les résultats, produire un rapport défendable. \\ \hline
+Encadrant métier & Valide les ratios, les hypothèses et l'interprétation financière. & Obtenir des indicateurs fiables et compréhensibles. \\ \hline
+Utilisateur décisionnel & Consulte les tableaux de bord et les synthèses. & Accéder rapidement aux KPI, comparer les sociétés et suivre l'évolution de la \sfbt. \\ \hline
+Jury académique & Évalue la démarche, la rigueur et la valeur ajoutée du projet. & Comprendre l'architecture, la méthode, les résultats et les limites. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Besoins fonctionnels}
+\par Les besoins fonctionnels décrivent ce que le système doit faire. Ils ont
+été regroupés en modules cohérents : acquisition, préparation, enrichissement,
+analyse, stockage, prévision et restitution. Le
+tableau~\ref{tab:besoinsfonctionnels} les présente de manière structurée.
+
+\begin{table}[H]
+\centering
+\caption[Besoins fonctionnels]{Besoins fonctionnels de la plateforme.}
+\label{tab:besoinsfonctionnels}
+\begin{tabularx}{\linewidth}{|p{1.6cm}|p{3.5cm}|X|}
+\hline
+\textbf{Code} & \textbf{Besoin} & \textbf{Description} \\ \hline
+BF1 & Importer les sources & Lire les fichiers Excel des quatre sociétés sans modifier les fichiers d'origine. \\ \hline
+BF2 & Nettoyer les données & Normaliser les libellés, convertir les dates et valeurs, supprimer les doublons exacts. \\ \hline
+BF3 & Unifier le schéma & Produire une table longue unique contenant société, état, indicateur, date, période, valeur et source. \\ \hline
+BF4 & Gérer les anomalies & Détecter les collisions, signaler les valeurs manquantes et documenter les défauts de source. \\ \hline
+BF5 & Augmenter la série \sfbt & Générer les périodes T1 et 9M lorsque les données réelles ne sont pas publiées. \\ \hline
+BF6 & Calculer les ratios & Appliquer les 46 formules du référentiel à la \sfbt et aux sociétés de benchmark. \\ \hline
+BF7 & Calculer le SGPI & Transformer les ratios clés en notes puis en score global sur 100. \\ \hline
+BF8 & Construire le Data Warehouse & Charger les données dans un modèle en étoile interrogeable en SQL. \\ \hline
+BF9 & Prévoir les valeurs futures & Comparer deux modèles de prévision et produire les prochaines clôtures. \\ \hline
+BF10 & Préparer Power BI & Fournir les fichiers, vues et mesures nécessaires aux tableaux de bord. \\ \hline
+\end{tabularx}
+\end{table}
 
 \subsection{Besoins non fonctionnels}
-\par Les exigences non fonctionnelles portent sur la \textbf{fiabilité} (calculs
-exacts et vérifiés), la \textbf{reproductibilité} (régénération par une
-commande), la \textbf{traçabilité} (conservation des libellés d'origine et
-signalement des anomalies), la \textbf{modularité} (ajout aisé de sociétés ou de
-ratios) et la \textbf{portabilité} (exécution multiplateforme).
+\par Les besoins non fonctionnels précisent les qualités attendues du système.
+Ils sont importants car une plateforme financière doit être fiable, traçable et
+reproductible. Le tableau~\ref{tab:besoinsnonfonctionnels} synthétise ces
+exigences.
 
-%% ───────────────────────────────────────────────────────────────────────────
-\section{Architecture générale de la solution}
-\label{sec:archi}
-\par La plateforme suit une architecture décisionnelle en couches, illustrée par
-la figure~\ref{fig:archi}. Les fichiers sources sont traités par la chaîne
-\ac{ETL} (nettoyage, unification, augmentation), produisant un jeu de données
-unifié qui alimente le moteur de calcul des ratios et du \ac{SGPI}, puis
-l'entrepôt de données. Enfin, le module de prévision et les tableaux de bord
-exploitent ces données.
+\begin{table}[H]
+\centering
+\caption[Besoins non fonctionnels]{Besoins non fonctionnels retenus.}
+\label{tab:besoinsnonfonctionnels}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Exigence} & \textbf{Signification} & \textbf{Réponse de conception} \\ \hline
+Fiabilité & Les calculs doivent être exacts et contrôlables. & Tests automatiques, contrôles de cohérence, comparaison avec valeurs attendues. \\ \hline
+Reproductibilité & Les sorties doivent pouvoir être régénérées. & Script d'orchestration unique et documentation des étapes. \\ \hline
+Traçabilité & L'origine des valeurs doit rester identifiable. & Conservation du libellé brut, de la source et du type de donnée. \\ \hline
+Modularité & Le système doit pouvoir évoluer. & Modules Python séparés : unification, augmentation, ratios, DW, ML. \\ \hline
+Portabilité & Le projet doit être exécutable sur un environnement standard. & Dépendances Python listées, données en CSV/Parquet et base SQLite. \\ \hline
+Lisibilité & Les résultats doivent être compréhensibles par un utilisateur métier. & Libellés propres, catégories de ratios, benchmarks et documentation. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Diagramme de cas d'utilisation}
+\par Le diagramme de cas d'utilisation de la figure~\ref{fig:usecase} illustre
+les principales interactions entre les acteurs et le système. L'analyste exécute
+la chaîne de traitement, l'encadrant métier valide les résultats et
+l'utilisateur décisionnel consulte les restitutions.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-  node distance=0.7cm and 1.1cm,
+  scale=0.92, transform shape,
+  actor/.style={draw, circle, minimum size=0.55cm, inner sep=0pt},
+  usecase/.style={ellipse, draw=midblue, thick, fill=lightblue!35,
+    align=center, minimum width=3.25cm, minimum height=0.9cm, font=\footnotesize},
+  sys/.style={rectangle, draw=darkblue, very thick, rounded corners,
+    minimum width=12.7cm, minimum height=7.3cm},
+  link/.style={thick, midblue}
+]
+\node[sys] (system) at (2.7,0) {};
+\node[font=\bfseries\small\color{darkblue}] at ([yshift=5mm]system.north) {Plateforme décisionnelle SFBT};
+
+\node[actor] (a1) at (-5.2,1.65) {};
+\draw (-5.2,1.37) -- (-5.2,0.65);
+\draw (-5.55,1.1) -- (-4.85,1.1);
+\draw (-5.2,0.65) -- (-5.55,0.1);
+\draw (-5.2,0.65) -- (-4.85,0.1);
+\node[below, align=center, font=\footnotesize] at (-5.2,-0.08) {Analyste};
+
+\node[actor] (a2) at (-5.2,-2.0) {};
+\draw (-5.2,-2.28) -- (-5.2,-2.95);
+\draw (-5.55,-2.55) -- (-4.85,-2.55);
+\draw (-5.2,-2.95) -- (-5.55,-3.5);
+\draw (-5.2,-2.95) -- (-4.85,-3.5);
+\node[below, align=center, font=\footnotesize] at (-5.2,-3.68) {Encadrant\\métier};
+
+\node[actor] (a3) at (10.6,-1.05) {};
+\draw (10.6,-1.33) -- (10.6,-2.0);
+\draw (10.25,-1.6) -- (10.95,-1.6);
+\draw (10.6,-2.0) -- (10.25,-2.55);
+\draw (10.6,-2.0) -- (10.95,-2.55);
+\node[below, align=center, font=\footnotesize] at (10.6,-2.75) {Utilisateur\\décisionnel};
+
+\node[usecase] (u1) at (-0.2,2.25) {Importer\\les sources};
+\node[usecase] (u2) at (3.0,2.25) {Nettoyer et\\unifier};
+\node[usecase] (u3) at (6.2,2.25) {Augmenter\\la série};
+\node[usecase] (u4) at (-0.2,0.55) {Calculer\\les ratios};
+\node[usecase] (u5) at (3.0,0.55) {Construire\\le DW};
+\node[usecase] (u6) at (6.2,0.55) {Prévoir\\les valeurs};
+\node[usecase] (u8) at (1.4,-2.0) {Valider\\les résultats};
+\node[usecase] (u7) at (5.3,-2.0) {Consulter\\les tableaux};
+
+\draw[link] (-4.85,1.1) -- (u1.west);
+\draw[link] (-4.85,0.9) -- (u4.west);
+\draw[link] (-4.85,-2.55) -- (u8.west);
+\draw[link] (10.25,-1.6) -- (u7.east);
+
+\draw[link] (u1.east) -- (u2.west);
+\draw[link] (u2.east) -- (u3.west);
+\draw[link] (u4.east) -- (u5.west);
+\draw[link] (u5.east) -- (u6.west);
+\end{tikzpicture}
+\caption[Diagramme de cas d'utilisation]{Diagramme de cas d'utilisation de la plateforme.}
+\label{fig:usecase}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Conception fonctionnelle}
+\label{sec:conception_fonctionnelle}
+\subsection{Périmètre retenu}
+\par Le périmètre du projet couvre la préparation des données, le calcul
+d'indicateurs, la construction d'un entrepôt et la préparation des restitutions.
+Il ne couvre pas la saisie comptable, la modification des fichiers sources ni la
+production officielle des états financiers. La plateforme s'appuie sur les
+données disponibles et les transforme en données analytiques. Le
+tableau~\ref{tab:perimetre} précise ce qui est inclus et ce qui reste hors
+périmètre.
+
+\begin{table}[H]
+\centering
+\caption[Périmètre de la solution]{Périmètre fonctionnel retenu.}
+\label{tab:perimetre}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\textbf{Inclus dans le projet} & \textbf{Hors périmètre} \\ \hline
+Lecture des fichiers financiers fournis. & Saisie ou correction comptable dans les systèmes sources. \\ \hline
+Nettoyage, normalisation et unification. & Audit légal ou certification des états financiers. \\ \hline
+Calcul des ratios et du SGPI. & Définition réglementaire officielle d'une notation financière. \\ \hline
+Construction du Data Warehouse SQLite. & Déploiement serveur d'une plateforme BI complète. \\ \hline
+Préparation des données Power BI. & Publication cloud et gestion des droits utilisateurs. \\ \hline
+Prévision expérimentale des valeurs futures. & Garantie de prévision économique ou financière. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Flux fonctionnel global}
+\par Le fonctionnement attendu suit un enchaînement clair. L'utilisateur place
+les fichiers sources dans le dossier de données brutes, exécute la chaîne de
+traitement, obtient les fichiers préparés, consulte les rapports qualité, puis
+exploite les ratios, le Data Warehouse et les prévisions. La
+figure~\ref{fig:fluxfonctionnel} représente ce flux.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.65cm,
+  etape/.style={rectangle, rounded corners, draw=darkblue, thick,
+    fill=lightblue!40, align=center, minimum width=9.5cm,
+    minimum height=0.9cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.4mm]}, thick, darkblue}
+]
+\node[etape] (s1) {1. Réception des fichiers sources Excel};
+\node[etape, below=of s1] (s2) {2. Nettoyage, normalisation et unification};
+\node[etape, below=of s2] (s3) {3. Contrôles qualité et rapports d'anomalies};
+\node[etape, below=of s3] (s4) {4. Augmentation trimestrielle de la série \sfbt};
+\node[etape, below=of s4] (s5) {5. Calcul des ratios, benchmarks et SGPI};
+\node[etape, below=of s5] (s6) {6. Chargement du Data Warehouse et préparation Power BI};
+\node[etape, below=of s6] (s7) {7. Prévision ML et génération des résultats futurs};
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\draw[arr] (s5) -- (s6);
+\draw[arr] (s6) -- (s7);
+\end{tikzpicture}
+\caption[Flux fonctionnel global]{Flux fonctionnel global de la plateforme.}
+\label{fig:fluxfonctionnel}
+\end{figure}
+
+\subsection{Règles de gestion principales}
+\par Les règles de gestion définissent les choix métier appliqués lors de la
+transformation. Elles garantissent que le système traite les cas ambigus de
+manière stable et explicable. Le tableau~\ref{tab:reglesgestion} présente les
+règles majeures.
+
+\begin{table}[H]
+\centering
+\caption[Règles de gestion principales]{Règles de gestion retenues pour la conception.}
+\label{tab:reglesgestion}
+\begin{tabularx}{\linewidth}{|p{2cm}|X|X|}
+\hline
+\textbf{Règle} & \textbf{Description} & \textbf{Justification} \\ \hline
+RG1 & Les fichiers bruts ne sont jamais modifiés. & Préserver la traçabilité et permettre la reproduction. \\ \hline
+RG2 & Un libellé brut est conservé en plus du libellé nettoyé. & Pouvoir remonter à la source en cas de doute. \\ \hline
+RG3 & Les doublons strictement identiques sont supprimés. & Éviter le double comptage sans perdre d'information. \\ \hline
+RG4 & Les collisions non résolues sont conservées avec une occurrence. & Ne pas trancher automatiquement une ambiguïté métier. \\ \hline
+RG5 & Les montants ne sont pas convertis entre devises. & Éviter une conversion arbitraire ; comparer plutôt par ratios. \\ \hline
+RG6 & Les données estimées sont marquées explicitement. & Distinguer le réel de l'augmentation. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Architecture générale de la solution}
+\label{sec:archi}
+\par La plateforme suit une architecture modulaire. Chaque composant réalise une
+fonction précise et produit des sorties qui deviennent les entrées du composant
+suivant. Cette organisation facilite la maintenance : il est possible de
+modifier le calcul des ratios sans réécrire la lecture des fichiers sources, ou
+d'améliorer la prévision sans modifier l'unification. La figure~\ref{fig:archi}
+présente cette architecture générale.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm and 0.9cm,
   box/.style={rectangle,rounded corners,draw=darkblue,very thick,
-    fill=lightblue,align=center,minimum height=1.05cm,minimum width=2.6cm,
+    fill=lightblue,align=center,minimum height=1.05cm,minimum width=2.65cm,
     font=\footnotesize},
+  data/.style={rectangle,draw=midblue,thick,fill=white,align=center,
+    minimum height=0.85cm,minimum width=2.65cm,font=\scriptsize},
   arr/.style={-{Latex[length=2.5mm]},very thick,darkblue},
 ]
-\node[box] (src) {Sources Excel\\(4 sociétés)};
-\node[box,right=of src] (etl) {ETL\\nettoyage,\\unification};
-\node[box,right=of etl] (aug) {Augmentation\\(trimestres)};
-\node[box,below=of aug] (ratio) {Ratios + SGPI\\(46 indicateurs)};
-\node[box,left=of ratio] (dw) {Data Warehouse\\(schéma étoile)};
-\node[box,left=of dw] (ml) {Prévision ML\\(2 modèles)};
-\node[box,below=of dw] (resti) {Restitution\\Power BI};
-\draw[arr] (src) -- (etl);
-\draw[arr] (etl) -- (aug);
-\draw[arr] (aug) -- (ratio);
-\draw[arr] (ratio) -- (dw);
-\draw[arr] (dw) -- (ml);
-\draw[arr] (dw) -- (resti);
-\draw[arr] (ml) |- (resti);
+\node[data] (raw) {data/raw\\Excel};
+\node[box,right=of raw] (unify) {Unification\\normalize + unify};
+\node[box,right=of unify] (augment) {Augmentation\\T1 / 9M};
+\node[data,right=of augment] (full) {financials\\full};
+\node[box,below=of full] (ratios) {Ratios\\+ SGPI};
+\node[box,left=of ratios] (dw) {Data\\Warehouse};
+\node[box,left=of dw] (ml) {Prévision\\ML};
+\node[data,below=of dw] (out) {CSV, SQLite\\Power BI};
+\draw[arr] (raw) -- (unify);
+\draw[arr] (unify) -- (augment);
+\draw[arr] (augment) -- (full);
+\draw[arr] (full) -- (ratios);
+\draw[arr] (ratios) -- (dw);
+\draw[arr] (full) |- (dw);
+\draw[arr] (full) |- (ml);
+\draw[arr] (ml) |- (out);
+\draw[arr] (dw) -- (out);
+\draw[arr] (ratios) |- (out);
 \end{tikzpicture}
 \caption[Architecture générale de la plateforme]{Architecture générale de la plateforme décisionnelle.}
 \label{fig:archi}
 \end{figure}
 
+\subsection{Organisation en modules}
+\par Le découpage logiciel suit les grandes étapes de la chaîne. Chaque script
+Python a une responsabilité identifiable. Ce choix rend le projet plus lisible
+et facilite les tests. Le tableau~\ref{tab:modules} associe les modules à leur
+rôle.
+
+\begin{table}[H]
+\centering
+\caption[Modules de la solution]{Modules principaux de la solution.}
+\label{tab:modules}
+\begin{tabularx}{\linewidth}{|p{3.5cm}|X|X|}
+\hline
+\textbf{Module} & \textbf{Responsabilité} & \textbf{Sorties principales} \\ \hline
+\texttt{config.py} & Centraliser les chemins, métadonnées sociétés et schéma cible. & Constantes partagées par tout le pipeline. \\ \hline
+\texttt{normalize.py} & Nettoyer les libellés et produire les clés canoniques. & Fonctions de normalisation et alias métier. \\ \hline
+\texttt{unify.py} & Lire les sources et produire le format long unifié. & \texttt{financials\_unified.csv}, rapports variantes et collisions. \\ \hline
+\texttt{augment.py} & Générer les périodes trimestrielles manquantes de la \sfbt. & \texttt{sfbt\_augmented.csv}, \texttt{financials\_full.csv}. \\ \hline
+\texttt{ratios.py} & Construire la matrice concepts et calculer les ratios. & \texttt{ratios.csv}, \texttt{sgpi.csv}, \texttt{concepts\_matrix.csv}. \\ \hline
+\texttt{build\_warehouse.py} & Construire le schéma en étoile SQLite. & \texttt{sfbt\_dw.sqlite}, vues analytiques. \\ \hline
+\texttt{ml\_forecast.py} & Entraîner et comparer deux modèles de prévision. & Métriques, prédictions et prévisions futures. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Choix technologiques}
+\par Les technologies retenues répondent à une logique de simplicité et de
+reproductibilité. Python est utilisé pour le traitement de données, SQLite pour
+le stockage analytique local, CSV/Parquet pour l'échange de données et Power BI
+pour la restitution. Ces choix sont adaptés à un projet académique car ils
+restent accessibles tout en permettant une chaîne complète.
+
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Conception de la chaîne de traitement (ETL)}
+\section{Conception de la chaîne de traitement ETL}
 \label{sec:etl}
-\subsection{Unification des sources}
-\par Les quatre fichiers présentant des formats différents, un \textbf{schéma
-cible unique} a été défini, sous forme de table longue (\textit{tidy}) dont les
-principales colonnes sont : société, état financier, indicateur (libellé propre,
-brut et clé normalisée), date, période, valeur, devise, échelle, type de donnée
-et source. La difficulté majeure réside dans l'\textbf{hétérogénéité des
-libellés} de la \sfbt ; la conception prévoit une \textbf{clé de normalisation}
-qui regroupe automatiquement les variantes d'un même indicateur, condition
-indispensable à la reconstitution des séries temporelles.
+\subsection{Schéma cible unifié}
+\par Les sources initiales présentent des structures différentes. Pour rendre
+les analyses possibles, un schéma cible unique a été défini. Le choix d'un
+format long (\textit{tidy}) signifie qu'une ligne représente une valeur d'un
+indicateur pour une société à une date donnée. Ce format facilite les filtres,
+les agrégations, les exports et le chargement dans un entrepôt.
 
-\subsection{Classification des états et fiabilisation}
-\par Pour la \sfbt, dont la feuille maîtresse empile tous les états sans
-étiquette, un \textbf{découpage positionnel} reclasse chaque ligne dans son état
-(bilan actif, bilan passif, compte de résultat, flux de trésorerie, soldes
-intermédiaires de gestion). Des règles de fiabilisation traitent les anomalies :
-suppression des doublons stricts et correction des \textbf{fuites de colonnes
-comparatives}.
+\par Le tableau~\ref{tab:schemaunifie} décrit les colonnes principales de ce
+schéma cible.
 
-\subsection{Augmentation des données}
-\par La \sfbt ne publiant que les clôtures de juin et décembre, la conception
-prévoit la génération des clôtures de mars et septembre. La méthode distingue les
-\textbf{grandeurs de stock} (postes de bilan), obtenues par \textbf{interpolation
-linéaire}, des \textbf{grandeurs de flux} (compte de résultat), obtenues par
-\textbf{répartition au prorata} du temps. Les valeurs produites sont marquées
-comme estimées.
+\begin{table}[H]
+\centering
+\caption[Schéma cible unifié]{Principales colonnes du schéma cible unifié.}
+\label{tab:schemaunifie}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|X|}
+\hline
+\textbf{Colonne} & \textbf{Rôle dans la conception} \\ \hline
+\texttt{Societe} & Identifier la société analysée. \\ \hline
+\texttt{Statement} & Distinguer bilan, compte de résultat, flux ou SIG. \\ \hline
+\texttt{Indicateur} & Fournir un libellé propre et lisible. \\ \hline
+\texttt{Indicateur\_raw} & Conserver le libellé d'origine pour la traçabilité. \\ \hline
+\texttt{Cle\_indicateur} & Servir de clé de regroupement et de jointure. \\ \hline
+\texttt{Date}, \texttt{Annee}, \texttt{Periode} & Situer la valeur dans le temps. \\ \hline
+\texttt{Valeur} & Porter le montant financier. \\ \hline
+\texttt{Occurrence} & Signaler une collision conservée. \\ \hline
+\texttt{Devise}, \texttt{Echelle} & Préciser le contexte monétaire. \\ \hline
+\texttt{Type\_donnee} & Distinguer réel et estimé. \\ \hline
+\texttt{Source} & Identifier l'origine de la donnée. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Stratégie de lecture des sources}
+\par La lecture des fichiers est adaptée à chaque société. La \sfbt possède une
+feuille maîtresse dans laquelle plusieurs états sont empilés. DELICE et
+AB~InBev ont un format déjà proche du schéma long. Coca-Cola présente un format
+anglais avec des colonnes différentes. La conception prévoit donc des chargeurs
+spécifiques, mais une sortie commune. Le tableau~\ref{tab:chargement} précise la
+stratégie de chargement retenue pour chaque source.
+
+\begin{table}[H]
+\centering
+\caption[Stratégie de chargement par société]{Stratégie de chargement par fichier source.}
+\label{tab:chargement}
+\begin{tabularx}{\linewidth}{|p{2.7cm}|p{3.4cm}|X|}
+\hline
+\textbf{Société} & \textbf{Format source} & \textbf{Traitement prévu} \\ \hline
+\sfbt & Plusieurs feuilles, états empilés. & Lecture de la feuille maîtresse, classification positionnelle, ajout des SIG depuis la feuille dédiée. \\ \hline
+DELICE & Format long quasi conforme. & Harmonisation des colonnes, dates, périodes et métadonnées. \\ \hline
+AB~InBev & Format long mais état non renseigné. & Chargement en \texttt{Statement = Inconnu} et conservation des collisions. \\ \hline
+Coca-Cola & Format anglais simplifié. & Mapping vers le schéma cible et rattachement à la société Coca-Cola. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Normalisation et clés canoniques}
+\par La normalisation répond à une contrainte essentielle : les mêmes concepts
+financiers peuvent être écrits différemment selon les années. La conception
+prévoit donc une clé canonique, construite à partir d'un libellé nettoyé,
+désaccentué, mis en minuscule et débarrassé des ponctuations non utiles. Des
+alias permettent ensuite de regrouper certaines variantes métier. La
+figure~\ref{fig:normalisation_ch3} présente ce processus.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm,
+  etape/.style={rectangle, rounded corners, draw=midblue, thick,
+    fill=lightblue!40, align=center, minimum width=9.2cm,
+    minimum height=0.85cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.3mm]}, thick, midblue}
+]
+\node[etape] (a) {Libellé brut : accents, espaces, astérisques, retours ligne};
+\node[etape, below=of a] (b) {Nettoyage d'affichage : libellé propre et lisible};
+\node[etape, below=of b] (c) {Normalisation agressive : minuscules, sans accents, sans ponctuation};
+\node[etape, below=of c] (d) {Application des alias métier};
+\node[etape, below=of d] (e) {Clé canonique utilisée dans les séries temporelles};
+\draw[arr] (a) -- (b);
+\draw[arr] (b) -- (c);
+\draw[arr] (c) -- (d);
+\draw[arr] (d) -- (e);
+\end{tikzpicture}
+\caption[Conception de la normalisation]{Processus de normalisation des indicateurs.}
+\label{fig:normalisation_ch3}
+\end{figure}
+
+\subsection{Classification des états financiers}
+\par Pour la \sfbt, la feuille principale contient les états financiers les uns
+à la suite des autres. La conception retient une classification positionnelle :
+des marqueurs de début de section permettent de découper le bloc d'une date en
+actif, passif, compte de résultat et flux de trésorerie. Les SIG sont repris de
+la feuille dédiée afin d'éviter les doublons.
+
+\par Ce choix est plus robuste qu'une classification naïve basée seulement sur
+les libellés, car certains termes peuvent apparaître dans plusieurs états. Le
+découpage positionnel exploite l'ordre stable des sections dans le fichier
+source.
+
+\subsection{Gestion des anomalies}
+\par Les anomalies sont traitées selon leur nature. Les doublons strictement
+identiques sont supprimés, car ils ne portent pas d'information supplémentaire.
+Les fuites de colonnes comparatives sont corrigées lorsqu'une valeur de l'année
+précédente est recopiée par erreur dans l'année courante. Les collisions
+résiduelles sont conservées pour validation métier. Le
+tableau~\ref{tab:anomalies} synthétise ces traitements.
+
+\begin{table}[H]
+\centering
+\caption[Gestion des anomalies]{Gestion des principales anomalies de données.}
+\label{tab:anomalies}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|X|X|}
+\hline
+\textbf{Anomalie} & \textbf{Traitement} & \textbf{Raison} \\ \hline
+Doublon exact & Suppression d'une des lignes identiques. & Éviter le double comptage. \\ \hline
+Libellé variant & Regroupement par clé canonique. & Reconstituer les séries temporelles. \\ \hline
+Colonne comparative recopiée & Suppression de la valeur reconnue comme fuite. & Corriger une erreur identifiable. \\ \hline
+Collision non résolue & Conservation avec \texttt{Occurrence}. & Préserver l'information et signaler le besoin de validation. \\ \hline
+Valeur manquante & Conservation de la ligne avec valeur nulle si nécessaire. & Ne pas inventer de valeur réelle. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Conception de l'augmentation trimestrielle}
+\par La \sfbt publie principalement des données semestrielles et annuelles. Pour
+obtenir une série plus dense, la conception prévoit de générer les clôtures de
+mars et septembre. La règle dépend de la nature de l'indicateur : une grandeur
+de stock est interpolée entre deux dates, tandis qu'une grandeur de flux est
+répartie au prorata à l'intérieur du semestre. Le
+tableau~\ref{tab:augmentation_conception} détaille les règles retenues.
+
+\begin{table}[H]
+\centering
+\caption[Méthode d'augmentation]{Méthode de génération des périodes manquantes.}
+\label{tab:augmentation_conception}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Nature} & \textbf{Méthode} & \textbf{Exemple} \\ \hline
+Stock & Interpolation linéaire entre deux photos de bilan. & Total des actifs, capitaux propres, stocks. \\ \hline
+Flux & Répartition du cumul au prorata du semestre. & Revenus, résultat net, charges, valeur ajoutée. \\ \hline
+Exception stock dans flux & Interpolation même si l'indicateur apparaît dans le tableau des flux. & Trésorerie au début ou à la clôture. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Pour une grandeur de stock, la valeur estimée à la date $d$ entre deux
+dates connues $d_0$ et $d_1$ est :
+\begin{equation}
+V(d) = V(d_0) + \frac{d-d_0}{d_1-d_0}\times\left(V(d_1)-V(d_0)\right)
+\end{equation}
+
+\par Pour une grandeur de flux cumulée, les formules retenues sont :
+\begin{equation}
+V(T1_N) = 0{,}5 \times V(S1_N)
+\end{equation}
+\begin{equation}
+V(9M_N) = V(S1_N) + 0{,}5 \times \left(V(FY_N)-V(S1_N)\right)
+\end{equation}
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Conception de l'entrepôt de données}
 \label{sec:concep_dw}
-\par L'entrepôt adopte un \textbf{schéma en étoile} (figure~\ref{fig:etoile}) :
-une table de faits centrale entourée de dimensions conformes. La granularité de
-la table de faits est : une ligne par société, date et indicateur.
+\subsection{Choix du schéma en étoile}
+\par L'entrepôt adopte un schéma en étoile. Ce choix est cohérent avec les
+analyses attendues : filtrer par société, par période, par indicateur ou par
+ratio, puis agréger les valeurs. La granularité retenue est fine afin de ne pas
+perdre d'information. La figure~\ref{fig:etoile} présente le modèle dimensionnel
+retenu.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
   dim/.style={rectangle,rounded corners,draw=midblue,thick,fill=lightblue,
-    align=center,minimum height=1cm,minimum width=2.8cm,font=\footnotesize},
+    align=center,minimum height=0.95cm,minimum width=2.35cm,font=\footnotesize},
   fact/.style={rectangle,draw=espritred,very thick,fill=espritred!10,
-    align=center,minimum height=1.4cm,minimum width=3.2cm,font=\footnotesize\bfseries},
+    align=center,minimum height=1.25cm,minimum width=3.1cm,font=\footnotesize\bfseries},
   link/.style={thick,midblue},
 ]
-\node[fact] (f) {Fait\\Ratios / États};
-\node[dim,above=1.4cm of f] (t) {Dim\_Temps};
-\node[dim,below=1.4cm of f] (i) {Dim\_Indicateur};
-\node[dim,left=2cm of f] (s) {Dim\_Societe};
-\node[dim,right=2cm of f] (r) {Dim\_Ratio};
-\draw[link] (f) -- (t); \draw[link] (f) -- (i);
-\draw[link] (f) -- (s); \draw[link] (f) -- (r);
+\node[fact] (fe) at (-2.1,0) {Fait\\États financiers};
+\node[fact] (fr) at (2.1,0) {Fait\\Ratios};
+\node[dim] (s) at (0,2.2) {Dim\_Societe};
+\node[dim] (t) at (0,-2.2) {Dim\_Temps};
+\node[dim] (i) at (-5.3,0) {Dim\_Indicateur};
+\node[dim] (r) at (5.3,0) {Dim\_Ratio};
+\draw[link] (fe) -- (s);
+\draw[link] (fr) -- (s);
+\draw[link] (fe) -- (t);
+\draw[link] (fr) -- (t);
+\draw[link] (fe) -- (i);
+\draw[link] (fr) -- (r);
 \end{tikzpicture}
 \caption[Modèle dimensionnel en étoile]{Modèle dimensionnel en étoile de l'entrepôt de données.}
 \label{fig:etoile}
 \end{figure}
 
-\par Quatre dimensions sont définies : \texttt{Dim\_Societe},
-\texttt{Dim\_Temps}, \texttt{Dim\_Indicateur} et \texttt{Dim\_Ratio}. Des
-\textbf{vues SQL} prêtes à l'emploi facilitent l'interrogation et l'usage par
-\textit{Power BI}.
+\subsection{Dimensions}
+\par Les dimensions décrivent les axes d'analyse. Elles évitent de répéter dans
+les faits les mêmes informations textuelles et facilitent les filtres dans les
+requêtes et les tableaux de bord. Le tableau~\ref{tab:dimensions} détaille leur
+rôle.
+
+\begin{table}[H]
+\centering
+\caption[Dimensions du Data Warehouse]{Dimensions prévues dans le Data Warehouse.}
+\label{tab:dimensions}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Dimension} & \textbf{Attributs principaux} & \textbf{Utilité analytique} \\ \hline
+\texttt{Dim\_Societe} & Société, rôle, secteur, devise, échelle. & Comparer la \sfbt avec les sociétés de benchmark. \\ \hline
+\texttt{Dim\_Temps} & Date, année, mois, période, type de clôture. & Suivre les évolutions annuelles, semestrielles et trimestrielles. \\ \hline
+\texttt{Dim\_Indicateur} & Clé, libellé, état financier, nature. & Analyser les postes comptables et distinguer stock/flux. \\ \hline
+\texttt{Dim\_Ratio} & Code, libellé, catégorie, unité, benchmark. & Filtrer les ratios par famille et interpréter les valeurs. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Tables de faits}
+\par Deux tables de faits principales sont prévues. La première stocke les
+valeurs comptables issues des états financiers. La seconde stocke les ratios
+calculés. Une table complémentaire porte le score global. Cette séparation
+permet de conserver à la fois les données élémentaires et les indicateurs
+calculés. Le tableau~\ref{tab:faits} détaille ces tables de faits.
+
+\begin{table}[H]
+\centering
+\caption[Tables de faits]{Tables de faits du Data Warehouse.}
+\label{tab:faits}
+\begin{tabularx}{\linewidth}{|p{3.3cm}|X|X|}
+\hline
+\textbf{Table} & \textbf{Granularité} & \textbf{Mesures} \\ \hline
+\texttt{Fait\_Etats\_Financiers} & Une société, une date, un indicateur. & Valeur, type de donnée, occurrence. \\ \hline
+\texttt{Fait\_Ratios} & Une société, une date, un ratio. & Valeur du ratio, note sur 5. \\ \hline
+\texttt{Fait\_SGPI} & Une société, une date. & SGPI sur 100, couverture du score. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Vues analytiques}
+\par Des vues SQL sont prévues pour faciliter l'exploitation. Elles
+reconstituent des tables aplaties directement utilisables dans les outils de BI.
+Cette conception évite à l'utilisateur final de reconstruire manuellement les
+jointures entre dimensions et faits. Le tableau~\ref{tab:vues} présente les vues
+prévues.
+
+\begin{table}[H]
+\centering
+\caption[Vues analytiques]{Vues analytiques prévues dans SQLite.}
+\label{tab:vues}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|}
+\hline
+\textbf{Vue} & \textbf{Rôle} \\ \hline
+\texttt{v\_etats} & Afficher les valeurs financières avec société, date, indicateur, nature et type de donnée. \\ \hline
+\texttt{v\_ratios} & Afficher les ratios avec société, période, catégorie, benchmark et note. \\ \hline
+\texttt{v\_sgpi} & Afficher le score global par société et par période. \\ \hline
+\end{tabularx}
+\end{table}
 
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Spécification des ratios et du score de performance}
+\section{Spécification des ratios et du score}
 \label{sec:specratios}
-\par Conformément au référentiel adopté, \textbf{46 ratios} sont spécifiés,
-répartis en sept catégories. Chaque ratio est défini par sa formule, son unité et
-sa fourchette de référence. Le \textbf{\ac{SGPI}} agrège ces ratios : chaque ratio
-clé reçoit une note de 0 à 5, les notes sont moyennées par catégorie, puis
-pondérées selon le tableau~\ref{tab:poids}.
+\subsection{Matrice de concepts}
+\par Avant de calculer les ratios, il faut retrouver les postes comptables qui
+entrent dans les formules. La conception prévoit donc une matrice de concepts :
+chaque concept métier, comme le total des actifs ou les capitaux propres, est
+associé à une ou plusieurs clés possibles selon les sociétés et les états. Cette
+matrice sert d'interface entre les libellés comptables et les formules
+financières. La figure~\ref{fig:chaineratios} résume cette chaîne de calcul.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm and 0.8cm,
+  box/.style={rectangle, rounded corners, draw=midblue, thick, fill=lightblue!35,
+    align=center, minimum width=3.1cm, minimum height=0.9cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.2mm]}, thick, midblue}
+]
+\node[box] (raw) {Données unifiées\\clés indicateurs};
+\node[box, right=of raw] (concept) {Matrice\\de concepts};
+\node[box, right=of concept] (ratio) {Formules\\des ratios};
+\node[box, right=of ratio] (score) {Notes\\et SGPI};
+\draw[arr] (raw) -- (concept);
+\draw[arr] (concept) -- (ratio);
+\draw[arr] (ratio) -- (score);
+\end{tikzpicture}
+\caption[Chaîne de calcul des ratios]{Chaîne conceptuelle de calcul des ratios.}
+\label{fig:chaineratios}
+\end{figure}
+
+\subsection{Catégories de ratios}
+\par Les 46 ratios sont organisés par catégories. Cette structuration facilite
+l'interprétation et la restitution dans les tableaux de bord. Elle permet aussi
+de calculer des moyennes par famille pour le score global. Le
+tableau~\ref{tab:categoriesratios} présente les catégories retenues.
+
+\begin{table}[H]
+\centering
+\caption[Catégories de ratios]{Catégories de ratios retenues.}
+\label{tab:categoriesratios}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|X|}
+\hline
+\textbf{Catégorie} & \textbf{Objectif d'analyse} \\ \hline
+Gestion des liquidités & Mesurer la capacité de l'entreprise à couvrir ses engagements courts. \\ \hline
+Gestion des actifs & Évaluer la structure et l'utilisation des actifs. \\ \hline
+Gestion des passifs & Analyser l'endettement, l'autonomie et la solvabilité. \\ \hline
+Ressources humaines & Mesurer la productivité financière des charges de personnel. \\ \hline
+Gestion des risques & Apprécier les risques commerciaux, de placement et de défaillance. \\ \hline
+Rentabilité & Mesurer les marges et les rendements économiques et financiers. \\ \hline
+Cycle d'exploitation & Suivre les délais clients, fournisseurs, stocks et BFR. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Pondération du SGPI}
+\par Le \ac{SGPI} agrège les notes par catégorie. La pondération donne plus de
+poids à la rentabilité et à la structure financière, tout en conservant une
+place pour la liquidité, la gestion des actifs, le risque, le cycle
+d'exploitation et la productivité RH. Le tableau~\ref{tab:poids} indique les
+poids utilisés.
 
 \begin{table}[H]
 \centering
@@ -159,22 +668,169 @@ Productivité RH & 5~\% \\ \hline
 \end{tabular}
 \end{table}
 
+\par Le score est donc conçu comme un indicateur synthétique, mais il reste
+décomposable. L'utilisateur peut consulter le score global puis revenir aux
+catégories ou aux ratios détaillés pour comprendre l'origine de la note.
+
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Conception du module de prévision}
 \label{sec:concep_ml}
-\par La prévision cible les principales grandeurs financières de la \sfbt
-(chiffre d'affaires, total des actifs, capitaux propres, résultat net). La
-conception retient une \textbf{mise au format supervisé} de la série, avec pour
-cible le \textbf{taux de croissance} (et non la valeur brute), choix essentiel
-pour rendre la série stationnaire et permettre aux deux modèles d'extrapoler
-correctement. Les variables explicatives combinent tendance, retards et
-saisonnalité. Deux modèles — \textbf{régression linéaire} et \textbf{forêt
-aléatoire} — sont comparés par \textit{backtest} chronologique.
+\subsection{Indicateurs prévus}
+\par Le module de prévision se concentre sur quatre grandeurs financières
+importantes : le chiffre d'affaires, le total des actifs, les capitaux propres
+et le résultat net. Ces indicateurs couvrent à la fois l'activité, la taille du
+bilan, la solidité financière et la performance nette. Le
+tableau~\ref{tab:targetsml} les récapitule.
+
+\begin{table}[H]
+\centering
+\caption[Indicateurs prévus par le module ML]{Indicateurs retenus pour la prévision.}
+\label{tab:targetsml}
+\begin{tabularx}{\linewidth}{|p{3.5cm}|X|X|}
+\hline
+\textbf{Indicateur} & \textbf{Rôle financier} & \textbf{Intérêt de prévision} \\ \hline
+Chiffre d'affaires & Mesure le niveau d'activité. & Anticiper la croissance commerciale. \\ \hline
+Total des actifs & Mesure la taille économique. & Suivre l'évolution de la base d'actifs. \\ \hline
+Capitaux propres & Mesure la solidité financière. & Anticiper la capacité de financement autonome. \\ \hline
+Résultat net & Mesure la performance finale. & Estimer la rentabilité future. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Transformation supervisée}
+\par La série temporelle est transformée en problème supervisé. Pour chaque
+période, le modèle utilise une tendance temporelle, des retards et des variables
+de saisonnalité. La cible retenue est le taux de croissance plutôt que la valeur
+brute, afin de stabiliser la série et de permettre une meilleure extrapolation.
+La figure~\ref{fig:conceptionml} illustre cette transformation supervisée.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm,
+  etape/.style={rectangle, rounded corners, draw=darkblue, thick,
+    fill=lightblue!40, align=center, minimum width=9.5cm,
+    minimum height=0.85cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.3mm]}, thick, darkblue}
+]
+\node[etape] (a) {Série trimestrielle : réel + estimé};
+\node[etape, below=of a] (b) {Calcul du taux de croissance : $r_t = V_t / V_{t-1}$};
+\node[etape, below=of b] (c) {Création des variables : tendance, retards, saisonnalité};
+\node[etape, below=of c] (d) {Découpage chronologique : entraînement puis test};
+\node[etape, below=of d] (e) {Prévision récursive des prochaines clôtures};
+\draw[arr] (a) -- (b);
+\draw[arr] (b) -- (c);
+\draw[arr] (c) -- (d);
+\draw[arr] (d) -- (e);
+\end{tikzpicture}
+\caption[Conception du module de prévision]{Conception du module de prévision supervisée.}
+\label{fig:conceptionml}
+\end{figure}
+
+\subsection{Comparaison des modèles}
+\par Deux modèles sont retenus : la régression linéaire et la forêt aléatoire.
+La régression linéaire sert de modèle simple et interprétable ; la forêt
+aléatoire sert de modèle non linéaire de comparaison. Les deux modèles sont
+évalués avec les mêmes variables et le même découpage temporel afin de rendre la
+comparaison équitable. Le tableau~\ref{tab:evaluationml} précise le protocole
+d'évaluation.
+
+\begin{table}[H]
+\centering
+\caption[Conception de l'évaluation ML]{Conception de l'évaluation des modèles.}
+\label{tab:evaluationml}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|}
+\hline
+\textbf{Élément} & \textbf{Choix retenu} \\ \hline
+Modèles comparés & Régression linéaire et Random Forest. \\ \hline
+Variables & Tendance, retards du taux de croissance, période T1/S1/9M/FY. \\ \hline
+Cible & Taux de croissance de la valeur financière. \\ \hline
+Découpage & Chronologique, sans mélange aléatoire. \\ \hline
+Métriques & MAE, RMSE, MAPE et $R^2$. \\ \hline
+Sorties & Métriques, prédictions sur test et prévisions futures. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Conception de la restitution décisionnelle}
+\label{sec:conception_restitution}
+\par La restitution est prévue sous Power BI, avec des fichiers déjà préparés.
+L'objectif est de réduire le travail manuel dans l'outil de visualisation :
+l'utilisateur importe des tables propres, applique des filtres et construit des
+pages d'analyse. Les données sont donc conçues pour être directement
+exploitables.
+
+\subsection{Pages de tableau de bord prévues}
+\par La conception prévoit cinq pages principales : une vue d'ensemble, une
+analyse de la solidité financière, une analyse de la performance, un benchmark
+et une page de prévision. Ces pages correspondent aux besoins d'un diagnostic
+financier complet. Le tableau~\ref{tab:pagespowerbi} décrit les pages prévues.
+
+\begin{table}[H]
+\centering
+\caption[Pages Power BI prévues]{Pages prévues pour le tableau de bord Power BI.}
+\label{tab:pagespowerbi}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Page} & \textbf{Objectif} & \textbf{Visuels attendus} \\ \hline
+Vue d'ensemble & Résumer la situation de la \sfbt. & KPI, courbe du chiffre d'affaires, score global. \\ \hline
+Solidité & Analyser liquidité, endettement et solvabilité. & Barres de ratios, cartes, filtres année/période. \\ \hline
+Performance & Analyser marges, ROA, ROE et rentabilité. & Courbes d'évolution, tableaux de ratios. \\ \hline
+Benchmark & Comparer la \sfbt aux autres sociétés. & Barres comparatives, matrices société/ratio. \\ \hline
+Prévision ML & Visualiser réel, prédit et futur. & Courbes de backtest et prévisions par modèle. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Indicateurs clés de restitution}
+\par Les indicateurs affichés doivent être à la fois synthétiques et
+explicables. Les cartes KPI donnent une lecture rapide, tandis que les tableaux
+et graphiques permettent de revenir au détail. Le choix des indicateurs vise à
+couvrir les dimensions essentielles : activité, rentabilité, solvabilité,
+liquidité, score et prévision.
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Stratégie de validation}
+\label{sec:validation_conception}
+\par La validation est pensée dès la conception. Elle ne se limite pas à
+vérifier que les scripts s'exécutent ; elle doit contrôler la cohérence métier
+des résultats. Les tests portent sur la présence des fichiers, le schéma
+unifié, l'équilibre du bilan, l'augmentation, les ratios, le Data Warehouse et
+le module de prévision. Le tableau~\ref{tab:validation} synthétise ces
+contrôles.
+
+\begin{table}[H]
+\centering
+\caption[Stratégie de validation]{Contrôles prévus pour valider la chaîne.}
+\label{tab:validation}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Bloc} & \textbf{Contrôle} & \textbf{Objectif} \\ \hline
+Sources & Vérifier la présence des fichiers bruts. & Garantir que l'exécution peut démarrer. \\ \hline
+Unification & Contrôler les colonnes, sociétés, dates et clés. & Valider le format cible. \\ \hline
+Comptabilité & Comparer total actif et total passif. & Vérifier la classification des états. \\ \hline
+Augmentation & Tester les formules stock/flux. & Garantir la cohérence des estimations. \\ \hline
+Ratios & Comparer des valeurs clés attendues. & Valider les formules financières. \\ \hline
+Data Warehouse & Vérifier dimensions, faits et jointures. & Éviter les pertes de données. \\ \hline
+ML & Vérifier métriques, positivité et nombre de prévisions. & Contrôler la qualité minimale des modèles. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Cette stratégie renforce la crédibilité du projet : les résultats ne sont
+pas simplement produits, ils sont testés et documentés. Elle permet aussi de
+modifier ultérieurement une partie du pipeline tout en détectant rapidement une
+régression.
 
 %% ── Conclusion ─────────────────────────────────────────────────────────────
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
-\par Ce chapitre a défini l'architecture de la solution et la conception
-détaillée de chacune de ses composantes : chaîne \ac{ETL}, entrepôt en étoile,
-spécification des ratios et du score, et stratégie de prévision. Le chapitre
-suivant présente la réalisation effective et les résultats obtenus.
+\par Ce chapitre a présenté la conception détaillée de la plateforme
+décisionnelle. Les besoins fonctionnels et non fonctionnels ont permis de
+définir un périmètre clair. L'architecture modulaire organise les traitements en
+composants indépendants. Le schéma cible unifié garantit la cohérence des
+données, tandis que les règles de gestion assurent la traçabilité et la qualité.
+Le Data Warehouse en étoile prépare l'exploitation analytique, le moteur de
+ratios structure le diagnostic financier et le module de prévision ajoute une
+dimension prospective.
+
+\par Cette conception prépare la réalisation présentée au chapitre suivant, où
+les choix décrits ici sont mis en oeuvre dans le code, contrôlés par les tests
+automatiques et interprétés à partir des résultats obtenus.

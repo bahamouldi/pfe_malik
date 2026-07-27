@@ -4,45 +4,106 @@
 
 Ce projet de fin d'études avait pour ambition de concevoir une plateforme
 décisionnelle complète pour l'analyse financière de la \sfbt. L'objectif a été
-atteint : à partir d'états financiers bruts et imparfaits, une chaîne de
-traitement automatisée produit aujourd'hui un diagnostic financier fiable,
-comparatif et prédictif.
+atteint : à partir d'états financiers bruts, hétérogènes et parfois imparfaits,
+une chaîne de traitement automatisée produit aujourd'hui un diagnostic financier
+fiable, comparatif et prédictif.
 
 \medskip
-Sur le plan des \textbf{réalisations}, le travail a permis de : (i) unifier et
-fiabiliser quatre sources hétérogènes en un jeu de données cohérent de plus de
-dix mille lignes ; (ii) enrichir l'historique de la \sfbt par la génération des
-clôtures trimestrielles manquantes ; (iii) implémenter \textbf{46 ratios
-financiers} conformes à un référentiel normalisé et les synthétiser en un
-\textbf{score global de performance} (83,5/100 pour la \sfbt, en tête du secteur) ;
-(iv) structurer les données dans un \textbf{entrepôt en étoile} interrogeable ;
-et (v) développer un module de \textbf{prévision} comparant deux modèles
-d'apprentissage automatique, avec une précision de 85 à 96~\%. L'ensemble est
-\textbf{testé} (70~tests) et \textbf{documenté}.
+La première contribution du projet réside dans la \textbf{fiabilisation des
+données}. Les fichiers sources présentaient des formats différents, des libellés
+variables, des devises et échelles hétérogènes, ainsi que certaines anomalies de
+source. Le travail réalisé a permis de construire un schéma cible unique,
+d'unifier les quatre sociétés, de conserver la traçabilité des libellés bruts et
+de produire un jeu de données analytique propre. La distinction entre données
+réelles et données estimées constitue un point essentiel de cette démarche, car
+elle garantit une lecture transparente des résultats.
 
 \medskip
-Sur le plan des \textbf{apports}, ce projet illustre la mise en œuvre concrète de
-la chaîne décisionnelle enseignée en \textit{Business Analytics}, depuis la
-fiabilisation des données jusqu'à la modélisation prédictive, sur un cas réel
-d'entreprise. Il met également en évidence l'importance de la qualité des données
-et de la transparence sur leurs limites.
+La deuxième contribution concerne l'\textbf{enrichissement de l'historique}. La
+\sfbt ne publiant pas toutes les clôtures trimestrielles, les périodes T1 et 9M
+ont été générées selon une méthode explicite distinguant les grandeurs de stock
+et les grandeurs de flux. Cette augmentation ne remplace pas les données réelles
+et reste clairement identifiée, mais elle permet de densifier les séries et de
+faciliter les analyses temporelles ainsi que la prévision.
 
 \medskip
-Plusieurs \textbf{perspectives} d'amélioration se dégagent :
+La troisième contribution porte sur le \textbf{diagnostic financier}. Le projet
+implémente 46 ratios financiers conformes au référentiel retenu, les regroupe par
+catégorie et les complète par des benchmarks et une notation. L'agrégation de ces
+notes produit un Score Global de Performance Industrielle (SGPI) sur 100. Pour
+l'exercice 2024, la \sfbt obtient 83,5/100, ce qui traduit une situation très
+solide : forte liquidité, endettement limité, rentabilité élevée et risque
+financier maîtrisé. Le principal point de vigilance concerne le cycle
+d'exploitation, notamment le niveau du BFR en jours.
+
+\medskip
+La quatrième contribution concerne la \textbf{structuration décisionnelle}. Les
+données produites sont organisées dans un Data Warehouse SQLite en schéma en
+étoile, avec des dimensions société, temps, indicateur et ratio. Les tables de
+faits conservent à la fois les valeurs comptables, les ratios et le score global.
+Des vues analytiques facilitent l'interrogation SQL et l'utilisation dans Power
+BI. Ce modèle constitue une base claire pour des tableaux de bord interactifs.
+
+\medskip
+La cinquième contribution réside dans le \textbf{module de prévision}. Deux
+modèles ont été comparés : la régression linéaire et le Random Forest. Les
+résultats montrent que la régression linéaire obtient les meilleures performances
+sur les quatre indicateurs étudiés, avec des niveaux de précision satisfaisants.
+Ce résultat est cohérent avec la régularité des séries financières de la \sfbt et
+illustre qu'un modèle simple, bien préparé, peut être plus pertinent qu'un modèle
+complexe sur un historique court.
+
+\medskip
+Sur le plan méthodologique, le projet met en évidence l'importance de trois
+principes : \textbf{reproductibilité}, \textbf{traçabilité} et \textbf{validation}.
+La reproductibilité est assurée par une chaîne automatisée. La traçabilité est
+garantie par la conservation des sources, des libellés bruts et des rapports
+qualité. La validation repose sur une suite de 70 tests automatiques couvrant les
+fichiers, l'unification, l'augmentation, les ratios, l'entrepôt et la prévision.
+Le tableau~\ref{tab:apports_projet} synthétise les principaux apports obtenus.
+
+\begin{table}[H]
+\centering
+\caption[Apports du projet]{Synthèse des principaux apports du projet.}
+\label{tab:apports_projet}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|}
+\hline
+\textbf{Axe} & \textbf{Apport réalisé} \\ \hline
+Données & Unification de quatre sources financières hétérogènes dans un schéma long unique. \\ \hline
+Qualité & Détection des anomalies, correction des fuites comparatives et rapport qualité reproductible. \\ \hline
+Analyse financière & Calcul de 46 ratios, benchmarks et score SGPI. \\ \hline
+Décisionnel & Construction d'un Data Warehouse en étoile et vues analytiques. \\ \hline
+Prévision & Comparaison de deux modèles ML et génération de prévisions futures. \\ \hline
+Validation & Suite de 70 tests automatiques couvrant toute la chaîne. \\ \hline
+\end{tabularx}
+\end{table}
+
+\medskip
+Plusieurs limites doivent néanmoins être rappelées. Certaines données annuelles
+de la \sfbt restent absentes des sources disponibles, notamment pour les exercices
+2021 et 2022. L'augmentation trimestrielle repose sur une hypothèse linéaire qui
+ne capture pas entièrement la saisonnalité réelle du secteur des boissons. Le
+benchmark doit être interprété avec prudence, car les sociétés comparées n'ont ni
+la même taille, ni le même périmètre, ni toujours la même structure comptable.
+Enfin, les prévisions reposent sur un historique relativement court et doivent
+être vues comme une aide à l'analyse, non comme une certitude économique.
+
+\medskip
+Les perspectives d'amélioration sont nombreuses :
 \begin{itemize}[noitemsep]
-  \item \textbf{compléter les données manquantes} de la \sfbt (exercices annuels
-        2021 et 2022) pour une couverture intégrale ;
-  \item \textbf{finaliser les tableaux de bord Power BI} et, éventuellement, une
-        interface web interactive ;
-  \item \textbf{affiner la prévision} en intégrant la saisonnalité réelle et en
-        testant des modèles de séries temporelles dédiés (SARIMA, Prophet) ;
-  \item \textbf{enrichir le benchmark} avec d'autres acteurs du secteur et
-        homogénéiser les devises pour comparer aussi les montants absolus ;
-  \item \textbf{étendre la solution} à d'autres sociétés, la modularité de
-        l'architecture le permettant aisément.
+  \item compléter les exercices manquants à partir des rapports annuels officiels ;
+  \item intégrer une saisonnalité réelle si des données trimestrielles observées deviennent disponibles ;
+  \item enrichir le benchmark avec d'autres sociétés du secteur des boissons ;
+  \item ajouter une conversion de devises pour comparer certains montants absolus ;
+  \item finaliser et publier les tableaux de bord Power BI ;
+  \item tester des modèles de séries temporelles spécialisés comme SARIMA ou Prophet ;
+  \item déployer le Data Warehouse sur un serveur relationnel si l'usage devient collaboratif ;
+  \item automatiser davantage la génération du rapport final et des graphiques.
 \end{itemize}
 
 \medskip
 En définitive, ce travail constitue une base solide, extensible et reproductible
-pour le pilotage de la performance financière, et ouvre la voie à des analyses
-décisionnelles plus poussées.
+pour le pilotage de la performance financière. Il montre comment les compétences
+de Business Analytics peuvent transformer des états financiers dispersés en une
+plateforme décisionnelle complète, combinant qualité des données, analyse
+financière, modélisation dimensionnelle, visualisation et prévision.

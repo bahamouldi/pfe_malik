@@ -8,95 +8,653 @@
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 \par Ce chapitre présente les fondements théoriques mobilisés par le projet. Il
-aborde successivement l'informatique décisionnelle et les entrepôts de données,
-la modélisation dimensionnelle, l'analyse financière par les ratios et le
-référentiel adopté, puis l'apprentissage automatique appliqué à la prévision.
+ne s'agit pas seulement de définir quelques outils, mais de situer la solution
+développée dans un cadre méthodologique cohérent : une chaîne décisionnelle
+complète, un entrepôt de données structuré, des indicateurs financiers
+normalisés et une démarche de prévision appuyée sur l'apprentissage automatique.
+
+\par Le projet de la \sfbt combine en effet plusieurs domaines complémentaires.
+L'informatique décisionnelle fournit l'architecture générale permettant de
+transformer des fichiers hétérogènes en information exploitable. La modélisation
+dimensionnelle organise les données dans une structure adaptée à l'analyse. La
+finance d'entreprise fournit les ratios, les règles de comparaison et les
+principes d'interprétation. Enfin, le \textit{Machine Learning} apporte une
+dimension prédictive, utile pour dépasser le diagnostic historique et produire
+des estimations futures.
+
+\par Le chapitre est structuré comme suit. La première section présente les
+principes de la \ac{BI} et de la chaîne \ac{ETL}. La deuxième traite de la
+qualité des données, enjeu essentiel dans un contexte financier. La troisième
+section expose les modèles d'entrepôts de données et justifie le choix du schéma
+en étoile. La quatrième section développe l'analyse financière par les ratios et
+le référentiel MSI20000. La cinquième présente le benchmark financier. La
+dernière section introduit les modèles de prévision et les métriques
+d'évaluation.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Informatique décisionnelle (Business Intelligence)}
 \label{sec:bi}
-\par L'informatique décisionnelle (\ac{BI}) désigne l'ensemble des technologies
-et méthodes visant à collecter, consolider et restituer les données d'une
-organisation pour éclairer la prise de décision. Une architecture décisionnelle
-type s'articule autour de quatre couches : les \textbf{sources de données},
-l'\textbf{intégration} (\ac{ETL} : extraction, transformation, chargement), le
-\textbf{stockage} (entrepôt de données) et la \textbf{restitution} (tableaux de
-bord). Ce projet implémente l'intégralité de cette chaîne, des fichiers sources
-jusqu'à la restitution sous \textit{Power BI}. La figure~\ref{fig:bichain}
-illustre cette architecture en couches.
+\par L'informatique décisionnelle, ou \textit{Business Intelligence} (\ac{BI}),
+désigne l'ensemble des méthodes, architectures et outils qui permettent de
+collecter, consolider, analyser et restituer les données d'une organisation afin
+d'améliorer la prise de décision. Elle transforme des données opérationnelles,
+souvent dispersées et difficiles à lire, en indicateurs synthétiques, tableaux de
+bord, rapports et analyses comparatives.
 
-\figplaceholder{Architecture en couches d'un système décisionnel (BI).}{fig:bichain}
+\par Dans une organisation, les données brutes ne deviennent pas immédiatement
+une information utile. Elles doivent d'abord être extraites depuis leurs sources,
+nettoyées, harmonisées, historisées puis restituées sous une forme lisible. Cette
+logique est particulièrement importante dans le domaine financier, où une erreur
+de libellé, une colonne comparative mal interprétée ou une devise non précisée
+peut conduire à une conclusion incorrecte sur la santé d'une entreprise.
+
+\subsection{Rôle de la BI dans le pilotage financier}
+\par Le pilotage financier repose sur une lecture régulière des états
+financiers, sur le suivi des écarts et sur la comparaison des résultats avec des
+objectifs ou des références sectorielles. La \ac{BI} facilite ce pilotage en
+automatisant la préparation des données et en donnant aux décideurs une vision
+rapide de la situation. Elle permet notamment :
+\begin{itemize}[noitemsep]
+  \item de centraliser des données issues de sources multiples ;
+  \item de fiabiliser les indicateurs utilisés dans les tableaux de bord ;
+  \item de suivre l'évolution d'une entreprise sur plusieurs exercices ;
+  \item de comparer plusieurs sociétés sur des ratios homogènes ;
+  \item d'appuyer la décision par des visualisations claires et actualisables.
+\end{itemize}
+
+\par Dans le cas de la \sfbt, la BI joue un rôle structurant : elle permet de
+passer de fichiers Excel bruts, hétérogènes et parfois incomplets, à un système
+reproductible capable de calculer des ratios, d'alimenter un entrepôt de données
+et de produire des tableaux de bord sous \textit{Power BI}.
+
+\subsection{Architecture générale d'un système décisionnel}
+\par Une architecture décisionnelle classique se compose de quatre couches :
+les sources de données, la chaîne d'intégration, le stockage analytique et la
+restitution. La figure~\ref{fig:bichain} représente cette organisation en
+couches.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  couche/.style={rectangle, rounded corners, draw=darkblue, very thick,
+    fill=lightblue!45, minimum width=11.5cm, minimum height=1.1cm,
+    align=center, font=\small},
+  arr/.style={-{Latex[length=2.5mm]}, very thick, darkblue}
+]
+\node[couche] (src) {\textbf{Sources de données}\\Fichiers Excel, CSV, états financiers, systèmes comptables};
+\node[couche, below=of src] (etl) {\textbf{Intégration ETL}\\Extraction, nettoyage, normalisation, contrôle et historisation};
+\node[couche, below=of etl] (dw) {\textbf{Stockage analytique}\\Data Warehouse, tables de faits, dimensions, vues métiers};
+\node[couche, below=of dw] (visu) {\textbf{Restitution et analyse}\\Tableaux de bord, ratios, score, benchmark, prévision};
+\draw[arr] (src) -- (etl);
+\draw[arr] (etl) -- (dw);
+\draw[arr] (dw) -- (visu);
+\end{tikzpicture}
+\caption[Architecture en couches d'un système décisionnel]{Architecture en couches d'un système décisionnel (BI).}
+\label{fig:bichain}
+\end{figure}
+
+\par Cette architecture répond à une logique de séparation des responsabilités.
+Les sources conservent les données d'origine ; la couche ETL assure la qualité et
+l'harmonisation ; l'entrepôt organise les données selon les axes d'analyse ; les
+outils de restitution rendent l'information accessible à l'utilisateur final. Ce
+découpage rend la solution plus robuste, car une modification dans les sources
+ou dans les tableaux de bord ne remet pas en cause toute l'architecture.
+
+\subsection{Le processus ETL}
+\par Le processus \ac{ETL} constitue le coeur technique d'un système
+décisionnel. Il regroupe trois étapes principales : l'extraction
+(\textit{Extract}), la transformation (\textit{Transform}) et le chargement
+(\textit{Load}). Dans les projets modernes, cette logique peut être complétée par
+des contrôles de qualité, des rapports d'anomalies et des scripts de
+reproductibilité. Le tableau~\ref{tab:etl} détaille ces étapes et leur
+application au projet.
+
+\begin{table}[H]
+\centering
+\caption[Étapes du processus ETL]{Étapes du processus ETL et application au projet.}
+\label{tab:etl}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Étape} & \textbf{Principe général} & \textbf{Application au projet \sfbt} \\ \hline
+Extraction & Lire les données depuis les systèmes sources. & Lecture des fichiers Excel de la \sfbt, DELICE, AB~InBev et Coca-Cola. \\ \hline
+Transformation & Nettoyer, normaliser, convertir et enrichir les données. & Normalisation des libellés, classification des états, correction des doublons, ajout de la devise et de l'échelle. \\ \hline
+Chargement & Stocker les données prêtes pour l'analyse. & Génération des fichiers CSV/Parquet et alimentation du Data Warehouse SQLite. \\ \hline
+Contrôle & Vérifier la cohérence des données produites. & Rapport qualité, contrôle Actif = Passif, collisions, tests automatiques. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par L'ETL ne doit donc pas être vu comme une simple conversion de format. Dans
+un projet financier, il assure une fonction de fiabilisation métier : il protège
+l'analyse contre les erreurs de saisie, les variations de libellés, les
+différences de périodicité et les problèmes d'échelle.
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Qualité et préparation des données financières}
+\label{sec:dataquality}
+\par La qualité des données est une condition préalable à toute analyse
+financière fiable. Une donnée financière est sensible parce qu'elle supporte des
+décisions importantes : évaluer la solvabilité, mesurer la rentabilité, comparer
+une entreprise à ses concurrents ou anticiper ses résultats. Une valeur mal
+classée peut modifier un ratio, un score ou une conclusion stratégique.
+
+\subsection{Dimensions de la qualité des données}
+\par La littérature distingue plusieurs dimensions de qualité : exactitude,
+complétude, cohérence, unicité, fraîcheur et traçabilité. Dans un projet
+d'analyse financière, ces dimensions prennent une importance particulière. Le
+tableau~\ref{tab:qualite} les résume.
+
+\begin{table}[H]
+\centering
+\caption[Dimensions de qualité des données]{Principales dimensions de qualité des données financières.}
+\label{tab:qualite}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Dimension} & \textbf{Définition} & \textbf{Exemple dans ce projet} \\ \hline
+Exactitude & Les valeurs correspondent à la réalité comptable. & Correction des colonnes comparatives recopiées par erreur. \\ \hline
+Complétude & Les données nécessaires sont présentes. & Signalement des exercices annuels absents pour certaines années. \\ \hline
+Cohérence & Les relations comptables sont respectées. & Contrôle de l'équilibre Actif = Passif. \\ \hline
+Unicité & Une même information n'est pas comptée plusieurs fois. & Suppression des doublons strictement identiques. \\ \hline
+Traçabilité & L'origine d'une valeur reste identifiable. & Conservation du libellé brut et du fichier source. \\ \hline
+Comparabilité & Les indicateurs peuvent être comparés dans le temps et entre sociétés. & Ajout de la devise, de l'échelle et calcul de ratios sans dimension. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Normalisation des libellés}
+\par Les états financiers contiennent souvent des libellés écrits de manière
+différente selon les années : accents variables, majuscules, espaces
+insécables, retours à la ligne, astérisques de notes, abréviations ou
+reformulations. Pour un humain, ces variantes restent compréhensibles ; pour un
+programme, elles peuvent être interprétées comme des indicateurs différents.
+
+\par La normalisation des libellés vise donc à construire une clé stable pour
+chaque concept financier. Cette clé sert à regrouper les séries temporelles et à
+retrouver automatiquement les postes nécessaires au calcul des ratios. Dans le
+cadre de ce projet, deux niveaux sont distingués : un libellé propre pour
+l'affichage et une clé canonique pour les jointures. La
+figure~\ref{fig:normalisation} illustre ce passage du libellé brut à la clé
+stable.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm and 1cm,
+  box/.style={rectangle, rounded corners, draw=midblue, thick, fill=lightblue!35,
+    align=center, minimum width=3cm, minimum height=1cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.2mm]}, thick, midblue}
+]
+\node[box] (raw) {Libellé brut\\\textit{RESULTAT NET}\\\textit{DE LA PERIODE}};
+\node[box, right=of raw] (clean) {Libellé propre\\Résultat net de la période};
+\node[box, right=of clean] (key) {Clé canonique\\resultatnetdelexercice};
+\draw[arr] (raw) -- (clean);
+\draw[arr] (clean) -- (key);
+\end{tikzpicture}
+\caption[Normalisation des libellés financiers]{Principe de normalisation des libellés financiers.}
+\label{fig:normalisation}
+\end{figure}
+
+\par Cette démarche est essentielle pour reconstituer des séries temporelles
+longues. Sans normalisation, un même poste tel que le résultat net pourrait être
+fragmenté en plusieurs indicateurs, empêchant le calcul fiable des tendances et
+des ratios.
+
+\subsection{Traitement des valeurs manquantes et des collisions}
+\par Les valeurs manquantes et les collisions sont deux difficultés fréquentes
+dans les données financières. Une valeur manquante peut provenir d'un poste non
+publié, d'une cellule non numérique ou d'une année absente. Une collision
+apparaît lorsqu'un même indicateur, pour une même société et une même date,
+porte plusieurs valeurs distinctes. Elle peut traduire une ambiguïté métier, un
+doublon source ou une absence de distinction entre états financiers.
+
+\par Dans une démarche rigoureuse, ces cas ne doivent pas être masqués sans
+justification. Le choix retenu est de supprimer uniquement les doublons exacts,
+de corriger les erreurs identifiables et de conserver les collisions résiduelles
+avec un indicateur d'occurrence. Cette stratégie maintient la traçabilité et
+évite de prendre une décision automatique lorsqu'une validation métier est
+nécessaire.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Entrepôts de données et modélisation dimensionnelle}
 \label{sec:dw}
 \par Un \textbf{entrepôt de données} est une base orientée sujet, intégrée,
 historisée et non volatile, conçue pour l'analyse plutôt que pour la
-production~\cite{inmon2005}. Sa modélisation repose sur l'approche
-dimensionnelle~\cite{kimball2013}, qui distingue les \textbf{tables de faits}
-(mesures numériques analysables) des \textbf{tables de dimensions} (axes
-d'analyse : société, temps, indicateur).
+production~\cite{inmon2005}. Contrairement aux bases opérationnelles, qui
+optimisent la saisie et les transactions, l'entrepôt optimise les requêtes
+analytiques, les agrégations et les croisements selon plusieurs axes.
+
+\subsection{Approches Inmon et Kimball}
+\par Deux approches classiques structurent la conception des entrepôts de
+données. L'approche d'Inmon privilégie un entrepôt d'entreprise centralisé,
+normalisé, construit comme une source unique de vérité. L'approche de Kimball
+met l'accent sur les \textit{data marts} dimensionnels orientés métier,
+connectés par des dimensions conformes~\cite{kimball2013}. Les deux approches ne
+s'opposent pas totalement ; elles répondent à des contextes différents. Le
+tableau~\ref{tab:inmonkimball} en propose une comparaison synthétique.
+
+\begin{table}[H]
+\centering
+\caption[Comparaison Inmon et Kimball]{Comparaison synthétique des approches Inmon et Kimball.}
+\label{tab:inmonkimball}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Critère} & \textbf{Approche Inmon} & \textbf{Approche Kimball} \\ \hline
+Logique & Entrepôt central d'entreprise. & Data marts dimensionnels orientés métier. \\ \hline
+Modélisation & Souvent normalisée. & Schéma en étoile ou constellation. \\ \hline
+Déploiement & Plus long, fortement structurant. & Progressif, plus rapide pour les usages analytiques. \\ \hline
+Utilisateur cible & Gouvernance globale de la donnée. & Analyse métier et tableaux de bord. \\ \hline
+Pertinence pour ce projet & Utile comme principe d'intégration. & Très adaptée aux ratios, au temps, aux sociétés et à Power BI. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Pour le présent projet, l'approche dimensionnelle est la plus pertinente :
+les analyses se font principalement par société, période, indicateur et ratio.
+Ces axes correspondent naturellement à des dimensions, tandis que les valeurs
+financières et les ratios constituent des faits.
+
+\subsection{Tables de faits et dimensions}
+\par La modélisation dimensionnelle distingue les tables de faits et les tables
+de dimensions. Une table de faits contient les mesures numériques observées :
+montant d'un poste financier, valeur d'un ratio, note ou score. Les dimensions
+décrivent le contexte de ces mesures : date, société, indicateur, ratio, secteur
+ou devise.
+
+\par Cette séparation facilite les analyses multidimensionnelles. Par exemple,
+une même valeur de ratio peut être analysée selon l'année, la société, la
+catégorie du ratio ou le type de période. La granularité doit être définie avec
+soin : elle précise ce que représente exactement une ligne de la table de faits.
+Dans ce projet, la granularité est fine : une valeur pour une société, une date
+et un indicateur ou ratio.
 
 \subsection{Schéma en étoile}
 \par Le \textbf{schéma en étoile} organise une table de faits centrale entourée
-de tables de dimensions, chacune reliée par une clé étrangère. Sa simplicité le
-rend particulièrement adapté aux outils de \textit{reporting} comme \textit{Power
-BI}, qui exploitent nativement ce type de modèle. On le distingue du
-\textit{schéma en flocon} (dimensions normalisées) et du \textit{schéma en
-constellation} (plusieurs tables de faits). Le présent projet adopte un schéma en
-étoile.
+de tables de dimensions. Sa simplicité le rend particulièrement adapté aux
+outils de \textit{reporting} comme \textit{Power BI}, qui exploitent nativement
+ce type de modèle. On le distingue du \textit{schéma en flocon}, dans lequel les
+dimensions sont normalisées, et du \textit{schéma en constellation}, où plusieurs
+tables de faits partagent des dimensions communes. La figure~\ref{fig:schemas}
+représente le principe général du schéma en étoile.
 
-\figplaceholder{Comparaison schéma en étoile / flocon / constellation.}{fig:schemas}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  dim/.style={rectangle, rounded corners, draw=midblue, thick, fill=lightblue,
+    align=center, minimum height=1cm, minimum width=2.8cm, font=\footnotesize},
+  fact/.style={rectangle, draw=espritred, very thick, fill=espritred!10,
+    align=center, minimum height=1.3cm, minimum width=3.4cm, font=\footnotesize\bfseries},
+  link/.style={thick, midblue}
+]
+\node[fact] (f) {Table de faits\\Mesures financières};
+\node[dim, above=1.3cm of f] (t) {Dim Temps};
+\node[dim, below=1.3cm of f] (i) {Dim Indicateur};
+\node[dim, left=2cm of f] (s) {Dim Société};
+\node[dim, right=2cm of f] (r) {Dim Ratio};
+\draw[link] (f) -- (t);
+\draw[link] (f) -- (i);
+\draw[link] (f) -- (s);
+\draw[link] (f) -- (r);
+\end{tikzpicture}
+\caption[Principe du schéma en étoile]{Principe du schéma en étoile appliqué aux données financières.}
+\label{fig:schemas}
+\end{figure}
+
+\par Le tableau~\ref{tab:modelesdimensionnels} compare les principaux modèles
+dimensionnels et justifie le choix retenu.
+
+\begin{table}[H]
+\centering
+\caption[Comparaison des modèles dimensionnels]{Comparaison des modèles dimensionnels classiques.}
+\label{tab:modelesdimensionnels}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Modèle} & \textbf{Avantages} & \textbf{Limites} \\ \hline
+Schéma en étoile & Simple, lisible, performant pour les tableaux de bord, facile à comprendre par les utilisateurs métier. & Peut introduire une certaine redondance dans les dimensions. \\ \hline
+Schéma en flocon & Réduit la redondance et normalise davantage les dimensions. & Plus complexe à interroger et moins intuitif dans les outils BI. \\ \hline
+Constellation & Permet plusieurs processus analytiques partageant des dimensions communes. & Demande une conception plus avancée et une gouvernance stricte des dimensions. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Le choix du schéma en étoile se justifie donc par la nature du besoin : il
+faut alimenter des dashboards, comparer des sociétés et suivre des ratios dans
+le temps. La priorité est la lisibilité analytique plutôt que la normalisation
+maximale.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Analyse financière par les ratios}
 \label{sec:ratios}
 \par L'analyse financière par les ratios~\cite{vernimmen2022} consiste à
-rapprocher des postes des états financiers pour obtenir des indicateurs
-\emph{sans dimension}, donc comparables d'une entreprise à l'autre et dans le
-temps. Les ratios se regroupent classiquement en grandes familles : liquidité,
-structure financière, gestion des actifs, rentabilité, cycle d'exploitation et
-risque.
+rapprocher des postes des états financiers pour obtenir des indicateurs plus
+interprétables que les montants bruts. Un montant isolé a souvent peu de sens :
+un résultat net de plusieurs millions peut être excellent pour une petite
+entreprise ou faible pour un groupe international. Un ratio, en revanche,
+exprime une relation : résultat net sur chiffre d'affaires, dettes sur actifs,
+actifs courants sur passifs courants, etc.
 
-\subsection{Le référentiel MSI20000}
-\par Le projet s'appuie sur un \textbf{référentiel industriel normalisé} (de type
-MSI20000), qui définit non seulement les formules des ratios, mais aussi des
-\textbf{fourchettes de référence} (benchmarks industriels) et une \textbf{grille
-de notation}. Chaque ratio reçoit une note de 0 à 5 selon sa position par rapport
-à la fourchette cible ; les notes sont ensuite agrégées, par pondération de
-catégories, en un \textbf{\ac{SGPI}} sur 100. Cette démarche transforme une
-batterie de ratios en un outil de \textbf{notation comparable} entre entreprises.
+\subsection{Intérêt des ratios}
+\par Les ratios présentent trois avantages majeurs. Premièrement, ils réduisent
+l'effet de taille entre entreprises. Deuxièmement, ils facilitent le suivi dans
+le temps. Troisièmement, ils permettent de comparer une entreprise à des normes,
+à des concurrents ou à des benchmarks sectoriels. Cette logique est au coeur du
+diagnostic financier.
 
-\subsection{Le score de Conan \& Holder}
+\par Les ratios doivent toutefois être interprétés avec prudence. Ils dépendent
+du secteur d'activité, des méthodes comptables, de la structure de l'entreprise
+et de la qualité des données sources. Une entreprise industrielle, par exemple,
+n'a pas les mêmes besoins d'immobilisations qu'une société de services ; une
+holding peut présenter des revenus comptables très différents d'une société
+opérationnelle.
+
+\subsection{Familles de ratios}
+\par Les ratios financiers se regroupent en grandes familles. Chaque famille
+répond à une question de gestion : l'entreprise peut-elle payer ses dettes à
+court terme ? Est-elle rentable ? Est-elle trop endettée ? Utilise-t-elle
+efficacement ses actifs ? Le tableau~\ref{tab:famillesratios} synthétise les
+principales familles retenues dans ce projet.
+
+\begin{table}[H]
+\centering
+\caption[Principales familles de ratios]{Principales familles de ratios financiers.}
+\label{tab:famillesratios}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Famille} & \textbf{Question analysée} & \textbf{Exemples d'indicateurs} \\ \hline
+Liquidité & L'entreprise peut-elle couvrir ses engagements à court terme ? & Liquidité générale, liquidité réduite, liquidité immédiate. \\ \hline
+Structure financière & Quelle est la part des capitaux propres et des dettes ? & Autonomie financière, endettement global, solvabilité. \\ \hline
+Gestion des actifs & Les actifs sont-ils mobilisés efficacement ? & Levier économique, poids des immobilisations, vétusté. \\ \hline
+Rentabilité & L'activité génère-t-elle un résultat satisfaisant ? & Marge nette, ROA, ROE, ROCE. \\ \hline
+Cycle d'exploitation & Combien de temps l'argent reste-t-il immobilisé dans le cycle client-stock-fournisseur ? & DSO, DPO, DIO, BFR en jours. \\ \hline
+Risque & L'entreprise présente-t-elle un risque financier ou commercial ? & Conan \& Holder, risque commercial, risque de placement. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Interprétation financière}
+\par L'interprétation d'un ratio ne consiste pas uniquement à dire s'il est
+haut ou bas. Elle exige de comprendre sa signification économique. Une liquidité
+générale élevée peut signaler une bonne capacité de paiement, mais aussi un
+excès de ressources non utilisées. Un endettement faible réduit le risque, mais
+peut limiter l'effet de levier. Une marge nette élevée peut traduire une forte
+rentabilité, mais doit être rapprochée du modèle économique de la société.
+
+\par La lecture doit donc être croisée : liquidité, rentabilité, structure
+financière et cycle d'exploitation doivent être analysés ensemble. C'est pour
+cette raison qu'un score global peut être utile : il synthétise plusieurs
+dimensions tout en conservant la possibilité de revenir au détail.
+
+\subsection{Limites des ratios}
+\par Malgré leur utilité, les ratios présentent des limites. Ils sont calculés à
+partir d'états financiers historiques et ne captent pas toujours les événements
+récents. Ils peuvent être sensibles aux choix comptables, aux éléments
+exceptionnels et à la saisonnalité. Ils ne remplacent pas l'analyse qualitative :
+position concurrentielle, stratégie, gouvernance, risques réglementaires et
+contexte macroéconomique.
+
+\par Le tableau~\ref{tab:limitesratios} résume les principaux avantages et les
+limites de cette méthode d'analyse.
+
+\begin{table}[H]
+\centering
+\caption[Avantages et limites des ratios]{Avantages et limites de l'analyse par ratios.}
+\label{tab:limitesratios}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\textbf{Avantages} & \textbf{Limites} \\ \hline
+Comparaison entre sociétés de tailles différentes. & Dépendance à la qualité et à la cohérence des états financiers. \\ \hline
+Suivi simple de l'évolution dans le temps. & Sensibilité aux méthodes comptables et aux éléments exceptionnels. \\ \hline
+Synthèse rapide de la liquidité, de la rentabilité et du risque. & Nécessité d'une interprétation sectorielle. \\ \hline
+Base robuste pour les tableaux de bord. & Vision principalement historique, à compléter par la prévision. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Référentiel MSI20000 et score de performance}
+\label{sec:msi}
+\par Le projet s'appuie sur un référentiel industriel normalisé de type
+MSI20000. Dans le cadre de ce travail, ce référentiel définit un ensemble de
+ratios, des fourchettes de référence et une grille de notation. L'objectif est
+de passer d'un ensemble d'indicateurs dispersés à une lecture structurée et
+comparable de la performance financière.
+
+\subsection{Logique de notation}
+\par Chaque ratio clé reçoit une note comprise entre 0 et 5 selon sa position
+par rapport aux seuils retenus. Une note élevée indique que le ratio se situe
+dans une zone considérée comme favorable. Les notes sont ensuite agrégées par
+catégorie, puis pondérées pour obtenir le \ac{SGPI}. La formule générale peut
+s'écrire :
+
+\begin{equation}
+SGPI = \sum_{c=1}^{n} \left(\frac{\overline{N_c}}{5} \times P_c\right) \times 100
+\end{equation}
+
+\par où $\overline{N_c}$ représente la note moyenne de la catégorie $c$ et
+$P_c$ son poids dans le score global. Lorsque certaines catégories ne sont pas
+disponibles, les poids utilisés peuvent être renormalisés afin de ne pas
+pénaliser mécaniquement une société pour des données absentes. La
+figure~\ref{fig:sgpiflow} synthétise cette logique de construction du score.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.75cm and 0.8cm,
+  box/.style={rectangle, rounded corners, draw=darkblue, thick, fill=lightblue!35,
+    align=center, minimum width=3.2cm, minimum height=1cm, font=\footnotesize},
+  score/.style={rectangle, rounded corners, draw=espritred, very thick,
+    fill=espritred!12, align=center, minimum width=3.2cm, minimum height=1cm,
+    font=\footnotesize\bfseries},
+  arr/.style={-{Latex[length=2.2mm]}, thick, darkblue}
+]
+\node[box] (r) {Ratios financiers\\46 indicateurs};
+\node[box, right=of r] (n) {Notes par ratio\\0 à 5};
+\node[box, right=of n] (c) {Moyennes par\\catégorie};
+\node[score, right=of c] (s) {SGPI\\/100};
+\draw[arr] (r) -- (n);
+\draw[arr] (n) -- (c);
+\draw[arr] (c) -- (s);
+\end{tikzpicture}
+\caption[Construction du SGPI]{Construction du Score Global de Performance Industrielle.}
+\label{fig:sgpiflow}
+\end{figure}
+
+\subsection{Score de Conan \& Holder}
 \par Parmi les indicateurs de risque, le \textbf{score de Conan \&
-Holder}~\cite{conan1979} est une fonction discriminante combinant plusieurs
-ratios pour estimer la probabilité de défaillance d'une entreprise. Un score
-élevé traduit une bonne santé financière.
+Holder}~\cite{conan1979} occupe une place particulière. Il s'agit d'une fonction
+discriminante construite à partir de plusieurs ratios financiers afin d'apprécier
+le risque de défaillance. Dans une logique de diagnostic, il complète les ratios
+classiques en proposant une lecture synthétique du risque.
+
+\par Le score ne doit pas être interprété isolément. Il doit être rapproché des
+autres dimensions : structure financière, rentabilité, liquidité et capacité à
+générer des flux. Dans le cadre de ce projet, il est intégré dans la catégorie
+de gestion des risques et contribue au \ac{SGPI}.
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Benchmark financier}
+\label{sec:benchmark_theorie}
+\par Le benchmark consiste à comparer une entreprise avec des références
+pertinentes. En analyse financière, il peut s'agir de concurrents directs,
+d'entreprises du même secteur, de leaders internationaux ou de normes
+industrielles. L'objectif n'est pas de copier les résultats d'un concurrent,
+mais de situer la performance relative d'une entreprise.
+
+\subsection{Conditions d'un benchmark pertinent}
+\par Un benchmark financier doit respecter plusieurs conditions. Les indicateurs
+comparés doivent être calculés de manière homogène, les périodes doivent être
+alignées, les devises et les échelles doivent être identifiées, et les
+différences de modèle économique doivent être prises en compte. Les ratios sont
+particulièrement utiles car ils réduisent l'effet de taille et de devise, mais
+ils ne suppriment pas toutes les différences sectorielles. Le
+tableau~\ref{tab:benchmark} présente les conditions nécessaires à un benchmark
+fiable.
+
+\begin{table}[H]
+\centering
+\caption[Conditions d'un benchmark financier]{Conditions d'un benchmark financier fiable.}
+\label{tab:benchmark}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|X|}
+\hline
+\textbf{Condition} & \textbf{Justification} \\ \hline
+Homogénéité des formules & Deux sociétés ne sont comparables que si les ratios sont calculés de la même manière. \\ \hline
+Alignement temporel & Une comparaison doit porter sur la même période ou sur des périodes clairement identifiées. \\ \hline
+Prise en compte de la devise & Les montants absolus nécessitent une conversion ; les ratios sont plus directement comparables. \\ \hline
+Compréhension du secteur & Une holding, une entreprise industrielle et un groupe mondial n'ont pas exactement le même modèle économique. \\ \hline
+Traçabilité des sources & Les écarts doivent pouvoir être expliqués à partir des données d'origine. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Choix des sociétés de comparaison}
+\par Dans ce projet, la \sfbt est comparée à DELICE, AB~InBev et Coca-Cola. Ce
+choix permet de combiner une référence locale et deux références internationales
+du secteur des boissons. La comparaison doit toutefois rester prudente : les
+tailles, devises, marchés et modèles économiques diffèrent fortement. C'est
+précisément pour cette raison que l'analyse privilégie les ratios plutôt que les
+montants bruts.
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Apprentissage automatique et prévision}
 \label{sec:ml}
-\par L'\textbf{apprentissage automatique} (\ac{ML})~\cite{james2021} permet de
-construire des modèles prédictifs à partir de données historiques. Pour la
-prévision de valeurs financières, deux familles de modèles sont mobilisées : la
-\textbf{régression linéaire}, modèle statistique simple et interprétable, adapté
-aux tendances régulières ; et la \textbf{forêt aléatoire} (\textit{Random
-Forest})~\cite{breiman2001}, modèle ensembliste à base d'arbres de décision,
-capable de capturer des relations non linéaires.
+\par L'\textbf{apprentissage automatique} (\ac{ML})~\cite{james2021} regroupe
+les méthodes permettant à un modèle d'apprendre une relation à partir de données
+historiques. En finance, ces méthodes peuvent servir à prédire des ventes, un
+résultat, une trésorerie, un risque ou un score. Dans ce projet, l'objectif est
+de prévoir quelques grandeurs financières clés de la \sfbt à partir de leur
+historique.
+
+\subsection{Prévision de séries temporelles}
+\par Une série temporelle est une suite d'observations ordonnées dans le temps.
+Sa prévision consiste à utiliser les valeurs passées pour estimer les valeurs
+futures. Les séries financières présentent souvent une tendance, une saisonnalité
+et parfois des ruptures. Le modèle doit donc tenir compte de l'ordre temporel :
+il serait incorrect de mélanger aléatoirement les observations d'entraînement et
+de test comme dans un problème classique de classification.
+
+\par La figure~\ref{fig:forecastflow} montre le principe d'une prévision
+supervisée à partir d'une série temporelle : les valeurs passées sont transformées
+en variables explicatives, puis le modèle est évalué sur des périodes
+postérieures.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm and 0.9cm,
+  box/.style={rectangle, rounded corners, draw=midblue, thick, fill=lightblue!40,
+    align=center, minimum width=3cm, minimum height=1cm, font=\footnotesize},
+  arr/.style={-{Latex[length=2.2mm]}, thick, midblue}
+]
+\node[box] (serie) {Historique\\financier};
+\node[box, right=of serie] (feat) {Variables\\retards, tendance, saison};
+\node[box, right=of feat] (model) {Modèle\\ML};
+\node[box, right=of model] (future) {Prévision\\future};
+\draw[arr] (serie) -- (feat);
+\draw[arr] (feat) -- (model);
+\draw[arr] (model) -- (future);
+\end{tikzpicture}
+\caption[Chaîne de prévision supervisée]{Principe d'une prévision supervisée sur série temporelle.}
+\label{fig:forecastflow}
+\end{figure}
+
+\subsection{Régression linéaire}
+\par La régression linéaire est un modèle statistique qui cherche à expliquer
+une variable cible par une combinaison linéaire de variables explicatives. Sa
+forme générale est :
+
+\begin{equation}
+\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p
+\end{equation}
+
+\par Sa principale force est son interprétabilité. Elle est adaptée lorsque la
+relation entre les variables suit une tendance régulière. Dans le cas de séries
+financières relativement stables, elle constitue une base solide et défendable.
+Sa limite est sa difficulté à capturer des relations fortement non linéaires ou
+des interactions complexes si celles-ci ne sont pas explicitement modélisées.
+
+\subsection{Forêt aléatoire}
+\par La forêt aléatoire, ou \textit{Random Forest}, est un modèle ensembliste
+introduit par Breiman~\cite{breiman2001}. Elle combine plusieurs arbres de
+décision entraînés sur des sous-échantillons des données et des sous-ensembles de
+variables. La prédiction finale correspond à la moyenne des prédictions des
+arbres en régression.
+
+\par Ce modèle est robuste et capte des relations non linéaires. Il nécessite
+peu d'hypothèses statistiques et résiste relativement bien au bruit. En revanche,
+il est moins interprétable qu'une régression linéaire et peut rencontrer une
+limite importante en prévision de séries croissantes : les arbres extrapolent
+mal au-delà des niveaux observés. Pour cette raison, le projet prévoit de
+modéliser un taux de croissance plutôt que le niveau brut. Le
+tableau~\ref{tab:modelesml} compare les deux modèles retenus.
+
+\begin{table}[H]
+\centering
+\caption[Comparaison des modèles de prévision]{Comparaison des deux modèles de prévision retenus.}
+\label{tab:modelesml}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Modèle} & \textbf{Forces} & \textbf{Limites} \\ \hline
+Régression linéaire & Simple, interprétable, efficace sur des tendances régulières, facile à défendre dans un rapport. & Capte mal les relations très non linéaires si les variables ne sont pas adaptées. \\ \hline
+Random Forest & Robuste, non linéaire, capable de gérer des interactions entre variables. & Moins interprétable, extrapolation limitée sur des séries fortement croissantes. \\ \hline
+\end{tabularx}
+\end{table}
 
 \subsection{Évaluation des modèles}
-\par La qualité d'un modèle de prévision se mesure par plusieurs métriques : le
-\textbf{coefficient de détermination} ($R^2$, entre 0 et 1), la \textbf{\ac{MAE}}
-et la \textbf{\ac{RMSE}} (erreurs moyennes absolue et quadratique), et la
-\textbf{\ac{MAPE}} (erreur moyenne en pourcentage, directement interprétable).
-L'évaluation honnête d'un modèle temporel impose un \textbf{découpage
-chronologique} : entraînement sur le passé, évaluation sur des périodes
-postérieures jamais vues (\textit{backtest}).
+\par La qualité d'un modèle de prévision se mesure par plusieurs métriques. Le
+coefficient de détermination $R^2$ mesure la part de variance expliquée par le
+modèle. La \ac{MAE} mesure l'erreur moyenne absolue. La \ac{RMSE} pénalise plus
+fortement les grandes erreurs. La \ac{MAPE} exprime l'erreur en pourcentage, ce
+qui facilite l'interprétation métier. Le tableau~\ref{tab:metriques} présente
+les métriques utilisées.
+
+\begin{table}[H]
+\centering
+\caption[Métriques d'évaluation des modèles]{Métriques d'évaluation utilisées pour la prévision.}
+\label{tab:metriques}
+\begin{tabularx}{\linewidth}{|p{2.5cm}|p{4.2cm}|X|}
+\hline
+\textbf{Métrique} & \textbf{Formule simplifiée} & \textbf{Interprétation} \\ \hline
+MAE & $\frac{1}{n}\sum |y_i-\hat{y_i}|$ & Erreur moyenne en valeur absolue, dans l'unité de la variable. \\ \hline
+RMSE & $\sqrt{\frac{1}{n}\sum (y_i-\hat{y_i})^2}$ & Erreur quadratique moyenne, plus sensible aux grandes erreurs. \\ \hline
+MAPE & $\frac{100}{n}\sum |\frac{y_i-\hat{y_i}}{y_i}|$ & Erreur moyenne en pourcentage, facilement lisible par un décideur. \\ \hline
+$R^2$ & $1-\frac{\sum(y_i-\hat{y_i})^2}{\sum(y_i-\bar{y})^2}$ & Part de variance expliquée ; plus la valeur est proche de 1, meilleur est le modèle. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Dans le contexte d'une série temporelle, l'évaluation doit respecter
+l'ordre chronologique. Le modèle est entraîné sur le passé puis testé sur une
+période postérieure. Cette démarche, appelée \textit{backtest}, reproduit mieux
+les conditions réelles de prévision.
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Synthèse des choix méthodologiques}
+\label{sec:synthese_chap2}
+\par Les concepts présentés dans ce chapitre guident directement la conception
+du projet. Le tableau~\ref{tab:synthesechap2} relie chaque notion théorique à
+son application concrète dans la plateforme développée.
+
+\begin{table}[H]
+\centering
+\caption[Synthèse des choix méthodologiques]{Lien entre état de l'art et choix du projet.}
+\label{tab:synthesechap2}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|X|X|}
+\hline
+\textbf{Notion théorique} & \textbf{Principe retenu} & \textbf{Application dans le projet} \\ \hline
+Business Intelligence & Transformer la donnée brute en information décisionnelle. & Pipeline automatisé, données préparées, rapports et dashboards Power BI. \\ \hline
+ETL & Extraire, transformer et charger des données fiables. & Scripts Python de lecture Excel, nettoyage, normalisation et export. \\ \hline
+Qualité des données & Contrôler la cohérence et documenter les anomalies. & Rapport qualité, collisions, contrôle Actif = Passif, tests. \\ \hline
+Schéma en étoile & Structurer les données autour de faits et dimensions. & Data Warehouse SQLite avec dimensions société, temps, indicateur et ratio. \\ \hline
+Ratios financiers & Comparer la performance indépendamment de la taille. & Calcul de 46 ratios pour SFBT et sociétés de benchmark. \\ \hline
+Scoring & Synthétiser plusieurs indicateurs en score. & Score Global de Performance Industrielle sur 100. \\ \hline
+Prévision ML & Exploiter l'historique pour anticiper les valeurs futures. & Régression linéaire et Random Forest évalués par backtest. \\ \hline
+\end{tabularx}
+\end{table}
 
 %% ── Conclusion ─────────────────────────────────────────────────────────────
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
-\par Les concepts présentés — chaîne décisionnelle, schéma en étoile, ratios
-normalisés et score de performance, modèles de prévision et leurs métriques —
-constituent le socle méthodologique du projet. Le chapitre suivant en décline
-l'application concrète à travers l'analyse des besoins et la conception.
+\par Ce chapitre a posé le socle théorique du projet. La \ac{BI} apporte le
+cadre général de transformation des données en information décisionnelle. Le
+processus \ac{ETL} et les principes de qualité assurent la fiabilité des données
+financières. La modélisation dimensionnelle justifie l'organisation en schéma en
+étoile. L'analyse par ratios et le référentiel MSI20000 structurent le
+diagnostic financier, tandis que le benchmark situe la \sfbt par rapport à des
+références sectorielles. Enfin, l'apprentissage automatique complète l'analyse
+par une dimension prédictive.
+
+\par Ces fondements expliquent les choix de conception détaillés dans le
+chapitre suivant : architecture de la solution, schéma de données, règles
+de traitement, moteur de ratios, score global et module de prévision.

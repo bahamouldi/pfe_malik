@@ -40,6 +40,8 @@ def fig_ca_evolution(full):
     ax.plot(s.Annee, s.Valeur / 1e6, "-o", color=DARK, lw=2, ms=4)
     ax.set_title("Évolution du chiffre d'affaires de la SFBT (2005–2024)")
     ax.set_xlabel("Année"); ax.set_ylabel("Chiffre d'affaires (M TND)")
+    ax.set_xticks(list(range(int(s.Annee.min()), int(s.Annee.max()) + 1, 2)))
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{int(x)}"))
     ax.fill_between(s.Annee, s.Valeur / 1e6, alpha=0.08, color=DARK)
     _save(fig, "ca_evolution.png")
 
@@ -127,25 +129,31 @@ def fig_ml_backtest(preds):
 
 def fig_gantt():
     phases = [
-        ("Collecte & compréhension", 0, 2),
-        ("Nettoyage & unification", 2, 3),
+        ("Collecte et compréhension", 0, 2),
+        ("Nettoyage et unification", 2, 3),
         ("Augmentation des données", 5, 1),
-        ("Ratios & score (SGPI)", 6, 2),
+        ("Ratios et score SGPI", 6, 2),
         ("Data Warehouse", 8, 2),
         ("Machine Learning", 10, 2),
-        ("Tests & validation", 12, 1),
+        ("Tests et validation", 12, 1),
         ("Rédaction du rapport", 13, 3),
     ]
-    fig, ax = plt.subplots(figsize=(9, 4.2))
+    fig, ax = plt.subplots(figsize=(10.5, 4.8))
     colors = plt.cm.Blues(np.linspace(0.5, 0.9, len(phases)))
-    for i, (name, start, dur) in enumerate(phases):
+    y = np.arange(len(phases))
+    for i, (_, start, dur) in enumerate(phases):
         ax.barh(i, dur, left=start, color=colors[i], edgecolor="white")
-        ax.text(start + dur / 2, i, name, va="center", ha="center", fontsize=8, color="white", fontweight="bold")
-    ax.set_yticks([]); ax.invert_yaxis()
-    ax.set_xlabel("Semaines"); ax.set_title("Planning prévisionnel du projet (diagramme de Gantt)")
-    ax.set_xlim(0, 16); ax.grid(axis="x", alpha=0.3)
+        ax.text(start + dur / 2, i, f"S{start + 1}-S{start + dur}", va="center",
+                ha="center", fontsize=8, color="white", fontweight="bold")
+    ax.set_yticks(y)
+    ax.set_yticklabels([name for name, _, _ in phases], fontsize=9)
+    ax.invert_yaxis()
+    ax.set_xlabel("Semaines")
+    ax.set_title("Planning prévisionnel du projet (diagramme de Gantt)")
+    ax.set_xlim(0, 16)
+    ax.grid(axis="x", alpha=0.3)
+    fig.subplots_adjust(left=0.24, right=0.98)
     _save(fig, "gantt.png")
-
 
 def main():
     print("=== Génération des figures du rapport ===")

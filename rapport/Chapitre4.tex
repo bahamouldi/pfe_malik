@@ -11,7 +11,6 @@
 les résultats obtenus à chaque étape, leur validation et leur interprétation
 financière.
 
-%% ───────────────────────────────────────────────────────────────────────────
 \section{Environnement technique}
 \label{sec:env}
 \par La solution a été développée en \textbf{Python}, avec les bibliothèques
@@ -24,7 +23,67 @@ L'entrepôt est matérialisé en \textbf{SQLite}, la restitution est prévue sou
 un script unique (\texttt{run\_all.py}), dont l'exécution est illustrée à la
 figure~\ref{fig:runall}.
 
-\figplaceholder{Exécution de la chaîne complète (\texttt{run\_all.py}).}{fig:runall}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.92\linewidth]{figures/fig41.png}
+  \caption[Exécution de la chaîne complète]{Exécution de la chaîne complète (\texttt{run\_all.py}).}
+  \label{fig:runall}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Exécution automatisée de la chaîne complète}
+\label{sec:execution_pipeline}
+\par La réalisation ne repose pas sur une succession d'opérations manuelles. Le
+projet a été conçu pour être régénéré à partir d'une commande unique, ce qui
+répond à l'exigence de reproductibilité définie dans la conception. Le script
+\texttt{run\_all.py} orchestre les étapes principales : unification,
+augmentation, rapport qualité, calcul des ratios, construction du Data Warehouse
+et prévision. Cette automatisation permet de relancer toute la chaîne après une
+modification des sources ou des règles de calcul.
+
+\par Le tableau~\ref{tab:ordonnancement} présente l'ordre d'exécution des
+scripts du pipeline.
+
+\begin{table}[H]
+\centering
+\caption[Ordonnancement du pipeline]{Ordonnancement des traitements automatisés.}
+\label{tab:ordonnancement}
+\begin{tabularx}{\linewidth}{|p{1.1cm}|p{4cm}|X|}
+\hline
+\textbf{Ordre} & \textbf{Script} & \textbf{Résultat attendu} \\ \hline
+1 & \texttt{unify.py} & Lecture des fichiers Excel, harmonisation des sources et génération du jeu réel unifié. \\ \hline
+2 & \texttt{augment.py} & Création des périodes T1 et 9M estimées pour la \sfbt et production du jeu complet. \\ \hline
+3 & \texttt{quality\_report.py} & Production d'un rapport synthétique sur la qualité et les anomalies. \\ \hline
+4 & \texttt{ratios.py} & Construction de la matrice de concepts, calcul des ratios et du score SGPI. \\ \hline
+5 & \texttt{build\_warehouse.py} & Alimentation de la base SQLite en schéma en étoile. \\ \hline
+6 & \texttt{ml\_forecast.py} & Évaluation des modèles et génération des prévisions futures. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Cette organisation rend le projet défendable devant un jury : les résultats
+ne sont pas seulement présents dans des fichiers, ils sont issus d'un processus
+clair, documenté et réexécutable. Elle réduit aussi le risque d'erreur humaine,
+car les sorties ne sont pas produites par copier-coller ou manipulation manuelle
+sur tableur. La figure~\ref{fig:runall_detail} illustre l'exécution de cette
+commande unique.
+
+\begin{figure}[H]\centering
+  \fcolorbox{midblue}{lightblue!25}{%
+    \begin{minipage}{0.86\linewidth}\small\ttfamily
+    \$ cd src\\
+    \$ python3 run\_all.py\\[0.2cm]
+    === Unification des sources financières ===\\
+    === Augmentation trimestrielle SFBT ===\\
+    === Ratios financiers ===\\
+    === Data Warehouse construit ===\\
+    === Prévision ML ===
+    \end{minipage}}
+  \caption[Exécution du pipeline]{Illustration de l'exécution automatisée de la chaîne complète.}
+  \label{fig:runall_detail}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Collecte, nettoyage et unification}
@@ -49,7 +108,11 @@ Coca-Cola & benchmark & 2015--2025 & USD & annuel \\ \hline
 \end{tabular}
 \end{table}
 
-\figplaceholder{Extrait du jeu de données unifié (\texttt{financials\_unified.csv}).}{fig:dataset}
+\begin{figure}[H]\centering
+  \includegraphics[width=\linewidth]{figures/fig43.png}
+  \caption[Extrait du jeu de données unifié]{Extrait du jeu de données unifié (\texttt{financials\_unified.csv}).}
+  \label{fig:dataset}
+\end{figure}
 
 \par L'historique ainsi reconstitué permet de visualiser les tendances de long
 terme. La figure~\ref{fig:caevol} illustre la croissance régulière du chiffre
@@ -61,11 +124,158 @@ d'affaires de la \sfbt sur vingt ans.
   \label{fig:caevol}
 \end{figure}
 
-\par La qualité des données a été contrôlée. Le \textbf{contrôle d'équilibre du
-bilan} de la \sfbt (Actif = Passif) est vérifié à 0,00~\% sur la grande majorité
-des dates, validant la classification automatique des états. Les anomalies
-résiduelles (exercices 2017--2019 décalés dans la source, exercices annuels
-2021--2022 manquants) sont signalées et documentées plutôt que masquées.
+\par Cette première sortie sert de base aux contrôles détaillés présentés dans la section suivante. Elle constitue le point de passage entre les fichiers Excel bruts et l'ensemble des traitements analytiques du projet.
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Analyse détaillée de la qualité des données}
+\label{sec:qualite_detaillee}
+\par La qualité des données constitue un résultat à part entière du projet. Les
+sources financières reçues ne pouvaient pas être exploitées directement dans un
+outil décisionnel : elles présentaient des structures différentes, des libellés
+variables, des valeurs manquantes, des collisions et quelques défauts de source.
+La réalisation a donc intégré des contrôles explicites afin de distinguer les
+anomalies corrigées, les anomalies signalées et les limites non résolues.
+
+\par La figure~\ref{fig:rapport_qualite} est prévue pour présenter le rapport
+qualité généré par la chaîne.
+
+\begin{figure}[H]\centering
+  \includegraphics[width=\linewidth]{figures/fig45.png}
+  \caption[Rapport qualité généré]{Rapport qualité généré après l'unification des données.}
+  \label{fig:rapport_qualite}
+\end{figure}
+
+\subsection{Volumétrie réelle et enrichie}
+\par Le jeu de données réel contient 6\,804 lignes après nettoyage et
+unification. L'augmentation trimestrielle ajoute 3\,320 lignes estimées, portant
+le total exploitable à 10\,124 lignes. Cette augmentation n'écrase jamais le
+réel : chaque ligne estimée est marquée par \texttt{Type\_donnee = Estime}, ce
+qui permet de filtrer les analyses selon le niveau de prudence souhaité. Le
+tableau~\ref{tab:volumetrie_finale} récapitule les fichiers analytiques
+produits.
+
+\begin{table}[H]
+\centering
+\caption[Volumétrie finale des fichiers analytiques]{Volumétrie finale des fichiers analytiques produits.}
+\label{tab:volumetrie_finale}
+\begin{tabular}{|l|r|l|}
+\hline
+\textbf{Fichier} & \textbf{Lignes} & \textbf{Rôle} \\ \hline
+\texttt{financials\_unified.csv} & 6\,804 & Données réelles nettoyées et unifiées. \\ \hline
+\texttt{sfbt\_augmented.csv} & 3\,320 & Données estimées T1 et 9M de la \sfbt. \\ \hline
+\texttt{financials\_full.csv} & 10\,124 & Données réelles et estimées combinées. \\ \hline
+\texttt{ratios.csv} & 5\,290 & Ratios calculés par société et période. \\ \hline
+\texttt{sgpi.csv} & 115 & Score global par société et période. \\ \hline
+\texttt{ml\_forecasts.csv} & 32 & Prévisions futures générées par les modèles. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Typologie des anomalies rencontrées}
+\par Les anomalies détectées n'ont pas toutes la même gravité. Certaines sont
+mécaniques et peuvent être corrigées automatiquement ; d'autres exigent une
+validation métier. Le tableau~\ref{tab:anomalies_resultats} distingue ces cas.
+
+\begin{table}[H]
+\centering
+\caption[Anomalies détectées et traitement appliqué]{Anomalies détectées et traitement appliqué.}
+\label{tab:anomalies_resultats}
+\begin{tabularx}{\linewidth}{|p{3.1cm}|X|X|}
+\hline
+\textbf{Anomalie} & \textbf{Constat} & \textbf{Décision appliquée} \\ \hline
+Variantes de libellés & Un même indicateur apparaît sous plusieurs formes. & Normalisation et alias pour produire une clé canonique. \\ \hline
+Doublons exacts & Certaines lignes se répètent avec la même valeur. & Suppression sans perte d'information. \\ \hline
+Fuites comparatives & Des valeurs N-1 sont recopiées dans une colonne N. & Correction automatique lorsque la fuite est identifiable. \\ \hline
+Collisions résiduelles & Un même indicateur porte plusieurs valeurs distinctes. & Conservation avec \texttt{Occurrence} pour validation. \\ \hline
+Exercices absents & Certaines années annuelles ne sont pas disponibles. & Signalement dans les limites, sans invention de valeur réelle. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par La décision de conserver les collisions non résolues est importante. Elle
+évite de masquer une ambiguïté métier et garantit que les analyses sensibles,
+comme le calcul des ratios, ne s'appuient que sur les séries uniques lorsque cela
+est nécessaire.
+
+\subsection{Contrôle d'équilibre du bilan}
+\par Le contrôle Actif = Passif permet de vérifier indirectement la qualité de la
+classification des lignes de la \sfbt. Si les sections actif et passif avaient
+été mal séparées, l'équilibre comptable serait fortement dégradé. Le contrôle a
+montré que la grande majorité des dates est équilibrée, ce qui valide la méthode
+de découpage positionnel. Les déséquilibres résiduels correspondent à des défauts
+connus du fichier source, documentés dans le rapport qualité. Le
+tableau~\ref{tab:controle_bilan} résume l'interprétation de ce contrôle.
+
+\begin{table}[H]
+\centering
+\caption[Contrôle de cohérence comptable]{Contrôle de cohérence comptable du bilan SFBT.}
+\label{tab:controle_bilan}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|}
+\hline
+\textbf{Contrôle} & \textbf{Interprétation} \\ \hline
+Actif total = capitaux propres + passifs & Vérifie que les sections du bilan ont été correctement identifiées. \\ \hline
+Écart proche de 0\,\% & Confirme la cohérence de la classification. \\ \hline
+Écart important sur une date & Signale une anomalie source ou une valeur à recaler depuis les états financiers d'origine. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Résultats de l'unification par société}
+\label{sec:resultats_societes}
+\par L'unification ne produit pas seulement une table unique ; elle rend les
+sociétés comparables dans une structure commune. Les différences de devise et
+d'échelle sont conservées, car les montants absolus ne peuvent pas être comparés
+sans conversion. Les ratios, en revanche, deviennent comparables car ils sont
+sans dimension. Le tableau~\ref{tab:profil_societes} présente le profil des
+sociétés intégrées.
+
+\begin{table}[H]
+\centering
+\caption[Profil des sociétés intégrées]{Profil des sociétés intégrées dans le jeu de données.}
+\label{tab:profil_societes}
+\begin{tabularx}{\linewidth}{|p{2.6cm}|p{2.5cm}|p{2.3cm}|p{2.1cm}|X|}
+\hline
+\textbf{Société} & \textbf{Rôle} & \textbf{Devise} & \textbf{Échelle} & \textbf{Particularité de traitement} \\ \hline
+\sfbt & Principale & TND & Unité & États empilés, classification positionnelle, augmentation trimestrielle. \\ \hline
+DELICE & Benchmark local & TND & Unité & Format long proche du schéma cible. \\ \hline
+AB~InBev & Benchmark mondial & USD & Million & État financier non renseigné, collisions conservées. \\ \hline
+Coca-Cola & Benchmark mondial & USD & Million & Libellés en anglais, mapping vers les concepts financiers. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par La présence de sociétés internationales apporte une base de comparaison
+utile, mais elle exige une interprétation prudente. AB~InBev et Coca-Cola sont
+des groupes mondiaux dont la structure financière, la taille et les normes de
+publication diffèrent fortement de celles de la \sfbt. Le benchmark doit donc
+être lu comme un positionnement relatif sur des ratios, et non comme une égalité
+parfaite de contexte.
+
+\subsection{Lecture des tendances SFBT}
+\par Le chiffre d'affaires de la \sfbt montre une tendance globalement
+croissante sur la période étudiée. Cette évolution confirme l'intérêt d'une
+analyse longitudinale : les ratios d'une seule année donnent une photographie,
+mais l'historique permet de comprendre la trajectoire. L'évolution régulière de
+l'activité explique également pourquoi la régression linéaire obtient de bons
+résultats dans le module de prévision. Le tableau~\ref{tab:tendances_sfbt}
+synthétise les principales lectures financières.
+
+\begin{table}[H]
+\centering
+\caption[Lecture financière des tendances SFBT]{Lecture financière des tendances observées pour la SFBT.}
+\label{tab:tendances_sfbt}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Axe observé} & \textbf{Constat} & \textbf{Interprétation} \\ \hline
+Activité & Croissance du chiffre d'affaires sur longue période. & Dynamique commerciale solide et position de marché durable. \\ \hline
+Rentabilité & Marges élevées en 2024. & Capacité à transformer l'activité en résultat net. \\ \hline
+Structure financière & Capitaux propres importants et endettement limité. & Risque financier faible et autonomie élevée. \\ \hline
+Cycle d'exploitation & BFR en jours supérieur à la fourchette cible. & Point de vigilance sur stocks et immobilisation du capital circulant. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Augmentation des données}
@@ -90,11 +300,16 @@ FY & 31/12/2024 & 836,6 & réel \\ \hline
 \end{tabular}
 \end{table}
 
+\par La figure~\ref{fig:augfig} visualise cette insertion des périodes estimées
+entre les clôtures réelles.
+
 \begin{figure}[H]\centering
   \includegraphics[width=0.72\linewidth]{figures/augmentation.png}
   \caption[Illustration de l'augmentation]{Augmentation du CA 2024 : valeurs réelles (juin, décembre) et estimées (mars, septembre).}
   \label{fig:augfig}
 \end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Calcul des ratios et du score de performance}
@@ -166,7 +381,8 @@ localise son unique faiblesse sur le cycle d'exploitation.
 supérieures, les références internationales étant plus endettées (effet de
 levier). La marge nette de DELICE, supérieure à 100~\%, s'explique par sa nature
 de \textbf{holding} (revenus issus de dividendes) et doit être interprétée avec
-prudence.
+prudence. Pour cette raison, la figure de rentabilité isole la \sfbt et les deux
+références industrielles internationales afin de préserver la lisibilité visuelle.
 
 \begin{table}[H]
 \centering
@@ -182,11 +398,141 @@ Endettement global (\%) & 25,6 & 0,4 & 57,1 & 73,8 \\ \hline
 \end{tabular}
 \end{table}
 
+\par La figure~\ref{fig:benchfig} complète ce benchmark par une comparaison
+visuelle des ratios de rentabilité.
+
 \begin{figure}[H]\centering
   \includegraphics[width=0.8\linewidth]{figures/benchmark_bar.png}
-  \caption[Benchmark de rentabilité]{Comparaison de la rentabilité (marge nette, ROE, ROA) en 2024.}
+  \caption[Benchmark de rentabilité]{Comparaison de la rentabilité (marge nette, ROE, ROA) en 2024, hors DELICE dont le profil de holding rend les marges atypiques.}
   \label{fig:benchfig}
 \end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Analyse approfondie des ratios 2024}
+\label{sec:analyse_ratios_approfondie}
+\par Les ratios 2024 confirment la solidité de la \sfbt. La liquidité générale
+atteint 3,43, ce qui signifie que les actifs courants couvrent largement les
+passifs courants. L'autonomie financière de 74,4\,\% montre que l'entreprise est
+principalement financée par ses capitaux propres. La solvabilité de 3,91 indique
+que le total des actifs couvre presque quatre fois le total des dettes.
+
+\subsection{Liquidité et sécurité financière}
+\par Les ratios de liquidité de la \sfbt sont supérieurs aux benchmarks. Cette
+situation traduit une capacité élevée à faire face aux engagements de court
+terme. Elle réduit le risque de tension de trésorerie, mais peut aussi signaler
+une gestion prudente des ressources. Dans le secteur industriel, cette prudence
+peut être cohérente avec les besoins de financement du cycle d'exploitation et
+les investissements nécessaires. Le
+tableau~\ref{tab:liquidite_interpretation} détaille cette lecture.
+
+\begin{table}[H]
+\centering
+\caption[Interprétation des ratios de liquidité]{Interprétation des ratios de liquidité SFBT 2024.}
+\label{tab:liquidite_interpretation}
+\begin{tabularx}{\linewidth}{|p{3.5cm}|p{2.2cm}|X|}
+\hline
+\textbf{Ratio} & \textbf{Valeur} & \textbf{Lecture} \\ \hline
+Liquidité générale & 3,43 $\times$ & Couverture très confortable des dettes court terme. \\ \hline
+Liquidité réduite & 2,71 $\times$ & Même hors stocks, la couverture reste élevée. \\ \hline
+Liquidité immédiate & 0,63 $\times$ & Niveau cohérent avec la fourchette cible. \\ \hline
+Intervalle défensif & 167 jours & L'entreprise peut couvrir plusieurs mois de charges avec liquidités et clients. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Structure financière}
+\par La structure financière constitue l'un des points forts de la \sfbt. Le
+ratio d'endettement global est faible par rapport aux standards industriels,
+tandis que l'autonomie financière dépasse largement les seuils habituels. Cette
+configuration donne à l'entreprise une marge de manoeuvre financière importante.
+Elle peut financer ses investissements avec moins de dépendance vis-à-vis des
+créanciers. La figure~\ref{fig:profil_financier_sfbt} résume ce profil financier
+2024.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=12cm, height=6cm, ybar, ymin=0, ymax=100,
+  ylabel={Valeur en \%},
+  symbolic x coords={Autonomie, Endettement, ROA, ROE, Marge nette},
+  xtick=data, nodes near coords, nodes near coords style={font=\footnotesize},
+  ymajorgrids, bar width=18pt, enlarge x limits=0.12,
+  tick label style={font=\footnotesize},
+]
+\addplot[fill=midblue,draw=darkblue] coordinates
+  {(Autonomie,74.4) (Endettement,25.6) (ROA,15.8) (ROE,26.4) (Marge nette,30.1)};
+\end{axis}
+\end{tikzpicture}
+\caption[Profil financier synthétique SFBT]{Profil financier synthétique de la SFBT en 2024.}
+\label{fig:profil_financier_sfbt}
+\end{figure}
+
+\subsection{Rentabilité et création de valeur}
+\par La rentabilité est également élevée. La marge nette de 30,1\,\% montre que
+l'entreprise conserve une part importante de ses revenus sous forme de résultat
+net. Le ROA de 15,8\,\% traduit une bonne capacité à générer du résultat
+d'exploitation à partir des actifs, tandis que le ROE de 26,4\,\% indique une
+forte rentabilité pour les capitaux propres. Le
+tableau~\ref{tab:rentabilite_lecture} présente l'interprétation de ces ratios.
+
+\begin{table}[H]
+\centering
+\caption[Lecture des ratios de rentabilité]{Lecture des principaux ratios de rentabilité.}
+\label{tab:rentabilite_lecture}
+\begin{tabularx}{\linewidth}{|p{3cm}|p{2.2cm}|X|}
+\hline
+\textbf{Ratio} & \textbf{SFBT 2024} & \textbf{Interprétation} \\ \hline
+Marge nette & 30,1\,\% & Niveau très élevé, confirmant la capacité bénéficiaire. \\ \hline
+ROA & 15,8\,\% & Les actifs génèrent une rentabilité opérationnelle importante. \\ \hline
+ROE & 26,4\,\% & Les capitaux propres sont fortement rémunérés. \\ \hline
+ROCE & supérieur au benchmark & Le capital investi est efficacement exploité. \\ \hline
+\end{tabularx}
+\end{table}
+
+\subsection{Point de vigilance : cycle d'exploitation}
+\par Le principal point de vigilance concerne le cycle d'exploitation. Un BFR en
+jours élevé signifie qu'une partie importante du chiffre d'affaires reste
+immobilisée dans le cycle stocks-clients-fournisseurs. Pour une entreprise
+industrielle, ce phénomène peut être lié à la saisonnalité, à la constitution de
+stocks ou aux délais commerciaux. Il ne remet pas en cause la solidité globale,
+mais il mérite un suivi dans les tableaux de bord.
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Lecture détaillée du benchmark}
+\label{sec:benchmark_detaille}
+\par Le benchmark montre que la \sfbt ne se distingue pas par sa taille absolue,
+mais par la qualité de ses ratios. Les groupes mondiaux disposent de chiffres
+d'affaires largement supérieurs, mais ils présentent aussi un endettement plus
+important. La comparaison par ratios met donc en évidence une entreprise locale
+moins grande, mais très solide financièrement. Le
+tableau~\ref{tab:forces_limites_benchmark} précise les forces et les limites de
+cette comparaison.
+
+\begin{table}[H]
+\centering
+\caption[Forces et limites du benchmark]{Forces et limites du benchmark réalisé.}
+\label{tab:forces_limites_benchmark}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\textbf{Forces} & \textbf{Limites} \\ \hline
+Comparaison avec une référence locale et deux références mondiales. & Différences importantes de taille, devise et périmètre de consolidation. \\ \hline
+Utilisation de ratios sans dimension. & Certains postes ne sont pas disponibles pour toutes les sociétés. \\ \hline
+Mise en évidence du positionnement relatif de la \sfbt. & DELICE est une holding, ce qui rend certaines marges atypiques. \\ \hline
+Intégration dans un score global lisible. & Le SGPI dépend de la couverture des ratios notés. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par La comparaison doit donc être lue comme un outil d'aide à l'interprétation,
+et non comme un classement absolu. Elle permet d'identifier les écarts majeurs :
+la \sfbt est plus liquide et moins endettée, Coca-Cola présente un ROE élevé,
+AB~InBev utilise davantage l'effet de levier, et DELICE possède des ratios
+marqués par son modèle de holding.
+
+%% ───────────────────────────────────────────────────────────────────────────
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Réalisation de l'entrepôt de données}
@@ -198,7 +544,60 @@ analytiques. L'\textbf{intégrité référentielle} a été vérifiée : aucune 
 fait orpheline et aucune perte de donnée lors des jointures. La
 figure~\ref{fig:dw} présente l'entrepôt dans un outil d'exploration SQL.
 
-\figplaceholder{Entrepôt de données ouvert dans DB Browser for SQLite.}{fig:dw}
+\begin{figure}[H]\centering
+  \includegraphics[width=\linewidth]{figures/fig411.png}
+  \caption[Entrepôt SQLite]{Entrepôt de données ouvert dans DB Browser for SQLite.}
+  \label{fig:dw}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Validation du Data Warehouse}
+\label{sec:validation_dw_detail}
+\par Le Data Warehouse ne se limite pas à stocker les sorties du pipeline. Il
+formalise un modèle analytique durable. Les tables de dimensions décrivent les
+axes d'analyse et les tables de faits portent les mesures. La validation a porté
+sur les volumes, les jointures et l'absence de faits orphelins. Le
+tableau~\ref{tab:contenu_dw} récapitule le contenu chargé dans SQLite.
+
+\begin{table}[H]
+\centering
+\caption[Contenu de l'entrepôt SQLite]{Contenu de l'entrepôt SQLite après chargement.}
+\label{tab:contenu_dw}
+\begin{tabular}{|l|r|l|}
+\hline
+\textbf{Table} & \textbf{Lignes} & \textbf{Rôle} \\ \hline
+\texttt{Dim\_Societe} & 4 & Sociétés et métadonnées. \\ \hline
+\texttt{Dim\_Temps} & 83 & Dates, années, mois et périodes. \\ \hline
+\texttt{Dim\_Indicateur} & 673 & Postes financiers normalisés. \\ \hline
+\texttt{Dim\_Ratio} & 46 & Référentiel des ratios. \\ \hline
+\texttt{Fait\_Etats\_Financiers} & 10\,124 & Valeurs comptables réelles et estimées. \\ \hline
+\texttt{Fait\_Ratios} & 4\,095 & Ratios calculés non nuls. \\ \hline
+\texttt{Fait\_SGPI} & 111 & Scores globaux disponibles. \\ \hline
+\end{tabular}
+\end{table}
+
+\par Les vues \texttt{v\_etats}, \texttt{v\_ratios} et \texttt{v\_sgpi}
+constituent une couche de confort pour l'utilisateur. Elles évitent de manipuler
+directement les clés techniques et rendent les données immédiatement utilisables
+dans Power BI ou dans un outil SQL. La figure~\ref{fig:requete_sql_exemple}
+donne un exemple d'interrogation.
+
+\begin{figure}[H]\centering
+  \begin{minipage}{0.9\linewidth}
+\begin{lstlisting}[language=SQL,numbers=none,basicstyle=\small\ttfamily]
+SELECT societe, code_ratio, valeur
+FROM v_ratios
+WHERE annee = 2024 AND periode = 'FY'
+  AND code_ratio IN ('MARGE_NETTE', 'ROE', 'ROA');
+\end{lstlisting}
+  \end{minipage}
+  \caption[Exemple d'interrogation SQL]{Exemple de requête SQL sur la vue analytique des ratios.}
+  \label{fig:requete_sql_exemple}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Prévision par apprentissage automatique}
@@ -223,6 +622,9 @@ Résultat net & Régression linéaire & 7,9~\% & 0,96 \\ \hline
 \end{tabular}
 \end{table}
 
+\par La figure~\ref{fig:mlcomp} complète ce tableau en comparant visuellement
+les performances des deux modèles.
+
 \begin{figure}[H]\centering
   \includegraphics[width=\linewidth]{figures/ml_comparison.png}
   \caption[Comparaison des modèles ML]{Comparaison des deux modèles ($R^2$ et MAPE) par indicateur.}
@@ -243,6 +645,115 @@ réelles aux prévisions.
 \end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Analyse détaillée des résultats de prévision}
+\label{sec:ml_detaille}
+\par Le module de prévision a été conçu comme un complément au diagnostic
+financier. Il ne prétend pas remplacer une analyse stratégique, mais fournit une
+projection quantitative cohérente à partir de l'historique disponible. Les
+résultats montrent que la régression linéaire domine le Random Forest sur les
+quatre indicateurs retenus. Le
+tableau~\ref{tab:comparaison_modeles_detail} synthétise cette comparaison.
+
+\begin{table}[H]
+\centering
+\caption[Comparaison synthétique des modèles]{Comparaison synthétique des modèles testés.}
+\label{tab:comparaison_modeles_detail}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
+\hline
+\textbf{Modèle} & \textbf{Résultat observé} & \textbf{Interprétation} \\ \hline
+Régression linéaire & Meilleurs $R^2$ et MAPE sur les quatre indicateurs. & Les séries de la \sfbt présentent une tendance régulière bien captée par un modèle simple. \\ \hline
+Random Forest & Performances correctes mais inférieures. & Modèle robuste, mais moins adapté à l'extrapolation d'une série croissante courte. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Le choix de modéliser le taux de croissance est central. Si le modèle
+apprend directement les niveaux, une forêt aléatoire a tendance à rester dans la
+plage des valeurs déjà observées. En apprenant un taux, la valeur future est
+reconstruite à partir du dernier niveau connu, ce qui rend l'extrapolation plus
+cohérente. Le tableau~\ref{tab:previsions_futures} décrit les prévisions futures
+produites.
+
+\begin{table}[H]
+\centering
+\caption[Prévisions futures produites]{Nature des prévisions futures produites.}
+\label{tab:previsions_futures}
+\begin{tabularx}{\linewidth}{|p{3.5cm}|X|}
+\hline
+\textbf{Élément} & \textbf{Description} \\ \hline
+Horizon & Quatre prochaines clôtures trimestrielles. \\ \hline
+Indicateurs & Revenus, total des actifs, capitaux propres, résultat net. \\ \hline
+Modèles & Régression linéaire et Random Forest. \\ \hline
+Sortie & 32 lignes de prévisions dans \texttt{ml\_forecasts.csv}. \\ \hline
+Usage & Visualisation dans Power BI et comparaison de scénarios simples. \\ \hline
+\end{tabularx}
+\end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Restitution : tableaux de bord}
+\label{sec:resti}
+\par Les jeux de données produits et l'entrepôt en étoile alimentent des
+\textbf{tableaux de bord Power BI} structurés en cinq vues : synthèse \sfbt,
+solidité financière, performance, benchmark sectoriel et prévisions. Cette
+restitution constitue le dernier maillon de la chaîne décisionnelle : elle
+transforme les tables préparées en supports de lecture pour l'utilisateur final.
+Les emplacements ci-dessous sont réservés aux captures définitives qui seront
+insérées après finalisation du fichier Power BI. Les figures~\ref{fig:dashboard1}
+et~\ref{fig:dashboard2} accueilleront respectivement la vue d'ensemble et la page
+de benchmark.
+
+\figplaceholder{Tableau de bord Power BI --- vue d'ensemble de la SFBT.}{fig:dashboard1}
+
+\figplaceholder{Tableau de bord Power BI --- benchmark sectoriel.}{fig:dashboard2}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Conception effective des tableaux de bord}
+\label{sec:dashboards_detail}
+\par La restitution Power BI est pensée comme une traduction visuelle du modèle
+analytique. Les fichiers produits permettent de construire cinq pages : vue
+d'ensemble, solidité, performance, benchmark et prévision. Chaque page répond à
+une question métier précise. Le tableau~\ref{tab:questions_powerbi} associe ces
+pages aux questions métier.
+
+\begin{table}[H]
+\centering
+\caption[Questions métier des pages Power BI]{Questions métier associées aux pages Power BI.}
+\label{tab:questions_powerbi}
+\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\hline
+\textbf{Page} & \textbf{Question métier} & \textbf{Indicateurs clés} \\ \hline
+Vue d'ensemble & Quelle est la situation globale de la \sfbt ? & CA, marge nette, ROE, SGPI. \\ \hline
+Solidité & L'entreprise est-elle financièrement robuste ? & Liquidité, autonomie, solvabilité, endettement. \\ \hline
+Performance & L'entreprise crée-t-elle de la valeur ? & ROA, ROE, marge nette, ROCE. \\ \hline
+Benchmark & Comment la \sfbt se situe-t-elle face aux références ? & Ratios comparés par société. \\ \hline
+Prévision & Quelle trajectoire future les modèles suggèrent-ils ? & Prévisions et backtest par modèle. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Les filtres prévus sont la société, l'année, la période et le ratio. Cette
+structure rend le tableau de bord interactif tout en restant simple à utiliser.
+Le choix de fournir des ratios déjà calculés limite fortement le besoin de
+mesures DAX complexes et réduit le risque d'erreur dans Power BI.
+
+%% ───────────────────────────────────────────────────────────────────────────
+
+\par Les figures~\ref{fig:modele_powerbi}, \ref{fig:dashboard_solidite},
+\ref{fig:dashboard_performance} et~\ref{fig:dashboard_prevision} sont prévues
+pour documenter le modèle Power BI et les pages d'analyse restantes.
+
+\figplaceholder{Modèle de données Power BI reliant tables de faits, dimensions et tables de ratios.}{fig:modele_powerbi}
+
+\figplaceholder{Tableau de bord Power BI --- page solidité financière.}{fig:dashboard_solidite}
+
+\figplaceholder{Tableau de bord Power BI --- page performance et rentabilité.}{fig:dashboard_performance}
+
+\figplaceholder{Tableau de bord Power BI --- page prévision ML.}{fig:dashboard_prevision}
+
+
+%% ───────────────────────────────────────────────────────────────────────────
 \section{Tests et validation}
 \label{sec:tests}
 \par La fiabilité de la solution est garantie par une \textbf{suite de 70 tests
@@ -253,19 +764,45 @@ et AB~InBev), intégrité de l'entrepôt et cohérence des prévisions. La total
 tests est satisfaite (\textbf{70/70}), comme l'illustre la
 figure~\ref{fig:tests}.
 
-\figplaceholder{Résultat de la suite de tests (\texttt{test\_pipeline.py}).}{fig:tests}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.86\linewidth]{figures/fig421.png}
+  \caption[Résultat de la suite de tests]{Résultat de la suite de tests (\texttt{test\_pipeline.py}).}
+  \label{fig:tests}
+\end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
-\section{Restitution : tableaux de bord}
-\label{sec:resti}
-\par Les jeux de données produits et l'entrepôt en étoile alimentent des
-\textbf{tableaux de bord Power BI} structurés en cinq vues : synthèse \sfbt,
-solidité financière, performance, benchmark sectoriel et prévisions. Les
-figures~\ref{fig:dashboard1} et~\ref{fig:dashboard2} en présentent un aperçu.
 
-\figplaceholder{Tableau de bord Power BI --- vue d'ensemble de la SFBT.}{fig:dashboard1}
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Bilan critique de la réalisation}
+\label{sec:bilan_critique_realisation}
+\par La réalisation atteint les objectifs principaux : données unifiées, ratios
+calculés, score global, benchmark, Data Warehouse et prévision. Elle présente
+aussi des limites assumées. La première concerne les données sources : certaines
+années annuelles de la \sfbt restent absentes. La deuxième concerne
+l'augmentation trimestrielle, fondée sur une hypothèse linéaire. La troisième
+concerne le benchmark, car les sociétés comparées n'ont pas toutes le même modèle
+économique. Le tableau~\ref{tab:bilan_critique} synthétise ce bilan critique.
 
-\figplaceholder{Tableau de bord Power BI --- benchmark sectoriel.}{fig:dashboard2}
+\begin{table}[H]
+\centering
+\caption[Forces et limites de la réalisation]{Bilan critique de la réalisation.}
+\label{tab:bilan_critique}
+\begin{tabularx}{\linewidth}{|X|X|}
+\hline
+\textbf{Forces} & \textbf{Limites} \\ \hline
+Pipeline automatisé et reproductible. & Données annuelles manquantes pour certaines années. \\ \hline
+46 ratios calculés et documentés. & Certains ratios indisponibles selon les sociétés. \\ \hline
+Score global synthétique et lisible. & Score dépendant de la couverture des données. \\ \hline
+Data Warehouse exploitable en SQL et Power BI. & Base SQLite locale, non déployée sur serveur. \\ \hline
+Prévision comparant deux modèles. & Historique court et partiellement estimé en infra-annuel. \\ \hline
+Tests automatiques couvrant la chaîne. & Validation métier finale toujours nécessaire pour certaines collisions. \\ \hline
+\end{tabularx}
+\end{table}
+
+\par Ces limites ne diminuent pas la valeur du projet ; elles montrent au
+contraire que la démarche distingue clairement ce qui est calculé, ce qui est
+estimé, ce qui est validé et ce qui reste à compléter. Cette transparence est
+essentielle dans un projet d'analyse financière.
 
 %% ── Conclusion ─────────────────────────────────────────────────────────────
 \section*{Conclusion}
