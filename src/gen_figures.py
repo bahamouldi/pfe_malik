@@ -101,14 +101,16 @@ def fig_benchmark(ratios):
 
 def fig_ml_comparison(metrics):
     inds = metrics.Indicateur.unique()
-    x = np.arange(len(inds)); w = 0.38
+    x = np.arange(len(inds)); w = 0.26
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4.2))
     for ax, col, ttl, ylab in [(a1, "R2", "Coefficient de détermination ($R^2$)", "$R^2$"),
                                (a2, "MAPE_%", "Erreur moyenne (MAPE)", "MAPE (%)")]:
         lr = [metrics[(metrics.Indicateur == i) & (metrics.Modele == "Régression linéaire")][col].iloc[0] for i in inds]
         rf = [metrics[(metrics.Indicateur == i) & (metrics.Modele == "Random Forest")][col].iloc[0] for i in inds]
-        ax.bar(x - w / 2, lr, w, label="Régression linéaire", color=DARK)
-        ax.bar(x + w / 2, rf, w, label="Random Forest", color=ORANGE)
+        dt = [metrics[(metrics.Indicateur == i) & (metrics.Modele == "Arbre de decision")][col].iloc[0] for i in inds]
+        ax.bar(x - w, lr, w, label="Régression linéaire", color=DARK)
+        ax.bar(x, rf, w, label="Random Forest", color=ORANGE)
+        ax.bar(x + w, dt, w, label="Arbre de décision", color=GREEN)
         ax.set_xticks(x); ax.set_xticklabels([i.replace(" ", "\n") for i in inds], fontsize=8)
         ax.set_title(ttl); ax.set_ylabel(ylab); ax.legend(fontsize=8)
     fig.suptitle("Comparaison des modèles de prévision (backtest)", fontweight="bold")
@@ -125,6 +127,25 @@ def fig_ml_backtest(preds):
     ax.set_xlabel("Date"); ax.set_ylabel("CA (M TND)"); ax.legend()
     fig.autofmt_xdate()
     _save(fig, "ml_backtest.png")
+
+
+def fig_ml_horizon(hz):
+    modeles = ["Régression linéaire", "Random Forest", "Arbre de decision",
+               "Naif saisonnier V(t-4)"]
+    labels = ["Régression linéaire", "Random Forest", "Arbre de décision",
+              "Baseline naïve V(t-4)"]
+    couleurs = [DARK, ORANGE, GREEN, RED]
+    styles = ["-o", "-s", "-^", "--d"]
+    fig, ax = plt.subplots(figsize=(8.5, 4.4))
+    for m, lab, c, st in zip(modeles, labels, couleurs, styles):
+        sub = hz[hz.Modele == m].groupby("Horizon")["MAPE_%"].mean()
+        ax.plot(sub.index, sub.values, st, color=c, lw=2, ms=5, label=lab)
+    ax.set_title("Erreur de prévision selon l'horizon (moyenne 4 indicateurs)")
+    ax.set_xlabel("Horizon (nombre de périodes d'avance)")
+    ax.set_ylabel("MAPE (%)")
+    ax.set_xticks([1, 2, 3, 4])
+    ax.legend(fontsize=8)
+    _save(fig, "ml_horizon.png")
 
 
 def fig_gantt():
@@ -162,6 +183,7 @@ def main():
     sgpi = pd.read_csv(C.PROCESSED_DIR / "sgpi.csv")
     metrics = pd.read_csv(C.PROCESSED_DIR / "ml_metrics.csv")
     preds = pd.read_csv(C.PROCESSED_DIR / "ml_predictions.csv")
+    hz = pd.read_csv(C.PROCESSED_DIR / "ml_metrics_horizon.csv")
 
     fig_ca_evolution(full)
     fig_augmentation(full)
@@ -169,6 +191,7 @@ def main():
     fig_benchmark(ratios)
     fig_ml_comparison(metrics)
     fig_ml_backtest(preds)
+    fig_ml_horizon(hz)
     fig_gantt()
     print(f"\n✔ Figures écrites dans {FIGDIR}")
 

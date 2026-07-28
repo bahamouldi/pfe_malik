@@ -578,17 +578,18 @@ il est moins interprétable qu'une régression linéaire et peut rencontrer une
 limite importante en prévision de séries croissantes : les arbres extrapolent
 mal au-delà des niveaux observés. Pour cette raison, le projet prévoit de
 modéliser un taux de croissance plutôt que le niveau brut. Le
-tableau~\ref{tab:modelesml} compare les deux modèles retenus.
+tableau~\ref{tab:modelesml} compare les trois modèles retenus.
 
 \begin{table}[H]
 \centering
-\caption[Comparaison des modèles de prévision]{Comparaison des deux modèles de prévision retenus.}
+\caption[Comparaison des modèles de prévision]{Comparaison des trois modèles de prévision retenus.}
 \label{tab:modelesml}
 \begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
 \hline
 \textbf{Modèle} & \textbf{Forces} & \textbf{Limites} \\ \hline
 Régression linéaire & Simple, interprétable, efficace sur des tendances régulières, facile à défendre dans un rapport. & Capte mal les relations très non linéaires si les variables ne sont pas adaptées. \\ \hline
 Random Forest & Robuste, non linéaire, capable de gérer des interactions entre variables. & Moins interprétable, extrapolation limitée sur des séries fortement croissantes. \\ \hline
+Arbre de décision & Très interprétable (règles lisibles), rapide, utile pédagogiquement. & Instable et sujet au sur-apprentissage sans élagage ; extrapolation limitée. \\ \hline
 \end{tabularx}
 \end{table}
 

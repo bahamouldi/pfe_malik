@@ -161,15 +161,16 @@ emplacements réservés par les captures définitives avant le dépôt final.
 \begin{tabularx}{\linewidth}{|p{4cm}|X|p{2.2cm}|}
 \hline
 \textbf{Emplacement} & \textbf{Capture attendue} & \textbf{Statut} \\ \hline
-Figure~\ref{fig:sfbt} & Logo ou identité visuelle officielle de la \sfbt. & À insérer \\ \hline
+Figure~\ref{fig:sfbt} & Logo ou identité visuelle officielle de la \sfbt. & Fait \\ \hline
 Figure~\ref{fig:org_sfbt} & Organigramme simplifié de la société. & À insérer \\ \hline
-Figure~\ref{fig:runall} & Terminal montrant l'exécution de \texttt{run\_all.py}. & À insérer \\ \hline
-Figure~\ref{fig:dataset} & Extrait de \texttt{financials\_unified.csv}. & À insérer \\ \hline
-Figure~\ref{fig:rapport_qualite} & Rapport qualité ou sortie des anomalies. & À insérer \\ \hline
-Figure~\ref{fig:dw} & Base ouverte dans DB Browser for SQLite. & À insérer \\ \hline
-Figure~\ref{fig:tests} & Résultat des 70 tests automatiques. & À insérer \\ \hline
-Figure~\ref{fig:modele_powerbi} & Modèle relationnel Power BI. & À insérer \\ \hline
-Figures Power BI & Pages vue d'ensemble, solidité, performance, benchmark et prévision. & À insérer \\ \hline
+Figure~\ref{fig:runall} & Terminal montrant l'exécution de \texttt{run\_all.py}. & Fait \\ \hline
+Figure~\ref{fig:dataset} & Extrait de \texttt{financials\_unified.csv}. & Fait \\ \hline
+Figure~\ref{fig:rapport_qualite} & Rapport qualité ou sortie des anomalies. & Fait \\ \hline
+Figure~\ref{fig:dw} & Base ouverte dans DB Browser for SQLite. & Fait \\ \hline
+Figure~\ref{fig:tests} & Résultat des 83 tests automatiques. & Fait \\ \hline
+Figure~\ref{fig:modele_powerbi} & Modèle relationnel Power BI. & Fait \\ \hline
+Figures Power BI & Sept pages : liquidites, actifs, passifs, RH et risques, rentabilite commerciale, exploitation, eco. et fin. & Fait \\ \hline
+Figures application web & Trois axes compares et tableaux de bord par societe. & Fait \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -191,3 +192,79 @@ Historique court pour le ML & Modèles simples, backtest chronologique et métri
 Collisions résiduelles & Conservation avec occurrence et exclusion des calculs sensibles si nécessaire. \\ \hline
 \end{tabularx}
 \end{table}
+
+%% ───────────────────────────────────────────────────────────────────────────
+\section{Limite de périmètre comptable sur DELICE}
+\label{ann:delice}
+Les données de la société DELICE présentent deux anomalies documentées ici,
+car elles limitent la portée des comparaisons sectorielles.
+
+\subsection{Rupture de périmètre en 2020}
+Les états financiers de DELICE changent de nature en 2020. Avant cette date,
+les comptes retenus correspondent à un périmètre consolidé. À partir de 2020,
+les montants publiés se rapportent à la seule société mère.
+
+\begin{table}[H]
+\centering
+\caption{Revenus annuels de DELICE en dinars (données sources).}
+\label{tab:ann_delice_revenus}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Exercice} & \textbf{Revenus} \\ \hline
+2018 & 844 483 415 \\ \hline
+2019 & 965 360 619 \\ \hline
+2020 & 22 354 097 \\ \hline
+2021 & 20 942 799 \\ \hline
+2022 & 23 562 430 \\ \hline
+2023 & 34 179 018 \\ \hline
+2024 & 58 382 497 \\ \hline
+2025 & 63 611 762 \\ \hline
+\end{tabular}
+\end{table}
+
+Le tableau~\ref{tab:ann_delice_revenus} montre une division par plus de
+quarante entre 2019 et 2020. Le total des actifs reste pourtant stable sur la
+même période, avec 640,9 millions en 2019 puis 580,1 millions en 2020, ce qui
+écarte une simple erreur sur les unités.
+
+La ventilation du bilan confirme le changement de périmètre. Les actifs
+courants passent de 322,2 millions en 2019 à 21,9 millions en 2020, alors que
+les actifs non courants progressent de 318,7 millions à 558,2 millions. Cette
+bascule correspond au profil comptable typique de la société holding.
+
+La conséquence la plus visible porte sur la marge nette. Celle-ci dépasse
+95 pourcent pour chaque exercice de 2020 à 2025, niveau impossible pour une
+activité industrielle, alors que les exercices 2018 et 2019 affichent
+respectivement 3,56 et 4,46 pourcent.
+
+\subsection{Occurrences dupliquées des capitaux propres}
+Le poste capitaux propres avant affectation comporte deux valeurs distinctes
+pour certains exercices. Pour 2023, la base contient à la fois 34 430 924 et
+595 478 815 dinars.
+
+La première valeur est rigoureusement identique au résultat net du même
+exercice. Le même phénomène apparaît en 2024, avec 58 901 016 dinars portés
+à la fois en résultat net et en capitaux propres.
+
+La conséquence directe apparaît sur la rentabilité des capitaux propres, qui
+atteint exactement 100,0000 pourcent. Une telle valeur ne traduit aucune
+réalité économique et signale un rapprochement erroné entre deux postes
+comptables distincts.
+
+\subsection{Conséquences sur les résultats présentés}
+\begin{itemize}
+  \item Le score SGPI de DELICE, soit 71,7 sur 100 pour 2024, calcule sur une couverture de 60 pourcent seulement, ne peut pas
+        être lu comme un niveau de performance réel.
+  \item Les comparaisons sectorielles incluant DELICE doivent être lues avec
+        prudence, en particulier sur les marges et la rentabilité.
+  \item Les ratios de liquidité de DELICE pour 2025 ne sont pas calculables.
+\end{itemize}
+
+\subsection{Traitement retenu}
+Aucune correction manuelle ne modifie les données sources. La limite est
+signalée de façon explicite, conformément au principe de transparence retenu
+dans le projet.
+
+La piste corrective privilégiée consiste à restreindre le périmètre de DELICE
+aux exercices antérieurs à 2020 pour les analyses de marge, et à rejeter toute
+valeur de capitaux propres identique au résultat net du même exercice.

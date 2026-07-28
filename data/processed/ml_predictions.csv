@@ -35,6 +35,24 @@ Revenus (CA),Random Forest,2024-09-30,601838363.3,615024463.7
 Revenus (CA),Random Forest,2024-12-31,836585626.3,842016469.2
 Revenus (CA),Random Forest,2025-03-31,178920995.0,218022099.3
 Revenus (CA),Random Forest,2025-06-30,357841990.0,357666964.0
+Revenus (CA),Arbre de decision,2020-03-31,154681405.0,169356221.4
+Revenus (CA),Arbre de decision,2020-06-30,309362810.0,309362810.0
+Revenus (CA),Arbre de decision,2020-09-30,530648432.3,499533207.7
+Revenus (CA),Arbre de decision,2020-12-31,751934054.6,732206101.8
+Revenus (CA),Arbre de decision,2021-03-31,151617909.1,179045883.5
+Revenus (CA),Arbre de decision,2021-06-30,303235818.3,303235818.3
+Revenus (CA),Arbre de decision,2022-03-31,170200642.7,489639853.6
+Revenus (CA),Arbre de decision,2022-06-30,340401285.4,234848426.1
+Revenus (CA),Arbre de decision,2023-03-31,178761696.7,81054247.4
+Revenus (CA),Arbre de decision,2023-06-30,357523393.5,246661249.1
+Revenus (CA),Arbre de decision,2023-09-30,592194400.6,85131257.8
+Revenus (CA),Arbre de decision,2023-12-31,826865407.8,817129246.5
+Revenus (CA),Arbre de decision,2024-03-31,183545550.2,196888073.6
+Revenus (CA),Arbre de decision,2024-06-30,367091100.3,367091100.3
+Revenus (CA),Arbre de decision,2024-09-30,601838363.3,592748025.7
+Revenus (CA),Arbre de decision,2024-12-31,836585626.3,830436302.3
+Revenus (CA),Arbre de decision,2025-03-31,178920995.0,199202591.9
+Revenus (CA),Arbre de decision,2025-06-30,357841990.0,357841990.0
 Total des actifs,Régression linéaire,2019-09-30,810872256.5,929506215.2
 Total des actifs,Régression linéaire,2019-12-31,795583804.7,843633949.6
 Total des actifs,Régression linéaire,2020-03-31,920048489.2,835788315.5
@@ -71,6 +89,24 @@ Total des actifs,Random Forest,2024-09-30,1233802671.4,1296338559.1
 Total des actifs,Random Forest,2024-12-31,1281772855.0,1346397574.6
 Total des actifs,Random Forest,2025-03-31,1266158247.7,1305088011.3
 Total des actifs,Random Forest,2025-06-30,1250370144.8,1278677442.6
+Total des actifs,Arbre de decision,2019-09-30,810872256.5,882431492.7
+Total des actifs,Arbre de decision,2019-12-31,795583804.7,866101726.4
+Total des actifs,Arbre de decision,2020-03-31,920048489.2,876986313.6
+Total des actifs,Arbre de decision,2020-06-30,1044513173.7,1014185970.2
+Total des actifs,Arbre de decision,2020-09-30,1008272578.2,1013710910.6
+Total des actifs,Arbre de decision,2020-12-31,972031982.7,962818143.0
+Total des actifs,Arbre de decision,2021-03-31,966700605.2,1071488308.5
+Total des actifs,Arbre de decision,2021-06-30,961309990.1,1065611435.3
+Total des actifs,Arbre de decision,2022-06-30,1006137695.8,1059669263.6
+Total des actifs,Arbre de decision,2023-06-30,1083461330.6,1109083648.5
+Total des actifs,Arbre de decision,2023-09-30,1127813714.3,1095006543.8
+Total des actifs,Arbre de decision,2023-12-31,1172166097.9,1094554952.5
+Total des actifs,Arbre de decision,2024-03-31,1178999292.8,1184656536.8
+Total des actifs,Arbre de decision,2024-06-30,1185832487.7,1191562545.3
+Total des actifs,Arbre de decision,2024-09-30,1233802671.4,1242759181.9
+Total des actifs,Arbre de decision,2024-12-31,1281772855.0,1293032206.7
+Total des actifs,Arbre de decision,2025-03-31,1266158247.7,1295431248.2
+Total des actifs,Arbre de decision,2025-06-30,1250370144.8,1279650253.8
 Capitaux propres,Régression linéaire,2019-09-30,643216731.7,634904693.6
 Capitaux propres,Régression linéaire,2019-12-31,688933683.4,692488594.6
 Capitaux propres,Régression linéaire,2020-03-31,747305932.7,680759045.2
@@ -107,6 +143,24 @@ Capitaux propres,Random Forest,2024-09-30,905231285.5,907089850.0
 Capitaux propres,Random Forest,2024-12-31,954001282.2,957800174.0
 Capitaux propres,Random Forest,2025-03-31,931573181.4,953181335.8
 Capitaux propres,Random Forest,2025-06-30,908895879.5,930582846.1
+Capitaux propres,Arbre de decision,2019-09-30,643216731.7,632647331.7
+Capitaux propres,Arbre de decision,2019-12-31,688933683.4,681053554.5
+Capitaux propres,Arbre de decision,2020-03-31,747305932.7,688953594.8
+Capitaux propres,Arbre de decision,2020-06-30,805678182.1,747327531.2
+Capitaux propres,Arbre de decision,2020-09-30,767321386.4,853071698.3
+Capitaux propres,Arbre de decision,2020-12-31,728964590.6,812458588.0
+Capitaux propres,Arbre de decision,2021-03-31,705490917.0,771845477.7
+Capitaux propres,Arbre de decision,2021-06-30,681756424.9,746990979.9
+Capitaux propres,Arbre de decision,2022-06-30,744693590.7,687620404.8
+Capitaux propres,Arbre de decision,2023-06-30,797281218.1,751098911.0
+Capitaux propres,Arbre de decision,2023-09-30,848857614.5,797304261.0
+Capitaux propres,Arbre de decision,2023-12-31,900434010.9,848882148.0
+Capitaux propres,Arbre de decision,2024-03-31,878447649.8,953401479.6
+Capitaux propres,Arbre de decision,2024-06-30,856461288.7,930121784.5
+Capitaux propres,Arbre de decision,2024-09-30,905231285.5,906842089.5
+Capitaux propres,Arbre de decision,2024-12-31,954001282.2,958480950.9
+Capitaux propres,Arbre de decision,2025-03-31,931573181.4,954028854.6
+Capitaux propres,Arbre de decision,2025-06-30,908895879.5,939585906.0
 Résultat net,Régression linéaire,2020-03-31,58372249.4,59021755.9
 Résultat net,Régression linéaire,2020-06-30,116744498.7,116499846.0
 Résultat net,Régression linéaire,2020-09-30,158933570.0,140033727.9
@@ -143,3 +197,21 @@ Résultat net,Random Forest,2024-09-30,203389613.6,177683375.3
 Résultat net,Random Forest,2024-12-31,252152023.5,230994474.7
 Résultat net,Random Forest,2025-03-31,84818843.8,98689760.7
 Résultat net,Random Forest,2025-06-30,169637687.6,169637687.6
+Résultat net,Arbre de decision,2020-03-31,58372249.4,68557161.0
+Résultat net,Arbre de decision,2020-06-30,116744498.7,116744498.7
+Résultat net,Arbre de decision,2020-09-30,158933570.0,131406551.4
+Résultat net,Arbre de decision,2020-12-31,201122641.3,178894188.3
+Résultat net,Arbre de decision,2021-03-31,64877167.1,77579383.7
+Résultat net,Arbre de decision,2021-06-30,129754334.2,129754334.2
+Résultat net,Arbre de decision,2022-03-31,73425671.4,58114880.1
+Résultat net,Arbre de decision,2022-06-30,146851342.8,146851342.8
+Résultat net,Arbre de decision,2023-03-31,75107845.1,65772355.3
+Résultat net,Arbre de decision,2023-06-30,150215690.2,150215690.2
+Résultat net,Arbre de decision,2023-09-30,201874704.9,169081421.6
+Résultat net,Arbre de decision,2023-12-31,253533719.6,227228341.2
+Résultat net,Arbre de decision,2024-03-31,77313601.9,97795999.4
+Résultat net,Arbre de decision,2024-06-30,154627203.7,154627203.7
+Résultat net,Arbre de decision,2024-09-30,203389613.6,174046981.4
+Résultat net,Arbre de decision,2024-12-31,252152023.5,228933508.7
+Résultat net,Arbre de decision,2025-03-31,84818843.8,97263035.4
+Résultat net,Arbre de decision,2025-06-30,169637687.6,169637687.6

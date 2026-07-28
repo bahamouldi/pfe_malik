@@ -1016,17 +1016,17 @@ DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-527666499.0,positif,0.0
-DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0488,"1,2 à 1,5",0.0
+DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,23682237.0,positif,5.0
+DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0427,"1,2 à 1,5",3.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,-6172.0,,
 DELICE,2015-12-31,2015,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,-0.0848,30 à 60 j,5.0
-DELICE,2015-12-31,2015,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,22.0713,2 à 3,0.0
+DELICE,2015-12-31,2015,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0335,2 à 3,5.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,92.798,45 % à 65 %,0.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,29.9973,30 % à 60 %,4.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.2294,40 % à 60 %,4.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0,,
-DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,19.7499,,
-DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,4.5308,35 % à 50 %,0.0
+DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,421.7819,,
+DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,96.7596,35 % à 50 %,4.0
 DELICE,2015-12-31,2015,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,435.9072,"1,5 à 2",4.0
 DELICE,2015-12-31,2015,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,88.6249,,
 DELICE,2015-12-31,2015,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,90.3253,,5.0
@@ -1039,18 +1039,18 @@ DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Ren
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,101.9187,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0445,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,4.295,5 % à 10 %,2.0
-DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,94.7966,10 % à 15 %,4.0
+DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,4.4388,10 % à 15 %,0.0
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,4.6285,,
-DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,94.7994,,
+DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,4.439,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,96.6183,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,96.6155,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,25675795.0,,
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,4.6825,10 % à 15 %,0.0
 DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,9.7033,,
-DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,100.0,,
+DELICE,2015-12-31,2015,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,4.6825,,
 DELICE,2015-12-31,2015,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2015-12-31,2015,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2015-12-31,2015,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
@@ -1062,17 +1062,17 @@ DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-531724012.0,positif,0.0
-DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0417,"1,2 à 1,5",0.0
+DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,22001586.0,positif,5.0
+DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0397,"1,2 à 1,5",3.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,-65339.0,,
 DELICE,2016-12-31,2016,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,-0.8896,30 à 60 j,5.0
-DELICE,2016-12-31,2016,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,24.9716,2 à 3,0.0
+DELICE,2016-12-31,2016,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0008,2 à 3,5.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,96.1093,45 % à 65 %,0.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,9.1014,30 % à 60 %,4.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.0796,40 % à 60 %,4.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0,,
-DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,50.3172,,
-DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,4.0046,35 % à 50 %,0.0
+DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,1255.499,,
+DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.9204,35 % à 50 %,4.0
 DELICE,2016-12-31,2016,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,1256.499,"1,5 à 2",4.0
 DELICE,2016-12-31,2016,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,71.4516,,
 DELICE,2016-12-31,2016,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,61.6141,,5.0
@@ -1085,18 +1085,18 @@ DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Ren
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,86.232,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0464,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,4.4278,5 % à 10 %,2.0
-DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,110.5688,10 % à 15 %,4.0
+DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,4.4313,10 % à 15 %,0.0
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,4.6087,,
-DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,110.6078,,
+DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,4.4329,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,95.3793,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,95.3457,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,25561765.0,,
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,4.0077,10 % à 15 %,0.0
 DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,5.5308,,
-DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,100.0,,
+DELICE,2016-12-31,2016,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,4.0077,,
 DELICE,2016-12-31,2016,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2016-12-31,2016,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2016-12-31,2016,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
@@ -1108,17 +1108,17 @@ DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-531996336.0,positif,0.0
-DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0426,"1,2 à 1,5",0.0
+DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,21786633.0,positif,5.0
+DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0392,"1,2 à 1,5",3.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,-71606.0,,
 DELICE,2017-12-31,2017,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,-1.106,30 à 60 j,5.0
-DELICE,2017-12-31,2017,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,24.4677,2 à 3,0.0
+DELICE,2017-12-31,2017,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0018,2 à 3,5.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,96.0511,45 % à 65 %,0.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,21.2286,30 % à 60 %,4.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.1827,40 % à 60 %,4.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0,,
-DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,22.3686,,
-DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,4.087,35 % à 50 %,0.0
+DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,546.3074,,
+DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.8173,35 % à 50 %,4.0
 DELICE,2017-12-31,2017,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,547.3074,"1,5 à 2",4.0
 DELICE,2017-12-31,2017,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,44.5108,,
 DELICE,2017-12-31,2017,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,44.5329,,5.0
@@ -1131,18 +1131,18 @@ DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Ren
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,100.0496,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0408,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,3.9593,5 % à 10 %,2.0
-DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,96.8757,10 % à 15 %,4.0
+DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,3.9666,10 % à 15 %,0.0
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,4.128,,
-DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,97.0135,,
+DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,3.9722,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,97.0617,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,96.9238,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,22904020.0,,
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,4.0945,10 % à 15 %,0.0
 DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,4.2548,,
-DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,100.0,,
+DELICE,2017-12-31,2017,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,4.0945,,
 DELICE,2017-12-31,2017,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2017-12-31,2017,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2017-12-31,2017,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
@@ -1154,17 +1154,17 @@ DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-220236750.0,positif,0.0
-DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.1787,"1,2 à 1,5",0.0
+DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-68835640.0,positif,0.0
+DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.7433,"1,2 à 1,5",0.0
 DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,32660318.0,,
 DELICE,2018-12-31,2018,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,14.1163,30 à 60 j,5.0
-DELICE,2018-12-31,2018,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,17.0579,2 à 3,0.0
+DELICE,2018-12-31,2018,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,2.8907,2 à 3,4.0
 DELICE,2018-12-31,2018,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,50.888,45 % à 65 %,5.0
 DELICE,2018-12-31,2018,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,0.0,30 % à 60 %,4.0
 DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,65.4059,40 % à 60 %,2.0
-DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,55.1107,,
-DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.0896,,
-DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,5.8624,35 % à 50 %,0.0
+DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,9.3391,,
+DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.5289,,
+DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,34.5941,35 % à 50 %,2.0
 DELICE,2018-12-31,2018,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,1.5289,"1,5 à 2",5.0
 DELICE,2018-12-31,2018,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
 DELICE,2018-12-31,2018,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
@@ -1177,7 +1177,7 @@ DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Ren
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,3.5588,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,1.6026,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,9.1458,5 % à 10 %,5.0
-DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,100.5791,10 % à 15 %,4.0
+DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,24.1794,10 % à 15 %,4.0
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
@@ -1186,9 +1186,9 @@ DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRO
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,48193614.0,,
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,97.2859,10 % à 15 %,4.0
+DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,16.4862,10 % à 15 %,4.0
 DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,,,
-DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,62.7203,,
+DELICE,2018-12-31,2018,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,15.078,,
 DELICE,2018-12-31,2018,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,13.94,30 à 60 j,4.0
 DELICE,2018-12-31,2018,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2018-12-31,2018,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
@@ -1200,17 +1200,17 @@ DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-252296729.0,positif,0.0
-DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.2085,"1,2 à 1,5",0.0
+DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-87830811.0,positif,0.0
+DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.7244,"1,2 à 1,5",0.0
 DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,52778473.0,,
 DELICE,2019-12-31,2019,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,19.9554,30 à 60 j,5.0
-DELICE,2019-12-31,2019,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,13.7745,2 à 3,0.0
+DELICE,2019-12-31,2019,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,3.0376,2 à 3,2.0
 DELICE,2019-12-31,2019,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,49.7324,45 % à 65 %,5.0
 DELICE,2019-12-31,2019,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,0.0,30 % à 60 %,4.0
 DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,67.0792,40 % à 60 %,2.0
-DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,42.8074,,
-DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.1082,,
-DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,7.2598,35 % à 50 %,0.0
+DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,9.44,,
+DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.4908,,
+DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,32.9208,35 % à 50 %,2.0
 DELICE,2019-12-31,2019,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,1.4908,"1,5 à 2",2.0
 DELICE,2019-12-31,2019,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
 DELICE,2019-12-31,2019,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
@@ -1223,7 +1223,7 @@ DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Ren
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,4.4555,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,1.5062,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,9.3532,5 % à 10 %,5.0
-DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,90.2161,10 % à 15 %,4.0
+DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,25.9605,10 % à 15 %,4.0
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
@@ -1232,9 +1232,9 @@ DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRO
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,59946199.0,,
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,92.4389,10 % à 15 %,4.0
+DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,20.3849,10 % à 15 %,4.0
 DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,,,
-DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,64.7298,,
+DELICE,2019-12-31,2019,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,18.6266,,
 DELICE,2019-12-31,2019,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,11.6363,30 à 60 j,4.0
 DELICE,2019-12-31,2019,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2019-12-31,2019,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
@@ -1246,42 +1246,42 @@ DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-536644634.0,positif,0.0
-DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0386,"1,2 à 1,5",0.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,20373301.0,positif,5.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0365,"1,2 à 1,5",3.0
 DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,2107571.0,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,34.4126,30 à 60 j,4.0
-DELICE,2020-12-31,2020,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,27.182,2 à 3,0.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2020-12-31,2020,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.003,2 à 3,5.0
 DELICE,2020-12-31,2020,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,96.2224,45 % à 65 %,0.0
 DELICE,2020-12-31,2020,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,33.5492,30 % à 60 %,5.0
-DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,96.3211,40 % à 60 %,0.0
-DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.9371,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.0382,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,3.6789,35 % à 50 %,0.0
-DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,1.0382,"1,5 à 2",0.0
-DELICE,2020-12-31,2020,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,9.3012,,
-DELICE,2020-12-31,2020,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,8.8798,,5.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.3,40 % à 60 %,4.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0346,,
+DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,332.3342,,
+DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.7,35 % à 50 %,4.0
+DELICE,2020-12-31,2020,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,333.3342,"1,5 à 2",4.0
+DELICE,2020-12-31,2020,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2020-12-31,2020,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,41.0704,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,9.5074,,
-DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,34.7022,,
+DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2020-12-31,2020,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.0197,,0.0
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,92.9858,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,95.4693,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0385,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,3.5832,5 % à 10 %,2.0
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,96.4943,10 % à 15 %,4.0
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,4.0217,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,104.2111,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,100.422,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,92.9858,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,3.8801,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,20786131.0,,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,7.8354,,
-DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,99.0716,,
-DELICE,2020-12-31,2020,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,34.7022,30 à 60 j,5.0
+DELICE,2020-12-31,2020,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2020-12-31,2020,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2020-12-31,2020,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2020-12-31,2020,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2020-12-31,2020,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,
@@ -1292,42 +1292,42 @@ DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-544214175.0,positif,0.0
-DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0384,"1,2 à 1,5",0.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,13829383.0,positif,5.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0244,"1,2 à 1,5",3.0
 DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,3244855.0,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,56.5527,30 à 60 j,4.0
-DELICE,2021-12-31,2021,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,27.2673,2 à 3,0.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2021-12-31,2021,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.005,2 à 3,5.0
 DELICE,2021-12-31,2021,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,97.1858,45 % à 65 %,0.0
 DELICE,2021-12-31,2021,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,41.4536,30 % à 60 %,5.0
-DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,96.3326,40 % à 60 %,0.0
-DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,1.7129,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,0.0381,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,3.6674,35 % à 50 %,0.0
-DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,1.0381,"1,5 à 2",0.0
-DELICE,2021-12-31,2021,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,5.8053,,
-DELICE,2021-12-31,2021,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,5.9199,,5.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.5021,40 % à 60 %,4.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0631,,
+DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,198.1478,,
+DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.4979,35 % à 50 %,4.0
+DELICE,2021-12-31,2021,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,199.1478,"1,5 à 2",4.0
+DELICE,2021-12-31,2021,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2021-12-31,2021,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,12.2043,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,16.393,,
-DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,59.8345,,
+DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2021-12-31,2021,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.0151,,0.0
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,100.4291,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,101.9736,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.036,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,3.6118,5 % à 10 %,2.0
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,96.8268,10 % à 15 %,4.0
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,3.8542,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,100.4165,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,104.1523,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,100.4291,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,3.7623,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,21032656.0,,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,22.8047,,
-DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,98.316,,
-DELICE,2021-12-31,2021,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,59.8345,30 à 60 j,5.0
+DELICE,2021-12-31,2021,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2021-12-31,2021,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2021-12-31,2021,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2021-12-31,2021,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2021-12-31,2021,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,
@@ -1338,42 +1338,42 @@ DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-549050235.0,positif,0.0
-DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0425,"1,2 à 1,5",0.0
+DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,10033758.0,positif,5.0
+DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0175,"1,2 à 1,5",3.0
 DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,592110.0,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,9.1722,30 à 60 j,5.0
-DELICE,2022-12-31,2022,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,24.5092,2 à 3,0.0
+DELICE,2022-12-31,2022,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2022-12-31,2022,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0059,2 à 3,5.0
 DELICE,2022-12-31,2022,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,97.7841,45 % à 65 %,0.0
 DELICE,2022-12-31,2022,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,54.6366,30 % à 60 %,5.0
 DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.5825,40 % à 60 %,4.0
-DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,1.9023,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,7.004,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,4.0801,35 % à 50 %,0.0
+DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0781,,
+DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,170.6616,,
+DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.4175,35 % à 50 %,4.0
 DELICE,2022-12-31,2022,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,171.6616,"1,5 à 2",4.0
-DELICE,2022-12-31,2022,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,14.2834,,
-DELICE,2022-12-31,2022,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,14.5043,,5.0
+DELICE,2022-12-31,2022,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2022-12-31,2022,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,16.2888,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,4.2984,,
-DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,15.6892,,
+DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2022-12-31,2022,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.0182,,0.0
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,107.632,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,101.5464,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0402,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,4.3246,5 % à 10 %,2.0
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,104.0143,10 % à 15 %,4.0
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,4.7373,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,111.4142,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,115.2893,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,107.632,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,4.6558,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,25360709.0,,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,27.0296,,
-DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,98.1333,,
-DELICE,2022-12-31,2022,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,15.6892,30 à 60 j,4.0
+DELICE,2022-12-31,2022,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2022-12-31,2022,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2022-12-31,2022,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2022-12-31,2022,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2022-12-31,2022,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,
@@ -1384,42 +1384,42 @@ DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-538498913.0,positif,0.0
-DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.0609,"1,2 à 1,5",0.0
+DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,22548978.0,positif,5.0
+DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.0393,"1,2 à 1,5",3.0
 DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,1122863.0,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,11.9911,30 à 60 j,5.0
-DELICE,2023-12-31,2023,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,17.3625,2 à 3,0.0
+DELICE,2023-12-31,2023,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2023-12-31,2023,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0039,2 à 3,5.0
 DELICE,2023-12-31,2023,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,95.925,45 % à 65 %,0.0
 DELICE,2023-12-31,2023,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,56.688,30 % à 60 %,5.0
 DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.3896,40 % à 60 %,4.0
-DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,1.5029,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,14.7815,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,5.7595,35 % à 50 %,0.0
+DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0869,,
+DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,255.6436,,
+DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.6104,35 % à 50 %,4.0
 DELICE,2023-12-31,2023,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,256.6436,"1,5 à 2",4.0
-DELICE,2023-12-31,2023,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,19.6761,,
-DELICE,2023-12-31,2023,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,19.8212,,5.0
+DELICE,2023-12-31,2023,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2023-12-31,2023,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,28.7346,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,4.3731,,
-DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,15.9619,,
+DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2023-12-31,2023,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.029,,0.0
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,99.6884,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,100.737,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0572,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,5.6996,5 % à 10 %,5.0
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,97.4938,10 % à 15 %,4.0
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,5.9718,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,97.9878,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,100.1935,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,99.6884,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,5.7459,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,34072509.0,,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,6.0673,,
-DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,98.5193,,
-DELICE,2023-12-31,2023,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,15.9619,30 à 60 j,4.0
+DELICE,2023-12-31,2023,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2023-12-31,2023,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2023-12-31,2023,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2023-12-31,2023,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2023-12-31,2023,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,
@@ -1430,42 +1430,42 @@ DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-513827322.0,positif,0.0
-DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.1038,"1,2 à 1,5",0.0
+DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,48707136.0,positif,5.0
+DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.085,"1,2 à 1,5",3.0
 DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,1378306.0,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,8.617,30 à 60 j,5.0
-DELICE,2024-12-31,2024,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,10.5892,2 à 3,0.0
+DELICE,2024-12-31,2024,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2024-12-31,2024,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0037,2 à 3,5.0
 DELICE,2024-12-31,2024,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,91.9235,45 % à 65 %,0.0
 DELICE,2024-12-31,2024,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,74.0181,30 % à 60 %,2.0
 DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,0.3655,40 % à 60 %,4.0
-DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,1.0394,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,25.8373,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,9.4436,35 % à 50 %,0.0
+DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.0985,,
+DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,272.5967,,
+DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,99.6345,35 % à 50 %,4.0
 DELICE,2024-12-31,2024,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,273.5967,"1,5 à 2",4.0
-DELICE,2024-12-31,2024,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,28.3675,,
-DELICE,2024-12-31,2024,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,28.6194,,5.0
+DELICE,2024-12-31,2024,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2024-12-31,2024,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,25.6372,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,2.4125,,
-DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,8.8056,,
+DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2024-12-31,2024,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.0522,,3.0
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,100.6735,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,100.8881,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.0936,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,9.4235,5 % à 10 %,5.0
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,98.7607,10 % à 15 %,4.0
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,10.2886,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,99.1182,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,101.0379,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,100.6735,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,9.483,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,58775684.0,,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,,,
-DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,98.9713,,
-DELICE,2024-12-31,2024,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,8.8056,30 à 60 j,4.0
+DELICE,2024-12-31,2024,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2024-12-31,2024,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2024-12-31,2024,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2024-12-31,2024,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2024-12-31,2024,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,
@@ -1476,42 +1476,42 @@ DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Liquidités,LIQ_RED,Ratio 
 DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Liquidités,LIQ_IMM,Ratio de liquidité immédiate,x,,"0,30 à 0,80",
 DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Liquidités,INT_DEF_RED,Intervalle défensif réduit,j,,,
 DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Liquidités,INT_DEF,Intervalle défensif,j,,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,-507818823.0,positif,0.0
-DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,0.1141,"1,2 à 1,5",0.0
+DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,FR,Fonds de roulement (FR),montant,58709389.0,positif,5.0
+DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,COUV_IMMO,Couverture des immobilisations,x,1.1024,"1,2 à 1,5",3.0
 DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,BFR,Besoin en fonds de roulement (BFR),montant,1591880.0,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,9.1341,30 à 60 j,5.0
-DELICE,2025-12-31,2025,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,10.2314,2 à 3,0.0
+DELICE,2025-12-31,2025,FY,TND,Gestion des liquidités,Fonds de roulement,BFR_JOURS,Ratio BFR (jours de CA),j,,30 à 60 j,
+DELICE,2025-12-31,2025,FY,TND,Gestion des actifs,Gestion des actifs,LEV_ECO,Ratio du levier économique,x,1.0499,2 à 3,5.0
 DELICE,2025-12-31,2025,FY,TND,Gestion des actifs,Gestion des actifs,POIDS_IMMO,Poids des immobilisations,%,86.4885,45 % à 65 %,0.0
 DELICE,2025-12-31,2025,FY,TND,Gestion des actifs,Gestion des actifs,VETUSTE,Vétusté des immobilisations corporelles,%,87.4401,30 % à 60 %,0.0
 DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,ENDET_GLOB,Ratio d'endettement global,%,4.752,40 % à 60 %,4.0
-DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,1.0044,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,2.0568,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,9.7739,35 % à 50 %,0.0
+DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,ENDET_TERME,Ratio d'endettement à terme,%,0.1031,,
+DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,INDEP_FIN,Indépendance financière,x,20.0439,,
+DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,AUTO_FIN,Autonomie financière,%,95.248,35 % à 50 %,4.0
 DELICE,2025-12-31,2025,FY,TND,Gestion des passifs,Structure financière,SOLVA,Solvabilité,x,21.0439,"1,5 à 2",4.0
-DELICE,2025-12-31,2025,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,28.1108,,
-DELICE,2025-12-31,2025,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,28.6279,,5.0
+DELICE,2025-12-31,2025,FY,TND,Ressources humaines,Productivité RH,EFF_BRUT_RH,Efficacité brute des RH,x,,,
+DELICE,2025-12-31,2025,FY,TND,Ressources humaines,Productivité RH,EFF_NET_RH,Efficacité nette des RH,x,,,
 DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,RISQ_PLACEMENT,Risque de placement,%,35.9557,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,2.535,,
-DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,9.2527,,
+DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,RISQ_COMMERCIAL,Risque commercial,%,,,
+DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,CREDIT_CLIENT,Crédit moyen clients,j,,,
 DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,CREDIT_FOURN,Crédit moyen fournisseurs,j,,,
 DELICE,2025-12-31,2025,FY,TND,Gestion des risques,Gestion des risques,CONAN_HOLDER,Score de Conan & Holder,score,0.0662,,3.0
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,100.201,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,101.8393,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,0.096,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,9.6166,5 % à 10 %,5.0
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,97.4128,10 % à 15 %,4.0
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,RENT_COM,Rentabilité commerciale,%,,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,MARGE_NETTE,Marge nette,%,,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité commerciale,ROT_CAP,Rotation des capitaux,x,,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,ROA,Rendement de l'actif (ROA),%,,5 % à 10 %,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,ROCE,Rentabilité du capital investi (ROCE),%,,10 % à 15 %,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,REND_IMMO,Rendement brut des immobilisations,%,11.1417,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,97.612,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,100.4058,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,100.201,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité économique,REND_RES_STABLE,Rendement brut des ressources stables,%,10.1066,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BRUTE_EXPL,Marge brute d'exploitation,%,,,
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité d'exploitation,MARGE_BENEF_EXPL,Marge bénéficiaire d'exploitation,%,,,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité opérationnelle,REND_PRODUCTION,Rendement de la production,%,,,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité opérationnelle,ROT_STOCKS,Rotation des stocks,x,,,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité opérationnelle,PROFIT_OP,Profit opérationnel,montant,63739609.0,,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité opérationnelle,CREATION_VALEUR,Création de valeur annuelle,montant,,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,100.0,10 % à 15 %,4.0
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité financière,ROE,Rentabilité des capitaux propres (ROE),%,,10 % à 15 %,
 DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité financière,PERF_PLACEMENT,Performance des placements,%,,,
-DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,99.0056,,
-DELICE,2025-12-31,2025,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,9.2527,30 à 60 j,4.0
+DELICE,2025-12-31,2025,FY,TND,Rentabilité,Rentabilité financière,ROI,Retour sur investissement (ROI),%,,,
+DELICE,2025-12-31,2025,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DSO,Délai moyen de recouvrement clients (DSO),j,,30 à 60 j,
 DELICE,2025-12-31,2025,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DPO,Délai moyen de paiement fournisseurs (DPO),j,,45 à 75 j,
 DELICE,2025-12-31,2025,FY,TND,Cycle d'exploitation,Cycle d'exploitation,DIO,Durée moyenne de stockage (DIO),j,,45 à 90 j,
 DELICE,2025-12-31,2025,FY,TND,Indicateurs complémentaires,Complémentaires,TRESO_NETTE,Trésorerie nette,montant,,,

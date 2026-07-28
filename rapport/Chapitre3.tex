@@ -87,7 +87,7 @@ BF5 & Augmenter la série \sfbt & Générer les périodes T1 et 9M lorsque les d
 BF6 & Calculer les ratios & Appliquer les 46 formules du référentiel à la \sfbt et aux sociétés de benchmark. \\ \hline
 BF7 & Calculer le SGPI & Transformer les ratios clés en notes puis en score global sur 100. \\ \hline
 BF8 & Construire le Data Warehouse & Charger les données dans un modèle en étoile interrogeable en SQL. \\ \hline
-BF9 & Prévoir les valeurs futures & Comparer deux modèles de prévision et produire les prochaines clôtures. \\ \hline
+BF9 & Prévoir les valeurs futures & Comparer trois modèles de prévision et produire les prochaines clôtures. \\ \hline
 BF10 & Préparer Power BI & Fournir les fichiers, vues et mesures nécessaires aux tableaux de bord. \\ \hline
 \end{tabularx}
 \end{table}
@@ -325,7 +325,7 @@ rôle.
 \texttt{augment.py} & Générer les périodes trimestrielles manquantes de la \sfbt. & \texttt{sfbt\_augmented.csv}, \texttt{financials\_full.csv}. \\ \hline
 \texttt{ratios.py} & Construire la matrice concepts et calculer les ratios. & \texttt{ratios.csv}, \texttt{sgpi.csv}, \texttt{concepts\_matrix.csv}. \\ \hline
 \texttt{build\_warehouse.py} & Construire le schéma en étoile SQLite. & \texttt{sfbt\_dw.sqlite}, vues analytiques. \\ \hline
-\texttt{ml\_forecast.py} & Entraîner et comparer deux modèles de prévision. & Métriques, prédictions et prévisions futures. \\ \hline
+\texttt{ml\_forecast.py} & Entraîner et comparer trois modèles de prévision. & Métriques, prédictions et prévisions futures. \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -727,9 +727,11 @@ La figure~\ref{fig:conceptionml} illustre cette transformation supervisée.
 \end{figure}
 
 \subsection{Comparaison des modèles}
-\par Deux modèles sont retenus : la régression linéaire et la forêt aléatoire.
-La régression linéaire sert de modèle simple et interprétable ; la forêt
-aléatoire sert de modèle non linéaire de comparaison. Les deux modèles sont
+\par Trois modèles sont retenus : la régression linéaire, la forêt aléatoire et
+l'arbre de décision. La régression linéaire sert de modèle simple et
+interprétable ; la forêt aléatoire sert de modèle non linéaire de comparaison ;
+l'arbre de décision élagué apporte des règles directement lisibles. Les trois
+modèles sont
 évalués avec les mêmes variables et le même découpage temporel afin de rendre la
 comparaison équitable. Le tableau~\ref{tab:evaluationml} précise le protocole
 d'évaluation.
@@ -741,7 +743,7 @@ d'évaluation.
 \begin{tabularx}{\linewidth}{|p{3.2cm}|X|}
 \hline
 \textbf{Élément} & \textbf{Choix retenu} \\ \hline
-Modèles comparés & Régression linéaire et Random Forest. \\ \hline
+Modèles comparés & Régression linéaire, Random Forest et arbre de décision. \\ \hline
 Variables & Tendance, retards du taux de croissance, période T1/S1/9M/FY. \\ \hline
 Cible & Taux de croissance de la valeur financière. \\ \hline
 Découpage & Chronologique, sans mélange aléatoire. \\ \hline

@@ -168,7 +168,7 @@ produits.
 \texttt{financials\_full.csv} & 10\,124 & Données réelles et estimées combinées. \\ \hline
 \texttt{ratios.csv} & 5\,290 & Ratios calculés par société et période. \\ \hline
 \texttt{sgpi.csv} & 115 & Score global par société et période. \\ \hline
-\texttt{ml\_forecasts.csv} & 32 & Prévisions futures générées par les modèles. \\ \hline
+\texttt{ml\_forecasts.csv} & 48 & Prévisions futures générées par les modèles. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -358,10 +358,10 @@ liquidité, rentabilité, gestion des risques et productivité, le seul point fa
   enlarge x limits=0.18, ymajorgrids, tick label style={font=\footnotesize},
 ]
 \addplot[fill=darkblue,draw=darkblue] coordinates
-  {(SFBT,83.5) (AB InBev,55.0) (Coca-Cola,54.5) (DELICE,51.7)};
+  {(SFBT,83.5) (AB InBev,55.0) (Coca-Cola,54.5) (DELICE,71.7)};
 \end{axis}
 \end{tikzpicture}
-\caption[Score SGPI par société]{Score Global de Performance Industrielle (SGPI) par société, 2024.}
+\caption[Score SGPI par société]{Score Global de Performance Industrielle (SGPI) par société, 2024. Le score de DELICE repose sur une couverture de 60 pourcent seulement (annexe~\ref{ann:delice}).}
 \label{fig:sgpi}
 \end{figure}
 
@@ -602,11 +602,13 @@ WHERE annee = 2024 AND periode = 'FY'
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Prévision par apprentissage automatique}
 \label{sec:realml}
-\par Les deux modèles ont été entraînés et évalués par \textit{backtest}
-chronologique. Le tableau~\ref{tab:ml} présente leurs performances. La
-\textbf{régression linéaire} l'emporte sur l'ensemble des indicateurs, avec un
-coefficient de détermination compris entre 0,77 et 0,96 et une erreur (\ac{MAPE})
-de 4 à 15~\%.
+\par Les trois modèles ont été entraînés et évalués par \textit{backtest}
+chronologique. Le tableau~\ref{tab:ml} présente leurs performances à un pas
+d'avance. La \textbf{régression linéaire} l'emporte sur trois des quatre
+indicateurs, avec un coefficient de détermination compris entre 0,77 et 0,96 et
+une erreur (\ac{MAPE}) de 4 à 15~\%. L'\textbf{arbre de décision} remporte le
+total des actifs, où il obtient à la fois le meilleur $R^2$ (0,88) et la plus
+faible erreur (4,1~\%).
 
 \begin{table}[H]
 \centering
@@ -615,19 +617,27 @@ de 4 à 15~\%.
 \begin{tabular}{|l|l|c|c|}
 \hline
 \textbf{Indicateur} & \textbf{Modèle} & \textbf{MAPE} & \textbf{$R^2$} \\ \hline
-Revenus (CA) & Régression linéaire & 15,3~\% & 0,93 \\ \hline
+Revenus (CA) & \textbf{Régression linéaire} & \textbf{15,3~\%} & \textbf{0,93} \\ \hline
+Revenus (CA) & Random Forest & 17,2~\% & 0,85 \\ \hline
+Revenus (CA) & Arbre de décision & 24,9~\% & 0,58 \\ \hline
 Total des actifs & Régression linéaire & 4,5~\% & 0,85 \\ \hline
-Capitaux propres & Régression linéaire & 4,0~\% & 0,77 \\ \hline
-Résultat net & Régression linéaire & 7,9~\% & 0,96 \\ \hline
+Total des actifs & Random Forest & 5,2~\% & 0,81 \\ \hline
+Total des actifs & \textbf{Arbre de décision} & \textbf{4,1~\%} & \textbf{0,88} \\ \hline
+Capitaux propres & \textbf{Régression linéaire} & \textbf{4,0~\%} & \textbf{0,77} \\ \hline
+Capitaux propres & Random Forest & 5,9~\% & 0,68 \\ \hline
+Capitaux propres & Arbre de décision & 6,0~\% & 0,66 \\ \hline
+Résultat net & \textbf{Régression linéaire} & \textbf{7,9~\%} & \textbf{0,96} \\ \hline
+Résultat net & Random Forest & 9,1~\% & 0,93 \\ \hline
+Résultat net & Arbre de décision & 10,6~\% & 0,92 \\ \hline
 \end{tabular}
 \end{table}
 
 \par La figure~\ref{fig:mlcomp} complète ce tableau en comparant visuellement
-les performances des deux modèles.
+les performances des trois modèles.
 
 \begin{figure}[H]\centering
   \includegraphics[width=\linewidth]{figures/ml_comparison.png}
-  \caption[Comparaison des modèles ML]{Comparaison des deux modèles ($R^2$ et MAPE) par indicateur.}
+  \caption[Comparaison des modèles ML]{Comparaison des trois modèles ($R^2$ et MAPE) par indicateur.}
   \label{fig:mlcomp}
 \end{figure}
 
@@ -652,8 +662,9 @@ réelles aux prévisions.
 \par Le module de prévision a été conçu comme un complément au diagnostic
 financier. Il ne prétend pas remplacer une analyse stratégique, mais fournit une
 projection quantitative cohérente à partir de l'historique disponible. Les
-résultats montrent que la régression linéaire domine le Random Forest sur les
-quatre indicateurs retenus. Le
+résultats montrent que la régression linéaire domine les modèles à base d'arbres
+sur trois des quatre indicateurs retenus, l'arbre de décision élagué s'imposant
+sur le total des actifs. Le
 tableau~\ref{tab:comparaison_modeles_detail} synthétise cette comparaison.
 
 \begin{table}[H]
@@ -663,8 +674,9 @@ tableau~\ref{tab:comparaison_modeles_detail} synthétise cette comparaison.
 \begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
 \hline
 \textbf{Modèle} & \textbf{Résultat observé} & \textbf{Interprétation} \\ \hline
-Régression linéaire & Meilleurs $R^2$ et MAPE sur les quatre indicateurs. & Les séries de la \sfbt présentent une tendance régulière bien captée par un modèle simple. \\ \hline
-Random Forest & Performances correctes mais inférieures. & Modèle robuste, mais moins adapté à l'extrapolation d'une série croissante courte. \\ \hline
+Régression linéaire & Meilleurs $R^2$ et MAPE sur trois des quatre indicateurs. & Les séries de la \sfbt présentent une tendance régulière bien captée par un modèle simple. \\ \hline
+Random Forest & Performances correctes mais généralement inférieures. & Modèle robuste, mais moins adapté à l'extrapolation d'une série croissante courte. \\ \hline
+Arbre de décision & Meilleur modèle sur le total des actifs ; plus faible sur le chiffre d'affaires. & Modèle élagué (profondeur 3) dont les règles sont directement lisibles ; sa performance s'améliore quand on le contraint, ce qui illustre le sur-apprentissage. \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -684,11 +696,79 @@ produites.
 \textbf{Élément} & \textbf{Description} \\ \hline
 Horizon & Quatre prochaines clôtures trimestrielles. \\ \hline
 Indicateurs & Revenus, total des actifs, capitaux propres, résultat net. \\ \hline
-Modèles & Régression linéaire et Random Forest. \\ \hline
-Sortie & 32 lignes de prévisions dans \texttt{ml\_forecasts.csv}. \\ \hline
+Modèles & Régression linéaire, Random Forest et arbre de décision. \\ \hline
+Sortie & 48 lignes de prévisions dans \texttt{ml\_forecasts.csv}. \\ \hline
 Usage & Visualisation dans Power BI et comparaison de scénarios simples. \\ \hline
 \end{tabularx}
 \end{table}
+
+%% ───────────────────────────────────────────────────────────────────
+\subsection{Fiabilité des prévisions selon l'horizon}
+\label{sec:ml_horizon}
+\par Une précision annoncée n'a de sens que rapportée à un horizon. Le backtest
+précédent fournit au modèle le niveau réel de la période précédente à chaque
+point de test : il mesure donc une prévision à \textbf{un pas d'avance}. Or les
+prévisions publiées sont produites en mode \textbf{récursif}, le modèle se
+nourrissant de ses propres sorties. Pour éviter toute surestimation de la
+performance, une seconde évaluation à origine glissante mesure l'erreur pour des
+horizons de un à quatre pas, avec une \textbf{baseline naïve saisonnière}
+$V(t-4)$ comme référence minimale à battre. Les résultats figurent dans le
+tableau~\ref{tab:ml_horizon}.
+
+\begin{table}[H]
+\centering
+\caption[Erreur selon l'horizon de prévision]{\ac{MAPE} moyenne par modèle et horizon (quatre indicateurs).}
+\label{tab:ml_horizon}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modèle} & \textbf{1 pas} & \textbf{2 pas} & \textbf{3 pas} & \textbf{4 pas} \\ \hline
+Régression linéaire & \textbf{8,4~\%} & \textbf{15,1~\%} & 18,4~\% & 20,4~\% \\ \hline
+Random Forest & 10,2~\% & 16,9~\% & 18,5~\% & \textbf{19,3~\%} \\ \hline
+Arbre de décision & 12,9~\% & 20,3~\% & 21,2~\% & 22,0~\% \\ \hline
+Baseline naïve $V(t-4)$ & 20,7~\% & 20,7~\% & 20,5~\% & 20,1~\% \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.85\linewidth]{figures/ml_horizon.png}
+  \caption[Erreur selon l'horizon]{Dégradation de la précision selon l'horizon de prévision, comparée à la baseline naïve.}
+  \label{fig:mlhorizon}
+\end{figure}
+
+\par La figure~\ref{fig:mlhorizon} illustre cette dégradation. Trois
+enseignements se dégagent. D'abord, à un pas d'avance l'apport des
+modèles est incontestable : l'erreur passe de 20,7~\% pour la baseline naïve à
+8,4~\% pour la régression linéaire, soit une division par 2,5. Ensuite, l'erreur
+croît fortement avec l'horizon, ce qui est mécanique en mode récursif puisque les
+erreurs de taux se composent multiplicativement. Enfin, à quatre pas l'avantage
+moyen disparaît : la régression linéaire (20,4~\%) ne fait plus mieux que la
+baseline naïve (20,1~\%).
+
+\par Ce constat moyen masque toutefois de fortes disparités entre indicateurs,
+détaillées dans le tableau~\ref{tab:ml_horizon_ind}. Les modèles restent très
+performants à quatre pas sur le résultat net et le total des actifs, mais la
+baseline naïve les surpasse sur le chiffre d'affaires et les capitaux propres.
+Le chiffre d'affaires est le cas le plus défavorable : sa forte saisonnalité
+cumulée amplifie les erreurs en projection récursive.
+
+\begin{table}[H]
+\centering
+\caption[Erreur à quatre pas par indicateur]{\ac{MAPE} à quatre pas : meilleur modèle contre baseline naïve.}
+\label{tab:ml_horizon_ind}
+\begin{tabular}{|l|l|c|c|}
+\hline
+\textbf{Indicateur} & \textbf{Meilleur modèle} & \textbf{MAPE} & \textbf{Naïve} \\ \hline
+Résultat net & Régression linéaire & \textbf{7,6~\%} & 23,7~\% \\ \hline
+Total des actifs & Arbre de décision & \textbf{7,2~\%} & 11,2~\% \\ \hline
+Capitaux propres & Baseline naïve & 13,3~\% & \textbf{11,3~\%} \\ \hline
+Revenus (CA) & Baseline naïve & 44,1~\% & \textbf{34,4~\%} \\ \hline
+\end{tabular}
+\end{table}
+
+\par En conséquence, les prévisions à un trimestre peuvent être présentées comme
+fiables, tandis que les projections à un an doivent être interprétées comme des
+\textbf{ordres de grandeur}. Cette distinction, mesurée et non postulée, renforce
+la crédibilité du module de prévision.
 
 %% ───────────────────────────────────────────────────────────────────────────
 
@@ -696,40 +776,52 @@ Usage & Visualisation dans Power BI et comparaison de scénarios simples. \\ \hl
 \section{Restitution : tableaux de bord}
 \label{sec:resti}
 \par Les jeux de données produits et l'entrepôt en étoile alimentent des
-\textbf{tableaux de bord Power BI} structurés en cinq vues : synthèse \sfbt,
-solidité financière, performance, benchmark sectoriel et prévisions. Cette
-restitution constitue le dernier maillon de la chaîne décisionnelle : elle
+\par Les jeux de données produits et l'entrepôt en étoile alimentent
+\textbf{deux restitutions complémentaires}. La première est un classeur
+\textbf{Power BI} dédié à l'analyse approfondie de la
+\sfbt, organisé en sept pages suivant les familles de la norme MSI~20000. La
+seconde est une \textbf{application web de benchmark} qui compare la \sfbt aux
+trois sociétés de référence du panel.
+Cette restitution constitue le dernier maillon de la chaîne décisionnelle : elle
 transforme les tables préparées en supports de lecture pour l'utilisateur final.
-Les emplacements ci-dessous sont réservés aux captures définitives qui seront
-insérées après finalisation du fichier Power BI. Les figures~\ref{fig:dashboard1}
-et~\ref{fig:dashboard2} accueilleront respectivement la vue d'ensemble et la page
-de benchmark.
+La figure~\ref{fig:dashboard1} présente une page du classeur Power BI et la
+figure~\ref{fig:dashboard2} la vue de benchmark de l'application web.
 
-\figplaceholder{Tableau de bord Power BI --- vue d'ensemble de la SFBT.}{fig:dashboard1}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p1_liquidites.png}
+  \caption[Power BI --- gestion des liquidites]{Tableau de bord Power BI --- page gestion des liquidités de la \sfbt.}
+  \label{fig:dashboard1}
+\end{figure}
 
-\figplaceholder{Tableau de bord Power BI --- benchmark sectoriel.}{fig:dashboard2}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_liquidite.png}
+  \caption[Application web --- benchmark de liquidite]{Application web de benchmark --- liquidité comparée des quatre sociétés.}
+  \label{fig:dashboard2}
+\end{figure}
 
 %% ───────────────────────────────────────────────────────────────────────────
 \section{Conception effective des tableaux de bord}
 \label{sec:dashboards_detail}
 \par La restitution Power BI est pensée comme une traduction visuelle du modèle
-analytique. Les fichiers produits permettent de construire cinq pages : vue
-d'ensemble, solidité, performance, benchmark et prévision. Chaque page répond à
-une question métier précise. Le tableau~\ref{tab:questions_powerbi} associe ces
-pages aux questions métier.
+analytique. Le classeur réalisé comporte \textbf{sept pages} alignées sur les
+familles de la norme MSI~20000. Chaque page répond à une question métier
+précise. Le tableau~\ref{tab:questions_powerbi} associe ces pages aux questions
+métier.
 
 \begin{table}[H]
 \centering
-\caption[Questions métier des pages Power BI]{Questions métier associées aux pages Power BI.}
+\caption[Questions metier des pages Power BI]{Questions métier associées aux sept pages Power BI réalisées.}
 \label{tab:questions_powerbi}
-\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|X|X|}
 \hline
 \textbf{Page} & \textbf{Question métier} & \textbf{Indicateurs clés} \\ \hline
-Vue d'ensemble & Quelle est la situation globale de la \sfbt ? & CA, marge nette, ROE, SGPI. \\ \hline
-Solidité & L'entreprise est-elle financièrement robuste ? & Liquidité, autonomie, solvabilité, endettement. \\ \hline
-Performance & L'entreprise crée-t-elle de la valeur ? & ROA, ROE, marge nette, ROCE. \\ \hline
-Benchmark & Comment la \sfbt se situe-t-elle face aux références ? & Ratios comparés par société. \\ \hline
-Prévision & Quelle trajectoire future les modèles suggèrent-ils ? & Prévisions et backtest par modèle. \\ \hline
+Gestion des liquidités & Les échéances sont-elles couvertes ? & Liquidité générale, FR, BFR. \\ \hline
+Gestion des actifs & Les actifs sont-ils bien employés ? & Levier économique, vétusté actif. \\ \hline
+Gestion des passifs & La structure est-elle robuste ? & Endettement, autonomie, solvabilité. \\ \hline
+Gestion RH \& risques & Les risques sont-ils maitrises ? & Efficacite RH, DSO, DPO, Conan \& Holder. \\ \hline
+Rentabilite commerciale & Les ventes sont-elles rentables ? & Marge nette, rotation des capitaux. \\ \hline
+Rentabilite exploitation & Le cycle est-il performant ? & Marge brute, profit operationnel. \\ \hline
+Rentabilite eco. \& fin. & Le capital est-il bien remunere ? & ROA, ROCE, rendements. \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -740,28 +832,105 @@ mesures DAX complexes et réduit le risque d'erreur dans Power BI.
 
 %% ───────────────────────────────────────────────────────────────────────────
 
-\par Les figures~\ref{fig:modele_powerbi}, \ref{fig:dashboard_solidite},
-\ref{fig:dashboard_performance} et~\ref{fig:dashboard_prevision} sont prévues
-pour documenter le modèle Power BI et les pages d'analyse restantes.
+\par La figure~\ref{fig:modele_powerbi} presente le volet de donnees,
+le volet de visualisations et la page de gestion des actifs.
+La solidite financiere est traitee en figure~\ref{fig:dashboard_solidite},
+la rentabilite commerciale en figure~\ref{fig:dashboard_performance}.
+Les ressources humaines et les risques figurent en
+figure~\ref{fig:dashboard_rh}, incluant le score de defaillance.
+Enfin, les figures~\ref{fig:dashboard_exploitation} et
+\ref{fig:dashboard_ecofin} couvrent les rentabilites economique et financiere.
 
-\figplaceholder{Modèle de données Power BI reliant tables de faits, dimensions et tables de ratios.}{fig:modele_powerbi}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p2_actifs.png}
+  \caption[Power BI --- environnement et gestion des actifs]{Environnement Power BI : volet de données, volet de visualisations et page gestion des actifs.}
+  \label{fig:modele_powerbi}
+\end{figure}
 
-\figplaceholder{Tableau de bord Power BI --- page solidité financière.}{fig:dashboard_solidite}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p3_passifs.png}
+  \caption[Power BI --- solidite financiere]{Tableau de bord Power BI --- page gestion des passifs (solidité financière).}
+  \label{fig:dashboard_solidite}
+\end{figure}
 
-\figplaceholder{Tableau de bord Power BI --- page performance et rentabilité.}{fig:dashboard_performance}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p5_rent_commerciale.png}
+  \caption[Power BI --- rentabilite commerciale]{Tableau de bord Power BI --- page rentabilité commerciale (marge nette, rotation des capitaux).}
+  \label{fig:dashboard_performance}
+\end{figure}
 
-\figplaceholder{Tableau de bord Power BI --- page prévision ML.}{fig:dashboard_prevision}
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p4_rh_risques.png}
+  \caption[Power BI --- RH et risques]{Tableau de bord Power BI --- page gestion des ressources humaines et des risques (dont score de Conan \& Holder).}
+  \label{fig:dashboard_rh}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p6_rent_exploitation.png}
+  \caption[Power BI --- rentabilite d'exploitation]{Tableau de bord Power BI --- page rentabilité d'exploitation et opérationnelle.}
+  \label{fig:dashboard_exploitation}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/pbi_p7_rent_eco_fin.png}
+  \caption[Power BI --- rentabilite economique et financiere]{Tableau de bord Power BI --- page rentabilité économique et financière (ROA, ROCE, rendements).}
+  \label{fig:dashboard_ecofin}
+\end{figure}
 
 
 %% ───────────────────────────────────────────────────────────────────────────
+\section{Application web de benchmark sectoriel}
+\label{sec:appweb}
+\par En complément du classeur Power BI centré sur la \sfbt, une application web
+a été développée pour la comparaison sectorielle. Elle expose trois axes
+d'analyse comparée (liquidité, efficacité opérationnelle, croissance) ainsi
+qu'un tableau de bord dédié par société.
+
+\par La figure~\ref{fig:web_efficacite} compare les rotations des actifs,
+des stocks et des creances entre les quatre societes retenues.
+La croissance des grands agregats est presentee en
+figure~\ref{fig:web_croissance}.
+Les tableaux de bord par societe sont donnes en
+figures~\ref{fig:web_sfbt}, \ref{fig:web_cocacola} et \ref{fig:web_delice}.
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_efficacite.png}
+  \caption[Application web --- efficacite operationnelle]{Application web --- efficacité opérationnelle comparée (rotations actifs, stocks, créances).}
+  \label{fig:web_efficacite}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_croissance.png}
+  \caption[Application web --- croissance comparee]{Application web --- croissance comparée (revenus, résultat net, actifs, capitaux propres).}
+  \label{fig:web_croissance}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_dash_sfbt.png}
+  \caption[Application web --- tableau de bord SFBT]{Application web --- tableau de bord de la \sfbt (marge nette moyenne 19,6 pourcent, ROE moyen 22,5 pourcent).}
+  \label{fig:web_sfbt}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_dash_cocacola.png}
+  \caption[Application web --- tableau de bord Coca-Cola]{Application web --- tableau de bord Coca-Cola (rotation des actifs 0,4574 et liquidité générale 1,4588 en 2025).}
+  \label{fig:web_cocacola}
+\end{figure}
+
+\begin{figure}[H]\centering
+  \includegraphics[width=0.95\linewidth]{figures/web_dash_delice.png}
+  \caption[Application web --- tableau de bord Delice]{Application web --- tableau de bord DELICE (voir la limite de périmètre comptable signalée en annexe~\ref{ann:delice}).}
+  \label{fig:web_delice}
+\end{figure}
+
 \section{Tests et validation}
 \label{sec:tests}
-\par La fiabilité de la solution est garantie par une \textbf{suite de 70 tests
+\par La fiabilité de la solution est garantie par une \textbf{suite de 83 tests
 automatiques} couvrant toutes les étapes : conformité du schéma, unicité des
 clés, équilibre comptable, bornes des valeurs estimées, exactitude des ratios
 (vérifiés contre des calculs manuels et contre les chiffres publics de Coca-Cola
 et AB~InBev), intégrité de l'entrepôt et cohérence des prévisions. La totalité des
-tests est satisfaite (\textbf{70/70}), comme l'illustre la
+tests est satisfaite (\textbf{83/83}), comme l'illustre la
 figure~\ref{fig:tests}.
 
 \begin{figure}[H]\centering
@@ -794,7 +963,7 @@ Pipeline automatisé et reproductible. & Données annuelles manquantes pour cert
 46 ratios calculés et documentés. & Certains ratios indisponibles selon les sociétés. \\ \hline
 Score global synthétique et lisible. & Score dépendant de la couverture des données. \\ \hline
 Data Warehouse exploitable en SQL et Power BI. & Base SQLite locale, non déployée sur serveur. \\ \hline
-Prévision comparant deux modèles. & Historique court et partiellement estimé en infra-annuel. \\ \hline
+Prévision comparant trois modèles. & Historique court et partiellement estimé en infra-annuel. \\ \hline
 Tests automatiques couvrant la chaîne. & Validation métier finale toujours nécessaire pour certaines collisions. \\ \hline
 \end{tabularx}
 \end{table}
@@ -810,4 +979,4 @@ essentielle dans un projet d'analyse financière.
 \par Ce chapitre a présenté la réalisation effective de la plateforme et ses
 résultats : des données fiabilisées et enrichies, 46 ratios et un score de
 performance plaçant la \sfbt en tête de son secteur, un entrepôt intègre et des
-prévisions précises, le tout validé par 70 tests automatiques.
+prévisions précises, le tout validé par 83 tests automatiques.

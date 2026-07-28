@@ -7,6 +7,10 @@ Revenus (CA),Random Forest,2025-09-30,9M,593975984.2
 Revenus (CA),Random Forest,2025-12-31,FY,830270677.6
 Revenus (CA),Random Forest,2026-03-31,T1,193471472.0
 Revenus (CA),Random Forest,2026-06-30,S1,386942944.0
+Revenus (CA),Arbre de decision,2025-09-30,9M,581328704.1
+Revenus (CA),Arbre de decision,2025-12-31,FY,804319307.1
+Revenus (CA),Arbre de decision,2026-03-31,T1,178120725.9
+Revenus (CA),Arbre de decision,2026-06-30,S1,356241451.9
 Total des actifs,Régression linéaire,2025-09-30,9M,1323373029.7
 Total des actifs,Régression linéaire,2025-12-31,FY,1418180425.0
 Total des actifs,Régression linéaire,2026-03-31,T1,1459919659.7
@@ -15,6 +19,10 @@ Total des actifs,Random Forest,2025-09-30,9M,1360933671.4
 Total des actifs,Random Forest,2025-12-31,FY,1480355840.8
 Total des actifs,Random Forest,2026-03-31,T1,1430228293.9
 Total des actifs,Random Forest,2026-06-30,S1,1376490617.4
+Total des actifs,Arbre de decision,2025-09-30,9M,1330772303.7
+Total des actifs,Arbre de decision,2025-12-31,FY,1416344537.4
+Total des actifs,Arbre de decision,2026-03-31,T1,1356068770.3
+Total des actifs,Arbre de decision,2026-06-30,S1,1298358175.6
 Capitaux propres,Régression linéaire,2025-09-30,9M,950307812.7
 Capitaux propres,Régression linéaire,2025-12-31,FY,1001618825.0
 Capitaux propres,Régression linéaire,2026-03-31,T1,1032761795.1
@@ -23,6 +31,10 @@ Capitaux propres,Random Forest,2025-09-30,9M,964861198.0
 Capitaux propres,Random Forest,2025-12-31,FY,1023799307.8
 Capitaux propres,Random Forest,2026-03-31,T1,1031718841.8
 Capitaux propres,Random Forest,2026-06-30,S1,1025754648.9
+Capitaux propres,Arbre de decision,2025-09-30,9M,967541440.8
+Capitaux propres,Arbre de decision,2025-12-31,FY,1029971045.9
+Capitaux propres,Arbre de decision,2026-03-31,T1,1090390064.7
+Capitaux propres,Arbre de decision,2026-06-30,S1,1154353316.9
 Résultat net,Régression linéaire,2025-09-30,9M,210714739.7
 Résultat net,Régression linéaire,2025-12-31,FY,251908766.1
 Résultat net,Régression linéaire,2026-03-31,T1,98791341.9
@@ -31,3 +43,7 @@ Résultat net,Random Forest,2025-09-30,9M,221359897.4
 Résultat net,Random Forest,2025-12-31,FY,278823808.5
 Résultat net,Random Forest,2026-03-31,T1,94083743.1
 Résultat net,Random Forest,2026-06-30,S1,188167486.2
+Résultat net,Arbre de decision,2025-09-30,9M,220012426.8
+Résultat net,Arbre de decision,2025-12-31,FY,285346190.8
+Résultat net,Arbre de decision,2026-03-31,T1,106600419.5
+Résultat net,Arbre de decision,2026-06-30,S1,213200838.9

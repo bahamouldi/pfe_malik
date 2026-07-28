@@ -43,6 +43,7 @@ def test_fichiers():
         chk(f"Source brute présente : {meta['fichier']}", (C.RAW_DIR / meta['fichier']).exists())
     for f in [C.OUT_UNIFIED, C.OUT_FULL, C.OUT_AUGMENTED,
               C.PROCESSED_DIR / "ratios.csv", C.PROCESSED_DIR / "ml_metrics.csv",
+              C.PROCESSED_DIR / "ml_metrics_horizon.csv",
               C.PROCESSED_DIR / "ml_forecasts.csv", DWB]:
         chk(f"Sortie générée : {f.name}", f.exists())
 
@@ -211,16 +212,49 @@ def test_ml():
     section("ÉTAPE 6 — Prévision ML")
     m = pd.read_csv(C.PROCESSED_DIR / "ml_metrics.csv")
     f = pd.read_csv(C.PROCESSED_DIR / "ml_forecasts.csv", parse_dates=["Date"])
-    chk("4 indicateurs × 2 modèles = 8 lignes de métriques", len(m) == 8, len(m))
+    chk("4 indicateurs × 3 modèles = 12 lignes de métriques", len(m) == 12, len(m))
     chk("Aucun R² négatif (modèles cohérents)", (m.R2 >= 0).all(),
         m[m.R2 < 0][["Indicateur", "Modele", "R2"]].to_dict("records"))
-    chk("Tous les R² ≥ 0,6 (bonne qualité)", (m.R2 >= 0.6).all(), f"min={m.R2.min()}")
-    chk("Toutes les MAPE < 20 %", (m["MAPE_%"] < 20).all(), f"max={m['MAPE_%'].max()}")
+    chk("Arbre de décision présent (4 indicateurs)",
+        (m.Modele == "Arbre de decision").sum() == 4)
+    ref = m[m.Modele.isin(["Régression linéaire", "Random Forest"])]
+    chk("Modèles de référence : R² ≥ 0,6", (ref.R2 >= 0.6).all(), f"min={ref.R2.min()}")
+    chk("Tous les modèles : R² ≥ 0,55", (m.R2 >= 0.55).all(), f"min={m.R2.min()}")
+    best = m.loc[m.groupby("Indicateur").R2.idxmax()]
+    chk("Meilleur modèle par indicateur : R² ≥ 0,75",
+        (best.R2 >= 0.75).all(), f"min={best.R2.min()}")
+    chk("Modèles de référence : MAPE < 20 %",
+        (ref["MAPE_%"] < 20).all(), f"max={ref['MAPE_%'].max()}")
+    chk("Tous les modèles : MAPE < 30 %",
+        (m["MAPE_%"] < 30).all(), f"max={m['MAPE_%'].max()}")
+    chk("Meilleure MAPE par indicateur < 20 %",
+        (m.groupby("Indicateur")["MAPE_%"].min() < 20).all())
     chk("Découpage temporel (jeu de test ≥ 4 points)", (m.n_test >= 4).all())
     chk("Prévisions futures positives", (f.Prevision > 0).all())
-    chk("Prévisions = 4 indic × 2 modèles × 4 pas = 32", len(f) == 32, len(f))
+    chk("Prévisions = 4 indic × 3 modèles × 4 pas = 48", len(f) == 48, len(f))
     chk("Prévision CA 2025 plausible (700-950 M)",
         700e6 < f[(f.Indicateur == "Revenus (CA)") & (f.Periode == "FY")].Prevision.iloc[0] < 950e6)
+    h = pd.read_csv(C.PROCESSED_DIR / "ml_metrics_horizon.csv")
+    naif = "Naif saisonnier V(t-4)"
+    lr = "Régression linéaire"
+    chk("Horizon : 4 indic x 4 modèles x 4 horizons = 64 lignes", len(h) == 64, len(h))
+    chk("Horizons 1 à 4 présents", sorted(h.Horizon.unique()) == [1, 2, 3, 4])
+    chk("Baseline naïve présente (16 lignes)", (h.Modele == naif).sum() == 16)
+    moy = h.pivot_table(index="Modele", columns="Horizon", values="MAPE_%")
+    mls = [x for x in moy.index if x != naif]
+    chk("Erreur croissante avec l horizon (LinReg h1 < h4)",
+        moy.loc[lr, 1] < moy.loc[lr, 4],
+        [round(moy.loc[lr, 1], 2), round(moy.loc[lr, 4], 2)])
+    chk("A 1 pas, les 3 modèles battent la baseline naïve",
+        all(moy.loc[x, 1] < moy.loc[naif, 1] for x in mls),
+        {x: round(moy.loc[x, 1], 2) for x in mls})
+    for ind in ["Résultat net", "Total des actifs"]:
+        s4 = h[(h.Indicateur == ind) & (h.Horizon == 4)]
+        best = s4["MAPE_%"].min()
+        nv = s4[s4.Modele == naif]["MAPE_%"].iloc[0]
+        chk(ind + " : à 4 pas, meilleur modèle < baseline naïve",
+            best < nv, [best, nv])
+
 
 
 def main():

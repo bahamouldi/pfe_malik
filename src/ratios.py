@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 
 import config as C
+import perimetre as PER
 
 TVA = 0.19  # non utilisé dans les délais (formules officielles = HT) ; conservé pour info.
 
@@ -64,6 +65,7 @@ CONCEPTS = {
 
 
 def construire_matrice(df: pd.DataFrame) -> pd.DataFrame:
+    df_all = df
     df = df[df.Occurrence == 1].copy()
     rows = []
     cols = ["Societe", "Date", "Annee", "Periode", "Devise", "Echelle"]
@@ -83,6 +85,7 @@ def construire_matrice(df: pd.DataFrame) -> pd.DataFrame:
             rec[concept] = val
         rows.append(rec)
     m = pd.DataFrame(rows)
+    m, _, _ = PER.reparer_capitaux_propres(m, df_all)
 
     # Postes dérivés
     m["ressources_stables"] = m["capitaux_propres"] + m["dettes_non_courantes"].fillna(0)
@@ -321,7 +324,9 @@ def calculer_ratios(df):
                 "Benchmark": BENCHMARKS.get(code, ""),
                 "Note_sur_5": (note if not pd.isna(note) else np.nan),
             })
-    return pd.DataFrame(out), m
+    res = pd.DataFrame(out)
+    res, _ = PER.invalider_ratios_perimetre(res)
+    return res, m
 
 
 def calculer_sgpi(ratios_df):

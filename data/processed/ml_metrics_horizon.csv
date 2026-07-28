@@ -1,0 +1,65 @@
+Indicateur,Modele,Horizon,n_origines,MAE,MAPE_%,R2
+Revenus (CA),Régression linéaire,1,15,42540713.5,16.14,0.9122
+Revenus (CA),Régression linéaire,2,15,83350712.0,28.12,0.7715
+Revenus (CA),Régression linéaire,3,15,127920657.1,40.47,0.524
+Revenus (CA),Régression linéaire,4,15,193791501.6,52.16,-0.1
+Revenus (CA),Random Forest,1,15,55669190.1,19.09,0.8015
+Revenus (CA),Random Forest,2,15,104883447.5,30.49,0.6082
+Revenus (CA),Random Forest,3,15,131565217.2,37.49,0.4167
+Revenus (CA),Random Forest,4,15,169417649.3,44.05,0.0747
+Revenus (CA),Arbre de decision,1,15,84382653.1,29.07,0.4304
+Revenus (CA),Arbre de decision,2,15,168816449.2,44.88,-0.3452
+Revenus (CA),Arbre de decision,3,15,182394853.0,50.3,-0.4778
+Revenus (CA),Arbre de decision,4,15,194376778.1,53.36,-0.7184
+Revenus (CA),Naif saisonnier V(t-4),1,15,126242975.2,35.14,-0.0401
+Revenus (CA),Naif saisonnier V(t-4),2,15,126265178.0,34.82,0.1088
+Revenus (CA),Naif saisonnier V(t-4),3,15,125321858.2,34.58,0.1594
+Revenus (CA),Naif saisonnier V(t-4),4,15,123956206.9,34.38,0.1517
+Total des actifs,Régression linéaire,1,15,44877311.1,4.63,0.7959
+Total des actifs,Régression linéaire,2,15,86752649.5,8.69,0.1962
+Total des actifs,Régression linéaire,3,15,91942467.9,8.47,0.0997
+Total des actifs,Régression linéaire,4,15,97636248.6,8.74,-0.0866
+Total des actifs,Random Forest,1,15,53746290.1,5.55,0.737
+Total des actifs,Random Forest,2,15,98975069.9,9.79,0.1246
+Total des actifs,Random Forest,3,15,83394910.4,7.85,0.2578
+Total des actifs,Random Forest,4,15,80741822.6,7.5,0.2614
+Total des actifs,Arbre de decision,1,15,43274924.7,4.49,0.8169
+Total des actifs,Arbre de decision,2,15,72747292.3,7.31,0.4352
+Total des actifs,Arbre de decision,3,15,65455234.0,6.23,0.516
+Total des actifs,Arbre de decision,4,15,76469092.2,7.17,0.3642
+Total des actifs,Naif saisonnier V(t-4),1,15,118458625.5,11.3,-0.1173
+Total des actifs,Naif saisonnier V(t-4),2,15,124446553.4,11.71,-0.1664
+Total des actifs,Naif saisonnier V(t-4),3,15,122344176.1,11.17,-0.3896
+Total des actifs,Naif saisonnier V(t-4),4,15,123340986.1,11.16,-0.4935
+Capitaux propres,Régression linéaire,1,15,35850912.2,4.62,0.6303
+Capitaux propres,Régression linéaire,2,15,87266562.1,11.14,-0.5018
+Capitaux propres,Régression linéaire,3,15,109886603.3,13.96,-1.18
+Capitaux propres,Régression linéaire,4,15,105592010.6,13.28,-1.602
+Capitaux propres,Random Forest,1,15,51910595.9,6.68,0.5013
+Capitaux propres,Random Forest,2,15,81663877.0,10.46,-0.3933
+Capitaux propres,Random Forest,3,15,105540785.5,13.39,-1.1353
+Capitaux propres,Random Forest,4,15,110187832.8,13.79,-1.4901
+Capitaux propres,Arbre de decision,1,15,52838118.8,6.8,0.4761
+Capitaux propres,Arbre de decision,2,15,84200788.2,10.78,-0.4721
+Capitaux propres,Arbre de decision,3,15,109854396.1,13.94,-1.3519
+Capitaux propres,Arbre de decision,4,15,117630182.1,14.71,-1.8489
+Capitaux propres,Naif saisonnier V(t-4),1,15,101981720.3,12.92,-1.096
+Capitaux propres,Naif saisonnier V(t-4),2,15,101109095.7,12.6,-0.9774
+Capitaux propres,Naif saisonnier V(t-4),3,15,99376719.6,12.22,-0.9313
+Capitaux propres,Naif saisonnier V(t-4),4,15,93298309.2,11.32,-0.7292
+Résultat net,Régression linéaire,1,15,10011513.7,7.99,0.9512
+Résultat net,Régression linéaire,2,15,20627188.4,12.46,0.8215
+Résultat net,Régression linéaire,3,15,17342345.3,10.5,0.8525
+Résultat net,Régression linéaire,4,15,11393144.7,7.6,0.9331
+Résultat net,Random Forest,1,15,11894080.0,9.29,0.9176
+Résultat net,Random Forest,2,15,27363110.3,16.75,0.7012
+Résultat net,Random Forest,3,15,25566841.8,15.15,0.7255
+Résultat net,Random Forest,4,15,20032913.2,11.83,0.7679
+Résultat net,Arbre de decision,1,15,13747504.8,11.08,0.9035
+Résultat net,Arbre de decision,2,15,29165369.2,18.1,0.6877
+Résultat net,Arbre de decision,3,15,24351567.3,14.42,0.7314
+Résultat net,Arbre de decision,4,15,20253069.7,12.9,0.7522
+Résultat net,Naif saisonnier V(t-4),1,15,33737629.1,23.51,0.1748
+Résultat net,Naif saisonnier V(t-4),2,15,33817501.2,23.52,0.2391
+Résultat net,Naif saisonnier V(t-4),3,15,34293368.7,24.09,0.279
+Résultat net,Naif saisonnier V(t-4),4,15,33680039.9,23.67,0.2893
